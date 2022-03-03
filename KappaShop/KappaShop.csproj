@@ -141,6 +141,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Database\Maps\FontMap.cs" />
+    <Compile Include="Database\Maps\ProductCategoryMap.cs" />
+    <Compile Include="Database\Maps\TextMap.cs" />
+    <Compile Include="Database\Maps\ImageMap.cs" />
     <Compile Include="Database\ModelBuilder.cs" />
     <Compile Include="Database\ShopContext.cs" />
     <Compile Include="Global.asax.cs">
