@@ -5,11 +5,12 @@ namespace KappaShop.Database
 {
     partial class ShopContext : DbContext
     {
-        public DbSet<ProductCategory> ProductCategories { get; set; }
+        public ShopContext() : base("ShopConnection") { }
 
-        public ShopContext() : base("ShopConnection")
-        {
-            string a = new string('A',)
-        }
+        public DbSet<Design> Designs { get; set; }
+        public DbSet<Font> Fonts { get; set; }
+        public DbSet<Image> Images { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
+        public DbSet<Text> Texts { get; set; }
     }
 }
