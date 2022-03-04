@@ -24,6 +24,6 @@
         /// <summary>
         /// The data to be rendered as an image.
         /// </summary>
-        public byte[] Data { get; set; }
+        public byte[] Data { get; set; } // url
     }
 }

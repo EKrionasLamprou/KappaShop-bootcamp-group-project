@@ -3,10 +3,10 @@
     /// <summary>
     /// Represents the width and height of a 2D shape.
     /// </summary>
-    struct Size
+    class Size
     {
         /// <summary>
-        /// Initializes a new <see cref="Size"/> struct.
+        /// Initializes a new instance of the <see cref="Size"/> class.
         /// </summary>
         /// <param name="size">The size for both the width and height of the 2D shape.</param>
         public Size(double size) => (Width, Height) = (size, size);

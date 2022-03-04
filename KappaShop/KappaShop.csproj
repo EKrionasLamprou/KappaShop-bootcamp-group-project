@@ -150,6 +150,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Database\Migrations\Configuration.cs" />
     <Compile Include="Models\Design\Font.cs" />
     <Compile Include="Models\Design\IPlaneComponent.cs" />
     <Compile Include="Models\Design\Image.cs" />

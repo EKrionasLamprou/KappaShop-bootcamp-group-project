@@ -1,35 +1,75 @@
-﻿namespace KappaShop.Models
+﻿using System.Globalization;
+
+namespace KappaShop.Models
 {
     /// <summary>
-    /// Represents a colour with RGBA values.
+    /// Represents a colour that can be expressed as an integer, a hexadecimal or RGB
+    /// and includes an alpha value.
     /// </summary>
-    struct Colour
+    class Colour
     {
         /// <summary>
-        /// Initializes a new <see cref="Colour"/> struct.
+        /// Initializes a new instance of the <see cref="Colour"/> class.
         /// </summary>
-        /// <param name="r">The red colour value.</param>
-        /// <param name="g">The green colour value.</param>
-        /// <param name="b">The blue colour value.</param>
-        /// <param name="a">The blue colour value.</param>
-        public Colour(byte r, byte g, byte b, double a = 1)
-            => (R, G, B, A) = (r, g, b, a);
+        /// <param name="hex">A hexadecimal value that represents a colour.
+        /// A hash at the beginning of the string is not required.</param>
+        /// <param name="alpha">The opacity of the colour.
+        /// 1.0 represents full opacity, while 0.0 full transparency.</param>
+        public Colour(string hex, double alpha = 1.0)
+        {
+            SetValueByHex(hex);
+            Alpha = alpha;
+        }
         /// <summary>
-        /// Represents the intensity of the red colour.
+        /// Initializes a new instance of the <see cref="Colour"/> class.
         /// </summary>
-        public byte R { get; set; }
+        /// <param name="value">An integer that represents a colour.</param>
+        /// <param name="alpha">The opacity of the colour.
+        /// 1.0 represents full opacity, while 0.0 full transparency.</param>
+        public Colour(int value, double alpha = 1.0)
+            => (Value, Alpha) = (value, alpha);
+
         /// <summary>
-        /// Represents the intensity of the green colour.
+        /// Represents a colour as an integer.
         /// </summary>
-        public byte G { get; set; }
+        public int Value { get; set; }
         /// <summary>
-        /// Represents the intensity of the blue colour.
+        /// Represents the opacity of the colour.
+        /// 1.0 represents full opacity, while 0.0 full transparency.
         /// </summary>
-        public byte B { get; set; }
+        public double Alpha { get; set; }
         /// <summary>
-        /// Represents The alpha channel of the colour as a number between 0.0 
-        /// (fully transparent) and 1.0 (full opacity).
+        /// Represents a colour with RGB values.
         /// </summary>
-        public double A { get; set; }
+        public (byte Red, byte Green, byte Blue) RGB
+        {
+            get => (byte.Parse(ToString().Substring(0, 2), NumberStyles.AllowHexSpecifier),
+                    byte.Parse(ToString().Substring(2, 2), NumberStyles.AllowHexSpecifier),
+                    byte.Parse(ToString().Substring(4, 2), NumberStyles.AllowHexSpecifier));
+        }
+        /// <summary>
+        /// Represents a colour with RGBA values.
+        /// </summary>
+        public (byte Red, byte Green, byte Blue, double Alpha) RGBA
+        {
+            get
+            {
+                var (Red, Green, Blue) = RGB;
+                return (Red, Green, Blue, Alpha);
+            }
+        }
+
+        /// <summary>
+        /// Sets the value of the colour by converting a hexadecimal value.
+        /// </summary>
+        /// <param name="hex">The hexadecimal value that represents a colour.</param>
+        public void SetValueByHex(string hex)
+            => Value = int.Parse(hex.TrimStart('#'), NumberStyles.AllowHexSpecifier);
+
+        /// <summary>
+        /// A string that represents the current colour.
+        /// </summary>
+        /// <returns>The hexadecimal value of the colour as a string.</returns>
+        public override string ToString() => Value.ToString("X2");
     }
 }

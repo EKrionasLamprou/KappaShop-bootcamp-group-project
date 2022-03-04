@@ -3,10 +3,10 @@
     /// <summary>
     /// Represents a point on the x and y axes on a 2D space.
     /// </summary>
-    struct Position
+    class Position
     {
         /// <summary>
-        /// Initializes a new <see cref="Position"/> struct.
+        /// Initializes a new instance of the <see cref="Position"/> class.
         /// </summary>
         /// <param name="x">Represents the position on the x axis on a 2D space.</param>
         /// <param name="y">Represents the position on the y axis on a 2D space.</param>

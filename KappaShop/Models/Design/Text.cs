@@ -9,6 +9,7 @@
         /// The entity's primary key.
         /// </summary>
         public int Id { get; set; }
+
         /// <summary>
         /// The position of the <see cref="Text"/> on the x and y axes.
         /// </summary>

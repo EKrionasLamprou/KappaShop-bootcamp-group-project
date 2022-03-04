@@ -7,8 +7,6 @@ namespace KappaShop.Database.Maps
     {
         public TextMap()
         {
-            Ignore(e => e.Position);
-
             Property(e => e.Position.X)
                 .HasColumnName("PositionX")
                 .HasColumnType("float")
@@ -29,23 +27,13 @@ namespace KappaShop.Database.Maps
                 .HasColumnType("float")
                 .IsRequired();
 
-            Property(e => e.Colour.R)
-                .HasColumnName("ColourR")
-                .HasColumnType("TinyInt")
+            Property(e => e.Colour.Value)
+                .HasColumnName("Colour")
+                .HasColumnType("int")
                 .IsRequired();
 
-            Property(e => e.Colour.G)
-                .HasColumnName("ColourG")
-                .HasColumnType("TinyInt")
-                .IsRequired();
-
-            Property(e => e.Colour.B)
-                .HasColumnName("ColourB")
-                .HasColumnType("TinyInt")
-                .IsRequired();
-
-            Property(e => e.Colour.A)
-                .HasColumnName("ColourA")
+            Property(e => e.Colour.Alpha)
+                .HasColumnName("Alpha")
                 .HasColumnType("float")
                 .IsRequired();
         }
