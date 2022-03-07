@@ -189,6 +189,7 @@
     <Content Include="probeautyfly\fonts\bloggersans\stylesheet.css" />
     <Content Include="probeautyfly\gallery.html" />
     <Content Include="probeautyfly\home.html" />
+    <Content Include="probeautyfly\images\1banner.jpg" />
     <Content Include="probeautyfly\images\about.png" />
     <Content Include="probeautyfly\images\Anna.jpg" />
     <Content Include="probeautyfly\images\appointment-bg.png" />
@@ -220,6 +221,7 @@
     <Content Include="probeautyfly\images\gp7.png" />
     <Content Include="probeautyfly\images\gp8.png" />
     <Content Include="probeautyfly\images\gp9.png" />
+    <Content Include="probeautyfly\images\hoodie.png" />
     <Content Include="probeautyfly\images\icons\favicon.png" />
     <Content Include="probeautyfly\images\icons\hairdresser-drying-the-hair.png" />
     <Content Include="probeautyfly\images\icons\left-arrow-square-hover.png" />
@@ -238,20 +240,26 @@
     <Content Include="probeautyfly\images\icons\task-complete.png" />
     <Content Include="probeautyfly\images\icons\trophy.png" />
     <Content Include="probeautyfly\images\inner-banner.png" />
+    <Content Include="probeautyfly\images\Kappa logo Black.jpg" />
+    <Content Include="probeautyfly\images\Kappa logo Black1.jpg" />
+    <Content Include="probeautyfly\images\mug.png" />
     <Content Include="probeautyfly\images\offer-image.png" />
     <Content Include="probeautyfly\images\Panos.jpg" />
+    <Content Include="probeautyfly\images\pillows.png" />
     <Content Include="probeautyfly\images\service1.png" />
     <Content Include="probeautyfly\images\service2.png" />
     <Content Include="probeautyfly\images\service3.png" />
     <Content Include="probeautyfly\images\service4.png" />
     <Content Include="probeautyfly\images\service5.png" />
     <Content Include="probeautyfly\images\service6.png" />
+    <Content Include="probeautyfly\images\shop1.png" />
     <Content Include="probeautyfly\images\team1.png" />
     <Content Include="probeautyfly\images\team2.png" />
     <Content Include="probeautyfly\images\team3.png" />
     <Content Include="probeautyfly\images\team4.png" />
     <Content Include="probeautyfly\images\testimonial1.png" />
     <Content Include="probeautyfly\images\testimonial2.png" />
+    <Content Include="probeautyfly\images\tshirt.png" />
     <Content Include="probeautyfly\images\xristina.png" />
     <Content Include="probeautyfly\js\bootstrap.min.js" />
     <Content Include="probeautyfly\js\classie.js" />
@@ -324,6 +332,7 @@
     <Content Include="Views\Shared\_ClientLayout.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\Shared\ClientComponent\_NavigationBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

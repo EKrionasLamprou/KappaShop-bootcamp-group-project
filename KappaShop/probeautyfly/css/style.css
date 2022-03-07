@@ -1596,3 +1596,8 @@ footer{
     border-color: #1dabb8;
     color: #fff;
 }
+
+/*Project CSS*/
+div#logo img {
+    width: 108px;
+}

@@ -1,0 +1,89 @@
+﻿<header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+
+            <div class="row">
+                @**@
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <div id="logo"><a href=@Url.Action("Index","Home")><img src="~/probeautyfly/images/Kappa logo Black.jpg" alt="logo"></a></div>
+                </div>
+                <div class="col-md-8 col-sm-10 col-xs-12 hidden-xs">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "link-effect" })</li>
+                            <li>@Html.ActionLink("About", "About", "Home", null, new { @class = "link-effect" })</li>
+                            <li>@Html.ActionLink("Create", "Create", "Home", null, new { @class = "link-effect" })</li>
+                            <li><a href="gallery.html" class="link-effect">Gallery</a></li>
+                            <li><a href="blog.html" class="link-effect">Blog</a></li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "link-effect" })</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-12 col-xs-4 hidden-xs">
+                    <div id="search" class="input-group offspace-20">
+                        <input type="text" name="search" value="" placeholder="Search" class="form-control search-box placeholder-fix">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn search-button"><i class="fa fa-search fa-lg"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button id="showLeft" class="c-hamburger c-hamburger--htla">
+            <span>toggle menu</span>
+        </button>
+    </nav>
+
+    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+        <div id="logo" class="text-center"><a href=@Url.Action("Index","Home")><img src="~/probeautyfly/images/Kappa logo Black.jpg" alt="logo"></a></div>
+
+        <ul class="list-unstyled">
+            <li class="active"> @Html.ActionLink("Home", "Index", "Home")</li>
+            <li>@Html.ActionLink("About", "About", "Home")</li>
+            <li>@Html.ActionLink("Create", "Create", "Home")</li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+        </ul>
+
+        <div id="search" class="input-group offspace-30">
+            <input type="text" name="search" value="" placeholder="Search" class="form-control search-box placeholder-fix">
+            <span class="input-group-btn">
+                <button type="button" class="btn search-button"><i class="fa fa-search fa-lg"></i></button>
+            </span>
+        </div>
+        <div class="cp-menu-footer-social-icon offspace-30">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+    </nav>
+
+    <div class="clearfix"></div>
+</header>
+<!--end-->
+<!--end-->
+<script src="~/probeautyfly/js/classie.js" type="text/javascript"></script>
+<script>
+    var menuLeft = document.getElementById('cbp-spmenu-s1'),
+        showLeft = document.getElementById('showLeft'),
+        body = document.body;
+
+    showLeft.onclick = function () {
+        classie.toggle(this, 'active');
+        classie.toggle(menuLeft, 'cbp-spmenu-open');
+        disableOther('showLeft');
+    };
+
+    function disableOther(button) {
+        if (button !== 'showLeft') {
+            classie.toggle(showLeft, 'disabled');
+        }
+
+    }</script>
