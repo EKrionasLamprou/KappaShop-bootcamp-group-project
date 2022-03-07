@@ -193,6 +193,7 @@
     <Content Include="probeautyfly\images\about.png" />
     <Content Include="probeautyfly\images\Anna.jpg" />
     <Content Include="probeautyfly\images\appointment-bg.png" />
+    <Content Include="probeautyfly\images\bag.png" />
     <Content Include="probeautyfly\images\banner1.png" />
     <Content Include="probeautyfly\images\banner2.png" />
     <Content Include="probeautyfly\images\blog1.png" />
@@ -242,6 +243,7 @@
     <Content Include="probeautyfly\images\inner-banner.png" />
     <Content Include="probeautyfly\images\Kappa logo Black.jpg" />
     <Content Include="probeautyfly\images\Kappa logo Black1.jpg" />
+    <Content Include="probeautyfly\images\mousepad.png" />
     <Content Include="probeautyfly\images\mug.png" />
     <Content Include="probeautyfly\images\offer-image.png" />
     <Content Include="probeautyfly\images\Panos.jpg" />
@@ -260,6 +262,7 @@
     <Content Include="probeautyfly\images\testimonial1.png" />
     <Content Include="probeautyfly\images\testimonial2.png" />
     <Content Include="probeautyfly\images\tshirt.png" />
+    <Content Include="probeautyfly\images\xristina.jpg" />
     <Content Include="probeautyfly\images\xristina.png" />
     <Content Include="probeautyfly\js\bootstrap.min.js" />
     <Content Include="probeautyfly\js\classie.js" />
