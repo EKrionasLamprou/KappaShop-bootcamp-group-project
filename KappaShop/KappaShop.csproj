@@ -235,12 +235,15 @@
     <Content Include="probeautyfly\images\about.png" />
     <Content Include="probeautyfly\images\Anna.jpg" />
     <Content Include="probeautyfly\images\appointment-bg.png" />
+    <Content Include="probeautyfly\images\ashtray.png" />
     <Content Include="probeautyfly\images\bag.png" />
     <Content Include="probeautyfly\images\banner1.png" />
     <Content Include="probeautyfly\images\banner2.png" />
+    <Content Include="probeautyfly\images\bedsheet.png" />
     <Content Include="probeautyfly\images\blog1.png" />
     <Content Include="probeautyfly\images\blog2.png" />
     <Content Include="probeautyfly\images\blogimage1.png" />
+    <Content Include="probeautyfly\images\canvas.png" />
     <Content Include="probeautyfly\images\Chris.jpg" />
     <Content Include="probeautyfly\images\client1-1.png" />
     <Content Include="probeautyfly\images\client2-2.png" />
@@ -287,9 +290,12 @@
     <Content Include="probeautyfly\images\Kappa logo Black1.jpg" />
     <Content Include="probeautyfly\images\mousepad.png" />
     <Content Include="probeautyfly\images\mug.png" />
+    <Content Include="probeautyfly\images\mycat.png" />
+    <Content Include="probeautyfly\images\myproduct.png" />
     <Content Include="probeautyfly\images\offer-image.png" />
     <Content Include="probeautyfly\images\Panos.jpg" />
     <Content Include="probeautyfly\images\pillows.png" />
+    <Content Include="probeautyfly\images\plate.png" />
     <Content Include="probeautyfly\images\service1.png" />
     <Content Include="probeautyfly\images\service2.png" />
     <Content Include="probeautyfly\images\service3.png" />
@@ -303,6 +309,8 @@
     <Content Include="probeautyfly\images\team4.png" />
     <Content Include="probeautyfly\images\testimonial1.png" />
     <Content Include="probeautyfly\images\testimonial2.png" />
+    <Content Include="probeautyfly\images\thermos.png" />
+    <Content Include="probeautyfly\images\tissue.png" />
     <Content Include="probeautyfly\images\tshirt.png" />
     <Content Include="probeautyfly\images\xristina.jpg" />
     <Content Include="probeautyfly\images\xristina.png" />
