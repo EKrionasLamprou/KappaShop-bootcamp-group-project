@@ -441,9 +441,15 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\ClientComponent\_Header.cshtml" />
+    <Content Include="Views\Shared\ClientComponent\_Footer.cshtml" />
+    <Content Include="Views\Shared\ClientComponent\_NavigationBar.cshtml" />
+    <Content Include="Views\Shared\_ClientLayout.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Shared\AdminComponent\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -249,7 +249,10 @@
     <Content Include="probeautyfly\images\client2-2.png" />
     <Content Include="probeautyfly\images\client3-3.png" />
     <Content Include="probeautyfly\images\close.png" />
+    <Content Include="probeautyfly\images\collection2.png" />
+    <Content Include="probeautyfly\images\collection3.png" />
     <Content Include="probeautyfly\images\counter-bg-image.png" />
+    <Content Include="probeautyfly\images\cupscollection.png" />
     <Content Include="probeautyfly\images\ektor.png" />
     <Content Include="probeautyfly\images\gallery1.png" />
     <Content Include="probeautyfly\images\gallery2.png" />
