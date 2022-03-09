@@ -281,6 +281,7 @@
     <Content Include="probeautyfly\images\collection2.png" />
     <Content Include="probeautyfly\images\collection3.png" />
     <Content Include="probeautyfly\images\collection4.png" />
+    <Content Include="probeautyfly\images\colTShirts.png" />
     <Content Include="probeautyfly\images\counter-bg-image.png" />
     <Content Include="probeautyfly\images\cupscollection.png" />
     <Content Include="probeautyfly\images\ektor.png" />
@@ -310,6 +311,7 @@
     <Content Include="probeautyfly\images\icons\login.png" />
     <Content Include="probeautyfly\images\icons\Logo.png" />
     <Content Include="probeautyfly\images\icons\man-thinking.png" />
+    <Content Include="probeautyfly\images\icons\pngwing.com%285%29.png" />
     <Content Include="probeautyfly\images\icons\right-arrow-square-hover.png" />
     <Content Include="probeautyfly\images\icons\right-arrow-square.png" />
     <Content Include="probeautyfly\images\icons\right-hover.png" />
@@ -321,6 +323,7 @@
     <Content Include="probeautyfly\images\inner-banner.png" />
     <Content Include="probeautyfly\images\Kappa logo Black.jpg" />
     <Content Include="probeautyfly\images\Kappa logo Black1.jpg" />
+    <Content Include="probeautyfly\images\logobanner.jpg" />
     <Content Include="probeautyfly\images\mousepad.png" />
     <Content Include="probeautyfly\images\mug.png" />
     <Content Include="probeautyfly\images\mycat.png" />

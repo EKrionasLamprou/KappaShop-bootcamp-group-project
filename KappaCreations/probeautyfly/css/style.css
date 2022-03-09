@@ -1447,7 +1447,7 @@ footer{
 }
 /*single heading page image*/
 .image-head-wrapper {
-    background: rgba(0, 0, 0, 0) url("../images/inner-banner.png") no-repeat scroll center top;
+    background: rgba(0, 0, 0, 0) url("../images/logobanner.jpg") no-repeat scroll center top;
     height: 500px;
     position: relative;
 }
