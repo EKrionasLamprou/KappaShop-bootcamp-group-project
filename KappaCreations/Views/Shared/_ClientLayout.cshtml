@@ -1,13 +1,42 @@
 ﻿<!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/icons/favicon.png" />
+    <title>probeautyfly</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/probeautyfly/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/probeautyfly/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/probeautyfly/fonts/bloggersans/stylesheet.css" rel="stylesheet" type="text/css" />
+    <link href="fonts/antonio-exotic/stylesheet.css" rel="stylesheet" type="text/css" />
+    <!-- Custom styles for this template -->
+    <link href="~/probeautyfly/css/owl.theme.default.css" rel="stylesheet">
+    <link href="~/probeautyfly/css/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/probeautyfly/css/component.css" rel="stylesheet">
+    <link href="~/probeautyfly/css/magnific-popup.css" rel="stylesheet">
+    <link href="~/probeautyfly/css/style.css" rel="stylesheet">
+    <link href="~/probeautyfly/css/responsive.css" rel="stylesheet">
+    <script src="~/probeautyfly/js/jquery.min.js" type="text/javascript"></script>
+    <script src="~/probeautyfly/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="~/probeautyfly/js/counterup.min.js" type="text/javascript"></script>
+    <script src="~/probeautyfly/js/waypoints.min.js" type="text/javascript"></script>
+    <script src="~/probeautyfly/js/owl.carousel.min.js" type="text/javascript"></script>
+    <script src="~/probeautyfly/js/modernizr.js" type="text/javascript"></script>
+    <script src="~/probeautyfly/js/jquery.imagesloaded.js"></script>
+    <script src="~/probeautyfly/js/masonry.pkgd.min.js"></script>
+    <script src="~/probeautyfly/js/magnific-popup.js" type="text/javascript"></script>
+    <script src="~/probeautyfly/js/custom.js" type="text/javascript"></script>
 </head>
-<body>
-    <div>
-        @RenderBody()
-    </div>
+<body class="cbp-spmenu-push">
+
+    @Html.Partial("~/Views/Shared/ClientComponent/_Header.cshtml")
+    @Html.Partial("~/Views/Shared/ClientComponent/_NavigationBar.cshtml")
+
+    @RenderBody();
+    @Html.Partial("~/Views/Shared/ClientComponent/_Footer.cshtml")
 </body>
 </html>
