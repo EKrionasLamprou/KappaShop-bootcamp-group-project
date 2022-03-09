@@ -283,6 +283,7 @@
     <Content Include="probeautyfly\images\collection4.png" />
     <Content Include="probeautyfly\images\counter-bg-image.png" />
     <Content Include="probeautyfly\images\cupscollection.png" />
+    <Content Include="probeautyfly\images\doormat.png" />
     <Content Include="probeautyfly\images\ektor.png" />
     <Content Include="probeautyfly\images\gallery1.png" />
     <Content Include="probeautyfly\images\gallery2.png" />
@@ -321,12 +322,14 @@
     <Content Include="probeautyfly\images\inner-banner.png" />
     <Content Include="probeautyfly\images\Kappa logo Black.jpg" />
     <Content Include="probeautyfly\images\Kappa logo Black1.jpg" />
+    <Content Include="probeautyfly\images\magnet.png" />
     <Content Include="probeautyfly\images\mousepad.png" />
     <Content Include="probeautyfly\images\mug.png" />
     <Content Include="probeautyfly\images\mycat.png" />
     <Content Include="probeautyfly\images\myproduct.png" />
     <Content Include="probeautyfly\images\offer-image.png" />
     <Content Include="probeautyfly\images\Panos.jpg" />
+    <Content Include="probeautyfly\images\phonecase.png" />
     <Content Include="probeautyfly\images\pillows.png" />
     <Content Include="probeautyfly\images\plate.png" />
     <Content Include="probeautyfly\images\service1.png" />
