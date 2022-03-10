@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace KappaCreations.Models
+namespace KappaCreations.Identity
 {
     public class IndexViewModel
     {
