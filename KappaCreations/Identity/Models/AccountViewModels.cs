@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace KappaCreations.Models
+namespace KappaCreations.Identity
 {
     public class ExternalLoginConfirmationViewModel
     {
