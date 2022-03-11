@@ -3,7 +3,7 @@
     /// <summary>
     /// An interface for all the entities that get mapped from the database.
     /// </summary>
-    interface IEntity
+    public interface IEntity
     {
         /// <summary>
         /// The entity's primary key.

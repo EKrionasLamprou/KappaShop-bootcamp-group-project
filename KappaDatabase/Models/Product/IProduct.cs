@@ -1,6 +1,6 @@
 ﻿namespace KappaDatabase.Models
 {
-    interface IProduct
+    public interface IProduct
     {
         /// <summary>
         /// The product's title.

@@ -66,14 +66,26 @@
     <Compile Include="Models\Design\Position.cs" />
     <Compile Include="Models\Design\Size.cs" />
     <Compile Include="Models\Design\Text.cs" />
+    <Compile Include="Models\Products\Ashtray.cs" />
+    <Compile Include="Models\Products\Bag.cs" />
+    <Compile Include="Models\Products\BedSheet.cs" />
+    <Compile Include="Models\Products\Canva.cs" />
+    <Compile Include="Models\Products\DoorMat.cs" />
+    <Compile Include="Models\Products\Hoodie.cs" />
+    <Compile Include="Models\Products\Magnet.cs" />
+    <Compile Include="Models\Products\Mousepad.cs" />
+    <Compile Include="Models\Products\PhoneCase.cs" />
+    <Compile Include="Models\Products\Plate.cs" />
+    <Compile Include="Models\Products\ThermoBottle.cs" />
+    <Compile Include="Models\Products\Tissue.cs" />
     <Compile Include="Models\Product\IEntity.cs" />
     <Compile Include="Models\Product\IProduct.cs" />
+    <Compile Include="Models\Products\Pillow.cs" />
     <Compile Include="Models\Product\ProductCategory.cs" />
+    <Compile Include="Models\Products\Tshirt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\Product\Products\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Content\bootstrap-theme.css.map" />

@@ -5,7 +5,7 @@ namespace KappaDatabase.Models
     /// <summary>
     /// Represents a category that products belong to.
     /// </summary>
-    sealed class ProductCategory : IEntity
+    public class ProductCategory : IEntity
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ProductCategory"/> class.
