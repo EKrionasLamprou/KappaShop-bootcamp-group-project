@@ -18,7 +18,28 @@
                         <ul class="nav navbar-nav">
                             <li>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "link-effect" })</li>
                             <li>@Html.ActionLink("About", "About", "Home", null, new { @class = "link-effect" })</li>
-                            <li>@Html.ActionLink("Create", "Create", "Home", null, new { @class = "link-effect" })</li>
+                            <li>
+                                @Html.ActionLink("Create", "Create", "Home", null, new { @class = "link-effect" })
+                                <div class="sub-menu-dropdown">
+                                    <ul>
+                                        <li>@Html.ActionLink("Mugs", "Create", "Home", null, new { @class = "link-effect" })</li>
+                                        <li>@Html.ActionLink("T-Shirts", "Create", "Home", null, new { @class = "link-effect" })</li>
+                                        <li>@Html.ActionLink("Pillows", "Create", "Home", null, new { @class = "link-effect" })</li>
+                                        <li>@Html.ActionLink("Hoodies", "Create", "Home", null, new { @class = "link-effect" })</li>
+                                        <li>@Html.ActionLink("Bags", "Create", "Home", null, new { @class = "link-effect" })</li>
+                                        <li>@Html.ActionLink("Mousepads", "Create", "Home", null, new { @class = "link-effect" })</li>
+                                        <li>@Html.ActionLink("Bed Sheets", "Create", "Home", null, new { @class = "link-effect" })</li>
+                                        <li>@Html.ActionLink("Plates", "Create", "Home", null, new { @class = "link-effect" })</li>
+                                        <li>@Html.ActionLink("Thermos Bottles", "Create", "Home", null, new { @class = "link-effect" })</li>
+                                        <li>@Html.ActionLink("Canvas", "Create", "Home", null, new { @class = "link-effect" })</li>
+                                        <li>@Html.ActionLink("Ashtrays", "Create", "Home", null, new { @class = "link-effect" })</li>
+                                        <li>@Html.ActionLink("Tissues", "Create", "Home", null, new { @class = "link-effect" })</li>
+                                        <li>@Html.ActionLink("Phone Cases", "Create", "Home", null, new { @class = "link-effect" })</li>
+                                        <li>@Html.ActionLink("Door Mats", "Create", "Home", null, new { @class = "link-effect" })</li>
+                                        <li>@Html.ActionLink("Magnets", "Create", "Home", null, new { @class = "link-effect" })</li>
+                                    </ul>
+                                </div>
+                            </li>
                             <li><a href="gallery.html" class="link-effect">Gallery</a></li>
                             <li><a href="blog.html" class="link-effect">Blog</a></li>
                             <li>@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "link-effect" })</li>
@@ -47,7 +68,37 @@
         <ul class="list-unstyled">
             <li class="active"> @Html.ActionLink("Home", "Index", "Home")</li>
             <li>@Html.ActionLink("About", "About", "Home")</li>
-            <li>@Html.ActionLink("Create", "Create", "Home")</li>
+
+
+            <li class="ui fluid accordion">
+                <div class="title">
+                    @Html.ActionLink("Create", "Create", "Home")
+                    <i class="dropdown icon"></i>
+                </div>
+                <div class="content">
+                    <ul class="list-unstyled">
+                        <li>@Html.ActionLink("Mugs", "Create", "Home", null)</li>
+                        <li>@Html.ActionLink("T-Shirts", "Create", "Home", null)</li>
+                        <li>@Html.ActionLink("Pillows", "Create", "Home", null)</li>
+                        <li>@Html.ActionLink("Hoodies", "Create", "Home", null)</li>
+                        <li>@Html.ActionLink("Bags", "Create", "Home", null)</li>
+                        <li>@Html.ActionLink("Mousepads", "Create", "Home", null)</li>
+                        <li>@Html.ActionLink("Bed Sheets", "Create", "Home", null)</li>
+                        <li>@Html.ActionLink("Plates", "Create", "Home", null)</li>
+                        <li>@Html.ActionLink("Thermos Bottles", "Create", "Home", null)</li>
+                        <li>@Html.ActionLink("Canvas", "Create", "Home", null)</li>
+                        <li>@Html.ActionLink("Ashtrays", "Create", "Home", null)</li>
+                        <li>@Html.ActionLink("Tissues", "Create", "Home", null)</li>
+                        <li>@Html.ActionLink("Phone Cases", "Create", "Home", null)</li>
+                        <li>@Html.ActionLink("Door Mats", "Create", "Home", null)</li>
+                        <li>@Html.ActionLink("Magnets", "Create", "Home", null)</li>
+                    </ul>
+
+                </div>
+                <!--Start Add Text area-->
+            </li>
+
+
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>

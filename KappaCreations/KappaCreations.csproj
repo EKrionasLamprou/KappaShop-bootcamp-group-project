@@ -373,6 +373,7 @@
     <Content Include="probeautyfly\js\classie.js" />
     <Content Include="probeautyfly\js\counterup.min.js" />
     <Content Include="probeautyfly\js\custom.js" />
+    <Content Include="probeautyfly\js\CustomScript.js" />
     <Content Include="probeautyfly\js\jquery.imagesloaded.js" />
     <Content Include="probeautyfly\js\jquery.inview.min.js" />
     <Content Include="probeautyfly\js\jquery.min.js" />
