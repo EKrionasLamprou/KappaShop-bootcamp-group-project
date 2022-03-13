@@ -37,8 +37,8 @@ namespace KappaDatabase.Database.Maps
                 .HasColumnType("float")
                 .IsRequired();
 
-            Property(e => e.Data)
-                .IsRequired();
+            //Property(e => e.Data)
+            //    .IsRequired();
         }
     }
 }
