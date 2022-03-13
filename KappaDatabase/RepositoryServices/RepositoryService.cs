@@ -5,30 +5,30 @@ using System.Data.Entity;
 
 namespace KappaDatabase.RepositoryServices
 {
-    class RepositoryService<TEntity> : IRepositoryService<TEntity>
+    public class RepositoryService<TEntity> : IRepositoryService<TEntity>
         where TEntity : IEntity
     {
-        readonly ShopContext db;
+        protected readonly ShopContext db;
 
         public RepositoryService() => db = new ShopContext();
         public RepositoryService(ShopContext db) => this.db = db;
 
         public DbSet Set { get => db.Set(typeof(TEntity)); }
 
-        public TEntity Get(int id) => (TEntity)Set.Find(id);
+        public virtual TEntity Get(int id) => (TEntity)Set.Find(id);
 
-        public IEnumerable<TEntity> GetAll() => (IEnumerable<TEntity>)Set;
+        public virtual IEnumerable<TEntity> GetAll() => (IEnumerable<TEntity>)Set;
 
-        public void Add(TEntity entity)
+        public virtual void Add(TEntity entity)
         {
             Set.Add(entity);
             db.SaveChanges();
         }
 
-        public bool Update(TEntity newEntity)
+        public virtual bool Update(TEntity newEntity)
         {
             int id = newEntity.Id;
-            object oldEntity = Set.Find(id);
+            object oldEntity = Get(id);
 
             if (oldEntity is null)
             {
@@ -39,9 +39,9 @@ namespace KappaDatabase.RepositoryServices
             return true;
         }
 
-        public bool Delete(int id)
+        public virtual bool Delete(int id)
         {
-            object entity = Set.Find(id);
+            object entity = Get(id);
 
             if (entity is null)
             {

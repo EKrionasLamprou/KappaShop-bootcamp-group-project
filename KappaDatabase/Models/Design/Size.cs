@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents the width and height of a 2D shape.
     /// </summary>
-    class Size
+    public class Size
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Size"/> class.

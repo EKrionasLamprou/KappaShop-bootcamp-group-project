@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents a <see cref="Design"/> image on a 2D plane.
     /// </summary>
-    class Image : IEntity, IPlaneComponent
+    public class Image : IEntity, IPlaneComponent
     {
         /// <summary>
         /// The entity's primary key.

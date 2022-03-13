@@ -1,6 +1,6 @@
 ﻿namespace KappaDatabase.Models
 {
-    interface IPlaneComponent
+    public interface IPlaneComponent
     {
         /// <summary>
         /// The position of the <see cref="IPlaneComponent"/> on the x and y axes.

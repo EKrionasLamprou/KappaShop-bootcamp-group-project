@@ -3,7 +3,7 @@ using System.Data.Entity;
 
 namespace KappaDatabase.Database
 {
-    partial class ShopContext : DbContext
+    public partial class ShopContext : DbContext
     {
         public ShopContext() : base("ShopConnection") { }
 

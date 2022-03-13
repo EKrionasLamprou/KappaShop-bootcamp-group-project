@@ -5,7 +5,7 @@ namespace KappaDatabase.Models
     /// <summary>
     /// Represents a user-made design to be printed on a product.
     /// </summary>
-    class Design : IEntity
+    public class Design : IEntity
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Design"/> class.

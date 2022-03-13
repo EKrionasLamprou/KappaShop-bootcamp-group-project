@@ -6,7 +6,7 @@ namespace KappaDatabase.Models
     /// Represents a colour that can be expressed as an integer, a hexadecimal or RGB
     /// and includes an alpha value.
     /// </summary>
-    class Colour
+    public class Colour
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Colour"/> class.

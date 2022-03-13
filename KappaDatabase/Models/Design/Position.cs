@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents a point on the x and y axes on a 2D space.
     /// </summary>
-    class Position
+    public class Position
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Position"/> class.

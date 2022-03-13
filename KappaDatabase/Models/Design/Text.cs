@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents a <see cref="Design"/> text on a 2D plane.
     /// </summary>
-    class Text : IEntity, IPlaneComponent
+    public class Text : IEntity, IPlaneComponent
     {
         /// <summary>
         /// The entity's primary key.
