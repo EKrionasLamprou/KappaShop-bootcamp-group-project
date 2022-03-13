@@ -84,6 +84,8 @@
     <Compile Include="Models\Product\ProductCategory.cs" />
     <Compile Include="Models\Products\Tshirt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryServices\IRepositoryService.cs" />
+    <Compile Include="RepositoryServices\RepositoryService.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
