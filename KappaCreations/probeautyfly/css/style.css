@@ -1841,10 +1841,10 @@ footer {
     display: block;
     position: absolute;
     top: 40px;
-    z-index:1;
+    z-index: 1;
     visibility: hidden;
     opacity: 1;
-    background-color:#fff;
+    background-color: #fff;
 }
 
     .sub-menu-dropdown ul {
@@ -1853,39 +1853,39 @@ footer {
 
         .sub-menu-dropdown ul li {
             padding: 5px 0;
-            margin:0;
+            margin: 0;
         }
 
-        .sub-menu-dropdown ul li a {
-            font-family: 'blogger_sansbold';
-            color: #000;
-            font-size: 16px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            position: relative;
-            padding: 5px 10px;
-        }
-
-            .sub-menu-dropdown ul li a:hover {
-                color: #1dabb8;
+            .sub-menu-dropdown ul li a {
+                font-family: 'blogger_sansbold';
+                color: #000;
+                font-size: 16px;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+                position: relative;
+                padding: 5px 10px;
             }
+
+                .sub-menu-dropdown ul li a:hover {
+                    color: #1dabb8;
+                }
 
 .nav li {
     padding-bottom: 16px;
 }
 
-.nav li:hover .sub-menu-dropdown {
-    visibility: visible;
-    opacity: 1;
-}
+    .nav li:hover .sub-menu-dropdown {
+        visibility: visible;
+        opacity: 1;
+    }
 
 .cbp-spmenu .accordion {
     box-shadow: unset;
 }
 
-.cbp-spmenu .accordion .active.title {
-    background-color: unset;
-}
+    .cbp-spmenu .accordion .active.title {
+        background-color: unset;
+    }
 
 .cbp-spmenu .title {
     padding: 0 !important;
