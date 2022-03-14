@@ -338,6 +338,7 @@
     <Content Include="probeautyfly\images\icons\task-complete.png" />
     <Content Include="probeautyfly\images\icons\trophy.png" />
     <Content Include="probeautyfly\images\inner-banner.png" />
+    <Content Include="probeautyfly\images\i_like_cats_more_than_people_3.png" />
     <Content Include="probeautyfly\images\Kappa logo Black.jpg" />
     <Content Include="probeautyfly\images\Kappa logo Black1.jpg" />
     <Content Include="probeautyfly\images\magnet.png" />
@@ -473,6 +474,7 @@
     <Content Include="Views\Shared\ClientComponent\_NavigationBar.cshtml" />
     <Content Include="Views\Shared\_ClientLayout.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Home\Gallery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
