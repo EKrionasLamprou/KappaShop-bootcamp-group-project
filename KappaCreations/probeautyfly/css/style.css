@@ -1802,6 +1802,8 @@ footer {
     }
 
 /*Project CSS*/
+
+/*header*/
 .login-block a {
     display: flex;
     align-items: center;
@@ -1809,28 +1811,6 @@ footer {
 
 #logo img {
     width: 108px;
-}
-
-.template-1 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 30px;
-}
-
-@media (max-width: 767px) {
-    .template-1 {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 480px) {
-    .template-1 {
-        grid-template-columns: 1fr;
-    }
-}
-
-.page-banner {
-    height: 250px;
 }
 
 .sub-menu-dropdown {
@@ -1892,4 +1872,177 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+/*templates*/
+.template-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+@media (max-width: 767px) {
+    .template-1 {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .template-1 {
+        grid-template-columns: 1fr;
+    }
+}
+/*create*/
+.create-container {
+    max-width: 1222px;
+    margin: 0 auto;
+    display: flex;
+    gap: 30px;
+}
+
+.create-block {
+    width: 100%;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+    display: flex;
+    flex-direction: column;
+}
+
+.create-block-body {
+    height: 100%;
+}
+
+    .create-block-body .canvas-container {
+        margin: 0 auto;
+    }
+
+.create-block-head {
+    background-color: #000;
+    padding: 10px 10px 0;
+    display: flex;
+    gap: 10px;
+    height: 64px;
+}
+
+.create-block-head-button-container {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+    .create-block-head-button-container:hover .create-head-dropdown {
+        visibility: visible;
+        opacity: 1;
+    }
+
+.create-block-head-button {
+    padding: 10px;
+    display: inline-block;
+    background-color: transparent;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+}
+
+    .create-block-head-button:hover {
+        background-color: rgba(255,255,255,.2);
+        color: #1dabb8;
+    }
+
+.create-head-dropdown {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    padding: 10px;
+    background-color: #fff;
+    min-width: 150px;
+    max-width: 150px;
+    box-shadow: 0 0 0 1px rgba(64, 87, 109, .07), 0 2px 12px rgba(53, 71, 90,.20);
+    border-radius: 3px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.create-head-dropdown-button {
+    color: #000;
+    cursor: pointer;
+    display: inline-block;
+}
+
+    .create-head-dropdown-button:hover {
+        color: #1dabb8;
+    }
+
+.create-side {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 270px;
+    width: 100%;
+    flex: none;
+}
+
+.create-side-title {
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 1.2;
+}
+
+.create-side-price {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.create-side-description p {
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+    .create-side-description p:not(:last-child) {
+        margin-bottom: 15px;
+    }
+
+.create-side-add-to-cart {
+    display: flex;
+    gap: 10px;
+}
+
+    .create-side-add-to-cart button {
+        height: 42px;
+        border: none;
+        background-color: #000;
+        color: #fff;
+        width: 125px;
+        font-size: 15px;
+    }
+
+        .create-side-add-to-cart button:hover {
+            opacity: .9;
+        }
+
+    .create-side-add-to-cart .quantity {
+        height: 42px;
+        padding: 0 10px;
+        font-size: 15px;
+        width: 74px;
+    }
+
+.create-side-add-to-wishlist {
+    padding-top: 20px;
+    border-top: 1px solid #000;
+}
+
+    .create-side-add-to-wishlist a {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: #000;
+    }
+
+        .create-side-add-to-wishlist a:hover {
+            color: #1dabb8;
+        }
+
+/*Utilities*/
+.px-20 {
+    padding-left: 20px;
+    padding-right: 20px;
 }

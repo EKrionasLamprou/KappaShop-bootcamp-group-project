@@ -9,6 +9,7 @@ var rectboxX = 130,
     rectboxY = 352,
     rectboxWidth = 215,
     rectboxHeight = 337;
+
 //PRICE FIELD START
 function updatePrice(price_change) {
     var regExp = /(\=|\+|\-)(\d+)/;
@@ -105,8 +106,8 @@ $(document).ready(function () {
 
     fabric.Image.fromURL('/probeautyfly/images/cup.jpg', function (img) {
         img.set({
-            width: 450,
-            height: 450,
+            width: 550,
+            height: 550,
             left: 0,
             top: 0,
             selectable: false,
