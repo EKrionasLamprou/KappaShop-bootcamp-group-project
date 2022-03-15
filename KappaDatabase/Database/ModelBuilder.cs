@@ -11,7 +11,10 @@ namespace KappaDatabase.Database
                         .Add(new FontMap())
                         .Add(new ImageMap())
                         .Add(new ProductCategoryMap())
-                        .Add(new TextMap());
+                        .Add(new TextMap())
+                        .Add(new FinalProductMap())
+                        .Add(new DesignMap());
+            
         }
     }
 }

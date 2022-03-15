@@ -26,5 +26,9 @@
         /// The colour of the <see cref="Image"/> represented with RGBA values.
         /// </summary>
         public Colour Colour { get; set; }
+
+        public Design Design { get; set; }
+        
+
     }
 }

@@ -30,5 +30,8 @@
         /// Represents the <see cref="Font"/> of the <see cref="Text"/>.
         /// </summary>
         public Font Font { get; set; }
+
+        public Design Design { get; set; }
+        
     }
 }

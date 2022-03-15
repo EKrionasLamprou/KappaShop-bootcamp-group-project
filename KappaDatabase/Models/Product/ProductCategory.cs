@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using KappaDatabase.Models.MainClass;
+using System.Collections.Generic;
 
 namespace KappaDatabase.Models
 {
@@ -37,6 +38,8 @@ namespace KappaDatabase.Models
         /// The products that belong to this category.
         /// </summary>
         public ICollection<IProduct> Products { get; set; }
+
+        public FinalProduct FinalProduct { get; set; }
 
         /// <summary>
         /// A string that represents the category's title.

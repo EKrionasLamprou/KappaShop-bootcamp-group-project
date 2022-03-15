@@ -1,4 +1,5 @@
 ﻿using KappaDatabase.Models;
+using KappaDatabase.Models.MainClass;
 using System.Data.Entity;
 
 namespace KappaDatabase.Database
@@ -12,5 +13,6 @@ namespace KappaDatabase.Database
         public DbSet<Image> Images { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<Text> Texts { get; set; }
+        public DbSet<FinalProduct> FinalProducts { get; set; }
     }
 }

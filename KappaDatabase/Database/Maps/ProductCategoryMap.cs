@@ -9,6 +9,9 @@ namespace KappaDatabase.Database.Maps
         {
             Property(e => e.Title)
                 .IsRequired();
+
+            HasRequired(f => f.FinalProduct)
+                .WithRequiredPrincipal(p => p.ProductCategory);
         }
     }
 }

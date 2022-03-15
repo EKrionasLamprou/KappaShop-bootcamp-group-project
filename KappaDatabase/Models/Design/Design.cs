@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using KappaDatabase.Models.MainClass;
+using System.Collections.Generic;
+
 
 namespace KappaDatabase.Models
 {
@@ -24,10 +26,12 @@ namespace KappaDatabase.Models
         /// <summary>
         /// The <see cref="Text"/> objects that the design contains.
         /// </summary>
-        public IEnumerable<Text> Texts { get; set; }
+        public ICollection<Text> Texts { get; set; }
         /// <summary>
         /// The <see cref="Image"/> objects that the design contains.
         /// </summary>
-        public IEnumerable<Image> Images { get; set; }
+        public ICollection<Image> Images { get; set; }
+
+        public FinalProduct FinalProduct { get; set; }
     }
 }
