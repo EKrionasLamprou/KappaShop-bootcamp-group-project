@@ -116,11 +116,13 @@ $(document).ready(function () {
         });
         canvas.add(img).setActiveObject(img);
 
+        console.log(img._element)
+
         rectbox = new fabric.Rect({
-            width: rectboxWidth - 30,
+            width: rectboxWidth + 50,
             height: rectboxHeight - 80,
             left: 100,
-            top: 80,
+            top: 100,
             stroke: 'rgba(0,0,0,0.3)',
             strokeWidth: 2,
             fill: 'rgba(0,0,0,0)',
@@ -134,8 +136,8 @@ $(document).ready(function () {
         var recttext = new fabric.Text('Printable Area', {
             fontSize: 14,
             fontFamily: 'sans-serif',
-            left: 150,
-            top: 310,
+            left: 180,
+            top: 330,
             fill: 'rgba(0,0,0,0.3)',
             selectable: false,
             hasControls: false,
@@ -354,6 +356,7 @@ $(document).ready(function () {
 
     $('#getdata-button').on('click', function () {
         alert(JSON.stringify(item_list));
+        console.log(JSON.stringify(item_list));
         for (i = 0; i < item_list.length; i++) {
             var one_item = item_list[i];
             console.log(one_item, one_item.getLeft(), one_item.getTop());
