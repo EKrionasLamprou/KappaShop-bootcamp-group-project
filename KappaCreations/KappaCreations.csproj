@@ -184,18 +184,18 @@
     <Compile Include="Controllers\Identity\Account\Confirmation.cs" />
     <Compile Include="Controllers\Identity\Account\Register.cs" />
     <Compile Include="Controllers\Identity\Account\Password.cs" />
-    <Compile Include="Controllers\Identity\Account\VerityCode.cs" />
+    <Compile Include="Controllers\Identity\Account\VerifyCode.cs" />
     <Compile Include="Controllers\Identity\Account\Login.cs" />
     <Compile Include="Controllers\Identity\Account\ChallengeResult.cs" />
     <Compile Include="Controllers\Identity\Account\Helpers.cs" />
-    <Compile Include="Controllers\Identity\Account\AccountController.cs" />
+    <Compile Include="Controllers\Identity\Account\.AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Identity\Manager\Index.cs" />
     <Compile Include="Controllers\Identity\Manager\Login.cs" />
     <Compile Include="Controllers\Identity\Manager\Password.cs" />
     <Compile Include="Controllers\Identity\Manager\Authentication.cs" />
     <Compile Include="Controllers\Identity\Manager\Helpers.cs" />
-    <Compile Include="Controllers\Identity\Manager\ManageController.cs" />
+    <Compile Include="Controllers\Identity\Manager\.ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

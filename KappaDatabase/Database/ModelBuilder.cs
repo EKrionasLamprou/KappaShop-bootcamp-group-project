@@ -14,7 +14,6 @@ namespace KappaDatabase.Database
                         .Add(new TextMap())
                         .Add(new FinalProductMap())
                         .Add(new DesignMap());
-            
         }
     }
 }

@@ -12,17 +12,11 @@ namespace KappaDatabase.Database.Maps
     {
         public FinalProductMap()
         {
-
             HasRequired(d => d.Design)
                 .WithRequiredPrincipal(f => f.FinalProduct);
 
-
             HasRequired(p => p.ProductCategory)
                  .WithRequiredPrincipal(f => f.FinalProduct);
-
-
-
-
         }
     }
 }
