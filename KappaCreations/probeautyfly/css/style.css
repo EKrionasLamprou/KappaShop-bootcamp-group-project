@@ -1949,7 +1949,7 @@ footer {
 
 .create-head-dropdown {
     position: absolute;
-    top: 55px;
+    top: 50px;
     left: 0;
     padding: 10px;
     background-color: #fff;
@@ -1959,7 +1959,18 @@ footer {
     border-radius: 3px;
     visibility: hidden;
     opacity: 0;
+    z-index: 1;
 }
+
+    .create-head-dropdown .imgLoader {
+        display: none;
+    }
+
+    .create-head-dropdown.flex {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 
 .create-head-dropdown-button {
     color: #000;
@@ -1970,6 +1981,48 @@ footer {
     .create-head-dropdown-button:hover {
         color: #1dabb8;
     }
+
+.create-head-dropdown .field {
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+    .create-head-dropdown .field input {
+        width: 100%;
+        height: 42px;
+        padding: 0 10px;
+        border: 1px solid;
+        border-radius: 5px;
+    }
+
+        .create-head-dropdown .field input:focus {
+            border-color: unset !important;
+            box-shadow: unset !important;
+            outline: unset !important;
+        }
+
+.create-head-dropdown-input {
+    border: 1px solid;
+}
+
+    .create-head-dropdown-input:focus {
+        border-color: unset !important;
+        box-shadow: unset !important;
+        outline: unset !important;
+    }
+
+.create-head-dropdown .dropdown.icon {
+    position: absolute;
+    right: 6px;
+}
+
+.create-head-dropdown .menu {
+    width: 100% !important;
+}
+
+.create-head-dropdown .item {
+    font-size: 15px !important;
+}
 
 .create-side {
     display: flex;
@@ -2010,11 +2063,29 @@ footer {
         border: none;
         background-color: #000;
         color: #fff;
-        width: 125px;
+        width: 100%;
         font-size: 15px;
     }
 
         .create-side-add-to-cart button:hover {
+            opacity: .9;
+        }
+
+    .create-side-add-to-cart label {
+        height: 42px;
+        border: none;
+        background-color: #000;
+        color: #fff;
+        width: 100%;
+        font-size: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 100;
+        cursor: pointer;
+    }
+
+        .create-side-add-to-cart label:hover {
             opacity: .9;
         }
 
@@ -2023,7 +2094,15 @@ footer {
         padding: 0 10px;
         font-size: 15px;
         width: 74px;
+        border: 1px solid;
+        border-radius: 3px;
     }
+
+        .create-side-add-to-cart .quantity:focus {
+            border-color: unset !important;
+            box-shadow: unset !important;
+            outline: unset !important;
+        }
 
 .create-side-add-to-wishlist {
     padding-top: 20px;
