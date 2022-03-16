@@ -25,7 +25,7 @@ namespace KappaDatabase.RepositoryServices
         /// </summary>
         /// <param name="db">An instance of the database.</param>
         public RepositoryService(ShopContext db) => this.db = db;
-
+        
         public DbSet Set { get => db.Set(typeof(TEntity)); }
 
         public virtual TEntity Get(int id) => (TEntity)Set.Find(id);
@@ -64,7 +64,6 @@ namespace KappaDatabase.RepositoryServices
             db.SaveChanges();
             return true;
         }
-
         public virtual bool Delete(TEntity entity) => Delete(entity.Id);
     }
 }

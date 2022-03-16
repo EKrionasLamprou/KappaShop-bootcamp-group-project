@@ -28,7 +28,5 @@
         public Colour Colour { get; set; }
 
         public Design Design { get; set; }
-        
-
     }
 }
