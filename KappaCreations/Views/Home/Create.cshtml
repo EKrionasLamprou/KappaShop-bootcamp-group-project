@@ -1,45 +1,39 @@
-﻿
-<body class="cbp-spmenu-push">
+﻿<body class="cbp-spmenu-push">
     <div id="page">
-
-
-        @*<section class="image-head-wrapper page-banner">
+        @*
+            <section class="image-head-wrapper page-banner">
                 <div class="container">
                     <div class="inner-wrapper">
                         <h1><span>C</span>reate</h1>
                     </div>
                 </div>
             </section>
-            <div class="clearfix"></div>*@
+            <div class="clearfix"></div>
+        *@
 
         <div class="px-20">
             <div class="create-container">
                 <div class="create-block">
                     <div class="create-block-head">
                         <div class="create-block-head-button-container">
-                            <div class="create-block-head-button">
-                                Settigns
-                            </div>
+                            <div class="create-block-head-button">Settigns</div>
                             <div class="create-head-dropdown">
-                                <div class="create-head-dropdown-button" id="resetButton">
-                                    Reset
-                                </div>
+                                <div class="create-head-dropdown-button" id="resetButton">Reset</div>
                             </div>
                         </div>
+
                         <div class="create-block-head-button-container">
-                            <div class="create-block-head-button">
-                                Add Text
-                            </div>
-                            <div class="create-head-dropdown lg">
+                            <div class="create-block-head-button">Add Text</div>
+                            <div class="create-head-dropdown flex">
                                 <div class="field">
                                     <label>Text:</label>
-                                    <input placeholder="Text" type="text" id="inputText">
+                                    <input placeholder="Text" type="text" id="inputText" />
                                 </div>
 
                                 <div class="field">
                                     <label>Font</label>
                                     <div class="ui selection dropdown fluid create-head-dropdown-input">
-                                        <input name="gender" type="hidden" id="inputFont" value="Arial">
+                                        <input name="gender" type="hidden" id="inputFont" value="Arial" />
                                         <div class="default text">Arial</div>
                                         <i class="dropdown icon"></i>
                                         <div class="menu">
@@ -55,7 +49,7 @@
                                 <div class="field">
                                     <label>Color</label>
                                     <div class="ui selection dropdown fluid create-head-dropdown-input">
-                                        <input name="color" type="hidden" id="inputColor" value="red">
+                                        <input name="color" type="hidden" id="inputColor" value="red" />
                                         <div class="default text">Red</div>
                                         <i class="dropdown icon"></i>
                                         <div class="menu">
@@ -69,19 +63,15 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="create-side-add-to-cart">
-                                    <button id="addTextButton">
-                                        Add Text
-                                    </button>
+                                    <button id="addTextButton">Add Text</button>
                                 </div>
                             </div>
                         </div>
 
-
                         <div class="create-block-head-button-container">
-                            <div class="create-block-head-button">
-                                Add Image
-                            </div>
+                            <div class="create-block-head-button">Add Image</div>
                             <div class="create-head-dropdown flex">
                                 <div class="create-side-add-to-cart">
                                     <button id="libraryButton">from Library</button>
@@ -89,20 +79,84 @@
                                 <p>OR</p>
                                 <input type="file" id="imgLoader" class="imgLoader" />
                                 <div class="create-side-add-to-cart">
-                                    <label for="imgLoader">
-                                        Upload Image
-                                    </label>
+                                    <label for="imgLoader"> Upload Image </label>
                                 </div>
                                 <p>Supported files: JPG, JPEG, PNG</p>
                             </div>
                         </div>
 
+                        <div class="create-block-head-button-container" id="boxEditText">
+                            <div class="create-block-head-button">EDIT : Text</div>
+                            <div class="create-head-dropdown flex">
+                                <div class="field">
+                                    <label>Text:</label>
+                                    <input placeholder="Text" type="text" id="editText" />
+                                </div>
 
+                                <div class="field">
+                                    <label>Font</label>
+                                    <div class="ui selection dropdown fluid create-head-dropdown-input" id="uiEditFont">
+                                        <input name="gender" type="hidden" id="editFont" />
+                                        <div class="default text">select</div>
+                                        <i class="dropdown icon"></i>
+                                        <div class="menu">
+                                            <div class="item" data-value="Arial">Arial</div>
+                                            <div class="item" data-value="Impact">Impact</div>
+                                            <div class="item" data-value="Lobster">Lobster</div>
+                                            <div class="item" data-value="Indie Flower">Indie Flower</div>
+                                            <div class="item" data-value="Gloria Hallelujah">Gloria Hallelujah</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="field">
+                                    <label>Color</label>
+                                    <div class="ui selection dropdown fluid create-head-dropdown-input" id="uiEditColor">
+                                        <input name="gender" type="hidden" id="editColor" />
+                                        <div class="default text">Red</div>
+                                        <i class="dropdown icon"></i>
+                                        <div class="menu">
+                                            <div class="item" data-value="black">Black</div>
+                                            <div class="item" data-value="white">White</div>
+                                            <div class="item" data-value="red">Red</div>
+                                            <div class="item" data-value="orange">Orange</div>
+                                            <div class="item" data-value="blue">Blue</div>
+                                            <div class="item" data-value="green">Green</div>
+                                            <div class="item" data-value="aqua">Aqua</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="create-side-add-to-cart">
+                                    <button id="updateTextButton">Update</button>
+                                </div>
+
+                                <div class="create-side-add-to-cart">
+                                    <button class="trashButton">
+                                        <i class="trash icon"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="create-block-head-button-container" id="boxEditImage">
+                            <div class="create-block-head-button">EDIT : Image</div>
+                            <div class="create-head-dropdown flex">
+                                <p>Use rectangle control around image to move / scale / rotate.</p>
+
+                                <div class="create-side-add-to-cart">
+                                    <button class="trashButton">
+                                        <i class="trash icon"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="create-block-body">
                         <canvas id="c" width="550" height="550"></canvas>
                     </div>
                 </div>
+
                 <div class="create-side">
                     <div class="create-side-title">Your T-Shirt</div>
                     <div class="create-side-price">€22.00</div>
@@ -131,7 +185,7 @@
                             <path d="M3.5,0C2.6,0,1.7,0.4,1,1.2c-1.4,1.6-1.4,4.2,0,5.9l5.8,6.9v0C6.9,14,6.9,14,7,14c0.1,0,0.1,0,0.1-0.1
 	                                C9.1,11.7,11,9.4,13,7.1c1.4-1.6,1.4-4.2,0-5.9c-1.4-1.6-3.6-1.6-5,0L7,2.3L6.1,1.2C5.4,0.4,4.5,0,3.5,0L3.5,0z M3.5,0.4
 	                                c0.8,0,1.6,0.4,2.2,1.1l1.1,1.3c0,0,0.1,0.1,0.1,0.1s0.1,0,0.1-0.1l1.1-1.3c1.2-1.5,3.2-1.5,4.5,0c1.2,1.5,1.2,3.8,0,5.3
-	                                C10.8,9,8.9,11.3,7,13.5L1.3,6.8C0.1,5.3,0.1,3,1.3,1.5C1.9,0.8,2.7,0.4,3.5,0.4L3.5,0.4z" /></svg> Add to wishlist
+	                                C10.8,9,8.9,11.3,7,13.5L1.3,6.8C0.1,5.3,0.1,3,1.3,1.5C1.9,0.8,2.7,0.4,3.5,0.4L3.5,0.4z" /></svg>Add to wishlist
                         </a>
                     </div>
                 </div>
@@ -139,83 +193,8 @@
         </div>
 
         <div class="ui grid">
-            <!--Start Edit  Box-->
+            <!--Start Edit Box-->
             <div class="four wide column">
-                <!--Begin  Action Box for Text-->
-                <div id="boxEdit">
-                    <div class="ui top tertiary inverted attached segment">
-                        <p>EDIT</p>
-                    </div>
-                    <div class="ui bottom attached segment">
-                        <p>Select object to edit or Add new object from left menu.</p>
-                    </div>
-                </div>
-                <div id="boxEditText">
-                    <div class="ui top orange inverted attached segment">
-                        <p>EDIT : Text</p>
-                    </div>
-                    <div class="ui bottom attached segment">
-                        <div class="ui form">
-                            <div class="field">
-                                <label>Text:</label>
-                                <div class="ui left labeled input">
-                                    <input placeholder="Text" type="text" id="editText">
-                                </div>
-                            </div>
-
-                            <div class="field">
-                                <label>Font</label>
-                                <div class="ui selection dropdown fluid" id="uiEditFont">
-                                    <input name="gender" type="hidden" id="editFont">
-                                    <div class="default text">select</div>
-                                    <i class="dropdown icon"></i>
-                                    <div class="menu">
-                                        <div class="item" data-value="Arial">Arial</div>
-                                        <div class="item" data-value="Impact">Impact</div>
-                                        <div class="item" data-value="Lobster">Lobster</div>
-                                        <div class="item" data-value="Indie Flower">Indie Flower</div>
-                                        <div class="item" data-value="Gloria Hallelujah">Gloria Hallelujah</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!--<div class="field">
-                              <label>Size</label>
-                              <input placeholder="14" value="14" type="text" id="editSize">
-                            </div>-->
-
-                            <div class="field">
-                                <label>Color</label>
-                                <div class="ui selection dropdown fluid" id="uiEditColor">
-                                    <input name="gender" type="hidden" id="editColor">
-                                    <div class="default text">Red</div>
-                                    <i class="dropdown icon"></i>
-                                    <div class="menu">
-                                        <div class="item" data-value="black">Black</div>
-                                        <div class="item" data-value="white">White</div>
-                                        <div class="item" data-value="red">Red</div>
-                                        <div class="item" data-value="orange">Orange</div>
-                                        <div class="item" data-value="blue">Blue</div>
-                                        <div class="item" data-value="green">Green</div>
-                                        <div class="item" data-value="aqua">Aqua</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#" id="updateTextButton">
-                                <div class="ui orange button">
-                                    <i class="checkmark icon"></i>
-                                    Update
-                                </div>
-                            </a>
-                            <a href="#" class="trashButton">
-                                <div class="ui icon button black">
-                                    <i class="trash icon"></i>
-                                </div>
-                            </a>
-                        </div><!-- form -->
-                    </div>
-                </div><!-- .boxEditText -->
-                <!--End  Action Box for Text-->
                 <!--Begin  Action Box for Image-->
                 <div id="boxEditImage">
                     <div class="ui top orange inverted attached segment">
@@ -229,12 +208,11 @@
                             </div>
                         </a>
                     </div>
-                </div><!-- .boxEditImage -->
+                </div>
+                <!-- .boxEditImage -->
                 <!--End Action Box for Image-->
                 <!--Begin Display Price box-->
-                <div class="ui segment pricebox">
-                    <strong>Price:</strong> <span id="price">--</span> Euro
-                </div>
+                <div class="ui segment pricebox"><strong>Price:</strong> <span id="price">--</span> Euro</div>
                 <!--End Display Price box-->
                 <!--Begin Get Jason-->
                 <div class="ui segment pricebox">
@@ -250,9 +228,7 @@
         <!--Start Modal Choose Image From Library-->
         <div class="library ui modal">
             <i class="close icon"></i>
-            <div class="header">
-                Choose our high-quality image to add
-            </div>
+            <div class="header">Choose our high-quality image to add</div>
             <div class="content">
                 <div class="librarylist">
                     <div class="ui five connected items">
@@ -291,38 +267,27 @@
                 </div>
             </div>
             <div class="actions">
-                <div class="ui button orange" id="libAddButton">
-                    Add Image
-                </div>
-                <div class="ui button">
-                    Cancel
-                </div>
+                <div class="ui button orange" id="libAddButton">Add Image</div>
+                <div class="ui button">Cancel</div>
             </div>
         </div>
         <!--End Modal Choose Image From Library-->
         <!--Start Modal Delete Image/Text-->
         <div class="ui small modal" id="modalDelete">
             <i class="close icon"></i>
-            <div class="header">
-                Remove Object
-            </div>
+            <div class="header">Remove Object</div>
             <div class="content">
                 <p>Are you sure you want to remove this object?</p>
             </div>
             <div class="actions">
-                <div class="ui negative labeled button">
-                    Cancel
-                </div>
-                <div class="ui positive right labeled button">
-                    Delete !
-                </div>
+                <div class="ui negative labeled button">Cancel</div>
+                <div class="ui positive right labeled button">Delete !</div>
             </div>
         </div>
         <!--End Modal Delete Image/Text-->
         <!-- Modal -->
         <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg modal-margin-top">
-
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
@@ -330,57 +295,52 @@
                         <h3 class="modal-title text-center">Welcome Back</h3>
                     </div>
                     <div class="modal-body">
-
                         <div class="row">
-                            <div class="col-sm-6 ">
+                            <div class="col-sm-6">
                                 <div class="rect">
                                     <form class="login">
                                         <h2>Login</h2>
                                         <div class="form-group">
-                                            <input type="text" placeholder="Your name" class="form-control" name="name">
+                                            <input type="text" placeholder="Your name" class="form-control" name="name" />
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" placeholder="Password" class="form-control" name="password">
+                                            <input type="password" placeholder="Password" class="form-control" name="password" />
                                         </div>
-                                        <div class="divider-sm">
-                                        </div>
+                                        <div class="divider-sm"></div>
 
-                                        <div class="divider-sm">
-                                        </div>
+                                        <div class="divider-sm"></div>
                                         <button class="btn btn-cool btn-md-sm btn-bottom">Login</button>
                                     </form>
-
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="content">
                                     <div class="subtitle">
-
                                         <div>
                                             <h2>...or login with:</h2>
                                         </div>
-
                                     </div>
 
                                     <div class="text-center">
                                         <a class="sign-btn sign-btn-facebook" href="#"><span class="fa fa-facebook"></span>Facebook</a>&nbsp;&nbsp;&nbsp;&nbsp;
-
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
 </body>
-@*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>*@
-@*<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/javascript/semantic.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.4.8/fabric.min.js"></script>*@
-@*<script>*@
+@*
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+*@ @*
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/javascript/semantic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.4.8/fabric.min.js"></script>
+*@ @*
+    <script>
+*@
 <!--//    var select_item = '';
 //    var select_price = '+0';
 //    var price = 10;
@@ -773,4 +733,6 @@
 ////    // draw to cut-out sofa
 ////    ctx.drawImage(img1, 0, 0, img1.width * .5, img1.height * .5);
 ////}-->
-@*</script>*@
+@*
+    </script>
+*@

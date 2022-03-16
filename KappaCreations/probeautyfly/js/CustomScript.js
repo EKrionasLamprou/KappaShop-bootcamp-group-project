@@ -217,7 +217,7 @@ $(document).ready(function () {
         }
 
         var inFont = $('#inputFont').val();
-        var inSize = 14;
+        var inSize = 30;
         var inColor = $('#inputColor').val();
 
         var newText = new fabric.Text(inText, {
@@ -254,7 +254,7 @@ $(document).ready(function () {
         }
 
         var inFont = $('#editFont').val();
-        var inSize = 14;
+        var inSize = 30;
         var inColor = $('#editColor').val();
 
         var TexttoEdit = canvas.getActiveObject();
