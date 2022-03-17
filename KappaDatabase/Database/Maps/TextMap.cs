@@ -7,12 +7,6 @@ namespace KappaDatabase.Database.Maps
     {
         public TextMap()
         {
-            Property(e => e.Content)
-                .HasColumnName("Content")
-                .HasColumnType("text")
-                .HasMaxLength(40)
-                .IsRequired();
-
             Property(e => e.Position.X)
                 .HasColumnName("PositionX")
                 .HasColumnType("float")
@@ -41,6 +35,12 @@ namespace KappaDatabase.Database.Maps
             Property(e => e.Colour.Alpha)
                 .HasColumnName("Alpha")
                 .HasColumnType("float")
+                .IsRequired();
+
+            Property(e => e.Content)
+                .HasColumnName("Content")
+                .HasColumnType("text")
+                .HasMaxLength(40)
                 .IsRequired();
         }
     }

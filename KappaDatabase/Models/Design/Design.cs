@@ -1,6 +1,4 @@
-﻿using KappaDatabase.Models.MainClass;
-using System.Collections.Generic;
-
+﻿using System.Collections.Generic;
 
 namespace KappaDatabase.Models
 {
@@ -18,9 +16,6 @@ namespace KappaDatabase.Models
             Images = new HashSet<Image>();
         }
 
-        /// <summary>
-        /// The entity's primary key.
-        /// </summary>
         public int Id { get; set; }
 
         /// <summary>
@@ -31,7 +26,5 @@ namespace KappaDatabase.Models
         /// The <see cref="Image"/> objects that the design contains.
         /// </summary>
         public ICollection<Image> Images { get; set; }
-
-        public FinalProduct FinalProduct { get; set; }
     }
 }

@@ -7,9 +7,6 @@ namespace KappaDatabase.Database.Maps
     {
         public ImageMap()
         {
-            Property(e => e.Url)
-                .IsRequired();
-
             Property(e => e.Position.X)
                 .HasColumnName("PositionX")
                 .HasColumnType("float")
@@ -38,6 +35,10 @@ namespace KappaDatabase.Database.Maps
             Property(e => e.Colour.Alpha)
                 .HasColumnName("Alpha")
                 .HasColumnType("float")
+                .IsRequired();
+
+            Property(e => e.Url)
+                .HasMaxLength(3000)
                 .IsRequired();
         }
     }

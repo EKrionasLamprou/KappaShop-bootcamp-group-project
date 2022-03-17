@@ -8,10 +8,16 @@ namespace KappaDatabase.Database.Maps
         public ProductCategoryMap()
         {
             Property(e => e.Title)
+                .HasMaxLength(50)
                 .IsRequired();
 
-            HasRequired(f => f.FinalProduct)
-                .WithRequiredPrincipal(p => p.ProductCategory);
+            HasOptional(e => e.SuperCategory)
+                .WithMany(e => e.SubCategories);
+
+            HasMany(e => e.Products);
+
+            HasMany(e => e.Products)
+                .WithRequired(e => e.ProductCategory);
         }
     }
 }

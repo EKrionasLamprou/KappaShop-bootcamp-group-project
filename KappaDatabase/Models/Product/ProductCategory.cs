@@ -1,5 +1,4 @@
-﻿using KappaDatabase.Models.MainClass;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace KappaDatabase.Models
 {
@@ -14,12 +13,9 @@ namespace KappaDatabase.Models
         public ProductCategory()
         {
             SubCategories = new HashSet<ProductCategory>();
-            Products = new HashSet<IProduct>();
+            Products = new HashSet<Product>();
         }
 
-        /// <summary>
-        /// The entity's primary key.
-        /// </summary>
         public int Id { get; set; }
         /// <summary>
         /// The name of the category.
@@ -37,9 +33,7 @@ namespace KappaDatabase.Models
         /// <summary>
         /// The products that belong to this category.
         /// </summary>
-        public ICollection<IProduct> Products { get; set; }
-
-        public FinalProduct FinalProduct { get; set; }
+        public ICollection<Product> Products { get; set; }
 
         /// <summary>
         /// A string that represents the category's title.

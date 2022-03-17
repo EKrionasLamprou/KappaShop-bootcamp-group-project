@@ -55,47 +55,26 @@
     <Compile Include="Database\Maps\FontMap.cs" />
     <Compile Include="Database\Maps\ImageMap.cs" />
     <Compile Include="Database\Maps\ProductCategoryMap.cs" />
-    <Compile Include="Database\Maps\FinalProductMap.cs" />
+    <Compile Include="Database\Maps\ProductMap.cs" />
     <Compile Include="Database\Maps\TextMap.cs" />
-    <Compile Include="Database\Migrations\Configuration.cs" />
     <Compile Include="Database\ModelBuilder.cs" />
     <Compile Include="Database\ShopContext.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Design\Colour.cs" />
     <Compile Include="Models\Design\Design.cs" />
     <Compile Include="Models\Design\Font.cs" />
     <Compile Include="Models\Design\Image.cs" />
-    <Compile Include="Models\Design\IPlaneComponent.cs" />
+    <Compile Include="Models\Design\I2DComponent.cs" />
     <Compile Include="Models\Design\Position.cs" />
     <Compile Include="Models\Design\Size.cs" />
     <Compile Include="Models\Design\Text.cs" />
-    <Compile Include="Models\MainClass\FinalProduct.cs" />
-    <Compile Include="Models\Products\Ashtray.cs" />
-    <Compile Include="Models\Products\Bag.cs" />
-    <Compile Include="Models\Products\BedSheet.cs" />
-    <Compile Include="Models\Products\Canva.cs" />
-    <Compile Include="Models\Products\DoorMat.cs" />
-    <Compile Include="Models\Products\Hoodie.cs" />
-    <Compile Include="Models\Products\Magnet.cs" />
-    <Compile Include="Models\Products\Mousepad.cs" />
-    <Compile Include="Models\Products\PhoneCase.cs" />
-    <Compile Include="Models\Products\Plate.cs" />
-    <Compile Include="Models\Products\ThermoBottle.cs" />
-    <Compile Include="Models\Products\Tissue.cs" />
+    <Compile Include="Models\Product\Product.cs" />
     <Compile Include="Models\Product\IEntity.cs" />
-    <Compile Include="Models\Product\IProduct.cs" />
-    <Compile Include="Models\Products\Pillow.cs" />
     <Compile Include="Models\Product\ProductCategory.cs" />
-    <Compile Include="Models\Products\Tshirt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryServices\DesignRepositoryService.cs" />
     <Compile Include="RepositoryServices\IRepositoryService.cs" />
     <Compile Include="RepositoryServices\RepositoryService.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\KappaCreations\KappaCreations.csproj">
-      <Project>{C8C70AA1-7B7A-41EE-B8C9-56219C1C90D8}</Project>
-      <Name>KappaCreations</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
