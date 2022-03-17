@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Mvc;
+using KappaCreations.Models;
 using Microsoft.AspNet.Identity;
-using KappaCreations.Identity;
 
 namespace KappaCreations.Controllers
 {
@@ -13,7 +13,7 @@ namespace KappaCreations.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> SetPassword(SetPasswordViewModel model)
+        public async Task<ActionResult> SetPassword(Models.SetPasswordViewModel model)
         {
             if (ModelState.IsValid)
             {

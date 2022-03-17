@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Mvc;
+using KappaCreations.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
-using KappaCreations.Identity;
 
 namespace KappaCreations.Controllers
 {
