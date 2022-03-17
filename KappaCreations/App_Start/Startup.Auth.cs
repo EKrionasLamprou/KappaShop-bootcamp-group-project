@@ -1,10 +1,11 @@
 ﻿using System;
+using KappaCreations.Database;
+using KappaCreations.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
-using KappaCreations.Identity;
 
 namespace KappaCreations
 {

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity.Owin;
-using KappaCreations.Identity;
+using KappaCreations.Models;
 
 namespace KappaCreations.Controllers
 {

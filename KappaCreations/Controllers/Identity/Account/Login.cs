@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using KappaCreations.Identity;
+using KappaCreations.Models;
 
 namespace KappaCreations.Controllers
 {
