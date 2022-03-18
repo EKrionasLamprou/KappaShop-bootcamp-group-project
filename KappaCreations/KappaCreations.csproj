@@ -230,10 +230,10 @@
     <Compile Include="Models\Shop\Design\Colour.cs" />
     <Compile Include="Models\Shop\Design\Design.cs" />
     <Compile Include="Models\Shop\Design\Font.cs" />
-    <Compile Include="Models\Shop\Design\I2DComponent.cs" />
+    <Compile Include="Models\Shop\Design\2DComponents\I2DComponent.cs" />
     <Compile Include="Models\Shop\Design\Image.cs" />
-    <Compile Include="Models\Shop\Design\Position.cs" />
-    <Compile Include="Models\Shop\Design\Size.cs" />
+    <Compile Include="Models\Shop\Design\2DComponents\Position.cs" />
+    <Compile Include="Models\Shop\Design\2DComponents\Size.cs" />
     <Compile Include="Models\Shop\Design\Text.cs" />
     <Compile Include="Models\Shop\Product\IEntity.cs" />
     <Compile Include="Models\Shop\Product\Product.cs" />

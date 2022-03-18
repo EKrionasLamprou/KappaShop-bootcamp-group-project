@@ -11,6 +11,10 @@ namespace KappaCreations.Models
         /// <summary>
         /// Initializes a new instance of the <see cref="Colour"/> class.
         /// </summary>
+        public Colour() => (Value, Alpha) = (0, 0);
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Colour"/> class.
+        /// </summary>
         /// <param name="hex">A hexadecimal value that represents a colour.
         /// A hash at the beginning of the string is not required.</param>
         /// <param name="alpha">The opacity of the colour.

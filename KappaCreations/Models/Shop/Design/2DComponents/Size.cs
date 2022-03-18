@@ -8,6 +8,10 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="Size"/> class.
         /// </summary>
+        public Size() => (Width, Height) = (0, 0);
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Size"/> class.
+        /// </summary>
         /// <param name="size">The size for both the width and height of the 2D shape.</param>
         public Size(double size) => (Width, Height) = (size, size);
         /// <summary>

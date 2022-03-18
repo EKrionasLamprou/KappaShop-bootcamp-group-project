@@ -42,11 +42,13 @@ namespace KappaCreations.RepositoryServices
             Set.Add(entity);
             db.SaveChanges();
         }
-        public virtual async void AddAsync(TEntity entity)
+        public virtual async Task AddAsync(TEntity entity)
         {
             Set.Add(entity);
             await db.SaveChangesAsync();
         }
+
+        public void AddRange(IEnumerable<TEntity> entities) => Set.AddRange(entities);
 
         public virtual bool Update(TEntity newEntity)
         {
@@ -57,7 +59,7 @@ namespace KappaCreations.RepositoryServices
             {
                 return false;
             }
-            oldEntity = newEntity;
+            db.Entry(oldEntity).CurrentValues.SetValues(newEntity);
             db.SaveChanges();
             return true;
         }
@@ -70,7 +72,7 @@ namespace KappaCreations.RepositoryServices
             {
                 return false;
             }
-            oldEntity = newEntity;
+            db.Entry(oldEntity).CurrentValues.SetValues(newEntity);
             await db.SaveChangesAsync();
             return true;
         }

@@ -8,6 +8,10 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="Position"/> class.
         /// </summary>
+        public Position() => (X, Y, Z) = (0, 0, 0); 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Position"/> class.
+        /// </summary>
         /// <param name="x">Represents the position on the x axis on a 2D space.</param>
         /// <param name="y">Represents the position on the y axis on a 2D space.</param>
         public Position(double x, double y, int z) => (X, Y, Z) = (x, y, z);

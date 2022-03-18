@@ -35,7 +35,7 @@ namespace KappaCreations.RepositoryServices
         /// <returns>An <see cref="IEnumerable{TEntity}"/> that contains all the entities.</returns>
         IEnumerable<TEntity> GetAll();
         /// <summary>
-        /// Returns all the entities of <see cref="TEntity"/> type from the database.
+        /// Returns all the entities of <see cref="TEntity"/> type from the database. Asynchronous method.
         /// </summary>
         /// <returns>An <see cref="IEnumerable{TEntity}"/> that contains all the entities.</returns>
         Task<IEnumerable<TEntity>> GetAllAsync();
@@ -46,10 +46,16 @@ namespace KappaCreations.RepositoryServices
         /// <param name="entity">The <see cref="TEntity"/> to be inserted.</param>
         void Add(TEntity entity);
         /// <summary>
-        /// Inserts a new <see cref="TEntity"/> to the database.
+        /// Inserts a new <see cref="TEntity"/> to the database. Asynchronous method.
         /// </summary>
         /// <param name="entity">The <see cref="TEntity"/> to be inserted.</param>
-        void AddAsync(TEntity entity);
+        Task AddAsync(TEntity entity);
+
+        /// <summary>
+        /// Inserts multiple <see cref="TEntity"/>s to the database.
+        /// </summary>
+        /// <param name="entities">The <see cref="TEntity"/>s to be inserted.</param>
+        void AddRange(IEnumerable<TEntity> entities);
 
         /// <summary>
         /// Updates a new <see cref="TEntity"/> from the database.
@@ -60,7 +66,7 @@ namespace KappaCreations.RepositoryServices
         bool Update(TEntity newEntity);
 
         /// <summary>
-        /// Updates a new <see cref="TEntity"/> from the database.
+        /// Updates a new <see cref="TEntity"/> from the database. Asynchronous method.
         /// </summary>
         /// <param name="newEntity">The object with the values to be updated.</param>
         /// <returns><see langword="true"/> if the opreration was successful,
@@ -82,14 +88,14 @@ namespace KappaCreations.RepositoryServices
         /// <see langword="false"/> otherwise.</returns>
         bool Delete(TEntity entity);
         /// <summary>
-        /// Deletes a <see cref="TEntity"/> from the database.
+        /// Deletes a <see cref="TEntity"/> from the database. Asynchronous method.
         /// </summary>
         /// <param name="id">The id of the entity.</param>
         /// <returns><see langword="true"/> if the opreration was successful,
         /// <see langword="false"/> otherwise.</returns>
         Task<bool> DeleteAsync(int id);
         /// <summary>
-        /// Deletes a <see cref="TEntity"/> from the database.
+        /// Deletes a <see cref="TEntity"/> from the database. Asynchronous method.
         /// </summary>
         /// <param name="entity">The <see cref="TEntity"/> to be deleted.</param>
         /// <returns><see langword="true"/> if the opreration was successful,

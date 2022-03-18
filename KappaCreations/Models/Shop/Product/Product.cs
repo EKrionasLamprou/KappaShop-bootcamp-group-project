@@ -23,9 +23,9 @@
         /// </summary>
         public Design BackDesign { get; set; }
 
-        /// <summary>
-        /// Represents the <see cref="ApplicationUser"/> who made the design.
-        /// </summary>
-        public ApplicationUser Designer { get; set; }
+        ///// <summary>
+        ///// Represents the <see cref="ApplicationUser"/> who made the design.
+        ///// </summary>
+        //public ApplicationUser Designer { get; set; }
     }
 }
