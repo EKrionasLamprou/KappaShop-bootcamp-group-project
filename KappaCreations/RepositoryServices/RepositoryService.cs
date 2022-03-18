@@ -2,6 +2,7 @@
 using KappaCreations.Models;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Threading.Tasks;
 
 namespace KappaCreations.RepositoryServices
 {
@@ -29,13 +30,22 @@ namespace KappaCreations.RepositoryServices
         public DbSet Set { get => db.Set(typeof(TEntity)); }
 
         public virtual TEntity Get(int id) => (TEntity)Set.Find(id);
+        public virtual async Task<TEntity> GetAsync(int id)
+            => (TEntity)await Set.FindAsync(id);
 
         public virtual IEnumerable<TEntity> GetAll() => (IEnumerable<TEntity>)Set;
-
+        public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
+            => (IEnumerable<TEntity>)await Set.ToListAsync();
+        
         public virtual void Add(TEntity entity)
         {
             Set.Add(entity);
             db.SaveChanges();
+        }
+        public virtual async void AddAsync(TEntity entity)
+        {
+            Set.Add(entity);
+            await db.SaveChangesAsync();
         }
 
         public virtual bool Update(TEntity newEntity)
@@ -49,6 +59,19 @@ namespace KappaCreations.RepositoryServices
             }
             oldEntity = newEntity;
             db.SaveChanges();
+            return true;
+        }
+        public virtual async Task<bool> UpdateAsync(TEntity newEntity)
+        {
+            int id = newEntity.Id;
+            object oldEntity = await GetAsync(id);
+
+            if (oldEntity is null)
+            {
+                return false;
+            }
+            oldEntity = newEntity;
+            await db.SaveChangesAsync();
             return true;
         }
 
@@ -65,5 +88,19 @@ namespace KappaCreations.RepositoryServices
             return true;
         }
         public virtual bool Delete(TEntity entity) => Delete(entity.Id);
+        public virtual async Task<bool> DeleteAsync(int id)
+        {
+            object entity = await GetAsync(id);
+
+            if (entity is null)
+            {
+                return false;
+            }
+            Set.Remove(entity);
+            await db.SaveChangesAsync();
+            return true;
+        }
+        public virtual async Task<bool> DeleteAsync(TEntity entity)
+            => await DeleteAsync(entity.Id);
     }
 }
