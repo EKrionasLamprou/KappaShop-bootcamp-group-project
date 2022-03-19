@@ -27,7 +27,7 @@ namespace KappaCreations.RepositoryServices
         /// <param name="db">An instance of the database.</param>
         public Repository(ShopContext db) => this.db = db;
         
-        public virtual DbSet<TEntity> Set { get => db.Set(typeof(TEntity)); }
+        public virtual DbSet<TEntity> Set { get => db.Set<TEntity>(); }
 
         public virtual TEntity Get(int id) => (TEntity)Set.Find(id);
         public virtual async Task<TEntity> GetAsync(int id)
@@ -79,7 +79,7 @@ namespace KappaCreations.RepositoryServices
 
         public virtual bool Delete(int id)
         {
-            object entity = Get(id);
+            TEntity entity = Get(id);
 
             if (entity is null)
             {
@@ -92,7 +92,7 @@ namespace KappaCreations.RepositoryServices
         public virtual bool Delete(TEntity entity) => Delete(entity.Id);
         public virtual async Task<bool> DeleteAsync(int id)
         {
-            object entity = await GetAsync(id);
+            TEntity entity = await GetAsync(id);
 
             if (entity is null)
             {
