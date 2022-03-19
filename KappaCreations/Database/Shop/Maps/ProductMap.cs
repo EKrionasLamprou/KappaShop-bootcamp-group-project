@@ -13,6 +13,11 @@ namespace KappaCreations.Database.Maps
             HasRequired(e => e.Design);
 
             HasOptional(e => e.BackDesign);
+
+         /* Saves the id of the ApplicationUser who made the product.
+            Can't make it a navigation property, because users are
+            stored in a different DbContext. */
+            Property(e => e.DesignerId);
         }
     }
 }

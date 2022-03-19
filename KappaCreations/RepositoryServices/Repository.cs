@@ -11,7 +11,7 @@ namespace KappaCreations.RepositoryServices
     /// </summary>
     /// <typeparam name="TEntity">A <see cref="IEntity"/> type.</typeparam>
     public class Repository<TEntity> : IRepository<TEntity>
-        where TEntity : IEntity
+        where TEntity : class, IEntity
     {
         protected readonly ShopContext db;
 
@@ -27,7 +27,7 @@ namespace KappaCreations.RepositoryServices
         /// <param name="db">An instance of the database.</param>
         public Repository(ShopContext db) => this.db = db;
         
-        public DbSet Set { get => db.Set(typeof(TEntity)); }
+        public virtual DbSet<TEntity> Set { get => db.Set(typeof(TEntity)); }
 
         public virtual TEntity Get(int id) => (TEntity)Set.Find(id);
         public virtual async Task<TEntity> GetAsync(int id)

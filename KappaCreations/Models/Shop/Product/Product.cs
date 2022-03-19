@@ -23,9 +23,19 @@
         /// </summary>
         public Design BackDesign { get; set; }
 
-        ///// <summary>
-        ///// Represents the <see cref="ApplicationUser"/> who made the design.
-        ///// </summary>
-        //public ApplicationUser Designer { get; set; }
+        /// <summary>
+        /// Represents the id of the <see cref="ApplicationUser"/> who made the design.
+        /// </summary>
+        public int DesignerId { get; set; }
+
+        /// <summary>
+        /// Represents the number of upvotes the product has received from users.
+        /// </summary>
+        public int Upvotes { get; set; }
+
+        /// <summary>
+        /// Represents the number of reports the product has received from users.
+        /// </summary>
+        public int Reports { get; set; }
     }
 }
