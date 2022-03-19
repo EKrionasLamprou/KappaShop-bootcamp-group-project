@@ -5,7 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace KappaCreations.RepositoryServices
+namespace KappaCreations.Repositories
 {
     /// <summary>
     /// Used for handling CRUD operations for the <see cref="Design"/> to the database.
@@ -36,10 +36,6 @@ namespace KappaCreations.RepositoryServices
                         .Include(e => e.Images)
                         .FirstOrDefaultAsync();
 
-        public override IEnumerable<Design> GetAll()
-            => Set.Include(e => e.Texts)
-                  .Include(e => e.Images)
-                  .ToList();
         public override async Task<IEnumerable<Design>> GetAllAsync()
             => await Set.Include(e => e.Texts)
                         .Include(e => e.Images)

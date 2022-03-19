@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Threading.Tasks;
 
-namespace KappaCreations.RepositoryServices
+namespace KappaCreations.Repositories
 {
     /// <summary>
     /// Used for handling CRUD operations to the database. Generic class.
@@ -29,13 +29,12 @@ namespace KappaCreations.RepositoryServices
         
         public virtual DbSet<TEntity> Set { get => db.Set<TEntity>(); }
 
-        public virtual TEntity Get(int id) => (TEntity)Set.Find(id);
+        public virtual TEntity Get(int id) => Set.Find(id);
         public virtual async Task<TEntity> GetAsync(int id)
-            => (TEntity)await Set.FindAsync(id);
+            => await Set.FindAsync(id);
 
-        public virtual IEnumerable<TEntity> GetAll() => (IEnumerable<TEntity>)Set;
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
-            => (IEnumerable<TEntity>)await Set.ToListAsync();
+            => await Set.ToListAsync();
         
         public virtual void Add(TEntity entity)
         {

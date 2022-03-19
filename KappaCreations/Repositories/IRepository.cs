@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Threading.Tasks;
 
-namespace KappaCreations.RepositoryServices
+namespace KappaCreations.Repositories
 {
     /// <summary>
     /// Used for handling CRUD operations to the database.
@@ -29,11 +29,6 @@ namespace KappaCreations.RepositoryServices
         /// <returns>The entity that matches the given id.</returns>
         Task<TEntity> GetAsync(int id);
 
-        /// <summary>
-        /// Returns all the entities of <see cref="TEntity"/> type from the database.
-        /// </summary>
-        /// <returns>An <see cref="IEnumerable{TEntity}"/> that contains all the entities.</returns>
-        IEnumerable<TEntity> GetAll();
         /// <summary>
         /// Returns all the entities of <see cref="TEntity"/> type from the database. Asynchronous method.
         /// </summary>
