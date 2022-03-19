@@ -211,7 +211,6 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Identity\Users\ApplicationUser.cs" />
     <Compile Include="Models\Identity\ViewModels\Account\ForgotPasswordViewModel.cs" />
-    <Compile Include="Models\Identity\ViewModels\Account\LoginRegisterViewModel .cs" />
     <Compile Include="Models\Identity\ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="Models\Identity\ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="Models\Identity\ViewModels\Account\ForgotViewModel.cs" />
