@@ -10,22 +10,22 @@ namespace KappaCreations.RepositoryServices
     /// Used for handling CRUD operations to the database. Generic class.
     /// </summary>
     /// <typeparam name="TEntity">A <see cref="IEntity"/> type.</typeparam>
-    public class RepositoryService<TEntity> : IRepositoryService<TEntity>
+    public class Repository<TEntity> : IRepository<TEntity>
         where TEntity : IEntity
     {
         protected readonly ShopContext db;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RepositoryService{TEntity}" class/>.
+        /// Initializes a new instance of the <see cref="Repository{TEntity}" class/>.
         /// Opens a new connection with the database.
         /// </summary>
-        public RepositoryService() => db = new ShopContext();
+        public Repository() => db = new ShopContext();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RepositoryService{TEntity}" class/>.
+        /// Initializes a new instance of the <see cref="Repository{TEntity}" class/>.
         /// </summary>
         /// <param name="db">An instance of the database.</param>
-        public RepositoryService(ShopContext db) => this.db = db;
+        public Repository(ShopContext db) => this.db = db;
         
         public DbSet Set { get => db.Set(typeof(TEntity)); }
 

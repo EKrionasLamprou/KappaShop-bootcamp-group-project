@@ -10,18 +10,18 @@ namespace KappaCreations.RepositoryServices
     /// <summary>
     /// Used for handling CRUD operations for the <see cref="Design"/> to the database.
     /// </summary>
-    public class DesignRepositoryService : RepositoryService<Design>
+    public class DesignRepository : Repository<Design>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DesignRepositoryService" class/>.
+        /// Initializes a new instance of the <see cref="DesignRepository" class/>.
         /// Opens a new connection with the database.
         /// </summary>
-        public DesignRepositoryService() { }
+        public DesignRepository() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="DesignRepositoryService" class/>.
+        /// Initializes a new instance of the <see cref="DesignRepository" class/>.
         /// </summary>
         /// <param name="db">An instance of the database.</param>
-        public DesignRepositoryService(ShopContext db) : base(db) { }
+        public DesignRepository(ShopContext db) : base(db) { }
 
         public override Design Get(int id)
             => db.Designs.Where(e => e.Id == id)

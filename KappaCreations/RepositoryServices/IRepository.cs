@@ -9,7 +9,7 @@ namespace KappaCreations.RepositoryServices
     /// Used for handling CRUD operations to the database.
     /// </summary>
     /// <typeparam name="TEntity">A <see cref="IEntity"/> type.</typeparam>
-    interface IRepositoryService<TEntity> where TEntity : IEntity
+    interface IRepository<TEntity> where TEntity : IEntity
     {
         /// <summary>
         /// An instance of the <see cref="TEntity"/>'s <see cref="DbSet"/>.
