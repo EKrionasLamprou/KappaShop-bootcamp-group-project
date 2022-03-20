@@ -40,11 +40,6 @@ namespace KappaCreations.Repositories
         /// </summary>
         /// <param name="entity">The <see cref="TEntity"/> to be inserted.</param>
         void Add(TEntity entity);
-        /// <summary>
-        /// Inserts a new <see cref="TEntity"/> to the database. Asynchronous method.
-        /// </summary>
-        /// <param name="entity">The <see cref="TEntity"/> to be inserted.</param>
-        Task AddAsync(TEntity entity);
 
         /// <summary>
         /// Inserts multiple <see cref="TEntity"/>s to the database.

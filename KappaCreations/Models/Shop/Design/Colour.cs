@@ -21,7 +21,7 @@ namespace KappaCreations.Models
         /// 1.0 represents full opacity, while 0.0 full transparency.</param>
         public Colour(string hex, double alpha = 1.0)
         {
-            SetValueByHex(hex);
+            Value = int.Parse(hex.TrimStart('#'), NumberStyles.AllowHexSpecifier);
             Alpha = alpha;
         }
         /// <summary>
@@ -64,11 +64,11 @@ namespace KappaCreations.Models
         }
 
         /// <summary>
-        /// Sets the value of the colour by converting a hexadecimal value.
+        /// Gets a new Colour by converting a hexadecimal value.
         /// </summary>
         /// <param name="hex">The hexadecimal value that represents a colour.</param>
-        public void SetValueByHex(string hex)
-            => Value = int.Parse(hex.TrimStart('#'), NumberStyles.AllowHexSpecifier);
+        public static Colour GetByHex(string hex)
+            => new Colour(int.Parse(hex.TrimStart('#'), NumberStyles.AllowHexSpecifier));
 
         /// <summary>
         /// A string that represents the current colour.

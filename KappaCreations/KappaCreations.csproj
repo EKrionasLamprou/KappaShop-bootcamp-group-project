@@ -181,6 +181,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Api\DesignApiController.cs" />
     <Compile Include="Controllers\Identity\Account\Confirmation.cs" />
     <Compile Include="Controllers\Identity\Account\Register.cs" />
     <Compile Include="Controllers\Identity\Account\Password.cs" />
@@ -235,6 +236,10 @@
     <Compile Include="Models\Shop\Design\2DComponents\Position.cs" />
     <Compile Include="Models\Shop\Design\2DComponents\Size.cs" />
     <Compile Include="Models\Shop\Design\Text.cs" />
+    <Compile Include="Models\Shop\DTOs\IDataTransferObject.cs" />
+    <Compile Include="Models\Shop\DTOs\TextDTO.cs" />
+    <Compile Include="Models\Shop\DTOs\ImageDTO.cs" />
+    <Compile Include="Models\Shop\DTOs\DesignDTO.cs" />
     <Compile Include="Models\Shop\Product\IEntity.cs" />
     <Compile Include="Models\Shop\Product\Product.cs" />
     <Compile Include="Models\Shop\Product\ProductCategory.cs" />

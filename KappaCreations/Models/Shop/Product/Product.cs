@@ -5,7 +5,7 @@
         /// <summary>
         /// Initiates a new instance of the <see cref="Product"/> class.
         /// </summary>
-        public Product() => BackDesign = null;
+        public Product() { }
 
         public int Id { get; set; }
         /// <summary>
@@ -37,5 +37,8 @@
         /// Represents the number of reports the product has received from users.
         /// </summary>
         public int Reports { get; set; }
+
+        // To add:
+        // Size for clothes
     }
 }

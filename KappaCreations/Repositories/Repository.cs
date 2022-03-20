@@ -36,16 +36,7 @@ namespace KappaCreations.Repositories
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
             => await Set.ToListAsync();
         
-        public virtual void Add(TEntity entity)
-        {
-            Set.Add(entity);
-            db.SaveChanges();
-        }
-        public virtual async Task AddAsync(TEntity entity)
-        {
-            Set.Add(entity);
-            await db.SaveChangesAsync();
-        }
+        public virtual void Add(TEntity entity) => Set.Add(entity);
 
         public void AddRange(IEnumerable<TEntity> entities) => Set.AddRange(entities);
 
@@ -59,7 +50,6 @@ namespace KappaCreations.Repositories
                 return false;
             }
             db.Entry(oldEntity).CurrentValues.SetValues(newEntity);
-            db.SaveChanges();
             return true;
         }
         public virtual async Task<bool> UpdateAsync(TEntity newEntity)
@@ -72,7 +62,6 @@ namespace KappaCreations.Repositories
                 return false;
             }
             db.Entry(oldEntity).CurrentValues.SetValues(newEntity);
-            await db.SaveChangesAsync();
             return true;
         }
 
@@ -85,7 +74,6 @@ namespace KappaCreations.Repositories
                 return false;
             }
             Set.Remove(entity);
-            db.SaveChanges();
             return true;
         }
         public virtual bool Delete(TEntity entity) => Delete(entity.Id);
@@ -98,7 +86,6 @@ namespace KappaCreations.Repositories
                 return false;
             }
             Set.Remove(entity);
-            await db.SaveChangesAsync();
             return true;
         }
         public virtual async Task<bool> DeleteAsync(TEntity entity)
