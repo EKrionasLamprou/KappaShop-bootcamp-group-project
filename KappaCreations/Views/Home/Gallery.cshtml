@@ -10,6 +10,12 @@
 
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <style>
+        #galleryDropDown{
+            padding:5px;
+            margin:3%;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
 
         .product-grid4, .product-grid4 .product-image4 {
             position: relative
@@ -261,7 +267,14 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
         <br />
         <div class="container" id="galleryCont">
-
+            <select id="galleryDropDown">
+                <option value="value">Price (Ascending)</option>
+                <option value="value">Price (Descending)</option>
+                <option value="value">Popularity (Ascending)</option>
+                <option value="value">Popularity (Descending)</option>
+                <option value="value">Newest to oldest</option>
+                <option value="value">Oldest to newest</option>
+            </select>
             <div class="row">
                 <div class="col-md-3 col-sm-6">
                     <div class="product-grid4">
