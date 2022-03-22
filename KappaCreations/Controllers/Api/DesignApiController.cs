@@ -7,104 +7,120 @@ using System;
 using System.Web.Http.Description;
 using KappaCreations.Models;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
+using System.Linq;
+using static KappaCreations.Controllers.Utilities;
 
 namespace KappaCreations.Controllers.Api
 {
     public class DesignApiController : ApiController
     {
-        readonly ShopContext db;
-        readonly DesignRepository repo;
+        readonly ShopContext _db;
+        readonly DesignRepository _repo;
 
         public DesignApiController()
         {
-            db = new ShopContext();
-            repo = new DesignRepository(db);
+            _db = new ShopContext();
+            _repo = new DesignRepository(_db);
         }
-        [Obsolete]
         public DesignApiController(ShopContext db)
         {
-            this.db = db;
-            repo = new DesignRepository(db);
+            _db = db;
+            _repo = new DesignRepository(_db);
         }
 
-        [ResponseType(typeof(IEnumerable<Design>))]
+        [HttpGet]
+        [ResponseType(typeof(IEnumerable<DesignDTO>))]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var designs = await repo.GetAllAsync();
-            return Ok(designs);
+            var designs = await _repo.GetAllAsync();
+            return Ok(designs.Select(design => DesignDTO.MapFrom(design)));
         }
 
-        [ResponseType(typeof(Design))]
+        [HttpGet]
+        [ResponseType(typeof(DesignDTO))]
         public async Task<IHttpActionResult> GetAsync(int id)
         {
-            var design = await repo.GetAsync(id);
+            var design = await _repo.GetAsync(id);
             if (design == null)
             {
                 return NotFound();
             }
-            return Ok(design);
+            return Ok(DesignDTO.MapFrom(design));
         }
 
         [HttpPost]
+        [ResponseType(typeof(DesignDTO))]
         public async Task<IHttpActionResult> PostAsync(DesignDTO data)
         {
+            Design design;
             try
             {
-                var design = data.Parse();
-                repo.Add(design);
-                await db.SaveChangesAsync();
+                design = data.Map();
+                _repo.Add(design);
+                await _db.SaveChangesAsync();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                return BadRequest(FormatDbEntityValidationException(ex));
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
-            return Ok();
+            return Ok(DesignDTO.MapFrom(design));
         }
 
         [HttpPut]
+        [ResponseType(typeof(DesignDTO))]
         public async Task<IHttpActionResult> PutAsync(DesignDTO data)
         {
             try
             {
-                var design = data.Parse();
-                bool result = await repo.UpdateAsync(design);
+                var design = data.Map();
+                bool result = await _repo.UpdateAsync(design);
                 if (!result)
                 {
                     return NotFound();
                 }
-                await db.SaveChangesAsync();
+                await _db.SaveChangesAsync();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                return BadRequest(FormatDbEntityValidationException(ex));
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
-            return Ok();
+            return Ok(data);
         }
 
         [HttpDelete]
+        [ResponseType(typeof(string))]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {
             try
             {
-                bool result = await repo.DeleteAsync(id);
+                bool result = await _repo.DeleteAsync(id);
                 if (!result)
                 {
                     return NotFound();
                 }
-                await db.SaveChangesAsync();
+                await _db.SaveChangesAsync();
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
-            return Ok();
+            return Ok($"Design with id {id} was deleted.");
         }
 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                db.Dispose();
+                _db.Dispose();
             }
             base.Dispose(disposing);
         }

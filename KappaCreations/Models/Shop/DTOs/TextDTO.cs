@@ -18,15 +18,28 @@
         public double ColourAlpha { get; set; } = 1;
 
         public string Content { get; set; } = string.Empty;
-        public int Font { get; set; } = 1;
+        public string Font { get; set; }
 
-        public Text Parse() => new Text
+        public Text Map() => new Text
         {
             Position = new Position(PosX, PosY, ZIndex),
             Size = new Size(SizeWidth, SizeHeight),
             Colour = Colour.GetByHex(ColourHex),
             Content = Content,
-            Font = new Font(), // TO DO
+            Font = new Font() { Name = "Arial"}, // TO DO
+        };
+
+        public static TextDTO MapFrom(Text text) => new TextDTO
+        {
+            Id = text.Id,
+            PosX = text.Position.X,
+            PosY = text.Position.Y,
+            ZIndex = text.Position.Z,
+            SizeWidth = text.Size.Width,
+            SizeHeight = text.Size.Height,
+            ColourHex = text.Colour.ToString(),
+            Content = text.Content,
+            Font = null,
         };
     }
 }

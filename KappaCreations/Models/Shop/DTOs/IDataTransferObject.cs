@@ -2,6 +2,6 @@
 {
     interface IDataTransferObject<T>
     {
-        T Parse();
+        T Map();
     }
 }

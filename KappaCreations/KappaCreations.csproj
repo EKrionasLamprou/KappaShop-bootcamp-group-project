@@ -182,7 +182,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Api\DesignApiController.cs" />
-    <Compile Include="Controllers\Api\DesignsController.cs" />
+    <Compile Include="Controllers\ControllerUtilities.cs" />
     <Compile Include="Controllers\Identity\Account\Confirmation.cs" />
     <Compile Include="Controllers\Identity\Account\Register.cs" />
     <Compile Include="Controllers\Identity\Account\Password.cs" />

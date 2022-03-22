@@ -19,12 +19,24 @@
 
         public string Url { get; set; }
 
-        public Image Parse() => new Image
+        public Image Map() => new Image
         {
             Position = new Position(PosX, PosY, ZIndex),
             Size = new Size(SizeWidth, SizeHeight),
             Colour = Colour.GetByHex(ColourHex),
             Url = Url,
+        };
+
+        public static ImageDTO MapFrom(Image image) => new ImageDTO
+        {
+            Id = image.Id,
+            PosX = image.Position.X,
+            PosY = image.Position.Y,
+            ZIndex = image.Position.Z,
+            SizeWidth = image.Size.Width,
+            SizeHeight = image.Size.Height,
+            ColourHex = image.Colour.ToString(),
+            Url = image.Url,
         };
     }
 }
