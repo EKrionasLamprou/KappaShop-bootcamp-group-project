@@ -433,6 +433,7 @@
     <Content Include="probeautyfly\ShoppingCart1.html" />
     <Content Include="probeautyfly\ShoppingCart2.html" />
     <Content Include="probeautyfly\single-blog.html" />
+    <Content Include="probeautyfly\viewGalleryProduct.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="architectui-html-free\__MACOSX\architectui-html-free\._Changelog.md" />
