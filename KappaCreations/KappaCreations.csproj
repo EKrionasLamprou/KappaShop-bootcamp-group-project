@@ -302,7 +302,6 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="probeautyfly\about.html" />
-    <Content Include="probeautyfly\blog.html" />
     <Content Include="probeautyfly\contact.html" />
     <Content Include="probeautyfly\css\bootstrap.min.css" />
     <Content Include="probeautyfly\css\component.css" />
@@ -430,9 +429,7 @@
     <Content Include="probeautyfly\js\waypoints.min.js" />
     <Content Include="probeautyfly\License.txt" />
     <Content Include="probeautyfly\service.html" />
-    <Content Include="probeautyfly\ShoppingCart1.html" />
     <Content Include="probeautyfly\ShoppingCart2.html" />
-    <Content Include="probeautyfly\single-blog.html" />
     <Content Include="probeautyfly\viewGalleryProduct.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
