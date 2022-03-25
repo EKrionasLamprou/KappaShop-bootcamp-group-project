@@ -63,7 +63,7 @@
     }
 
 .profile-orders {
-    background-color: red;
+    background-color: #1dabb8;
     padding: 20px 30px;
     color: #fff;
     display: flex;
@@ -137,7 +137,7 @@
 
 .profile-content-button {
     padding: 12px 20px;
-    background-color: red;
+    background-color: #1dabb8;
     display: inline-block;
     color: #fff !important;
     text-transform: uppercase;
@@ -193,5 +193,5 @@
 }
 
     .tabs__content a:hover {
-        color: red;
+        color: #1dabb8;
     }
