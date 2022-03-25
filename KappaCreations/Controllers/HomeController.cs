@@ -39,7 +39,7 @@ namespace KappaCreations.Controllers
 
             return View();
         }
-        public ActionResult Blog()
+        public ActionResult TestUserPage()
         {
             ViewBag.Message = "Your contact page.";
 

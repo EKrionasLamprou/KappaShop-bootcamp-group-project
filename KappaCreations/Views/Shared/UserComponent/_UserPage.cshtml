@@ -1,0 +1,194 @@
+﻿<div class="profile-container">
+    <div class="profile-block tabs">
+        <div class="profile-menu tabs__menu">
+            <div class="profile-title">MY ACCOUNT</div>
+            <a class="tabs__button tabs__button--active" href="#" data-for-tab="1">Dashboard</a>
+            <a class="tabs__button" href="#" data-for-tab="2">Orders</a>
+            <a class="tabs__button" href="#" data-for-tab="3">Addresses</a>
+            <a class="tabs__button" href="#" data-for-tab="4">Account details</a>
+            <a class="tabs__button" href="#" data-for-tab="5">Wishlist</a>
+            <a class="tabs__button" href="#" data-for-tab="6">Logout</a>
+        </div>
+        <div class="profile-body tabs__content-container">
+            <div class="tabs__content tabs__content--active" data-tab="1">
+                <p>Hello <strong>User</strong></p>
+                <p>From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and <a href="#">edit your password and account details</a>.</p>
+
+                <div class="profile-content-template">
+                    <a href="#" class="profile-content-block tabs__icon" data-for-tab="2">
+                        <div class="profile-content-block-icon">
+                            <img src="~/probeautyfly/images/userProfileImg/orders.svg" />
+                        </div>
+                        <div class="profile-content-block-icon">ORDERS</div>
+                    </a>
+                    <a href="#" class="profile-content-block tabs__icon" data-for-tab="3">
+                        <div class="profile-content-block-icon">
+                            <img src="~/probeautyfly/images/userProfileImg/address.svg" alt="address"/>
+                        </div>
+                        <div class="profile-content-block-icon">ADDRESSES</div>
+                    </a>
+                    <a href="#" class="profile-content-block tabs__icon" data-for-tab="4">
+                        <div class="profile-content-block-icon">
+                            <img src="~/probeautyfly/images/userProfileImg/account.svg" />
+                        </div>
+                        <div class="profile-content-block-icon">ACCOUNT DETAILS</div>
+                    </a>
+                    <a href="#" class="profile-content-block tabs__icon" data-for-tab="5">
+                        <div class="profile-content-block-icon">
+                            <img src="~/probeautyfly/images/userProfileImg/wishlist.svg" />
+                        </div>
+                        <div class="profile-content-block-icon">WISHLIST</div>
+                    </a>
+                    <a href="#" class="profile-content-block">
+                        <div class="profile-content-block-icon">
+                            <img src="~/probeautyfly/images/userProfileImg/logout.svg" />
+                        </div>
+                        <div class="profile-content-block-icon">LOGOUT</div>
+                    </a>
+                </div>
+            </div>
+            <div class="tabs__content" data-tab="2">
+                <div class="profile-orders">
+                    <div class="profile-orders-link"><img src="~/probeautyfly/images/userProfileImg/exclamation.svg" /><a href="#">BROWSE PRODUCTS</a>
+                    </div>
+                    No order has been made yet.
+                </div>
+            </div>
+            <div class="tabs__content" data-tab="3">
+                <p>The following addresses will be used on the checkout page by default.</p>
+                <div class="profile-address">
+                    <div class="profile-address-block">
+                        <div class="profile-address-block-title">BILLING ADDRESS <span>Add</span></div>
+                        <p>You have not set up this type of address yet.</p>
+                    </div>
+                    <div class="profile-address-block">
+                        <div class="profile-address-block-title">BILLING ADDRESS <span>Add</span></div>
+                        <p>You have not set up this type of address yet.</p>
+                    </div>
+                </div>
+
+                <div class="profile-form">
+                    <div class="profile-title">BILLING ADDRESS</div>
+
+                    <div class="profile-form-group-container">
+                        <div class="profile-form-group-coontainer">
+                            <div class="profile-form-group">
+                                <label>First name *</label>
+                                <input type="text" />
+                            </div>
+
+                            <div class="profile-form-group">
+                                <label>Last name *</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+                        <div class="profile-form-group-coontainer">
+                            <div class="profile-form-group">
+                                <label>Country *</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+                        <div class="profile-form-group-coontainer">
+                            <div class="profile-form-group">
+                                <label>Street address *</label>
+                                <input type="text" placeholder="House number and street name" />
+                            </div>
+                        </div>
+                        <div class="profile-form-group-coontainer">
+                            <div class="profile-form-group">
+                                <label>Town / City *</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+                        <div class="profile-form-group-coontainer">
+                            <div class="profile-form-group">
+                                <label>State / County (optional)</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+                        <div class="profile-form-group-coontainer">
+                            <div class="profile-form-group">
+                                <label>Postcode / ZIP *</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+                        <div class="profile-form-group-coontainer">
+                            <div class="profile-form-group">
+                                <label>Phone *</label>
+                                <input type="text" />
+                            </div>
+
+                            <div class="profile-form-group">
+                                <label>Email address *</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+
+                        <div><a href="#" class="profile-content-button">Save address</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="tabs__content" data-tab="4">
+                <div class="profile-form">
+                    <div class="profile-form-group-container">
+                        <div class="profile-form-group-coontainer">
+                            <div class="profile-form-group">
+                                <label>First name *</label>
+                                <input type="text" />
+                            </div>
+
+                            <div class="profile-form-group">
+                                <label>Last name *</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+                        <div class="profile-form-group-coontainer">
+                            <div class="profile-form-group">
+                                <label>Display name *</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+                        <div class="profile-form-group-coontainer">
+                            <div class="profile-form-group">
+                                <label>Email address *</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+                        <div class="profile-title">PASSWORD CHANGE</div>
+                        <div class="profile-form-group-coontainer">
+                            <div class="profile-form-group">
+                                <label>Current password (leave blank to leave unchanged)</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+                        <div class="profile-form-group-coontainer">
+                            <div class="profile-form-group">
+                                <label>New password (leave blank to leave unchanged)</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+                        <div class="profile-form-group-coontainer">
+                            <div class="profile-form-group">
+                                <label>Confirm new password</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+
+                        <div><a href="#" class="profile-content-button">Save changes</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="tabs__content" data-tab="5">
+                <div class="profile-title">YOUR PRODUCTS WISHLIST</div>
+                <div class="profile-content-text">
+                    <img src="~/probeautyfly/images/userProfileImg/wishlist.svg" />
+                    <p class="lg">Wishlist is empty.</p>
+                    <p>You don't have any products in the wishlist yet.</p>
+                    <p>You will find a lot of interesting products on our "Shop" page.</p>
+                    <a class="profile-content-button" href="#">Return to shop</a>
+                </div>
+            </div>
+            <div class="tabs__content" data-tab="6">Ok</div>
+        </div>
+    </div>
+</div>

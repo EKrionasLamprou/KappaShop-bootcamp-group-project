@@ -311,6 +311,7 @@
     <Content Include="probeautyfly\css\owl.theme.default.css" />
     <Content Include="probeautyfly\css\responsive.css" />
     <Content Include="probeautyfly\css\style.css" />
+    <Content Include="probeautyfly\css\UserProfile.css" />
     <Content Include="probeautyfly\font-awesome\css\font-awesome.min.css" />
     <Content Include="probeautyfly\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="probeautyfly\fonts\antonio-exotic\stylesheet.css" />
@@ -411,6 +412,12 @@
     <Content Include="probeautyfly\images\thermos.png" />
     <Content Include="probeautyfly\images\tissue.png" />
     <Content Include="probeautyfly\images\tshirt.png" />
+    <Content Include="probeautyfly\images\userProfileImg\account.svg" />
+    <Content Include="probeautyfly\images\userProfileImg\address.svg" />
+    <Content Include="probeautyfly\images\userProfileImg\exclamation.svg" />
+    <Content Include="probeautyfly\images\userProfileImg\logout.svg" />
+    <Content Include="probeautyfly\images\userProfileImg\orders.svg" />
+    <Content Include="probeautyfly\images\userProfileImg\wishlist.svg" />
     <Content Include="probeautyfly\images\xristina.jpg" />
     <Content Include="probeautyfly\images\xristina.png" />
     <Content Include="probeautyfly\js\bootstrap.min.js" />
@@ -426,6 +433,7 @@
     <Content Include="probeautyfly\js\modernizr.custom.js" />
     <Content Include="probeautyfly\js\modernizr.js" />
     <Content Include="probeautyfly\js\owl.carousel.min.js" />
+    <Content Include="probeautyfly\js\UserProfile.js" />
     <Content Include="probeautyfly\js\waypoints.min.js" />
     <Content Include="probeautyfly\License.txt" />
     <Content Include="probeautyfly\service.html" />
@@ -519,6 +527,9 @@
     <Content Include="Views\Shared\_ClientLayout.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Home\Gallery.cshtml" />
+    <Content Include="Views\Shared\UserComponent\_UserPage.cshtml" />
+    <Content Include="Views\Shared\_UserLayout.cshtml" />
+    <Content Include="Views\Home\TestUserPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
