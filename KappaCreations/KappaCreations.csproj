@@ -302,6 +302,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="probeautyfly\about.html" />
     <Content Include="probeautyfly\contact.html" />
+    <Content Include="probeautyfly\css\Admin.css" />
     <Content Include="probeautyfly\css\bootstrap.min.css" />
     <Content Include="probeautyfly\css\component.css" />
     <Content Include="probeautyfly\css\CreateCSS.css" />
@@ -319,6 +320,13 @@
     <Content Include="probeautyfly\home.html" />
     <Content Include="probeautyfly\images\1banner.jpg" />
     <Content Include="probeautyfly\images\about.png" />
+    <Content Include="probeautyfly\images\AdminImg\anna.jpg" />
+    <Content Include="probeautyfly\images\AdminImg\christinapng.png" />
+    <Content Include="probeautyfly\images\AdminImg\christos.jpg" />
+    <Content Include="probeautyfly\images\AdminImg\ektoras.png" />
+    <Content Include="probeautyfly\images\AdminImg\Kappa_logo_Black.jpg" />
+    <Content Include="probeautyfly\images\AdminImg\panos.jpg" />
+    <Content Include="probeautyfly\images\AdminImg\user.jpg" />
     <Content Include="probeautyfly\images\Anna.jpg" />
     <Content Include="probeautyfly\images\appointment-bg.png" />
     <Content Include="probeautyfly\images\ashtray.png" />
@@ -419,6 +427,7 @@
     <Content Include="probeautyfly\images\userProfileImg\wishlist.svg" />
     <Content Include="probeautyfly\images\xristina.jpg" />
     <Content Include="probeautyfly\images\xristina.png" />
+    <Content Include="probeautyfly\js\Admin.js" />
     <Content Include="probeautyfly\js\bootstrap.min.js" />
     <Content Include="probeautyfly\js\classie.js" />
     <Content Include="probeautyfly\js\counterup.min.js" />
@@ -528,10 +537,11 @@
     <Content Include="Views\Shared\_UserLayout.cshtml" />
     <Content Include="Views\Home\TestUserPage.cshtml" />
     <Content Include="Views\Home\ShoppingCart.cshtml" />
+    <Content Include="Views\Shared\AdminComponent\_AdminPage.cshtml" />
+    <Content Include="Views\Home\TestAdminPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Shared\AdminComponent\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
