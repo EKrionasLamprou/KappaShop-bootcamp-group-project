@@ -7,9 +7,6 @@ namespace KappaCreations.Database.Maps
     {
         public ProductMap()
         {
-            HasRequired(e => e.ProductCategory)
-                .WithMany(e => e.Products);
-
             HasRequired(e => e.Design);
 
             HasOptional(e => e.BackDesign);
@@ -18,6 +15,8 @@ namespace KappaCreations.Database.Maps
             Can't make it a navigation property, because users are
             stored in a different DbContext. */
             Property(e => e.DesignerId);
+
+            Ignore(e => e.Category);
         }
     }
 }
