@@ -441,9 +441,12 @@
     <Content Include="probeautyfly\js\modernizr.custom.js" />
     <Content Include="probeautyfly\js\modernizr.js" />
     <Content Include="probeautyfly\js\owl.carousel.min.js" />
+    <Content Include="probeautyfly\js\Test.js" />
     <Content Include="probeautyfly\js\UserProfile.js" />
     <Content Include="probeautyfly\js\waypoints.min.js" />
     <Content Include="probeautyfly\License.txt" />
+    <Content Include="probeautyfly\printableImages\mugs.png" />
+    <Content Include="probeautyfly\printableImages\t-shirts.png" />
     <Content Include="probeautyfly\service.html" />
     <Content Include="probeautyfly\ShoppingCart2.html" />
     <Content Include="probeautyfly\viewGalleryProduct.html" />

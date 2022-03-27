@@ -1,4 +1,5 @@
-﻿
+﻿const url = localStorage.getItem('ImageUrl');
+
 var select_item = '';
 var select_price = '+0';
 var price = 10;
@@ -104,7 +105,8 @@ $(document).ready(function () {
 
     var radius = 300;
 
-    fabric.Image.fromURL('/probeautyfly/images/cup.jpg', function (img) {
+    //fabric.Image.fromURL('/probeautyfly/images/cup.jpg', function (img) {
+    fabric.Image.fromURL(url, function (img) {
         img.set({
             width: 550,
             height: 550,
@@ -115,7 +117,7 @@ $(document).ready(function () {
             hasBorders: false
         });
         canvas.add(img).setActiveObject(img);
-
+        item_list.push(img);
         console.log(img._element)
 
         rectbox = new fabric.Rect({
