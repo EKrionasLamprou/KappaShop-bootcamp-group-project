@@ -47,6 +47,11 @@ namespace KappaCreations.Database.Maps
                 .HasColumnType("text")
                 .HasMaxLength(40)
                 .IsRequired();
+
+            Property(e => e.Font)
+                .HasColumnName("Font")
+                .HasColumnType("int")
+                .IsRequired();
         }
     }
 }

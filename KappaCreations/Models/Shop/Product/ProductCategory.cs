@@ -1,26 +1,37 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace KappaCreations.Models
 {
     /// <summary>
     /// Represents a category that products belong to.
     /// </summary>
-    public class ProductCategory : IEntity
+    public class ProductCategory
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ProductCategory"/> class.
         /// </summary>
-        public ProductCategory()
+        public ProductCategory(string title, double price, ProductCategory supercategory = null)
         {
-            SubCategories = new HashSet<ProductCategory>();
-            Products = new HashSet<Product>();
+            Title = title;
+            Price = price;
+            SuperCategory = supercategory;
         }
 
-        public int Id { get; set; }
         /// <summary>
         /// The name of the category.
         /// </summary>
         public string Title { get; set; }
+
+        /// <summary>
+        /// The price of the category products.
+        /// </summary>
+        public double Price { get; set; }
+
+        /// <summary>
+        /// The image url of the base product.
+        /// </summary>
+        public string ImageUrl { get; set; }
 
         /// <summary>
         /// The category this category belongs to.
@@ -29,11 +40,12 @@ namespace KappaCreations.Models
         /// <summary>
         /// The categories that belong to this category.
         /// </summary>
-        public ICollection<ProductCategory> SubCategories { get; set; }
-        /// <summary>
-        /// The products that belong to this category.
-        /// </summary>
-        public ICollection<Product> Products { get; set; }
+        public ICollection<ProductCategory> SubCategories
+        {
+            get => Consonants.PRODUCT_CATEGORIES
+                             .Where(c => c.SuperCategory == this)
+                             .ToList();
+        }
 
         /// <summary>
         /// A string that represents the category's title.

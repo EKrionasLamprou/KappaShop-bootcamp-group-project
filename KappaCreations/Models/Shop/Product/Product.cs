@@ -8,10 +8,15 @@
         public Product() { }
 
         public int Id { get; set; }
+
+        public int CategoryId { get; set; }
         /// <summary>
         /// The category the <see cref="Product"/> belongs to.
         /// </summary>
-        public ProductCategory ProductCategory { get; set; }
+        public ProductCategory Category
+        {
+            get => Utilities.GetProductCategory(CategoryId);
+        }
 
         /// <summary>
         /// Represents a user-made design, printed on the product.

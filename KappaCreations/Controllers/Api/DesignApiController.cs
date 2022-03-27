@@ -9,7 +9,7 @@ using KappaCreations.Models;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Linq;
-using static KappaCreations.Controllers.Utilities;
+using static KappaCreations.Utilities;
 
 namespace KappaCreations.Controllers.Api
 {
@@ -71,6 +71,7 @@ namespace KappaCreations.Controllers.Api
             return Ok(DesignDTO.MapFrom(design));
         }
 
+        [Obsolete]
         [HttpPut]
         [ResponseType(typeof(DesignDTO))]
         public async Task<IHttpActionResult> PutAsync(DesignDTO data)

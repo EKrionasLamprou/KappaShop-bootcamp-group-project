@@ -1,8 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using KappaCreations.Models;
+using System;
+using System.Collections.Generic;
 using System.Data.Entity.Validation;
+using System.Linq;
 using System.Text;
+using static KappaCreations.Consonants;
 
-namespace KappaCreations.Controllers
+namespace KappaCreations
 {
     public static class Utilities
     {
@@ -29,5 +33,10 @@ namespace KappaCreations.Controllers
             }
             return sb.ToString();
         }
+
+        public static ProductCategory GetProductCategory(int i)
+            => PRODUCT_CATEGORIES[i];
+        public static ProductCategory GetProductCategory(string title)
+            => PRODUCT_CATEGORIES.FirstOrDefault(c => c.Title == title) ?? null;
     }
 }
