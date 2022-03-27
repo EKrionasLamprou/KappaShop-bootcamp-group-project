@@ -5,7 +5,6 @@
     <!--end-->
     <div id="myCarousel1" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
-
         <div class="carousel-inner">
             <div class="item active">
                 <img src="~/probeautyfly/images/1banner.jpg" style="width:100%;" alt="First slide">
@@ -30,9 +29,6 @@
         <a data-slide="next" href="#myCarousel1" class="right carousel-control"><img alt="left" onmouseout="this.src = 'probeautyfly/images/icons/right.png'" onmouseover="this.src = 'probeautyfly/images/icons/right-hover.png'" src="probeautyfly/images/icons/right.png"></a>
     </div>
     <div class="clearfix"></div>
-
-
-
     <section class="what-we-do-block section-padding-small">
         <div class="container">
             <div class="row">
@@ -50,14 +46,13 @@
                     <p class="desc-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam euismod nec elit quis vestibulum. Duis pretium lorem sed lorem porttitor, sit amet mattis risus consectetur. Vestibulum in nisi feugiat, dignissim felis in, dictum felis. In hac habitasse platea dictumst. Ut pretium egestas erat in tempus. Nam consequat leo nisi. Suspendisse non libero ornare, </p>
                     <p class="desc-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam euismod nec elit quis vestibulum. Duis pretium lorem sed lorem porttitor, sit amet mattis risus consectetur. Vestibulum in nisi feugiat, dignissim felis in, dictum </p>
                     <p class="desc-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam euismod nec elit quis vestibulum. Duis pretium lorem sed lorem porttitor, sit amet</p>
-                    <a class="read-more" href="#">Read More</a>
+                    <a class="read-more" href=@Url.Action("About","Home")>Read More</a>
                 </div>
 
             </div>
         </div>
         <div class="clearfix"></div>
     </section>
-
     <section class="gallery-block section-padding-small">
         <div class="container">
             <div class="row">
@@ -125,7 +120,6 @@
         </div>
         <div class="clearfix"></div>
     </section>
-
     <section class="service-block section-padding-small">
 
         <div class="container">
@@ -260,8 +254,6 @@
             </div>
         </div>
     </section>
-
-
     <section class="offer-block section-padding-small">
         <div class="offer-block-background-image">
             <div class="container">
@@ -269,111 +261,13 @@
                     <div class="col-md-6 col-sm-8 col-xs-12 set-mid-width">
                         <div class="sticky-head">
                             <h1>the hottest creations</h1>
-                            <a href="#">read more</a>
+                            <a href=@Url.Action("Gallery","Home")>Take a Look</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <section class="appointment-block section-padding-small">
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-12 col-xs-12 text-center">
-                    <div class="text-head">
-                        <h2>make an appointment</h2>
-                    </div>
-                    <form id="BookForm" class="offspace-70">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="book-form">
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <input type="text" id="name" class="form-control placeholder-fix" placeholder="name" required="" aria-invalid="false">
-                                            <p class="help-block text-danger"></p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <input type="text" id="contact" class="form-control placeholder-fix" placeholder="number" required="">
-                                            <p class="help-block text-danger"></p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <input type="email" id="email" class="form-control placeholder-fix" placeholder="Email" required="">
-                                            <p class="help-block text-danger"></p>
-                                        </div>
-                                    </div>
-                                    <div class=" col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <input type="text" id="date" class="form-control placeholder-fix" placeholder="date" required="">
-                                            <p class="help-block text-danger"></p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <div class="form-group">
-                                            <textarea name="message" id="message" class="form-control placeholder-fix" rows="4" placeholder="Message" required="" aria-invalid="false"></textarea>
-                                            <p class="help-block text-danger"></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <div class="action-buttons text-center">
-                                        <button type="reset" class="btn">Clear</button>
-                                        <button type="submit" class="btn">Send</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-md-6 col-sm-12 col-xs-12 text-center mobile-view-set-padd">
-                    <div class="text-head">
-                        <h2>testimonial</h2>
-                    </div>
-                    <div data-ride="carousel" class="carousel slide offspace-70" id="myCarousel2">
-
-                        <!-- Wrapper for slides -->
-                        <div role="listbox" class="carousel-inner">
-                            <div class="item active">
-                                <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-                                    <div class="testimonial-image">
-                                        <img class="img-responsive" src="~/probeautyfly/images/testimonial1.png">
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <p>" Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley "</p>
-                                    <h4>alex blackwell</h4>
-                                    <h4>ceo</h4>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-                                    <div class="testimonial-image">
-                                        <img class="img-responsive" src="~/probeautyfly/images/testimonial2.png">
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <p>" Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gallery "</p>
-                                    <h4>alex blackwell</h4>
-                                    <h4>ceo</h4>
-                                </div>
-                            </div>
-
-                        </div>
-                        <a data-slide="prev" href="#myCarousel2" class="left carousel-control"> <img alt="left" onmouseout="this.src = 'probeautyfly/images/icons/left-arrow-square.png'" onmouseover="this.src = 'probeautyfly/images/icons/left-arrow-square-hover.png'" src="probeautyfly/images/icons/left-arrow-square.png"></a>
-                        <a data-slide="next" href="#myCarousel2" class="right carousel-control"><img alt="right" onmouseout="this.src = 'probeautyfly/images/icons/right-arrow-square.png'" onmouseover="this.src = 'probeautyfly/images/icons/right-arrow-square-hover.png'" src="probeautyfly/images/icons/right-arrow-square.png"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
     <section class="team-block section-padding-small">
         <div class="container">
             <div class="row">
@@ -461,86 +355,6 @@
         </div>
         <div class="clearfix"></div>
     </section>
-
-    <section class="pro-gallery-block section-padding-small">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-                    <div class="text-head">
-                        <h2>Gallery</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row offspace-70">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="grid hover-effect">
-                        <div class="grid-sizer"></div>
-                        <div class="grid-item gp-image">
-                            <a class="example-image-link"><img src="~/probeautyfly/images/gp1.png" class="img-responsive" alt="gallery"></a>
-                            <div class="overlay-gpimage">
-                                <h3>Image1</h3>
-                            </div>
-                        </div>
-                        <div class="grid-item gp-image">
-                            <a class="example-image-link"><img src="~/probeautyfly/images/gp2.png" class="img-responsive" alt="gallery"></a>
-                            <div class="overlay-gpimage">
-                                <h3>Image2</h3>
-                            </div>
-                        </div>
-                        <div class="grid-item gp-image">
-                            <a class="example-image-link"><img src="~/probeautyfly/images/gp3.png" class="img-responsive" alt="gallery"></a>
-                            <div class="overlay-gpimage">
-                                <h3>Image3</h3>
-                            </div>
-                        </div>
-                        <div class="grid-item gp-image">
-                            <a class="example-image-link"><img src="~/probeautyfly/images/gp4.png" class="img-responsive" alt="gallery"></a>
-                            <div class="overlay-gpimage">
-                                <h3>Image4</h3>
-                            </div>
-                        </div>
-                        <div class="grid-item gp-image">
-                            <a class="example-image-link"><img src="~/probeautyfly/images/gp5.png" class="img-responsive" alt="gallery"></a>
-                            <div class="overlay-gpimage">
-                                <h3>Image5</h3>
-                            </div>
-                        </div>
-                        <div class="grid-item gp-image">
-                            <a class="example-image-link"><img src="~/probeautyfly/images/gp6.png" class="img-responsive" alt="gallery"></a>
-                            <div class="overlay-gpimage">
-                                <h3>Image6</h3>
-                            </div>
-                        </div>
-                        <div class="grid-item gp-image">
-                            <a class="example-image-link"><img src="~/probeautyfly/images/gp7.png" class="img-responsive" alt="gallery"></a>
-                            <div class="overlay-gpimage">
-                                <h3>Image7</h3>
-                            </div>
-                        </div>
-                        <div class="grid-item gp-image">
-                            <a class="example-image-link"><img src="~/probeautyfly/images/gp8.png" class="img-responsive" alt="gallery"></a>
-                            <div class="overlay-gpimage">
-                                <h3>Image8</h3>
-                            </div>
-                        </div>
-                        <div class="grid-item gp-image">
-                            <a class="example-image-link"><img src="~/probeautyfly/images/gp9.png" class="img-responsive" alt="gallery"></a>
-                            <div class="overlay-gpimage">
-                                <h3>Image9</h3>
-                            </div>
-                        </div>
-                        <div class="grid-item gp-image">
-                            <a class="example-image-link"><img src="~/probeautyfly/images/gp10.png" class="img-responsive" alt="gallery"></a>
-                            <div class="overlay-gpimage">
-                                <h3>Image10</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="statistic-block section-padding-small">
 
         <div class="container">
@@ -588,10 +402,8 @@
                     });</script>
             </div>
         </div>
-
         <div class="clearfix"></div>
     </section>
-
     <section class="appointment-block section-padding-small">
         <div class="appointment-block-inner">
             <div class="container">
@@ -600,70 +412,13 @@
                         <h3>impressed with us?</h3>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12 text-right set-center">
-                        <a class="appointement-link-btn" href="#">Get An Appointment</a>
+                        <a class="appointement-link-btn" href="#">Leave A Comment</a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="clearfix"></div>
     </section>
-
-    <section class="blog-block section-padding-small">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-                    <div class="text-head">
-                        <h2>News</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row offspace-70">
-                <div class="col-md-6 col-sm-6 col-xs-12">
-
-                    <div class="event-image">
-                        <a href="single-blog.html"><img src="~/probeautyfly/images/blog1.png" class="img-responsive"></a>
-                    </div>
-                    <div class="blog-views">
-                        <!-- Left-aligned -->
-                        <div class="media">
-                            <div class="media-body">
-                                <h4 class="media-heading event-title"><a href="single-blog.html"> Lorem ipsum dolor sit amet</a></h4>
-                                <ul class="list-unstyled">
-                                    <li><a><i class="fa fa-tags"></i><span>category</span></a> <a><i class="fa fa-comments-o fa-lg"></i><span>Comments</span></a> <a><i class="fa fa-calendar-o"></i><span>APR 26, 2017</span></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="event-desc">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived...... </p>
-                    </div>
-                    <a class="read-more" href="single-blog.html">Read More</a>
-                </div>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-
-                    <div class="event-image">
-                        <a href="single-blog.html"><img src="~/probeautyfly/images/blog2.png" class="img-responsive"></a>
-                    </div>
-                    <div class="blog-views">
-                        <!-- Left-aligned -->
-                        <div class="media">
-                            <div class="media-body">
-                                <h4 class="media-heading event-title"><a href="single-blog.html"> Lorem ipsum dolor sit amet</a></h4>
-                                <ul class="list-unstyled">
-                                    <li><a><i class="fa fa-tags"></i><span>category</span></a> <a><i class="fa fa-comments-o fa-lg"></i><span>Comments</span></a> <a><i class="fa fa-calendar-o"></i><span>APR 26, 2017</span></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="event-desc">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived...... </p>
-                    </div>
-                    <a class="read-more" href="single-blog.html">Read More</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Modal -->
     <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-lg modal-margin-top">
@@ -719,10 +474,6 @@
 
         </div>
     </div>
-
-
-
-
 </div>
 <script>$(document).ready(function () {
             if (Modernizr.touch) {
