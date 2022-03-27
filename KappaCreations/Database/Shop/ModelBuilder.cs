@@ -8,7 +8,6 @@ namespace KappaCreations.Database
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations
-                        .Add(new FontMap())
                         .Add(new ImageMap())
                         .Add(new ProductCategoryMap())
                         .Add(new TextMap())

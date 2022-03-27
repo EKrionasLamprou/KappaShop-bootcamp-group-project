@@ -27,7 +27,7 @@ namespace KappaCreations.Controllers
                 }
                 AddErrors(result);
             }
-            return View(model);
+            return RedirectToLocal("/Account/Login");
         }
     }
 }

@@ -38,12 +38,12 @@ namespace KappaCreations.Repositories
         
         public virtual void Add(TEntity entity) => Set.Add(entity);
 
-        public void AddRange(IEnumerable<TEntity> entities) => Set.AddRange(entities);
+        public virtual void AddRange(IEnumerable<TEntity> entities) => Set.AddRange(entities);
 
         public virtual bool Update(TEntity newEntity)
         {
             int id = newEntity.Id;
-            object oldEntity = Get(id);
+            TEntity oldEntity = Get(id);
 
             if (oldEntity is null)
             {
@@ -55,7 +55,7 @@ namespace KappaCreations.Repositories
         public virtual async Task<bool> UpdateAsync(TEntity newEntity)
         {
             int id = newEntity.Id;
-            object oldEntity = await GetAsync(id);
+            TEntity oldEntity = await GetAsync(id);
 
             if (oldEntity is null)
             {

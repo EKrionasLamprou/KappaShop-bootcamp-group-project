@@ -22,6 +22,7 @@ namespace KappaCreations.Controllers
                 {
                     string property = error.PropertyName;
                     string message = error.ErrorMessage;
+
                     errors.Add($"{property} - {message}");
                 }
                 sb.Append(string.Join(", ", errors) + " ");

@@ -18,7 +18,7 @@
         public double ColourAlpha { get; set; } = 1;
 
         public string Content { get; set; } = string.Empty;
-        public string Font { get; set; }
+        public int Font { get; set; }
 
         public Text Map() => new Text
         {
@@ -26,7 +26,7 @@
             Size = new Size(SizeWidth, SizeHeight),
             Colour = Colour.GetByHex(ColourHex),
             Content = Content,
-            Font = new Font() { Name = "Arial"}, // TO DO
+            Font = (Font)Font,
         };
 
         public static TextDTO MapFrom(Text text) => new TextDTO
@@ -39,7 +39,7 @@
             SizeHeight = text.Size.Height,
             ColourHex = text.Colour.ToString(),
             Content = text.Content,
-            Font = null,
+            Font = (int)text.Font,
         };
     }
 }
