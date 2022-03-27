@@ -440,8 +440,6 @@
     <Content Include="probeautyfly\viewGalleryProduct.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="architectui-html-free\__MACOSX\architectui-html-free\._Changelog.md" />
-    <Content Include="architectui-html-free\__MACOSX\architectui-html-free\._README.md" />
     <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\fonts\fa-solid-900.eot" />
     <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\fonts\fa-solid-900.ttf" />
     <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\fonts\fa-solid-900.woff" />
@@ -529,6 +527,7 @@
     <Content Include="Views\Shared\UserComponent\_UserPage.cshtml" />
     <Content Include="Views\Shared\_UserLayout.cshtml" />
     <Content Include="Views\Home\TestUserPage.cshtml" />
+    <Content Include="Views\Home\ShoppingCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

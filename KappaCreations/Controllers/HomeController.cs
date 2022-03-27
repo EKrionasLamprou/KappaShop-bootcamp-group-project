@@ -35,7 +35,13 @@ namespace KappaCreations.Controllers
 
         public ActionResult Gallery()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Your gallery page.";
+
+            return View();
+        }
+        public ActionResult ShoppingCart()
+        {
+            ViewBag.Message = "Your gallery page.";
 
             return View();
         }
