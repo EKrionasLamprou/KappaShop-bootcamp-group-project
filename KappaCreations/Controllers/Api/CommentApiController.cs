@@ -74,7 +74,7 @@ namespace KappaCreations.Controllers.Api
             {
                 return BadRequest(ex.Message);
             }
-            return Ok(count);
+            return Ok(new { CommentCount = count });
         }
     }
 }
