@@ -30,7 +30,7 @@ namespace KappaCreations.Repositories
                  .Include(e => e.Design)
                  .Include(e => e.Design.Texts)
                  .Include(e => e.Design.Images)
-                 .Include(e=> e.BackDesign)
+                 .Include(e => e.BackDesign)
                  .Include(e => e.Design.Texts)
                  .Include(e => e.Design.Images)
                  .FirstOrDefault();
