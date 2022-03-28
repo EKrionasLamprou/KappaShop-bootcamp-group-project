@@ -28,17 +28,29 @@ namespace KappaCreations.Repositories
         public override Product Get(int id)
            => Set.Where(e => e.Id == id)
                  .Include(e => e.Design)
+                 .Include(e => e.Design.Texts)
+                 .Include(e => e.Design.Images)
                  .Include(e=> e.BackDesign)
+                 .Include(e => e.Design.Texts)
+                 .Include(e => e.Design.Images)
                  .FirstOrDefault();
         public override async Task<Product> GetAsync(int id)
             => await Set.Where(e => e.Id == id)
                         .Include(e => e.Design)
+                        .Include(e => e.Design.Texts)
+                        .Include(e => e.Design.Images)
                         .Include(e => e.BackDesign)
+                        .Include(e => e.Design.Texts)
+                        .Include(e => e.Design.Images)
                         .FirstOrDefaultAsync();
 
         public override async Task<IEnumerable<Product>> GetAllAsync()
              => await Set.Include(e => e.Design)
+                         .Include(e => e.Design.Texts)
+                         .Include(e => e.Design.Images)
                          .Include(e => e.BackDesign)
+                         .Include(e => e.Design.Texts)
+                         .Include(e => e.Design.Images)
                          .ToListAsync();
     }
 }
