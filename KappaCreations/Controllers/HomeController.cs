@@ -8,6 +8,10 @@ namespace KappaCreations.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult GalleryProductDetails()
+        {
+            return View();
+        }
         public ActionResult Index()
         {
             return View();

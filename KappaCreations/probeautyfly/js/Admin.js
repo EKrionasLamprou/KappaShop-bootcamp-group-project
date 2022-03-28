@@ -23,3 +23,16 @@
         item.addEventListener('mouseover', activeLink));
 
 
+//Number of comments
+$(document).ready(function () {
+    $.ajax({
+        type: "GET",
+        url: "api/CommentApi/GetCountAsync",
+        contentType: "application/json",
+        dataType: "json",
+        success: function (count) {
+            let commentNumber = document.getElementById(commentNo);
+            $(commentNumber).append(count);
+        }
+    })
+})
