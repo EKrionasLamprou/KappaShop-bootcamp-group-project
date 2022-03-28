@@ -107,6 +107,7 @@ $(document).ready(function () {
 
     //fabric.Image.fromURL('/probeautyfly/images/cup.jpg', function (img) {
     fabric.Image.fromURL(url, function (img) {
+       
         img.set({
             width: 550,
             height: 550,
@@ -116,6 +117,10 @@ $(document).ready(function () {
             hasControls: false,
             hasBorders: false
         });
+        img.filters[0] = new fabric.Image.filters.Tint({
+            color: 'rgba(245, 40, 145, 0.8)'
+        });
+        img.applyFilters(canvas.renderAll.bind(canvas));
         canvas.add(img).setActiveObject(img);
         item_list.push(img);
         console.log(img._element)

@@ -26,14 +26,34 @@ namespace KappaCreations.Repositories
         /// Finds and returns an entity from the database, based on id.
         /// </summary>
         /// <param name="id">The id of the entity.</param>
+        /// <param name="include">A navigation property to be included with the entity instance.</param>
+        /// <returns>The entity that matches the given id.</returns>
+        TEntity Get(int id, string include);
+        /// <summary>
+        /// Finds and returns an entity from the database, based on id.
+        /// </summary>
+        /// <param name="id">The id of the entity.</param>
         /// <returns>The entity that matches the given id.</returns>
         Task<TEntity> GetAsync(int id);
+        /// <summary>
+        /// Finds and returns an entity from the database, based on id.
+        /// </summary>
+        /// <param name="id">The id of the entity.</param>
+        /// <param name="include">A navigation property to be included with the entity instance.</param>
+        /// <returns></returns>
+        Task<TEntity> GetAsync(int id, string include);
 
         /// <summary>
         /// Returns all the entities of <see cref="TEntity"/> type from the database. Asynchronous method.
         /// </summary>
         /// <returns>An <see cref="IEnumerable{TEntity}"/> that contains all the entities.</returns>
         Task<IEnumerable<TEntity>> GetAllAsync();
+        /// <summary>
+        /// Returns all the entities of <see cref="TEntity"/> type from the database. Asynchronous method.
+        /// </summary>
+        /// <param name="include">A navigation property to be included with the entity instance.</param>
+        /// <returns>An <see cref="IEnumerable{TEntity}"/> that contains all the entities.</returns>
+        Task<IEnumerable<TEntity>> GetAllAsync(string include);
 
         /// <summary>
         /// Inserts a new <see cref="TEntity"/> to the database.

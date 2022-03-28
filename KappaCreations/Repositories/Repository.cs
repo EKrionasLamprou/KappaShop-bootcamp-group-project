@@ -2,6 +2,7 @@
 using KappaCreations.Models;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace KappaCreations.Repositories
@@ -30,12 +31,21 @@ namespace KappaCreations.Repositories
         public virtual DbSet<TEntity> Set { get => db.Set<TEntity>(); }
 
         public virtual TEntity Get(int id) => Set.Find(id);
+        public virtual TEntity Get(int id, string include) => Set.Where(e => e.Id == id)
+                                                                 .Include(include)
+                                                                 .SingleOrDefault();
         public virtual async Task<TEntity> GetAsync(int id)
             => await Set.FindAsync(id);
+        public virtual async Task<TEntity> GetAsync(int id, string include)
+            => await Set.Where(e => e.Id == id)
+                        .Include(include)
+                        .SingleOrDefaultAsync();
 
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
             => await Set.ToListAsync();
-        
+        public virtual async Task<IEnumerable<TEntity>> GetAllAsync(string include)
+            => await Set.Include(include).ToListAsync();
+
         public virtual void Add(TEntity entity) => Set.Add(entity);
 
         public virtual void AddRange(IEnumerable<TEntity> entities) => Set.AddRange(entities);

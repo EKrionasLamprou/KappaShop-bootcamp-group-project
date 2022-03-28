@@ -10,7 +10,8 @@ namespace KappaCreations.Database
             modelBuilder.Configurations
                         .Add(new ImageMap())
                         .Add(new TextMap())
-                        .Add(new ProductMap());
+                        .Add(new ProductMap())
+                        .Add(new CommentMap());
         }
     }
 }

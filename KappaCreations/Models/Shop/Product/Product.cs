@@ -1,11 +1,16 @@
-﻿namespace KappaCreations.Models
+﻿using System.Collections.Generic;
+
+namespace KappaCreations.Models
 {
     public class Product : IEntity
     {
         /// <summary>
         /// Initiates a new instance of the <see cref="Product"/> class.
         /// </summary>
-        public Product() { }
+        public Product() 
+        {
+            Comments = new HashSet<Comment>();
+        }
 
         public int Id { get; set; }
 
@@ -42,6 +47,8 @@
         /// Represents the number of reports the product has received from users.
         /// </summary>
         public int Reports { get; set; }
+
+        public ICollection<Comment> Comments { get; set; }
 
         // To add:
         // Size for clothes
