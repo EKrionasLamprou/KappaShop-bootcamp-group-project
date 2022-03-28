@@ -1,14 +1,14 @@
 ﻿using KappaCreations.Database;
-using KappaCreations.Models;
 using KappaCreations.Models.Shop.DTOs;
 using KappaCreations.Repositories;
+using System.Threading.Tasks;
+using System.Web.Http;
 using System;
+using System.Web.Http.Description;
+using KappaCreations.Models;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Web.Http;
-using System.Web.Http.Description;
 using static KappaCreations.Utilities;
 
 namespace KappaCreations.Controllers.Api

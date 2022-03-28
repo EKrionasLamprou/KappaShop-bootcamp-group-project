@@ -2,13 +2,14 @@
 
 namespace KappaCreations
 {
-    public static class Consonants
+    public static partial class Consonants
     {
-        public static readonly ProductCategory[] PRODUCT_CATEGORIES;
-
+        /// <summary>
+        /// Initializes the consonant fields.
+        /// </summary>
         static Consonants()
         {
-            #region Initiate PRODUCT_CATEGORIES
+            #region Initialize PRODUCT_CATEGORIES
             var clothing = new ProductCategory("Clothing", 20);
             var tShirts = new ProductCategory("T-Shirts", 25, clothing);
             var footers = new ProductCategory("Footers", 30, clothing);
