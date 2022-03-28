@@ -7,9 +7,20 @@ using System.Threading.Tasks;
 
 namespace KappaCreations.Repositories
 {
+    /// <summary>
+    /// Used for handling CRUD operations for the <see cref="Product"/> to the database.
+    /// </summary>
     public class ProductRepository : Repository<Product>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProductRepository" class/>.
+        /// Opens a new connection with the database.
+        /// </summary>
         public ProductRepository() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProductRepository" class/>.
+        /// </summary>
+        /// <param name="db">An instance of the database.</param>
         public ProductRepository(ShopContext db) : base(db) { }
 
         public override DbSet<Product> Set { get => db.Products; }

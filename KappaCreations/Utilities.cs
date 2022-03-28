@@ -8,8 +8,16 @@ using static KappaCreations.Consonants;
 
 namespace KappaCreations
 {
+    /// <summary>
+    /// Contains general methods for the whole project.
+    /// </summary>
     public static class Utilities
     {
+        /// <summary>
+        /// Returns a readable string report of a <see cref="DbEntityValidationException"/>.
+        /// </summary>
+        /// <param name="exception">The exception instance.</param>
+        /// <returns>The formated string of the exception.</returns>
         public static string FormatDbEntityValidationException(
             DbEntityValidationException exception)
         {
@@ -34,8 +42,19 @@ namespace KappaCreations
             return sb.ToString();
         }
 
-        public static ProductCategory GetProductCategory(int i)
-            => PRODUCT_CATEGORIES[i];
+        /// <summary>
+        /// Returns a <see cref="ProductCategory"/> by id.
+        /// </summary>
+        /// <param name="id">The position of the <see cref="ProductCategory"/> on the array.</param>
+        /// <returns>The instance of the <see cref="ProductCategory"/></returns>
+        public static ProductCategory GetProductCategory(int id)
+            => PRODUCT_CATEGORIES[id];
+        /// <summary>
+        /// Returns a <see cref="ProductCategory"/> by category title.
+        /// </summary>
+        /// <param name="title">The the title of the <see cref="ProductCategory"/></param>
+        /// <returns>The instance of the <see cref="ProductCategory"/>
+        /// or <see langword="null"/> if not found.</returns>
         public static ProductCategory GetProductCategory(string title)
             => PRODUCT_CATEGORIES.FirstOrDefault(c => c.Title == title) ?? null;
     }
