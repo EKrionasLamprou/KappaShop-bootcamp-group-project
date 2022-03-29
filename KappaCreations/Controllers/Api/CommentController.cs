@@ -13,17 +13,17 @@ using static KappaCreations.Utilities;
 
 namespace KappaCreations.Controllers.Api
 {
-    public class CommentApiController : ApiController
+    public class CommentController : ApiController
     {
         readonly ShopContext _db;
         readonly Repository<Comment> _repo;
 
-        public CommentApiController()
+        public CommentController()
         {
             _db = new ShopContext();
             _repo = new Repository<Comment>(_db);
         }
-        public CommentApiController(ShopContext db)
+        public CommentController(ShopContext db)
         {
             _db = db;
             _repo = new Repository<Comment>(_db);

@@ -1,4 +1,4 @@
-﻿        using KappaCreations.Database;
+﻿using KappaCreations.Database;
 using KappaCreations.Models.Shop.DTOs;
 using KappaCreations.Repositories;
 using System.Threading.Tasks;
@@ -13,51 +13,51 @@ using static KappaCreations.Utilities;
 
 namespace KappaCreations.Controllers.Api
 {
-    public class DesignApiController : ApiController
+    public class ProductController : ApiController
     {
         readonly ShopContext _db;
-        readonly DesignRepository _repo;
+        readonly ProductRepository _repo;
 
-        public DesignApiController()
+        public ProductController()
         {
             _db = new ShopContext();
-            _repo = new DesignRepository(_db);
+            _repo = new ProductRepository(_db);
         }
-        public DesignApiController(ShopContext db)
+        public ProductController(ShopContext db)
         {
             _db = db;
-            _repo = new DesignRepository(_db);
+            _repo = new ProductRepository(_db);
         }
 
         [HttpGet]
-        [ResponseType(typeof(IEnumerable<DesignDTO>))]
+        [ResponseType(typeof(IEnumerable<ProductDTO>))]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var designs = await _repo.GetAllAsync();
-            return Ok(designs.Select(design => DesignDTO.MapFrom(design)));
+            var products = await _repo.GetAllAsync();
+            return Ok(products.Select(product => ProductDTO.MapFrom(product)));
         }
 
         [HttpGet]
-        [ResponseType(typeof(DesignDTO))]
+        [ResponseType(typeof(IEnumerable<ProductDTO>))]
         public async Task<IHttpActionResult> GetAsync(int id)
         {
-            var design = await _repo.GetAsync(id);
-            if (design == null)
+            var product = await _repo.GetAsync(id);
+            if (product == null)
             {
                 return NotFound();
             }
-            return Ok(DesignDTO.MapFrom(design));
+            return Ok(ProductDTO.MapFrom(product));
         }
 
         [HttpPost]
-        [ResponseType(typeof(DesignDTO))]
-        public async Task<IHttpActionResult> PostAsync(DesignDTO data)
+        [ResponseType(typeof(ProductDTO))]
+        public async Task<IHttpActionResult> PostAsync(ProductDTO data)
         {
-            Design design;
+            Product product;
             try
             {
-                design = data.Map();
-                _repo.Add(design);
+                product = data.Map();
+                _repo.Add(product);
                 await _db.SaveChangesAsync();
             }
             catch (DbEntityValidationException ex)
@@ -68,33 +68,7 @@ namespace KappaCreations.Controllers.Api
             {
                 return BadRequest(ex.Message);
             }
-            return Ok(DesignDTO.MapFrom(design));
-        }
-
-        [Obsolete]
-        [HttpPut]
-        [ResponseType(typeof(DesignDTO))]
-        public async Task<IHttpActionResult> PutAsync(DesignDTO data)
-        {
-            try
-            {
-                var design = data.Map();
-                bool result = await _repo.UpdateAsync(design);
-                if (!result)
-                {
-                    return NotFound();
-                }
-                await _db.SaveChangesAsync();
-            }
-            catch (DbEntityValidationException ex)
-            {
-                return BadRequest(FormatDbEntityValidationException(ex));
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-            return Ok(data);
+            return Ok(ProductDTO.MapFrom(product));
         }
 
         [HttpDelete]
@@ -114,7 +88,7 @@ namespace KappaCreations.Controllers.Api
             {
                 return BadRequest(ex.Message);
             }
-            return Ok($"Design with id {id} was deleted.");
+            return Ok($"Product with id {id} was deleted.");
         }
 
         protected override void Dispose(bool disposing)
