@@ -27,16 +27,14 @@
 $(document).ready(function () {
     $.ajax({
         type:"GET",
-        url:'https://localhost:44342/api/commentApi',
+        url:'https://localhost:44342/api/comment/Count',
         dataType: "json",
         success: function (data) {
-            console.log("cat");
-            let commentNumber = document.getElementById(commentNo);
-            $(commentNumber).text(data.count);
+            let commentNumber = $("#commentNo");
+            $(commentNumber).text(data.Count);
         },
         error: function () {
-            let commentNumber = document.getElementById(commentNo);
-            $(commentNumber).html("Zero");
+            console.log("Error. Failed to load the number of comments.");
         }
     })
 })
