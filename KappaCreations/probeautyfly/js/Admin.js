@@ -26,13 +26,17 @@
 //Number of comments
 $(document).ready(function () {
     $.ajax({
-        type: "GET",
-        url: "api/CommentApi/GetCountAsync",
-        contentType: "application/json",
+        type:"GET",
+        url:'https://localhost:44342/api/commentApi',
         dataType: "json",
-        success: function (count) {
+        success: function (data) {
+            console.log("cat");
             let commentNumber = document.getElementById(commentNo);
-            $(commentNumber).append(count);
+            $(commentNumber).text(data.count);
+        },
+        error: function () {
+            let commentNumber = document.getElementById(commentNo);
+            $(commentNumber).html("Zero");
         }
     })
 })
