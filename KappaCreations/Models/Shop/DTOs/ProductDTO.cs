@@ -10,6 +10,8 @@
         public int? Upvotes { get; set; }
         public int? Reports { get; set; }
 
+        public bool HasId => Id.HasValue && Id > 0;
+
         public Product Map() => new Product
         {
             Design = Design.Map(),
@@ -20,6 +22,12 @@
             Reports = Reports ?? 0,
         };
 
+        /// <summary>
+        /// Returns a <see cref="ProductDTO"/> object, by mapping the properties of
+        /// a <see cref="Product"/> object.
+        /// </summary>
+        /// <param name="product">An instance of a <see cref="Product"/> entity.</param>
+        /// <returns>An instance of a <see cref="ProductDTO"/> object.</returns>
         public static ProductDTO MapFrom(Product product) => new ProductDTO
         {
             Id = product.Id,

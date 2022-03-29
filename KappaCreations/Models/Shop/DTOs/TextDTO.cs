@@ -20,6 +20,8 @@
         public string Content { get; set; } = string.Empty;
         public int Font { get; set; }
 
+        public bool HasId => Id.HasValue && Id > 0;
+
         public Text Map() => new Text
         {
             Position = new Position(PosX, PosY, ZIndex),
@@ -29,6 +31,12 @@
             Font = (Font)Font,
         };
 
+        /// <summary>
+        /// Returns a <see cref="TextDTO"/> object, by mapping the properties of
+        /// a <see cref="Text"/> object.
+        /// </summary>
+        /// <param name="text">An instance of a <see cref="Text"/> entity.</param>
+        /// <returns>An instance of a <see cref="TextDTO"/> object.</returns>
         public static TextDTO MapFrom(Text text) => new TextDTO
         {
             Id = text.Id,

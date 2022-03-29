@@ -111,5 +111,16 @@ namespace KappaCreations.Repositories
         /// <returns><see langword="true"/> if the opreration was successful,
         /// <see langword="false"/> otherwise.</returns>
         Task<bool> DeleteAsync(TEntity entity);
+
+        /// <summary>
+        /// Returns the number of the entities that exists in the database, of type <see cref="TEntity"/>.
+        /// </summary>
+        /// <returns>The number of the entities that exists in the database, of type <see cref="TEntity"/>.</returns>
+        int Count();
+        /// <summary>
+        /// Returns the number of the entities that exists in the database, of type <see cref="TEntity"/>.
+        /// </summary>
+        /// <returns>The number of the entities that exists in the database, of type <see cref="TEntity"/>.</returns>
+        Task<int> CountAsync();
     }
 }
