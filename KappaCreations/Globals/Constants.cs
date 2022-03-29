@@ -3,9 +3,9 @@
 namespace KappaCreations
 {
     /// <summary>
-    /// Contains the project's consonants.
+    /// Contains the project's constants.
     /// </summary>
-    public static partial class Consonants
+    public static partial class Constants
     {
         public static readonly ProductCategory[] PRODUCT_CATEGORIES;
     }

@@ -42,7 +42,7 @@ namespace KappaCreations.Models
         /// </summary>
         public ICollection<ProductCategory> SubCategories
         {
-            get => Consonants.PRODUCT_CATEGORIES
+            get => Constants.PRODUCT_CATEGORIES
                              .Where(c => c.SuperCategory == this)
                              .ToList();
         }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
-using static KappaCreations.Consonants;
+using static KappaCreations.Constants;
 
 namespace KappaCreations
 {
