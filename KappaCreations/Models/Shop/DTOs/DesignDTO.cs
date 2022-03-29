@@ -10,6 +10,8 @@ namespace KappaCreations.Models.Shop.DTOs
         public IEnumerable<ImageDTO> Images { get; set; }
         public IEnumerable<TextDTO> Texts { get; set; }
 
+        public bool HasId => Id.HasValue && Id > 0;
+
         public Design Map() => new Design
         {
             Images = Images.Select(image => image.Map()).ToList(),

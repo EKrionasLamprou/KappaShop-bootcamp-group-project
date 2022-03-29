@@ -100,5 +100,8 @@ namespace KappaCreations.Repositories
         }
         public virtual async Task<bool> DeleteAsync(TEntity entity)
             => await DeleteAsync(entity.Id);
+
+        public int Count() => Set.Count();
+        public Task<int> CountAsync() => Set.CountAsync();
     }
 }

@@ -4,11 +4,12 @@ using KappaCreations.Models.Shop.DTOs;
 using KappaCreations.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using static KappaCreations.Utilities;
 
 namespace KappaCreations.Controllers.Api
 {
@@ -28,53 +29,144 @@ namespace KappaCreations.Controllers.Api
             _repo = new Repository<Comment>(_db);
         }
 
-        //[HttpGet]
-        //[ResponseType(typeof(IEnumerable<CommentDTO>))]
-        //public async Task<IHttpActionResult> GetAsync()
-        //{
-        //    var comments = await _repo.GetAllAsync();
-        //    return Ok(comments.Select(comment => CommentDTO.MapFrom(comment)));
-        //}
-        //
-        //[HttpGet]
-        //[ResponseType(typeof(CommentDTO))]
-        //public async Task<IHttpActionResult> GetAsync(int id)
-        //{
-        //    var comment = await _repo.GetAsync(id);
-        //    if (comment == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return Ok(CommentDTO.MapFrom(comment));
-        //}
+        [HttpGet]
+        [ResponseType(typeof(IEnumerable<CommentDTO>))]
+        public async Task<IHttpActionResult> GetAsync()
+        {
+            var comments = await _repo.GetAllAsync();
+            return Ok(comments.Select(comment => CommentDTO.MapFrom(comment)));
+        }
 
         [HttpGet]
-        [ResponseType(typeof(int))]
-        [ActionName("Count")]
+        [ResponseType(typeof(CommentDTO))]
+        public async Task<IHttpActionResult> GetAsync(int id)
+        {
+            var comment = await _repo.GetAsync(id);
+            if (comment == null)
+            {
+                return NotFound();
+            }
+            return Ok(CommentDTO.MapFrom(comment));
+        }
+
+        [HttpGet]
+        [Route("api/commentApi/count")]
         public async Task<IHttpActionResult> GetCountAsync()
         {
-            string connectionString = System.Configuration
-                                            .ConfigurationManager
-                                            .ConnectionStrings["KappaShop"]
-                                            .ConnectionString;
-            int count;
+            int count = await _repo.CountAsync();
+            return Ok(new { Count = count });
+        }
+
+        [HttpPost]
+        [ResponseType(typeof(DesignDTO))]
+        public async Task<IHttpActionResult> PostAsync(CommentDTO data)
+        {
+            Comment comment;
             try
             {
-                using (var conn = new SqlConnection(connectionString))
-                {
-                    string query = "SELECT COUNT(*) FROM Comments";
-                    conn.Open();
-                    using (var cmd = new SqlCommand(query, conn))
-                    {
-                        count = (int)await cmd.ExecuteScalarAsync();
-                    }
-                }
+                comment = data.Map();
+                _repo.Add(comment);
+                await _db.SaveChangesAsync();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                return BadRequest(FormatDbEntityValidationException(ex));
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
-            return Ok(new { CommentCount = count });
+            return Ok(CommentDTO.MapFrom(comment));
+        }
+
+        [HttpPut]
+        public async Task<IHttpActionResult> PutAsync(CommentDTO data)
+        {
+            if (data is null || !data.HasId)
+            {
+                return NotFound();
+            }
+            try
+            {
+                var comment = data.Map();
+                bool result = await _repo.UpdateAsync(comment);
+                if (!result)
+                {
+                    return NotFound();
+                }
+                await _db.SaveChangesAsync();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                return BadRequest(FormatDbEntityValidationException(ex));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            return Ok(data);
+        }
+
+        [HttpPatch]
+        [Route("api/commentApi/vote")]
+        public async Task<IHttpActionResult> PatchVoteAsync(int id, bool downvote = false)
+        {
+            var comment = await _repo.GetAsync(id);
+            if (comment == null)
+            {
+                return NotFound();
+            }
+
+            comment.Upvotes += downvote ? -1 : 1;
+           
+            try
+            {
+                bool result = await _repo.UpdateAsync(comment);
+                if (!result)
+                {
+                    return NotFound();
+                }
+                await _db.SaveChangesAsync();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                return BadRequest(FormatDbEntityValidationException(ex));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok(CommentDTO.MapFrom(comment));
+        }
+
+        [HttpDelete]
+        [ResponseType(typeof(string))]
+        public async Task<IHttpActionResult> DeleteAsync(int id)
+        {
+            try
+            {
+                bool result = await _repo.DeleteAsync(id);
+                if (!result)
+                {
+                    return NotFound();
+                }
+                await _db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            return Ok($"Product with id {id} was deleted.");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

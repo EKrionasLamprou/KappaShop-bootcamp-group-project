@@ -10,6 +10,8 @@
         public int? Upvotes { get; set; }
         public int? Reports { get; set; }
 
+        public bool HasId => Id.HasValue && Id > 0;
+
         public Product Map() => new Product
         {
             Design = Design.Map(),

@@ -20,6 +20,8 @@
         public string Content { get; set; } = string.Empty;
         public int Font { get; set; }
 
+        public bool HasId => Id.HasValue && Id > 0;
+
         public Text Map() => new Text
         {
             Position = new Position(PosX, PosY, ZIndex),

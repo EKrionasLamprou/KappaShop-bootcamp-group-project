@@ -19,6 +19,8 @@
 
         public string Url { get; set; }
 
+        public bool HasId => Id.HasValue && Id > 0;
+
         public Image Map() => new Image
         {
             Position = new Position(PosX, PosY, ZIndex),
