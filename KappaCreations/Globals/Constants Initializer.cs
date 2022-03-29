@@ -24,9 +24,9 @@ namespace KappaCreations
                 new ProductCategory("Phone Cases", 20),
                 new ProductCategory("Pillows", 20),
                 new ProductCategory("Plates", 10),
+                new ProductCategory("T-Shirts", 15),
                 new ProductCategory("Thermos Bottles", 10),
                 new ProductCategory("Tissues", 3),
-                new ProductCategory("T-Shirts", 15),
             };
             #endregion
         }
