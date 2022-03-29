@@ -19,6 +19,12 @@
             ProductId = ProductId,
         };
 
+        /// <summary>
+        /// Returns a <see cref="CommentDTO"/> object, by mapping the properties of
+        /// a <see cref="Comment"/> object.
+        /// </summary>
+        /// <param name="comment">An instance of a <see cref="Comment"/> entity.</param>
+        /// <returns>An instance of a <see cref="CommentDTO"/> object.</returns>
         public static CommentDTO MapFrom(Comment comment) => new CommentDTO
         {
             Id = comment.Id,

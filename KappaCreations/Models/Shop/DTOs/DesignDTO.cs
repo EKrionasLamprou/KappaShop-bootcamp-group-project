@@ -18,6 +18,12 @@ namespace KappaCreations.Models.Shop.DTOs
             Texts = Texts.Select(text => text.Map()).ToList(),
         };
 
+        /// <summary>
+        /// Returns a <see cref="DesignDTO"/> object, by mapping the properties of
+        /// a <see cref="Design"/> object.
+        /// </summary>
+        /// <param name="design">An instance of a <see cref="Design"/> entity.</param>
+        /// <returns>An instance of a <see cref="DesignDTO"/> object.</returns>
         public static DesignDTO MapFrom(Design design) => new DesignDTO
         {
             Id = design.Id,

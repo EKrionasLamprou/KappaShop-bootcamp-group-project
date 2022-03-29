@@ -31,6 +31,12 @@
             Font = (Font)Font,
         };
 
+        /// <summary>
+        /// Returns a <see cref="TextDTO"/> object, by mapping the properties of
+        /// a <see cref="Text"/> object.
+        /// </summary>
+        /// <param name="text">An instance of a <see cref="Text"/> entity.</param>
+        /// <returns>An instance of a <see cref="TextDTO"/> object.</returns>
         public static TextDTO MapFrom(Text text) => new TextDTO
         {
             Id = text.Id,

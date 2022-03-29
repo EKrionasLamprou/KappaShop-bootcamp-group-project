@@ -29,6 +29,12 @@
             Url = Url,
         };
 
+        /// <summary>
+        /// Returns a <see cref="ImageDTO"/> object, by mapping the properties of
+        /// a <see cref="Image"/> object.
+        /// </summary>
+        /// <param name="image">An instance of a <see cref="Image"/> entity.</param>
+        /// <returns>An instance of a <see cref="ImageDTO"/> object.</returns>
         public static ImageDTO MapFrom(Image image) => new ImageDTO
         {
             Id = image.Id,
