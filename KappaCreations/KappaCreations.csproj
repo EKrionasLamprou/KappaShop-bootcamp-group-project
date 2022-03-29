@@ -181,12 +181,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\Api\CommentApiController.cs" />
+    <Compile Include="Controllers\Api\CommentController.cs" />
     <Compile Include="Database\Shop\Maps\CommentMap.cs" />
     <Compile Include="Globals\Consonants Initializer.cs" />
     <Compile Include="Globals\Consonants.cs" />
-    <Compile Include="Controllers\Api\DesignApiController.cs" />
-    <Compile Include="Controllers\Api\ProductApiController.cs" />
+    <Compile Include="Controllers\Api\DesignController.cs" />
+    <Compile Include="Controllers\Api\ProductController.cs" />
     <Compile Include="Models\Shop\DTOs\CommentDTO.cs" />
     <Compile Include="Models\Shop\Product\Comment.cs" />
     <Compile Include="Utilities.cs" />

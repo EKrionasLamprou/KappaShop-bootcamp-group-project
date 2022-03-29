@@ -50,7 +50,7 @@ namespace KappaCreations.Controllers.Api
         }
 
         [HttpGet]
-        [Route("api/commentApi/count")]
+        [Route("api/comment/count")]
         public async Task<IHttpActionResult> GetCountAsync()
         {
             int count = await _repo.CountAsync();
@@ -108,7 +108,7 @@ namespace KappaCreations.Controllers.Api
         }
 
         [HttpPatch]
-        [Route("api/commentApi/vote")]
+        [Route("api/comment/vote")]
         public async Task<IHttpActionResult> PatchVoteAsync(int id, bool downvote = false)
         {
             var comment = await _repo.GetAsync(id);
