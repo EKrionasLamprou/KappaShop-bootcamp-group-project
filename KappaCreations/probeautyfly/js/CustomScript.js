@@ -45,6 +45,21 @@ function updatePrice(price_change) {
 }
 //PRICE FIELD END
 
+function setApiCall(data) {
+    $.ajax({
+        type: "Post",
+        url: "https://localhost:44342/api/ProductApi",
+        data: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json",
+        },
+        success: function (response) {
+            console.log(response)
+        },
+        error: function (xhr) { },
+    });
+}
+
 $(document).ready(function () {
     updatePrice();
 
@@ -107,7 +122,7 @@ $(document).ready(function () {
 
     //fabric.Image.fromURL('/probeautyfly/images/cup.jpg', function (img) {
     fabric.Image.fromURL(url, function (img) {
-       
+
         img.set({
             width: 550,
             height: 550,
@@ -118,12 +133,12 @@ $(document).ready(function () {
             hasBorders: false
         });
         img.filters[0] = new fabric.Image.filters.Tint({
-            color: 'rgba(245, 40, 145, 0.8)'
+            color: '#F24EA2'
         });
         img.applyFilters(canvas.renderAll.bind(canvas));
         canvas.add(img).setActiveObject(img);
         item_list.push(img);
-        console.log(img._element)
+        //console.log(img._element)
 
         rectbox = new fabric.Rect({
             width: rectboxWidth + 50,
@@ -364,10 +379,68 @@ $(document).ready(function () {
     $('#getdata-button').on('click', function () {
         alert(JSON.stringify(item_list));
         console.log(JSON.stringify(item_list));
-        for (i = 0; i < item_list.length; i++) {
-            var one_item = item_list[i];
-            console.log(one_item, one_item.getLeft(), one_item.getTop());
-        }
+        //for (i = 0; i < item_list.length; i++) {
+        //    var one_item = item_list[i];
+        //    console.log(one_item, one_item.getLeft(), one_item.getTop());
+        //}
+    });
+
+    //console.log(JSON.stringify(item_list))
+
+
+    $('#addToCart').on('click', function () {
+        const rowData = JSON.stringify(item_list);
+        const data = JSON.parse(rowData);
+
+        //if (data.length === 1) return;
+
+
+        const dataImages = data.filter((item) => item.type === "image").map((item) => {
+            return {
+                posX: item.left,
+                posY: item.top,
+                ZIndex: 0, // to do
+                sizeWidth: item.width,
+                sizeHeight: item.height,
+                ColourHex: item.filters.length !== 0 ? item.filters[0].color : "#ffffff",
+                ColourAlpha: 1,
+                Url: "dataImages.png", // to do 
+            }
+        });
+
+        const dataTexts = data.filter((item) => item.type === "text").map((item) => {
+            return {
+                posX: item.left,
+                posY: item.top,
+                ZIndex: 0, // to do
+                sizeWidth: item.width,
+                sizeHeight: item.height,
+                ColourHex: "#000000", // to do
+                ColourAlpha: item.opacity,
+                Content: item.text,
+            }
+        })
+
+        //const payload = data.reduce((acc, item) => {
+
+        //}, {
+        //    Design: {
+        //        Images: [],
+        //        Texts: []
+        //    }
+        //})
+
+        const design = {
+            Design: {
+                Images: dataImages,
+                Texts: dataTexts
+            },
+            Category: 1,
+        };
+
+        //console.log(design);
+
+        setApiCall(design);
     });
 });
 
