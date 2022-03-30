@@ -48,7 +48,7 @@ function updatePrice(price_change) {
 function setApiCall(data) {
     $.ajax({
         type: "Post",
-        url: "https://localhost:44342/api/ProductApi",
+        url: "https://localhost:44342/api/Product",
         data: JSON.stringify(data),
         headers: {
             "Content-Type": "application/json",
