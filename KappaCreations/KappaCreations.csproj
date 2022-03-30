@@ -182,6 +182,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Api\CommentController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Database\Shop\Maps\CommentMap.cs" />
     <Compile Include="Globals\Constants Initializer.cs" />
     <Compile Include="Globals\Constants.cs" />
@@ -553,6 +554,7 @@
     <Content Include="Views\Home\TestAdminPage.cshtml" />
     <Content Include="Views\Home\GalleryProductDetails.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\Gallery\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
