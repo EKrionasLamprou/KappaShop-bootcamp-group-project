@@ -142,10 +142,10 @@ $(document).ready(function () {
         //console.log(img._element)
 
         rectbox = new fabric.Rect({
-            width: rectboxWidth + 50,
-            height: rectboxHeight - 80,
-            left: 100,
-            top: 100,
+            width: rectboxWidth,
+            height: rectboxHeight,
+            left: 193,
+            top: 180,
             stroke: "rgba(0,0,0,0.3)",
             strokeWidth: 2,
             fill: "rgba(0,0,0,0)",
