@@ -310,8 +310,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="probeautyfly\about.html" />
-    <Content Include="probeautyfly\contact.html" />
     <Content Include="probeautyfly\css\Admin.css" />
     <Content Include="probeautyfly\css\bootstrap.min.css" />
     <Content Include="probeautyfly\css\component.css" />
@@ -478,7 +476,6 @@
     <Content Include="probeautyfly\printableImages\t-shirts.png" />
     <Content Include="probeautyfly\printableImages\Thermos-Bottles.jpg" />
     <Content Include="probeautyfly\printableImages\vase.jpg" />
-    <Content Include="probeautyfly\service.html" />
     <Content Include="probeautyfly\ShoppingCart2.html" />
     <Content Include="probeautyfly\viewGalleryProduct.html" />
     <Content Include="Scripts\bootstrap.js" />
@@ -566,16 +563,15 @@
     <Content Include="Views\Shared\ClientComponent\_NavigationBar.cshtml" />
     <Content Include="Views\Shared\_ClientLayout.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Views\Home\Gallery.cshtml" />
     <Content Include="Views\Shared\UserComponent\_UserPage.cshtml" />
     <Content Include="Views\Shared\_UserLayout.cshtml" />
     <Content Include="Views\Home\TestUserPage.cshtml" />
     <Content Include="Views\Home\ShoppingCart.cshtml" />
     <Content Include="Views\Shared\AdminComponent\_AdminPage.cshtml" />
     <Content Include="Views\Home\TestAdminPage.cshtml" />
-    <Content Include="Views\Home\GalleryProductDetails.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\Gallery\Index.cshtml" />
+    <Content Include="Views\Gallery\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
