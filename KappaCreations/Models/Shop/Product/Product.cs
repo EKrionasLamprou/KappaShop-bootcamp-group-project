@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace KappaCreations.Models
 {
@@ -10,9 +11,15 @@ namespace KappaCreations.Models
         public Product() 
         {
             Comments = new HashSet<Comment>();
+            SubmitDate = DateTime.Now;
         }
 
         public int Id { get; set; }
+
+        /// <summary>
+        /// The date and time the design was submited to the database.
+        /// </summary>
+        public DateTime SubmitDate { get; set; }
 
         public int CategoryId { get; set; }
         /// <summary>

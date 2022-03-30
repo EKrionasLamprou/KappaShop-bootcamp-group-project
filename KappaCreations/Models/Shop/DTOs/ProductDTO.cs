@@ -22,6 +22,17 @@
             Reports = Reports ?? 0,
         };
 
+        public object MapToCamelCase() => new
+        {
+            id = Id ?? 0,
+            design = Design.MapToCamelCase(),
+            backDesign = BackDesign?.MapToCamelCase() ?? null,
+            category = Category,
+            designerId = DesignerId,
+            upvotes = Upvotes ?? 0,
+            reports = Reports ?? 0,
+        };
+
         /// <summary>
         /// Returns a <see cref="ProductDTO"/> object, by mapping the properties of
         /// a <see cref="Product"/> object.

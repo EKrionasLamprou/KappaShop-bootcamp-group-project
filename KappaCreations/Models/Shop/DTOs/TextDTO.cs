@@ -31,6 +31,20 @@
             Font = (Font)Font,
         };
 
+        public object MapToCamelCase() => new
+        {
+            id = Id ?? 0,
+            posX = PosX,
+            posY = PosY,
+            zIndex = ZIndex,
+            sizeWidth = SizeWidth,
+            sizeHeight = SizeHeight,
+            colourHex = ColourHex,
+            colourAlpha = ColourAlpha,
+            content = Content,
+            font = Font
+        };
+
         /// <summary>
         /// Returns a <see cref="TextDTO"/> object, by mapping the properties of
         /// a <see cref="Text"/> object.

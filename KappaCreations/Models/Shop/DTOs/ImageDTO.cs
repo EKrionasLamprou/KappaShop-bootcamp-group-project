@@ -29,6 +29,19 @@
             Url = Url,
         };
 
+        public object MapToCamelCase() => new
+        {
+            id = Id ?? 0,
+            posX = PosX,
+            posY = PosY,
+            zIndex = ZIndex,
+            sizeWidth = SizeWidth,
+            sizeHeight = SizeHeight,
+            colourHex = ColourHex,
+            colourAlpha = ColourAlpha,
+            url = Url,
+        };
+
         /// <summary>
         /// Returns a <see cref="ImageDTO"/> object, by mapping the properties of
         /// a <see cref="Image"/> object.

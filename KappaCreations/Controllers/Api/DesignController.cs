@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Linq;
 using static KappaCreations.Utilities;
+using System.Data.Entity.Infrastructure;
 
 namespace KappaCreations.Controllers.Api
 {
@@ -34,7 +35,10 @@ namespace KappaCreations.Controllers.Api
         public async Task<IHttpActionResult> GetAsync()
         {
             var designs = await _repo.GetAllAsync();
-            return Ok(designs.Select(design => DesignDTO.MapFrom(design)));
+            var response = designs
+                .Select(design => DesignDTO.MapFrom(design).MapToCamelCase());
+
+            return Ok(response);
         }
 
         [HttpGet]
@@ -46,7 +50,9 @@ namespace KappaCreations.Controllers.Api
             {
                 return NotFound();
             }
-            return Ok(DesignDTO.MapFrom(design));
+            var response = DesignDTO.MapFrom(design).MapToCamelCase();
+
+            return Ok(response);
         }
 
         [HttpPost]
@@ -54,6 +60,8 @@ namespace KappaCreations.Controllers.Api
         public async Task<IHttpActionResult> PostAsync(DesignDTO data)
         {
             Design design;
+            object response;
+
             try
             {
                 design = data.Map();
@@ -64,11 +72,17 @@ namespace KappaCreations.Controllers.Api
             {
                 return BadRequest(FormatDbEntityValidationException(ex));
             }
+            catch (DbUpdateException ex)
+            {
+                return BadRequest(FormatDbUpdateException(ex));
+            }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
-            return Ok(DesignDTO.MapFrom(design));
+
+            response = DesignDTO.MapFrom(design).MapToCamelCase();
+            return Ok(response);
         }
 
         [Obsolete]
@@ -90,11 +104,15 @@ namespace KappaCreations.Controllers.Api
             {
                 return BadRequest(FormatDbEntityValidationException(ex));
             }
+            catch (DbUpdateException ex)
+            {
+                return BadRequest(FormatDbUpdateException(ex));
+            }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
-            return Ok(data);
+            return Ok(data.MapToCamelCase());
         }
 
         [HttpDelete]
@@ -109,6 +127,14 @@ namespace KappaCreations.Controllers.Api
                     return NotFound();
                 }
                 await _db.SaveChangesAsync();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                return BadRequest(FormatDbEntityValidationException(ex));
+            }
+            catch (DbUpdateException ex)
+            {
+                return BadRequest(FormatDbUpdateException(ex));
             }
             catch (Exception ex)
             {
