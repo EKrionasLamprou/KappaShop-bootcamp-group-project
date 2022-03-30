@@ -4,6 +4,7 @@ using KappaCreations.Models.Shop.DTOs;
 using KappaCreations.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Threading.Tasks;
@@ -30,11 +31,13 @@ namespace KappaCreations.Controllers.Api
         }
 
         [HttpGet]
-        [ResponseType(typeof(IEnumerable<CommentDTO>))]
         public async Task<IHttpActionResult> GetAsync()
         {
             var comments = await _repo.GetAllAsync();
-            return Ok(comments.Select(comment => CommentDTO.MapFrom(comment)));
+            var response = comments
+                .Select(c => CommentDTO.MapFrom(c).MapToCamelCase());
+            
+            return Ok(response);
         }
 
         [HttpGet]
@@ -46,7 +49,9 @@ namespace KappaCreations.Controllers.Api
             {
                 return NotFound();
             }
-            return Ok(CommentDTO.MapFrom(comment));
+            var response = CommentDTO.MapFrom(comment).MapToCamelCase();
+
+            return Ok(response);
         }
 
         [HttpGet]
@@ -54,7 +59,7 @@ namespace KappaCreations.Controllers.Api
         public async Task<IHttpActionResult> GetCountAsync()
         {
             int count = await _repo.CountAsync();
-            return Ok(new { Count = count });
+            return Ok(new { count });
         }
 
         [HttpPost]
@@ -62,6 +67,8 @@ namespace KappaCreations.Controllers.Api
         public async Task<IHttpActionResult> PostAsync(CommentDTO data)
         {
             Comment comment;
+            object response;
+
             try
             {
                 comment = data.Map();
@@ -72,11 +79,17 @@ namespace KappaCreations.Controllers.Api
             {
                 return BadRequest(FormatDbEntityValidationException(ex));
             }
+            catch (DbUpdateException ex)
+            {
+                return BadRequest(FormatDbUpdateException(ex));
+            }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
-            return Ok(CommentDTO.MapFrom(comment));
+
+            response = CommentDTO.MapFrom(comment).MapToCamelCase();
+            return Ok(response);
         }
 
         [HttpPut]
@@ -100,11 +113,15 @@ namespace KappaCreations.Controllers.Api
             {
                 return BadRequest(FormatDbEntityValidationException(ex));
             }
+            catch (DbUpdateException ex)
+            {
+                return BadRequest(FormatDbUpdateException(ex));
+            }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
-            return Ok(data);
+            return Ok(data.MapToCamelCase());
         }
 
         [HttpPatch]
@@ -112,6 +129,8 @@ namespace KappaCreations.Controllers.Api
         public async Task<IHttpActionResult> PatchVoteAsync(int id, bool downvote = false)
         {
             var comment = await _repo.GetAsync(id);
+            object response;
+            
             if (comment == null)
             {
                 return NotFound();
@@ -132,12 +151,17 @@ namespace KappaCreations.Controllers.Api
             {
                 return BadRequest(FormatDbEntityValidationException(ex));
             }
+            catch (DbUpdateException ex)
+            {
+                return BadRequest(FormatDbUpdateException(ex));
+            }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
 
-            return Ok(CommentDTO.MapFrom(comment));
+            response = CommentDTO.MapFrom(comment).MapToCamelCase();
+            return Ok(response);
         }
 
         [HttpDelete]
@@ -152,6 +176,14 @@ namespace KappaCreations.Controllers.Api
                     return NotFound();
                 }
                 await _db.SaveChangesAsync();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                return BadRequest(FormatDbEntityValidationException(ex));
+            }
+            catch (DbUpdateException ex)
+            {
+                return BadRequest(FormatDbUpdateException(ex));
             }
             catch (Exception ex)
             {

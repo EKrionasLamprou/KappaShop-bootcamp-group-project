@@ -18,6 +18,13 @@ namespace KappaCreations.Models.Shop.DTOs
             Texts = Texts.Select(text => text.Map()).ToList(),
         };
 
+        public object MapToCamelCase() => new
+        {
+            id = Id ?? 0,
+            images = Images.Select(image => image.MapToCamelCase()).ToList(),
+            texts = Texts.Select(text => text.MapToCamelCase()).ToList(),
+        };
+
         /// <summary>
         /// Returns a <see cref="DesignDTO"/> object, by mapping the properties of
         /// a <see cref="Design"/> object.

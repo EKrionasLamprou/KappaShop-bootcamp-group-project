@@ -1,0 +1,162 @@
+﻿@using KappaCreations.Models;
+
+<html>
+<head>
+    <style>
+        #shopping-cart2 {
+            margin-block: 5%
+        }
+
+        .table > tbody > tr > td, .table > tfoot > tr > td {
+            vertical-align: middle;
+        }
+
+        media screen and (max-width: 600px) {
+            table #cart tbody td .form-control
+
+        {
+            width: 20%;
+            display: inline !important;
+        }
+
+        .actions .btn {
+            width: 36%;
+            margin: 1.5em 0;
+        }
+
+        .actions .btn-info {
+            float: left;
+        }
+
+        .actions .btn-danger {
+            float: right;
+        }
+
+        table#cart thead {
+            display: none;
+        }
+
+        table#cart tbody td {
+            display: block;
+            padding: .6rem;
+            min-width: 320px;
+        }
+
+        table#cart tbody tr td:first-child {
+            background: #333;
+            color: #fff;
+        }
+
+        table#cart tbody td:before {
+            content: attr(data-th);
+            font-weight: bold;
+            display: inline-block;
+            width: 8rem;
+        }
+
+
+
+        table#cart tfoot td {
+            display: block;
+        }
+
+            table#cart tfoot td .btn {
+                display: block;
+            }
+    </style>
+</head>
+<body class="cbp-spmenu-push">
+    <div id="page">
+        <!---header top---->
+        <!--header--->
+        <!--end-->
+        <!-- SCHead -->
+
+        <section class="pro-gallery-block section-padding-small">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                        <div class="text-head">
+                            <h2>Shopping Cart</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Shopping cart -->
+
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <div class="container" id="shopping-cart2">
+            <table id="cart" class="table table-hover table-condensed">
+                <thead>
+                    <tr>
+                        <th style="width:50%">Product</th>
+                        <th style="width:10%">Price</th>
+                        <th style="width:8%">Quantity</th>
+                        <th style="width:22%" class="text-center">Subtotal</th>
+                        <th style="width:10%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (Cart item in (List<Cart>)Session["cart"])
+                    {
+                        <tr>
+                            <td data-th="Product">
+                                <div class="row">
+                                    <div class="col-sm-2 hidden-xs"><img src="@item.Product.Category.ImageUrl" alt="..." class="img-responsive" /></div>
+
+                                    <div class="col-sm-10">
+                                        <p>@item.Product.Category.Title</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td data-th="Price">@item.Product.Category.Price</td>
+                            <td data-th="Quantity">
+                                <input type="number" class="form-control text-center" value="@item.Quantity">
+                            </td>
+                            <td data-th="Subtotal" class="text-center">@(item.Product.Category.Price * item.Quantity)</td>
+                            <td class="actions" data-th="">
+                                <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+                                <button type="submit" formaction="@Url.Action("Remove", "ShoppingCart", new { id = item.Product.Id })" class="btn btn-danger btn-sm">
+                                    <i class="fa fa-trash-o">
+
+                                    </i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+
+
+                </tbody>
+                <tfoot>
+                  
+                    <tr>
+                        <td><a href="@Url.Action("Index", "Home")" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                        <td colspan="2" class="hidden-xs"></td>
+                        <td class="hidden-xs text-center">
+                            <strong>Total
+                                @{
+                                    List<Cart> cart = (List<Cart>)Session["cart"];
+                                    var total = cart.Sum(x => x.Product.Category.Price * x.Quantity);
+                                }
+                                @total
+                            </strong>
+                        </td>
+                        <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+
+    </div>
+
+    <script src="js/classie.js"></script>
+
+
+</body>
+</html>

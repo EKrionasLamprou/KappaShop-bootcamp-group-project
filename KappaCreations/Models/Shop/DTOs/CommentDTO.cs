@@ -1,4 +1,6 @@
-﻿namespace KappaCreations.Models.Shop.DTOs
+﻿using System.Linq;
+
+namespace KappaCreations.Models.Shop.DTOs
 {
     public class CommentDTO : IDataTransferObject<Comment>
     {
@@ -17,6 +19,15 @@
             UserId = UserId,
             Upvotes = Upvotes,
             ProductId = ProductId,
+        };
+
+        public object MapToCamelCase() => new
+        {
+            id = Id ?? 0,
+            content = Content,
+            upvotes = Upvotes,
+            userId = UserId,
+            productId = ProductId,
         };
 
         /// <summary>

@@ -1,6 +1,7 @@
 ﻿using KappaCreations.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
@@ -37,9 +38,48 @@ namespace KappaCreations
 
                     errors.Add($"{property} - {message}");
                 }
-                sb.Append(string.Join(", ", errors) + " ");
+                sb.Append(string.Join(", ", errors) + ". ");
             }
-            return sb.ToString();
+            return sb.ToString().TrimEnd();
+        }
+
+        /// <summary>
+        /// Returns a readable string report of a <see cref="DbUpdateException"/>.
+        /// </summary>
+        /// <param name="exception">The exception instance.</param>
+        /// <returns>The formated string of the exception.</returns>
+        public static string FormatDbUpdateException(DbUpdateException exception)
+        {
+            var sb = new StringBuilder();
+
+            sb.Append("DbUpdateException. ");
+            foreach (var entry in exception.Entries)
+            {
+                string entity = entry.Entity.GetType().Name;
+                string state = entry.State.ToString();
+                var result = entry.GetValidationResult();
+                var errors = new List<string>();
+
+                sb.Append($"{entity} in state {state}");
+                foreach (var error in result.ValidationErrors)
+                {
+                    string property = error.PropertyName;
+                    string message = error.ErrorMessage;
+
+                    errors.Add($"{property} - {message}");
+                }
+                if (errors.Count > 0)
+                {
+                    sb.Append(" has the following errors: ");
+                    sb.Append(string.Join(", ", errors));
+                    sb.Append(". ");
+                }
+                else
+                {
+                    sb.Append(".");
+                }
+            }
+            return sb.ToString().Trim();
         }
 
         /// <summary>
