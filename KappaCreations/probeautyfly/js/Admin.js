@@ -27,11 +27,11 @@
 $(document).ready(function () {
     $.ajax({
         type:"GET",
-        url:'https://localhost:44342/api/comment/Count',
+        url:'https://localhost:44342/api/comment/count',
         dataType: "json",
         success: function (data) {
             let commentNumber = $("#commentNo");
-            $(commentNumber).text(data.Count);
+            $(commentNumber).text(data.count);
         },
         error: function () {
             console.log("Error. Failed to load the number of comments.");
