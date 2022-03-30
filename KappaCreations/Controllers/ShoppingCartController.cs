@@ -12,7 +12,7 @@ namespace KappaCreations.Controllers
     public class ShoppingCartController : Controller
     {
         readonly ShopContext _db;
-        private string strCart = "Cart";
+        
 
         public ShoppingCartController()
         {
@@ -30,64 +30,54 @@ namespace KappaCreations.Controllers
             return View();
         }
 
-        public ActionResult OrderNow(int? id)
+        public ActionResult Buy(int? id)
         {
-            if (id == null)
+            
+            if (Session["cart"] == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            if (Session[strCart] == null)
-            {
-                List<Cart> isCart = new List<Cart>
-                {
-                    new Cart(_db.Products.Find(id),1)
-                };
-
-                Session[strCart] = isCart;
+                List<Cart> cart = new List<Cart>();
+                cart.Add(new Cart { Product = _db.Products.ToList().Single(x=> x.Id == id), Quantity = 1 });
+                Session["cart"] = cart;
             }
             else
             {
-                List<Cart> isCart = (List<Cart>)Session[strCart];
-                int check = isExistingCheck(id);
-                if (check == -1)
+                List<Cart> cart = (List<Cart>)Session["cart"];
+                int index = isExist(id);
+                if (index != -1)
                 {
-                    isCart.Add(new Cart(_db.Products.Find(id), 1));
+                    cart[index].Quantity++;
                 }
                 else
                 {
-                    isCart[check].Quantity++;
+                    cart.Add(new Cart { Product = _db.Products.ToList().Single(x => x.Id == id), Quantity = 1 });
                 }
-                Session[strCart] = isCart;
+                Session["cart"] = cart;
             }
-
-            return View("~/Views/Home/ShoppingCart.cshtml");
+            return RedirectToAction("Index");
         }
 
-        private int isExistingCheck(int? id)
+        public ActionResult Remove(int? id)
         {
-            List<Cart> isCart = (List<Cart>)Session[strCart];
-            for (int i = 0; i < isCart.Count; i++)
+            List<Cart> cart = (List<Cart>)Session["cart"];
+            int index = isExist(id);
+            cart.RemoveAt(index);
+            Session["cart"] = cart;
+            return RedirectToAction("Index");
+        }
+
+        public int isExist(int? id)
+        {
+            List<Cart> cart = (List<Cart>)Session["cart"];
+            for (int i = 0; i < cart.Count(); i++)
             {
-                if (isCart[i].Product.Id == id)
+                if (cart[i].Product.Id == id)
                 {
                     return i;
                 }
+                    
             }
-
+                
             return -1;
-
-        }
-
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            int check = isExistingCheck(id);
-            List<Cart> isCart = (List<Cart>)Session[strCart];
-            isCart.RemoveAt(check);
-            return View("~/Views/Home/ShoppingCart.cshtml");
         }
 
     }
