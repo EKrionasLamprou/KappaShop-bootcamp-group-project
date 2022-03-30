@@ -8,8 +8,8 @@ var item_list = [];
 
 var rectboxX = 130,
     rectboxY = 352,
-    rectboxWidth = 215,
-    rectboxHeight = 337;
+    rectboxWidth = 150,
+    rectboxHeight = 200;
 
 //PRICE FIELD START
 function updatePrice(price_change) {
@@ -133,10 +133,10 @@ $(document).ready(function () {
             hasControls: false,
             hasBorders: false,
         });
-        img.filters[0] = new fabric.Image.filters.Tint({
-            color: "#F24EA2",
-        });
-        img.applyFilters(canvas.renderAll.bind(canvas));
+        //img.filters[0] = new fabric.Image.filters.Tint({
+        //    color: "#1C00ff00",
+        ////});
+        //img.applyFilters(canvas.renderAll.bind(canvas));
         canvas.add(img).setActiveObject(img);
         item_list.push(img);
         //console.log(img._element)
@@ -167,7 +167,7 @@ $(document).ready(function () {
             hasBorders: false,
         });
 
-        canvas.add(recttext);
+     /*   canvas.add(recttext);*/
 
         // Create Clip Area (Object created after this will be clipped)
         /*    var ctx = canvas.getContext("2d");
