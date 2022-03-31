@@ -1,21 +1,21 @@
-﻿////$('.test-nav-list a').each(icon => {
-////    icon.click(function (e) {
+﻿const anchors = [...document.querySelectorAll(".test-nav-list a")];
 
-////        e.preventDefault();
-////        console.log(icon.text());
-////        localStorage.setItem('ImageUrl', 'Anna');
-////    })
-////}) 
+const setLocalStorage = (key, value) => {
+    localStorage.setItem(key, value);
+}
 
-const anchors = [...document.querySelectorAll(".test-nav-list a")]
+const setProductData = () => {
+    anchors.forEach((item) => {
+        item.addEventListener("click", (e) => {
 
+            const imageUrl = `/probeautyfly/printableImages/${e.currentTarget.innerText.toLowerCase()}.jpg`;
+            setLocalStorage('ImageUrl', imageUrl);
 
-anchors.forEach((icon) => {
-    icon.addEventListener("click", (e) => {
+            const category = item.id.slice(4);
+            setLocalStorage('ProductCategory', category);
 
-        const imageUrl = `/probeautyfly/printableImages/${e.currentTarget.innerText.toLowerCase()}.jpg`
+        })
+    });
+}
 
-        localStorage.setItem('ImageUrl', imageUrl);
-
-    })
-})
+document.addEventListener("DOMContentLoaded", () => { setProductData() })

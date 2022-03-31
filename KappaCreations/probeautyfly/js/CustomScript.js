@@ -1,4 +1,5 @@
 ﻿const url = localStorage.getItem("ImageUrl");
+const category = localStorage.getItem("ProductCategory");
 
 var select_item = "";
 var select_price = "+0";
@@ -167,7 +168,7 @@ $(document).ready(function () {
             hasBorders: false,
         });
 
-     /*   canvas.add(recttext);*/
+        //canvas.add(recttext);
 
         // Create Clip Area (Object created after this will be clipped)
         /*    var ctx = canvas.getContext("2d");
@@ -246,7 +247,7 @@ ctx.clip();*/
         var newText = new fabric.Text(inText, {
             fontSize: inSize,
             fontFamily: inFont,
-            fill: inColor, 
+            fill: inColor,
         });
 
         newText.on("selected", function () {
@@ -267,7 +268,7 @@ ctx.clip();*/
 
         canvas.setActiveObject(newText).add(newText);
 
-        item_list.push(newText); 
+        item_list.push(newText);
         //console.log(canvas.getObjects().indexOf(newText));
         //console.log(newText);
         console.log(JSON.stringify(newText));
@@ -443,16 +444,16 @@ ctx.clip();*/
         //})
 
         const design = {
-            Design: {
-                Images: dataImages,
-                Texts: dataTexts,
+            design: {
+                images: dataImages,
+                texts: dataTexts,
             },
-            Category: 1,
+            category: Number(category),
         };
 
-        console.log(data);
+        //console.log(design);
 
-        //setApiCall(design);
+        setApiCall(design);
     });
 });
 
