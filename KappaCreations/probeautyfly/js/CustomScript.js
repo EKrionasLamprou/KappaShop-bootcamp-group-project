@@ -9,8 +9,8 @@ var item_list = [];
 
 var rectboxX = 130,
     rectboxY = 352,
-    rectboxWidth = 150,
-    rectboxHeight = 200;
+    rectboxWidth = 480,
+    rectboxHeight = 500;
 
 //PRICE FIELD START
 function updatePrice(price_change) {
@@ -145,8 +145,8 @@ $(document).ready(function () {
         rectbox = new fabric.Rect({
             width: rectboxWidth,
             height: rectboxHeight,
-            left: 193,
-            top: 180,
+            left: 35,
+            top: 35,
             stroke: "rgba(0,0,0,0.3)",
             strokeWidth: 2,
             fill: "rgba(0,0,0,0)",
