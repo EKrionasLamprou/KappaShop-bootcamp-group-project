@@ -102,7 +102,7 @@
                 </thead>
                 <tbody>
 
-                    @foreach (Cart item in (List<Cart>)Session["cart"])
+                    @foreach (CartItem item in (List<CartItem>)Session["cart"])
                     {
                         <tr>
                             <td data-th="Product">
@@ -114,18 +114,16 @@
                                     </div>
                                 </div>
                             </td>
-                            <td data-th="Price">@item.Product.Category.Price</td>
+                            <td data-th="Price">@item.Product.Category.Price€</td>
                             <td data-th="Quantity">
                                 <input type="number" class="form-control text-center" value="@item.Quantity">
                             </td>
-                            <td data-th="Subtotal" class="text-center">@(item.Product.Category.Price * item.Quantity)</td>
+                            <td data-th="Subtotal" class="text-center">@(item.Product.Category.Price * item.Quantity)€</td>
                             <td class="actions" data-th="">
                                 <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-                                <button type="submit" formaction="@Url.Action("Remove", "ShoppingCart", new { id = item.Product.Id })" class="btn btn-danger btn-sm">
-                                    <i class="fa fa-trash-o">
-
-                                    </i>
-                                </button>
+                                <a class="btn btn-danger btn-sm" href="@Url.Action("Remove", "ShoppingCart", new { id = item.Product.Id })">
+                                    <i class="fa fa-trash-o"></i>
+                                </a>
                             </td>
                         </tr>
                     }
@@ -138,12 +136,13 @@
                         <td><a href="@Url.Action("Index", "Home")" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
                         <td colspan="2" class="hidden-xs"></td>
                         <td class="hidden-xs text-center">
-                            <strong>Total
+                            <strong>
+                                Total
                                 @{
-                                    List<Cart> cart = (List<Cart>)Session["cart"];
+                                    List<CartItem> cart = (List<CartItem>)Session["cart"];
                                     var total = cart.Sum(x => x.Product.Category.Price * x.Quantity);
                                 }
-                                @total
+                                @total€
                             </strong>
                         </td>
                         <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>

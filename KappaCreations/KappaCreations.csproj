@@ -188,7 +188,10 @@
     <Compile Include="Globals\Constants.cs" />
     <Compile Include="Controllers\Api\DesignController.cs" />
     <Compile Include="Controllers\Api\ProductController.cs" />
+    <Compile Include="Models\Identity\Users\Info\PaymentInfo.cs" />
+    <Compile Include="Models\Identity\Users\Info\BillingAddress.cs" />
     <Compile Include="Models\Shop\DTOs\CommentDTO.cs" />
+    <Compile Include="Models\Shop\Order\Order.cs" />
     <Compile Include="Models\Shop\Product\Comment.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="Controllers\Identity\Account\Confirmation.cs" />
@@ -216,9 +219,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Database\Identity\UsersContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Identity\Users\ApplicationUser.cs" />
     <Compile Include="Models\Identity\ViewModels\Account\ForgotPasswordViewModel.cs" />
     <Compile Include="Models\Identity\ViewModels\Account\ResetPasswordViewModel.cs" />

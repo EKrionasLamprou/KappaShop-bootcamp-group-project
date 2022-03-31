@@ -8,11 +8,11 @@ namespace KappaCreations.Database.Maps
         public CommentMap()
         {
             Property(e => e.Content)
-                .HasMaxLength(600)
-                .HasColumnName("Content")
-                .IsRequired();
+            .HasMaxLength(600)
+            .HasColumnName("Content")
+            .IsRequired();
 
-         /* Saves the id of the ApplicationUser who made the comment.
+            /* Saves the id of the ApplicationUser who made the comment.
             Can't make it a navigation property, because users are
             stored in a different DbContext. */
             Property(e => e.UserId);
