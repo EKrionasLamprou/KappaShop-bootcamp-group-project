@@ -8,10 +8,6 @@ namespace KappaCreations.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult GalleryProductDetails()
-        {
-            return View();
-        }
         public ActionResult Index()
         {
             return View();
@@ -37,12 +33,6 @@ namespace KappaCreations.Controllers
             return View();
         }
 
-        public ActionResult Gallery()
-        {
-            ViewBag.Message = "Your gallery page.";
-
-            return View();
-        }
         public ActionResult ShoppingCart()
         {
             ViewBag.Message = "Your gallery page.";
