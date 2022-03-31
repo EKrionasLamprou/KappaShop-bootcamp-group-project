@@ -12,6 +12,7 @@
         /// <summary>
         /// The url of the image.
         /// </summary>
+        
         public string Url { get; set; }
     }
 }
