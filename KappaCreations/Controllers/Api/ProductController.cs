@@ -31,18 +31,15 @@ namespace KappaCreations.Controllers.Api
         }
 
         [HttpGet]
-        [ResponseType(typeof(IEnumerable<ProductDTO>))]
         public async Task<IHttpActionResult> GetAsync()
         {
             var products = await _repo.GetAllAsync();
-            var response = products
-                .Select(product => ProductDTO.MapFrom(product).MapToCamelCase());
+            var response = ProductDTO.MapFrom(products, camelCase: true);
 
             return Ok(response);
         }
 
         [HttpGet]
-        [ResponseType(typeof(IEnumerable<ProductDTO>))]
         public async Task<IHttpActionResult> GetAsync(int id)
         {
             var product = await _repo.GetAsync(id);
@@ -50,13 +47,12 @@ namespace KappaCreations.Controllers.Api
             {
                 return NotFound();
             }
-            var response = ProductDTO.MapFrom(product).MapToCamelCase();
+            var response = ProductDTO.MapFrom(product, camelCase: true);
 
             return Ok(response);
         }
 
         [HttpPost]
-        [ResponseType(typeof(ProductDTO))]
         public async Task<IHttpActionResult> PostAsync(ProductDTO data)
         {
             Product product;
@@ -81,12 +77,11 @@ namespace KappaCreations.Controllers.Api
                 return BadRequest(ex.Message);
             }
 
-            response = ProductDTO.MapFrom(product).MapToCamelCase();
+            response = ProductDTO.MapFrom(product, camelCase: true);
             return Ok(response);
         }
 
         [HttpDelete]
-        [ResponseType(typeof(string))]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {
             try

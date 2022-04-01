@@ -14,11 +14,5 @@
         /// </summary>
         /// <returns>An instance of a <see cref="T"/> object.</returns>
         T Map();
-
-        /// <summary>
-        /// Returns an object with camelCase properties, mapped from this DTO object.
-        /// </summary>
-        /// <returns>The camelCase object.</returns>
-        object MapToCamelCase();
     }
 }

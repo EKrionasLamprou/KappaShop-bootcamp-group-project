@@ -34,14 +34,12 @@ namespace KappaCreations.Controllers.Api
         public async Task<IHttpActionResult> GetAsync()
         {
             var comments = await _repo.GetAllAsync();
-            var response = comments
-                .Select(c => CommentDTO.MapFrom(c).MapToCamelCase());
+            var response = CommentDTO.MapFrom(comments, camelCase: true);
             
             return Ok(response);
         }
 
         [HttpGet]
-        [ResponseType(typeof(CommentDTO))]
         public async Task<IHttpActionResult> GetAsync(int id)
         {
             var comment = await _repo.GetAsync(id);
@@ -49,7 +47,7 @@ namespace KappaCreations.Controllers.Api
             {
                 return NotFound();
             }
-            var response = CommentDTO.MapFrom(comment).MapToCamelCase();
+            var response = CommentDTO.MapFrom(comment, camelCase: true);
 
             return Ok(response);
         }
@@ -63,7 +61,6 @@ namespace KappaCreations.Controllers.Api
         }
 
         [HttpPost]
-        [ResponseType(typeof(DesignDTO))]
         public async Task<IHttpActionResult> PostAsync(CommentDTO data)
         {
             Comment comment;
@@ -88,7 +85,7 @@ namespace KappaCreations.Controllers.Api
                 return BadRequest(ex.Message);
             }
 
-            response = CommentDTO.MapFrom(comment).MapToCamelCase();
+            response = CommentDTO.MapFrom(comment, camelCase: true);
             return Ok(response);
         }
 
@@ -121,7 +118,7 @@ namespace KappaCreations.Controllers.Api
             {
                 return BadRequest(ex.Message);
             }
-            return Ok(data.MapToCamelCase());
+            return Ok();
         }
 
         [HttpPatch]
@@ -160,12 +157,11 @@ namespace KappaCreations.Controllers.Api
                 return BadRequest(ex.Message);
             }
 
-            response = CommentDTO.MapFrom(comment).MapToCamelCase();
+            response = CommentDTO.MapFrom(comment, camelCase: true);
             return Ok(response);
         }
 
         [HttpDelete]
-        [ResponseType(typeof(string))]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {
             try
@@ -189,7 +185,7 @@ namespace KappaCreations.Controllers.Api
             {
                 return BadRequest(ex.Message);
             }
-            return Ok($"Product with id {id} was deleted.");
+            return Ok($"Comment with id {id} was deleted.");
         }
 
         protected override void Dispose(bool disposing)

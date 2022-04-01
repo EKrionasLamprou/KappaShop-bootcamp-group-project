@@ -31,18 +31,15 @@ namespace KappaCreations.Controllers.Api
         }
 
         [HttpGet]
-        [ResponseType(typeof(IEnumerable<DesignDTO>))]
         public async Task<IHttpActionResult> GetAsync()
         {
             var designs = await _repo.GetAllAsync();
-            var response = designs
-                .Select(design => DesignDTO.MapFrom(design).MapToCamelCase());
+            var response = DesignDTO.MapFrom(designs, camelCase: true);
 
             return Ok(response);
         }
 
         [HttpGet]
-        [ResponseType(typeof(DesignDTO))]
         public async Task<IHttpActionResult> GetAsync(int id)
         {
             var design = await _repo.GetAsync(id);
@@ -50,13 +47,12 @@ namespace KappaCreations.Controllers.Api
             {
                 return NotFound();
             }
-            var response = DesignDTO.MapFrom(design).MapToCamelCase();
+            var response = DesignDTO.MapFrom(design, camelCase: true);
 
             return Ok(response);
         }
 
         [HttpPost]
-        [ResponseType(typeof(DesignDTO))]
         public async Task<IHttpActionResult> PostAsync(DesignDTO data)
         {
             Design design;
@@ -81,13 +77,12 @@ namespace KappaCreations.Controllers.Api
                 return BadRequest(ex.Message);
             }
 
-            response = DesignDTO.MapFrom(design).MapToCamelCase();
+            response = DesignDTO.MapFrom(design, camelCase: true);
             return Ok(response);
         }
 
         [Obsolete]
         [HttpPut]
-        [ResponseType(typeof(DesignDTO))]
         public async Task<IHttpActionResult> PutAsync(DesignDTO data)
         {
             try
@@ -112,11 +107,10 @@ namespace KappaCreations.Controllers.Api
             {
                 return BadRequest(ex.Message);
             }
-            return Ok(data.MapToCamelCase());
+            return Ok();
         }
 
         [HttpDelete]
-        [ResponseType(typeof(string))]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {
             try
