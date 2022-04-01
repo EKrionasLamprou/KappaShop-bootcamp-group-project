@@ -4,9 +4,6 @@ namespace KappaCreations
 {
     public static partial class Constants
     {
-        /// <summary>
-        /// Initializes the constant fields.
-        /// </summary>
         static Constants()
         {
             #region Initialize PRODUCT_CATEGORIES

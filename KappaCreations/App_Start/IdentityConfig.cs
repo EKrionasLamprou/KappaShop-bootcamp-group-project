@@ -39,7 +39,7 @@ namespace KappaCreations
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
         {
-            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<UsersContext>()));
+            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ShopContext>()));
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<ApplicationUser>(manager)
             {
