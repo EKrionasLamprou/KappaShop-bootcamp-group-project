@@ -410,7 +410,7 @@ ctx.clip();*/
                 return {
                     posX: item.left,
                     posY: item.top,
-                    zIndex: 0, // to do
+                    zIndex: data.indexOf(item), // to do
                     sizeWidth: item.width,
                     sizeHeight: item.height,
                     colourHex: item.filters.length !== 0 ? item.filters[0].color : "#ffffff",
@@ -425,7 +425,7 @@ ctx.clip();*/
                 return {
                     posX: item.left,
                     posY: item.top,
-                    zIndex: 0, // to do
+                    zIndex: data.indexOf(item), // to do
                     sizeWidth: item.width,
                     sizeHeight: item.height,
                     colourHex: "#000000", // to do
