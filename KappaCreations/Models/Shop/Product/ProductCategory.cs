@@ -6,18 +6,18 @@ namespace KappaCreations.Models
     /// <summary>
     /// Represents a category that products belong to.
     /// </summary>
-    public class ProductCategory
+    public class ProductCategory : IEntity
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ProductCategory"/> class.
         /// </summary>
-        public ProductCategory(string title, double price, ProductCategory supercategory = null)
+        public ProductCategory()
         {
-            Title = title;
-            Price = price;
-            SuperCategory = supercategory;
+            SubCategories = new HashSet<ProductCategory>();
+            Products = new HashSet<Product>();
         }
 
+        public int Id { get; set; }
         /// <summary>
         /// The name of the category.
         /// </summary>
@@ -40,17 +40,12 @@ namespace KappaCreations.Models
         /// <summary>
         /// The categories that belong to this category.
         /// </summary>
-        public ICollection<ProductCategory> SubCategories
-        {
-            get => Constants.PRODUCT_CATEGORIES
-                             .Where(c => c.SuperCategory == this)
-                             .ToList();
-        }
-
+        public ICollection<ProductCategory> SubCategories { get; set; }
         /// <summary>
-        /// A string that represents the category's title.
+        /// The products that belong to this category.
         /// </summary>
-        /// <returns>The category title.</returns>
+        public ICollection<Product> Products { get; set; }
+
         public override string ToString() => Title;
     }
 }

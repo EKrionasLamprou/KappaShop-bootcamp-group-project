@@ -5,6 +5,27 @@ namespace KappaCreations.Models.Shop.DTOs
 {
     public class TextDTO : IDataTransferObject<Text>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TextDTO"/> class.
+        /// </summary>
+        public TextDTO() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TextDTO"/> class.
+        /// </summary>
+        /// <param name="design">A <see cref="Text"/> object to be mapped to DTO.</param>
+        public TextDTO(Text text)
+        {
+            Id = text.Id;
+            PosX = text.Position.X;
+            PosY = text.Position.Y;
+            ZIndex = text.Position.Z;
+            SizeWidth = text.Size.Width;
+            SizeHeight = text.Size.Height;
+            ColourHex = text.Colour.ToString();
+            Content = text.Content;
+            Font = (int)text.Font;
+        }
+
         public int? Id { get; set; }
 
         // Position
@@ -34,55 +55,31 @@ namespace KappaCreations.Models.Shop.DTOs
             Font = (Font)Font,
         };
 
-        #region MapFrom
         /// <summary>
-        /// Returns an <see cref="object"/> that matches the properties of <see cref="TextDTO"/>.
+        /// Maps a <see cref="Text"/> instance to an object that matches the properties of a
+        /// <see cref="TextDTO"/> using the camelCase style.
         /// </summary>
-        /// <param name="comment">An instance of a <see cref="Text"/> entity.</param>
-        /// <param name="camelCase"><see langword="true"/> for returning an object with cameCase style, 
-        /// <see langword="false"/> for PascalCase.</param>
-        /// <returns>An object with <see cref="TextDTO"/> properties.</returns>
-        public static object MapFrom(Text comment, bool camelCase = false)
-            => camelCase ? MapFromWithCamelCase(comment)
-                         : MapFromWithPascalCase(comment);
+        /// <param name="text">The object to be mapped to camelCase DTO.</param>
+        /// <returns>An object with camelCase properties that match a <see cref="TextDTO"/>.</returns>
+        public static object MapToCamelCase(Text text) => new
+        {
+            id = text.Id,
+            posX = text.Position.X,
+            posY = text.Position.Y,
+            zIndex = text.Position.Z,
+            sizeWidth = text.Size.Width,
+            sizeHeight = text.Size.Height,
+            colourHex = text.Colour.ToString(),
+            content = text.Content,
+            font = (int)text.Font,
+        };
         /// <summary>
-        /// Returns an <see cref="object"/> that matches the properties of <see cref="TextDTO"/>.
+        /// Maps a collection of <see cref="Text"/> instances to objects that matche the properties of
+        /// <see cref="TextDTO"/> using the camelCase style.
         /// </summary>
-        /// <param name="comments">A collection of <see cref="Text"/> entities.</param>
-        /// <param name="camelCase">for returning an object with cameCase style, 
-        /// <see langword="false"/> for PascalCase.</param>
-        /// <returns>A collection of objects with <see cref="TextDTO"/> properties.</returns>
-        public static object MapFrom(IEnumerable<Text> comments, bool camelCase = false)
-            => camelCase ? comments.Select(comment => MapFromWithCamelCase(comment))
-                         : comments.Select(comment => MapFromWithPascalCase(comment));
-
-        private static object MapFromWithPascalCase(Text text)
-            => new
-            {
-                Id = text.Id,
-                PosX = text.Position.X,
-                PosY = text.Position.Y,
-                ZIndex = text.Position.Z,
-                SizeWidth = text.Size.Width,
-                SizeHeight = text.Size.Height,
-                ColourHex = text.Colour.ToString(),
-                Content = text.Content,
-                Font = (int)text.Font,
-            };
-
-        private static object MapFromWithCamelCase(Text text)
-            => new
-            {
-                id = text.Id,
-                posX = text.Position.X,
-                posY = text.Position.Y,
-                zIndex = text.Position.Z,
-                sizeWidth = text.Size.Width,
-                sizeHeight = text.Size.Height,
-                colourHex = text.Colour.ToString(),
-                content = text.Content,
-                font = (int)text.Font,
-            };
-        #endregion
+        /// <param name="texts">The collection of objects to be mapped to camelCase DTO.</param>
+        /// <returns>A collection of objects with camelCase properties that match <see cref="TextDTO"/>.</returns>
+        public static object MapToCamelCase(IEnumerable<Text> texts)
+            => texts.Select(text => MapToCamelCase(text));
     }
 }

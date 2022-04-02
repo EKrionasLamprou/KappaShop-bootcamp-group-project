@@ -5,6 +5,26 @@ namespace KappaCreations.Models.Shop.DTOs
 {
     public class ImageDTO : IDataTransferObject<Image>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ImageDTO"/> class.
+        /// </summary>
+        public ImageDTO() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ImageDTO"/> class.
+        /// </summary>
+        /// <param name="image">A <see cref="Image"/> object to be mapped to DTO.</param>
+        public ImageDTO(Image image)
+        {
+            Id = image.Id;
+            PosX = image.Position.X;
+            PosY = image.Position.Y;
+            ZIndex = image.Position.Z;
+            SizeWidth = image.Size.Width;
+            SizeHeight = image.Size.Height;
+            ColourHex = image.Colour.ToString();
+            Url = image.Url;
+        }
+
         public int? Id { get; set; }
 
         // Position
@@ -32,53 +52,30 @@ namespace KappaCreations.Models.Shop.DTOs
             Url = Url,
         };
 
-        #region MapFrom
         /// <summary>
-        /// Returns an <see cref="object"/> that matches the properties of <see cref="ImageDTO"/>.
+        /// Maps a <see cref="Image"/> instance to an object that matches the properties of a
+        /// <see cref="ImageDTO"/> using the camelCase style.
         /// </summary>
-        /// <param name="comment">An instance of a <see cref="Image"/> entity.</param>
-        /// <param name="camelCase"><see langword="true"/> for returning an object with cameCase style, 
-        /// <see langword="false"/> for PascalCase.</param>
-        /// <returns>An object with <see cref="ImageDTO"/> properties.</returns>
-        public static object MapFrom(Image comment, bool camelCase = false)
-            => camelCase ? MapFromWithCamelCase(comment)
-                         : MapFromWithPascalCase(comment);
+        /// <param name="image">The object to be mapped to camelCase DTO.</param>
+        /// <returns>An object with camelCase properties that match a <see cref="ImageDTO"/>.</returns>
+        public static object MapToCamelCase(Image image) => new
+        {
+            id = image.Id,
+            posX = image.Position.X,
+            posY = image.Position.Y,
+            zIndex = image.Position.Z,
+            sizeWidth = image.Size.Width,
+            sizeHeight = image.Size.Height,
+            colourHex = image.Colour.ToString(),
+            url = image.Url,
+        };
         /// <summary>
-        /// Returns an <see cref="object"/> that matches the properties of <see cref="ImageDTO"/>.
+        /// Maps a collection of <see cref="Image"/> instances to objects that matche the properties of
+        /// <see cref="ImageDTO"/> using the camelCase style.
         /// </summary>
-        /// <param name="comments">A collection of <see cref="Image"/> entities.</param>
-        /// <param name="camelCase">for returning an object with cameCase style, 
-        /// <see langword="false"/> for PascalCase.</param>
-        /// <returns>A collection of objects with <see cref="ImageDTO"/> properties.</returns>
-        public static object MapFrom(IEnumerable<Image> comments, bool camelCase = false)
-            => camelCase ? comments.Select(comment => MapFromWithCamelCase(comment))
-                         : comments.Select(comment => MapFromWithPascalCase(comment));
-
-        private static object MapFromWithPascalCase(Image image)
-            => new
-            {
-                Id = image.Id,
-                PosX = image.Position.X,
-                PosY = image.Position.Y,
-                ZIndex = image.Position.Z,
-                SizeWidth = image.Size.Width,
-                SizeHeight = image.Size.Height,
-                ColourHex = image.Colour.ToString(),
-                Url = image.Url,
-            };
-
-        private static object MapFromWithCamelCase(Image image)
-            => new
-            {
-                id = image.Id,
-                posX = image.Position.X,
-                posY = image.Position.Y,
-                zIndex = image.Position.Z,
-                sizeWidth = image.Size.Width,
-                sizeHeight = image.Size.Height,
-                colourHex = image.Colour.ToString(),
-                url = image.Url,
-            };
-        #endregion
+        /// <param name="images">The collection of objects to be mapped to camelCase DTO.</param>
+        /// <returns>A collection of objects with camelCase properties that match <see cref="ImageDTO"/>.</returns>
+        public static object MapToCamelCase(IEnumerable<Image> images)
+            => images.Select(image => MapToCamelCase(image));
     }
 }

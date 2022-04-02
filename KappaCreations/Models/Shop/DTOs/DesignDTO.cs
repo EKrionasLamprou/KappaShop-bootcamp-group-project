@@ -5,6 +5,21 @@ namespace KappaCreations.Models.Shop.DTOs
 {
     public class DesignDTO : IDataTransferObject<Design>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DesignDTO"/> class.
+        /// </summary>
+        public DesignDTO() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DesignDTO"/> class.
+        /// </summary>
+        /// <param name="design">A <see cref="Design"/> object to be mapped to DTO.</param>
+        public DesignDTO(Design design)
+        {
+            Id = design.Id;
+            Images = design.Images.Select(image => new ImageDTO(image));
+            Texts = design.Texts.Select(text => new TextDTO(text));
+        }
+
         public int? Id { get; set; }
 
         public IEnumerable<ImageDTO> Images { get; set; }
@@ -18,43 +33,25 @@ namespace KappaCreations.Models.Shop.DTOs
             Texts = Texts.Select(text => text.Map()).ToList(),
         };
 
-        #region MapFrom
         /// <summary>
-        /// Returns an <see cref="object"/> that matches the properties of <see cref="DesignDTO"/>.
+        /// Maps a <see cref="Design"/> instance to an object that matches the properties of a
+        /// <see cref="DesignDTO"/> using the camelCase style.
         /// </summary>
-        /// <param name="comment">An instance of a <see cref="Design"/> entity.</param>
-        /// <param name="camelCase"><see langword="true"/> for returning an object with cameCase style, 
-        /// <see langword="false"/> for PascalCase.</param>
-        /// <returns>An object with <see cref="DesignDTO"/> properties.</returns>
-        public static object MapFrom(Design design, bool camelCase = false)
-            => camelCase ? MapFromWithCamelCase(design)
-                         : MapFromWithPascalCase(design);
+        /// <param name="design">The object to be mapped to camelCase DTO.</param>
+        /// <returns>An object with camelCase properties that match a <see cref="DesignDTO"/>.</returns>
+        public static object MapToCamelCase(Design design) => new
+        {
+            id = design.Id,
+            images = ImageDTO.MapToCamelCase(design.Images),
+            texts = TextDTO.MapToCamelCase(design.Texts),
+        };
         /// <summary>
-        /// Returns an <see cref="object"/> that matches the properties of <see cref="DesignDTO"/>.
+        /// Maps a collection of <see cref="Design"/> instances to objects that matche the properties of
+        /// <see cref="DesignDTO"/> using the camelCase style.
         /// </summary>
-        /// <param name="comments">A collection of <see cref="Text"/> entities.</param>
-        /// <param name="camelCase">for returning an object with cameCase style, 
-        /// <see langword="false"/> for PascalCase.</param>
-        /// <returns>A collection of objects with <see cref="DesignDTO"/> properties.</returns>
-        public static object MapFrom(IEnumerable<Design> designs, bool camelCase = false)
-            => camelCase ? designs.Select(design => MapFromWithCamelCase(design))
-                         : designs.Select(design => MapFromWithPascalCase(design));
-
-        private static object MapFromWithPascalCase(Design design)
-            => new
-            {
-                Id = design.Id,
-                Images = ImageDTO.MapFrom(design.Images),
-                Texts = TextDTO.MapFrom(design.Texts),
-            };
-
-        private static object MapFromWithCamelCase(Design design)
-            => new
-            {
-                id = design.Id,
-                images = ImageDTO.MapFrom(design.Images, true),
-                texts = TextDTO.MapFrom(design.Texts, true),
-            };
-        #endregion
+        /// <param name="designs">The collection of objects to be mapped to camelCase DTO.</param>
+        /// <returns>A collection of objects with camelCase properties that match <see cref="DesignDTO"/>.</returns>
+        public static object MapToCamelCase(IEnumerable<Design> designs)
+            => designs.Select(design => MapToCamelCase(design));
     }
 }

@@ -5,6 +5,23 @@ namespace KappaCreations.Models.Shop.DTOs
 {
     public class CommentDTO : IDataTransferObject<Comment>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CommentDTO"/> class.
+        /// </summary>
+        public CommentDTO() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CommentDTO"/> class.
+        /// </summary>
+        /// <param name="comment">A <see cref="Comment"/> object to be mapped to DTO.</param>
+        public CommentDTO(Comment comment)
+        {
+            Id = comment.Id;
+            Content = comment.Content;
+            Upvotes = comment.Upvotes;
+            UserId = comment.UserId;
+            ProductId = comment.ProductId;
+        }
+
         public int? Id { get; set; }
         public string Content { get; set; }
         public int Upvotes { get; set; }
@@ -22,47 +39,27 @@ namespace KappaCreations.Models.Shop.DTOs
             ProductId = ProductId,
         };
 
-        #region MapFrom
         /// <summary>
-        /// Returns an <see cref="object"/> that matches the properties of <see cref="CommentDTO"/>.
+        /// Maps a <see cref="Comment"/> instance to an object that matches the properties of a
+        /// <see cref="CommentDTO"/> using the camelCase style.
         /// </summary>
-        /// <param name="comment">An instance of a <see cref="Comment"/> entity.</param>
-        /// <param name="camelCase"><see langword="true"/> for returning an object with cameCase style, 
-        /// <see langword="false"/> for PascalCase.</param>
-        /// <returns>An object with <see cref="CommentDTO"/> properties.</returns>
-        public static object MapFrom(Comment comment, bool camelCase = false)
-            => camelCase ? MapFromWithCamelCase(comment)
-                         : MapFromWithPascalCase(comment);
+        /// <param name="comment">The object to be mapped to camelCase DTO.</param>
+        /// <returns>An object with camelCase properties that match a <see cref="CommentDTO"/>.</returns>
+        public static object MapToCamelCase(Comment comment) => new
+        {
+            id = comment.Id,
+            content = comment.Content,
+            upvotes = comment.Upvotes,
+            userId = comment.UserId,
+            productId = comment.ProductId,
+        };
         /// <summary>
-        /// Returns an <see cref="object"/> that matches the properties of <see cref="CommentDTO"/>.
+        /// Maps a collection of <see cref="Comment"/> instances to objects that matche the properties of
+        /// <see cref="CommentDTO"/> using the camelCase style.
         /// </summary>
-        /// <param name="comments">A collection of <see cref="Comment"/> entities.</param>
-        /// <param name="camelCase">for returning an object with cameCase style, 
-        /// <see langword="false"/> for PascalCase.</param>
-        /// <returns>A collection of objects with <see cref="CommentDTO"/> properties.</returns>
-        public static object MapFrom(IEnumerable<Comment> comments, bool camelCase = false)
-            => camelCase ? comments.Select(comment => MapFromWithCamelCase(comment))
-                         : comments.Select(comment => MapFromWithPascalCase(comment));
-
-        private static object MapFromWithPascalCase(Comment comment)
-            => new
-            {
-                Id = comment.Id,
-                Content = comment.Content,
-                Upvotes = comment.Upvotes,
-                UserId = comment.UserId,
-                ProductId = comment.ProductId,
-            };
-
-        private static object MapFromWithCamelCase(Comment comment)
-            => new
-            {
-                id = comment.Id,
-                content = comment.Content,
-                upvotes = comment.Upvotes,
-                userId = comment.UserId,
-                productId = comment.ProductId,
-            };
-        #endregion
+        /// <param name="comments">The collection of objects to be mapped to camelCase DTO.</param>
+        /// <returns>A collection of objects with camelCase properties that match <see cref="CommentDTO"/>.</returns>
+        public static object MapToCamelCase(IEnumerable<Comment> comments)
+            => comments.Select(comment => MapToCamelCase(comment));
     }
 }

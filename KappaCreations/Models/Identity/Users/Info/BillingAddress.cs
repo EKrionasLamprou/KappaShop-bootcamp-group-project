@@ -1,4 +1,6 @@
-﻿namespace KappaCreations.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace KappaCreations.Models
 {
     public class BillingAddress : IEntity
     {

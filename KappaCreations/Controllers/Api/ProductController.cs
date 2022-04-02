@@ -4,11 +4,8 @@ using KappaCreations.Repositories;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System;
-using System.Web.Http.Description;
 using KappaCreations.Models;
-using System.Collections.Generic;
 using System.Data.Entity.Validation;
-using System.Linq;
 using static KappaCreations.Utilities;
 using System.Data.Entity.Infrastructure;
 
@@ -34,7 +31,7 @@ namespace KappaCreations.Controllers.Api
         public async Task<IHttpActionResult> GetAsync()
         {
             var products = await _repo.GetAllAsync();
-            var response = ProductDTO.MapFrom(products, camelCase: true);
+            var response = ProductDTO.MapToCamelCase(products);
 
             return Ok(response);
         }
@@ -47,7 +44,7 @@ namespace KappaCreations.Controllers.Api
             {
                 return NotFound();
             }
-            var response = ProductDTO.MapFrom(product, camelCase: true);
+            var response = ProductDTO.MapToCamelCase(product);
 
             return Ok(response);
         }
@@ -77,7 +74,7 @@ namespace KappaCreations.Controllers.Api
                 return BadRequest(ex.Message);
             }
 
-            response = ProductDTO.MapFrom(product, camelCase: true);
+            response = ProductDTO.MapToCamelCase(product);
             return Ok(response);
         }
 

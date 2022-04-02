@@ -5,6 +5,25 @@ namespace KappaCreations.Models.Shop.DTOs
 {
     public class ProductDTO : IDataTransferObject<Product>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProductDTO"/> class.
+        /// </summary>
+        public ProductDTO() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProductDTO"/> class.
+        /// </summary>
+        /// <param name="product">A <see cref="Product"/> object to be mapped to DTO.</param>
+        public ProductDTO(Product product)
+        {
+            Id = product.Id;
+            Design = new DesignDTO(product.Design);
+            BackDesign = product.BackDesign is null ?
+                            null : new DesignDTO(product.BackDesign);
+            DesignerId = product.CategoryId;
+            Upvotes = product.Upvotes;
+            Reports = product.Reports;
+        }
+
         public int? Id { get; set; }
         public DesignDTO Design { get; set; }
         public DesignDTO BackDesign { get; set; }
@@ -25,51 +44,29 @@ namespace KappaCreations.Models.Shop.DTOs
             Reports = Reports ?? 0,
         };
 
-        #region MapFrom
         /// <summary>
-        /// Returns an <see cref="object"/> that matches the properties of <see cref="ProductDTO"/>.
+        /// Maps a <see cref="Product"/> instance to an object that matches the properties of a
+        /// <see cref="ProductDTO"/> using the camelCase style.
         /// </summary>
-        /// <param name="comment">An instance of a <see cref="Product"/> entity.</param>
-        /// <param name="camelCase"><see langword="true"/> for returning an object with cameCase style, 
-        /// <see langword="false"/> for PascalCase.</param>
-        /// <returns>An object with <see cref="ProductDTO"/> properties.</returns>
-        public static object MapFrom(Product product, bool camelCase = false)
-            => camelCase ? MapFromWithCamelCase(product)
-                         : MapFromWithPascalCase(product);
+        /// <param name="product">The object to be mapped to camelCase DTO.</param>
+        /// <returns>An object with camelCase properties that match a <see cref="ProductDTO"/>.</returns>
+        public static object MapToCamelCase(Product product) => new
+        {
+            id = product.Id,
+            design = DesignDTO.MapToCamelCase(product.Design),
+            backDesign = product.BackDesign is null ? null
+                            : DesignDTO.MapToCamelCase(product.BackDesign),
+            designerId = product.CategoryId,
+            upvotes = product.Upvotes,
+            reports = product.Reports,
+        };
         /// <summary>
-        /// Returns an <see cref="object"/> that matches the properties of <see cref="ProductDTO"/>.
+        /// Maps a collection of <see cref="Product"/> instances to objects that matche the properties of
+        /// <see cref="ProductDTO"/> using the camelCase style.
         /// </summary>
-        /// <param name="comments">A collection of <see cref="Text"/> entities.</param>
-        /// <param name="camelCase">for returning an object with cameCase style, 
-        /// <see langword="false"/> for PascalCase.</param>
-        /// <returns>A collection of objects with <see cref="ProductDTO"/> properties.</returns>
-        public static object MapFrom(IEnumerable<Product> products, bool camelCase = false)
-            => camelCase ? products.Select(product => MapFromWithCamelCase(product))
-                         : products.Select(product => MapFromWithPascalCase(product));
-
-        private static object MapFromWithPascalCase(Product product)
-            => new
-            {
-                Id = product.Id,
-                Design = DesignDTO.MapFrom(product.Design),
-                BackDesign = product.BackDesign is null ?
-                            null : DesignDTO.MapFrom(product.BackDesign),
-                DesignerId = product.CategoryId,
-                Upvotes = product.Upvotes,
-                Reports = product.Reports,
-            };
-
-        private static object MapFromWithCamelCase(Product product)
-            => new
-            {
-                id = product.Id,
-                design = DesignDTO.MapFrom(product.Design, true),
-                backDesign = product.BackDesign is null ?
-                            null : DesignDTO.MapFrom(product.BackDesign, true),
-                designerId = product.CategoryId,
-                upvotes = product.Upvotes,
-                reports = product.Reports,
-            };
-        #endregion
+        /// <param name="products">The collection of objects to be mapped to camelCase DTO.</param>
+        /// <returns>A collection of objects with camelCase properties that match <see cref="ProductDTO"/>.</returns>
+        public static object MapToCamelCase(IEnumerable<Product> products)
+            => products.Select(product => MapToCamelCase(product));
     }
 }

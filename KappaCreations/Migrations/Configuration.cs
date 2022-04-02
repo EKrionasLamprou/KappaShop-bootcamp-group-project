@@ -1,23 +1,13 @@
-﻿namespace KappaCreations.Migrations
-{
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
+﻿using KappaCreations.Database;
+using System.Data.Entity.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<KappaCreations.Database.ShopContext>
+namespace KappaCreations.Migrations
+{
+    internal sealed class Configuration : DbMigrationsConfiguration<ShopContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-        }
-
-        protected override void Seed(KappaCreations.Database.ShopContext context)
-        {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
-            //  to avoid creating duplicate seed data.
         }
     }
 }

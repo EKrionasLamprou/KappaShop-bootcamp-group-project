@@ -21,15 +21,6 @@ namespace KappaCreations.Models
         /// </summary>
         public DateTime SubmitDate { get; set; }
 
-        public int CategoryId { get; set; }
-        /// <summary>
-        /// The category the <see cref="Product"/> belongs to.
-        /// </summary>
-        public ProductCategory Category
-        {
-            get => Utilities.GetProductCategory(CategoryId);
-        }
-
         /// <summary>
         /// Represents a user-made design, printed on the product.
         /// </summary>
@@ -41,9 +32,22 @@ namespace KappaCreations.Models
         public Design BackDesign { get; set; }
 
         /// <summary>
-        /// Represents the id of the <see cref="ApplicationUser"/> who made the design.
+        /// The id of the category this product belongs to.
+        /// </summary>
+        public int CategoryId { get; set; }
+        /// <summary>
+        /// The category this product belongs to.
+        /// </summary>
+        public ProductCategory Category { get; set; }
+
+        /// <summary>
+        /// Represents the id of the <see cref="ApplicationUser"/> who made the product.
         /// </summary>
         public int DesignerId { get; set; }
+        /// <summary>
+        /// The user who made the product.
+        /// </summary>
+        public ApplicationUser Designer { get; set; }
 
         /// <summary>
         /// Represents the number of upvotes the product has received from users.

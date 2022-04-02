@@ -3,13 +3,10 @@ using KappaCreations.Models;
 using KappaCreations.Models.Shop.DTOs;
 using KappaCreations.Repositories;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Http.Description;
 using static KappaCreations.Utilities;
 
 namespace KappaCreations.Controllers.Api
@@ -34,7 +31,7 @@ namespace KappaCreations.Controllers.Api
         public async Task<IHttpActionResult> GetAsync()
         {
             var comments = await _repo.GetAllAsync();
-            var response = CommentDTO.MapFrom(comments, camelCase: true);
+            var response = CommentDTO.MapToCamelCase(comments);
             
             return Ok(response);
         }
@@ -47,7 +44,7 @@ namespace KappaCreations.Controllers.Api
             {
                 return NotFound();
             }
-            var response = CommentDTO.MapFrom(comment, camelCase: true);
+            var response = CommentDTO.MapToCamelCase(comment);
 
             return Ok(response);
         }
@@ -85,7 +82,7 @@ namespace KappaCreations.Controllers.Api
                 return BadRequest(ex.Message);
             }
 
-            response = CommentDTO.MapFrom(comment, camelCase: true);
+            response = CommentDTO.MapToCamelCase(comment);
             return Ok(response);
         }
 
@@ -157,7 +154,7 @@ namespace KappaCreations.Controllers.Api
                 return BadRequest(ex.Message);
             }
 
-            response = CommentDTO.MapFrom(comment, camelCase: true);
+            response = CommentDTO.MapToCamelCase(comment);
             return Ok(response);
         }
 
