@@ -22,9 +22,17 @@ namespace KappaCreations.Models
         public DateTime SubmitDate { get; set; }
 
         /// <summary>
+        /// The <see cref="Design"/> foreign key.
+        /// </summary>
+        public int DesignId { get; set; }
+        /// <summary>
         /// Represents a user-made design, printed on the product.
         /// </summary>
         public Design Design { get; set; }
+        /// <summary>
+        /// The <see cref="BackDesign"/> foreign key.
+        /// </summary>
+        public int? BackDesignId { get; set; }
         /// <summary>
         /// Represents a user-made design, printed on the back side of the product. 
         /// <see langword="null"/> by default.
@@ -43,7 +51,7 @@ namespace KappaCreations.Models
         /// <summary>
         /// Represents the id of the <see cref="ApplicationUser"/> who made the product.
         /// </summary>
-        public int DesignerId { get; set; }
+        public string DesignerId { get; set; }
         /// <summary>
         /// The user who made the product.
         /// </summary>

@@ -19,7 +19,8 @@ namespace KappaCreations.Models.Shop.DTOs
             Design = new DesignDTO(product.Design);
             BackDesign = product.BackDesign is null ?
                             null : new DesignDTO(product.BackDesign);
-            DesignerId = product.CategoryId;
+            DesignerId = product.DesignerId;
+            CategoryId = product.CategoryId;
             Upvotes = product.Upvotes;
             Reports = product.Reports;
         }
@@ -27,8 +28,8 @@ namespace KappaCreations.Models.Shop.DTOs
         public int? Id { get; set; }
         public DesignDTO Design { get; set; }
         public DesignDTO BackDesign { get; set; }
-        public int Category { get; set; }
-        public int DesignerId { get; set; }
+        public int CategoryId { get; set; }
+        public string DesignerId { get; set; }
         public int? Upvotes { get; set; }
         public int? Reports { get; set; }
 
@@ -39,7 +40,7 @@ namespace KappaCreations.Models.Shop.DTOs
             Design = Design.Map(),
             BackDesign = BackDesign?.Map() ?? null,
             DesignerId = DesignerId,
-            CategoryId = Category,
+            CategoryId = CategoryId,
             Upvotes = Upvotes ?? 0,
             Reports = Reports ?? 0,
         };
@@ -57,6 +58,7 @@ namespace KappaCreations.Models.Shop.DTOs
             backDesign = product.BackDesign is null ? null
                             : DesignDTO.MapToCamelCase(product.BackDesign),
             designerId = product.CategoryId,
+            categoryId = product.CategoryId,
             upvotes = product.Upvotes,
             reports = product.Reports,
         };

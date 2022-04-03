@@ -14,6 +14,10 @@ namespace KappaCreations.Database.Maps
             HasRequired(e => e.Category)
                 .WithMany(e => e.Products)
                 .HasForeignKey(e => e.CategoryId);
+
+            HasRequired(e => e.Designer)
+                .WithMany(e => e.Products)
+                .HasForeignKey(e => e.DesignerId);
         }
     }
 }

@@ -34,6 +34,10 @@ namespace KappaCreations.Models
         public string ImageUrl { get; set; }
 
         /// <summary>
+        /// The super category foreign key.
+        /// </summary>
+        public int? SuperCategoryId { get; set; }
+        /// <summary>
         /// The category this category belongs to.
         /// </summary>
         public ProductCategory SuperCategory { get; set; }

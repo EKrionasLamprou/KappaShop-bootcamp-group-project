@@ -187,6 +187,7 @@
     <Compile Include="Controllers\Api\CommentController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Database\DbInitializer.cs" />
+    <Compile Include="Database\Maps\ProductCategoryMap.cs" />
     <Compile Include="Database\Maps\CommentMap.cs" />
     <Compile Include="Database\Context\DbSets.cs" />
     <Compile Include="Controllers\Api\DesignController.cs" />
