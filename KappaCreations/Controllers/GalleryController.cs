@@ -6,6 +6,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using PagedList.Mvc;
+using PagedList;
 
 namespace KappaCreations.Controllers
 {
@@ -25,9 +27,13 @@ namespace KappaCreations.Controllers
             _repo = new ProductRepository(_db);
         }
         
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(int? page, int? pSize)
         {
             var products = await _repo.GetAllAsync();
+
+            int pageSize = pSize ?? 4;
+            int pageNumber = page ?? 1;
+            //return View(products.ToPagedList(pageNumber,pageSize));
             return View();
         }
 
