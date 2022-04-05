@@ -33,6 +33,7 @@ namespace KappaCreations.Repositories
                  .Include(e => e.BackDesign)
                  .Include(e => e.Design.Texts)
                  .Include(e => e.Design.Images)
+                 .Include(e => e.Category)
                  .FirstOrDefault();
         public override async Task<Product> GetAsync(int id)
             => await Set.Where(e => e.Id == id)
@@ -42,6 +43,7 @@ namespace KappaCreations.Repositories
                         .Include(e => e.BackDesign)
                         .Include(e => e.Design.Texts)
                         .Include(e => e.Design.Images)
+                        .Include(e => e.Category)
                         .FirstOrDefaultAsync();
 
         public override async Task<IEnumerable<Product>> GetAllAsync()
@@ -51,6 +53,7 @@ namespace KappaCreations.Repositories
                          .Include(e => e.BackDesign)
                          .Include(e => e.Design.Texts)
                          .Include(e => e.Design.Images)
+                         .Include(e => e.Category)
                          .ToListAsync();
     }
 }

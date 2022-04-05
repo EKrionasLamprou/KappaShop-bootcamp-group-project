@@ -10,8 +10,6 @@ namespace KappaCreations.Database.Maps
             Property(e => e.Title)
                 .HasMaxLength(100)
                 .IsRequired();
-
-            
         }
     }
 }

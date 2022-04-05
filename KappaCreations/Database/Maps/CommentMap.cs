@@ -12,10 +12,9 @@ namespace KappaCreations.Database.Maps
             .HasColumnName("Content")
             .IsRequired();
 
-            /* Saves the id of the ApplicationUser who made the comment.
-            Can't make it a navigation property, because users are
-            stored in a different DbContext. */
-            Property(e => e.UserId);
+            HasRequired(e => e.User)
+                .WithMany()
+                .HasForeignKey(e => e.UserId);
 
             HasRequired(e => e.Product)
                 .WithMany(e => e.Comments)

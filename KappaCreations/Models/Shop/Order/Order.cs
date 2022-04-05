@@ -12,8 +12,13 @@ namespace KappaCreations.Models
         }
 
         public int Id { get; set; }
+
+        public string UserId { get; set; }
         public ApplicationUser User { get; set; }
+
+        public int BillingAddressId { get; set; }
         public BillingAddress BillingAddress { get; set; }
+
         public DateTime SubmitDate { get; set; }
 
         public ICollection<CartItem> Items { get; set; }

@@ -7,7 +7,9 @@ namespace KappaCreations.Database.Maps
     {
         public ProductMap()
         {
-            HasRequired(e => e.Design);
+            HasRequired(e => e.Design)
+                .WithMany(e => e.Products)
+                .HasForeignKey(e => e.DesignId);
 
             HasOptional(e => e.BackDesign);
 
@@ -16,8 +18,9 @@ namespace KappaCreations.Database.Maps
                 .HasForeignKey(e => e.CategoryId);
 
             HasRequired(e => e.Designer)
-                .WithMany(e => e.Products)
-                .HasForeignKey(e => e.DesignerId);
+               .WithMany(e => e.Products)
+               .HasForeignKey(e => e.DesignerId)
+               .WillCascadeOnDelete(false);
         }
     }
 }

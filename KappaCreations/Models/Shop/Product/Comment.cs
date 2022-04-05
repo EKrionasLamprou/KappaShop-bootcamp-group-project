@@ -25,9 +25,13 @@
         }
 
         /// <summary>
-        /// The id of the commenter.
+        /// The foreign key of the user who made the comment.
         /// </summary>
-        public int UserId { get; set; }
+        public string UserId { get; set; }
+        /// <summary>
+        /// The user who made the comment..
+        /// </summary>
+        public ApplicationUser User { get; set; }
 
         /// <summary>
         /// Product foreign key.
