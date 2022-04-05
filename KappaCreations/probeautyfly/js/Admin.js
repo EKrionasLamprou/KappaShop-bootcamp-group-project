@@ -38,3 +38,48 @@ $(document).ready(function () {
         }
     })
 })
+/*Total orders
+$(document).ready(function () {
+    $.ajax({
+        type:"GET",
+        url:'https://localhost:44342/api/order/count',
+        dataType: "json",
+        success: function (data) {
+            let orderNumber = $("#totalOrders");
+            $(orderNumber).text(data.count);
+        },
+        error: function () {
+            console.log("Error. Failed to load the number of orders.");
+        }
+    })
+})
+//Top 3 categories
+$(document).ready(function () {
+    $.ajax({
+        type:"GET",
+        url:'https://localhost:44342/api/order/count',
+        dataType: "json",
+        success: function (data) {
+            let topCategories = $("#topCat");
+            $(topCategories).text(data.names.take(3).join(", "));
+        },
+        error: function () {
+            console.log("Error. Failed to load the top categories.");
+        }
+    })
+})*/
+/*Total earnings
+$(document).ready(function () {
+    $.ajax({
+        type:"GET",
+        url:'https://localhost:44342/api/order/count',
+        dataType: "json",
+        success: function (data) {
+            let earnings = $("#totalAmount");
+            $(earnings).text(data.sum);
+        },
+        error: function () {
+            console.log("Error. Failed to load the amount.");
+        }
+    })
+})*/

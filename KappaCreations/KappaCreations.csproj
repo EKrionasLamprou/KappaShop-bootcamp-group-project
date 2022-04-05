@@ -47,6 +47,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="PayPal, Version=1.9.1.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
       <HintPath>..\packages\PayPal.1.9.1\lib\net451\PayPal.dll</HintPath>
     </Reference>
@@ -285,36 +291,17 @@
     <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\images\logo.png" />
     <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\scripts\main.js" />
     <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\charts-chartjs.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\components-accordions.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\components-calendar.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\components-carousel.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\components-maps.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\components-modals.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\components-notifications.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\components-pagination.html" />
     <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\components-progress-bar.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\components-scrollable-elements.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\components-tabs.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\components-tooltips-popovers.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\dashboard-boxes.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\elements-badges-labels.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\elements-buttons-standard.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\elements-cards.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\elements-dropdowns.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\elements-icons.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\elements-list-group.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\elements-navigation.html" />
     <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\elements-utilities.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\forms-controls.html" />
     <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\forms-layouts.html" />
     <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\forms-validation.html" />
     <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\index.html" />
     <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\main.css" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\tables-regular.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -577,7 +564,6 @@
     <Content Include="Views\Shared\UserComponent\_UserPage.cshtml" />
     <Content Include="Views\Shared\_UserLayout.cshtml" />
     <Content Include="Views\Home\TestUserPage.cshtml" />
-    <Content Include="Views\Home\ShoppingCart.cshtml" />
     <Content Include="Views\Shared\AdminComponent\_AdminPage.cshtml" />
     <Content Include="Views\Home\TestAdminPage.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />

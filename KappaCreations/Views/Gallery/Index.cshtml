@@ -1,4 +1,7 @@
-﻿@Model 
+﻿@*@model PagedList.IPagedList<Pagination.Models.Gallery>;
+        @using PagedList;
+        @using PagedList.Mvc;
+    <link href="~/Content/PagedList.css" rel="stylesheet" />*@
 <div id="page">
     <!---header top---->
     <!--header--->
@@ -29,8 +32,6 @@
     <br />
     <div class="container" id="galleryCont">
         <select id="galleryDropDown">
-            <option value="value">Price (Ascending)</option>
-            <option value="value">Price (Descending)</option>
             <option value="value">Popularity (Ascending)</option>
             <option value="value">Popularity (Descending)</option>
             <option value="value">Newest to oldest</option>
@@ -38,7 +39,7 @@
         </select>
 
         <!-- Products-->
-       
+
 
         <div class="row">
             <div class="col-md-3 col-sm-6">
@@ -75,3 +76,9 @@
     </div>
     <hr>
 </div>
+<br />
+@*
+    Page @(Model.PageCount<Model.PageNumber?0:Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model,page=>Url.Action("Index", "Gallery", new {page}))
+*@
+
