@@ -454,6 +454,11 @@ ctx.clip();*/
         console.log(design);
 
         setApiCall(design);
+
+        var image = $("#image");
+        var img = canvas.toDataURL("image/png");
+      //  image.src = img;
+        /*   document.write('<img src="' + img + '"/>');*/
     });
 });
 
