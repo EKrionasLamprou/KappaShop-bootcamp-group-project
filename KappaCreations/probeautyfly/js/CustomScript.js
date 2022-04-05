@@ -442,16 +442,16 @@ ctx.clip();*/
         //        Texts: []
         //    }
         //})
-
         const design = {
             design: {
                 images: dataImages,
                 texts: dataTexts,
             },
-            category: Number(category),
+            categoryId: Number(category),
+            designerId: "a09db7c6-8337-4646-ab05-fe65fa4c620c"
         };
 
-        //console.log(design);
+        console.log(design);
 
         setApiCall(design);
     });
