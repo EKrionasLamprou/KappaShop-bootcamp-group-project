@@ -563,7 +563,6 @@
     <Content Include="Views\Shared\UserComponent\_UserPage.cshtml" />
     <Content Include="Views\Shared\_UserLayout.cshtml" />
     <Content Include="Views\Home\TestUserPage.cshtml" />
-    <Content Include="Views\Home\ShoppingCart.cshtml" />
     <Content Include="Views\Shared\AdminComponent\_AdminPage.cshtml" />
     <Content Include="Views\Home\TestAdminPage.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
