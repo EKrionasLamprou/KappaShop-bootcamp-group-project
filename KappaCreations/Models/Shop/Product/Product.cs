@@ -49,7 +49,7 @@ namespace KappaCreations.Models
         public ProductCategory Category { get; set; }
 
         /// <summary>
-        /// Represents the id of the <see cref="ApplicationUser"/> who made the product.
+        /// The <see cref="Designer"/> foreign key.
         /// </summary>
         public string DesignerId { get; set; }
         /// <summary>
