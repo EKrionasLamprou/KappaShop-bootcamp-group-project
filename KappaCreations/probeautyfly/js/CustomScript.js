@@ -448,7 +448,7 @@ ctx.clip();*/
                 texts: dataTexts,
             },
             categoryId: Number(category),
-            designerId: "4f1c43ab-8655-4dad-b2a8-0e97b2b34e0f"
+            designerId: "2db5e858-aa0f-45b4-8085-0ef45a356b8a"
         };
 
         console.log(design);
@@ -457,7 +457,7 @@ ctx.clip();*/
 
         var image = $("#image");
         var img = canvas.toDataURL("image/png");
-      //  image.src = img;
+        //  image.src = img;
         /*   document.write('<img src="' + img + '"/>');*/
     });
 });
