@@ -1,4 +1,4 @@
-﻿namespace KappaCreations.Models
+﻿namespace KappaCreations.Models.ViewModels
 {
     public class CartItem
     {

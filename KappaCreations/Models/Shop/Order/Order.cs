@@ -8,7 +8,7 @@ namespace KappaCreations.Models
         public Order()
         {
             SubmitDate = DateTime.Now;
-            Items = new HashSet<CartItem>();
+            Items = new HashSet<OrderItem>();
         }
 
         public int Id { get; set; }
@@ -21,6 +21,6 @@ namespace KappaCreations.Models
 
         public DateTime SubmitDate { get; set; }
 
-        public ICollection<CartItem> Items { get; set; }
+        public ICollection<OrderItem> Items { get; set; }
     }
 }

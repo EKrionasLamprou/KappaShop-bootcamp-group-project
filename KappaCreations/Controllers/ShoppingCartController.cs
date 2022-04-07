@@ -35,13 +35,13 @@ namespace KappaCreations.Controllers
             
             if (Session["cart"] == null)
             {
-                List<CartItem> cart = new List<CartItem>();
-                cart.Add(new CartItem { Product = _db.Products.ToList().Single(x=> x.Id == id), Quantity = 1 });
+                List<OrderItem> cart = new List<OrderItem>();
+                cart.Add(new OrderItem { Product = _db.Products.ToList().Single(x=> x.Id == id), Quantity = 1 });
                 Session["cart"] = cart;
             }
             else
             {
-                List<CartItem> cart = (List<CartItem>)Session["cart"];
+                List<OrderItem> cart = (List<OrderItem>)Session["cart"];
                 int index = isExist(id);
                 if (index != -1)
                 {
@@ -49,7 +49,7 @@ namespace KappaCreations.Controllers
                 }
                 else
                 {
-                    cart.Add(new CartItem { Product = _db.Products.ToList().Single(x => x.Id == id), Quantity = 1 });
+                    cart.Add(new OrderItem { Product = _db.Products.ToList().Single(x => x.Id == id), Quantity = 1 });
                 }
                 Session["cart"] = cart;
             }
@@ -58,7 +58,7 @@ namespace KappaCreations.Controllers
 
         public ActionResult Remove(int? id)
         {
-            List<CartItem> cart = (List<CartItem>)Session["cart"];
+            List<OrderItem> cart = (List<OrderItem>)Session["cart"];
             int index = isExist(id);
             cart.RemoveAt(index);
             Session["cart"] = cart;
@@ -67,7 +67,7 @@ namespace KappaCreations.Controllers
 
         public int isExist(int? id)
         {
-            List<CartItem> cart = (List<CartItem>)Session["cart"];
+            List<OrderItem> cart = (List<OrderItem>)Session["cart"];
             for (int i = 0; i < cart.Count(); i++)
             {
                 if (cart[i].Product.Id == id)

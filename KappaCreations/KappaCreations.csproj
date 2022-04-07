@@ -198,12 +198,15 @@
     <Compile Include="Database\Context\DbSets.cs" />
     <Compile Include="Controllers\Api\DesignController.cs" />
     <Compile Include="Controllers\Api\ProductController.cs" />
+    <Compile Include="Globals\Constants.cs" />
     <Compile Include="Models\Identity\Users\Info\PaymentInfo.cs" />
     <Compile Include="Models\Identity\Users\Info\BillingAddress.cs" />
     <Compile Include="Models\PaypalConfiguration.cs" />
     <Compile Include="Models\Shop\DTOs\CommentDTO.cs" />
     <Compile Include="Models\Shop\DTOs\DataTransferObject.cs" />
+    <Compile Include="Models\Shop\DTOs\OrderItemDTO.cs" />
     <Compile Include="Models\Shop\DTOs\OrderDTO.cs" />
+    <Compile Include="Models\Shop\Order\OrderItem.cs" />
     <Compile Include="Models\Shop\Order\Order.cs" />
     <Compile Include="Models\Shop\Product\Comment.cs" />
     <Compile Include="Utilities.cs" />
@@ -233,7 +236,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\ViewModels\CartItem.cs" />
     <Compile Include="Models\Identity\Users\ApplicationUser.cs" />
     <Compile Include="Models\Identity\ViewModels\Account\ForgotPasswordViewModel.cs" />
     <Compile Include="Models\Identity\ViewModels\Account\ResetPasswordViewModel.cs" />
