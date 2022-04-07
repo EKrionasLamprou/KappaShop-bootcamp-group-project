@@ -191,6 +191,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Api\CommentController.cs" />
+    <Compile Include="Controllers\Api\OrderController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Database\DbInitializer.cs" />
     <Compile Include="Database\Maps\ProductCategoryMap.cs" />

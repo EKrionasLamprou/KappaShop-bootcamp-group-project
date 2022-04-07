@@ -135,7 +135,7 @@ namespace KappaCreations.Controllers
                     }
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 return View("Failure");
             }

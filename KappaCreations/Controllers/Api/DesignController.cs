@@ -49,6 +49,14 @@ namespace KappaCreations.Controllers.Api
             return Ok(response);
         }
 
+        [HttpGet]
+        [Route("api/design/count")]
+        public async Task<IHttpActionResult> GetCountAsync()
+        {
+            int count = await _repo.CountAsync();
+            return Ok(new { count });
+        }
+
         [HttpPost]
         public async Task<IHttpActionResult> PostAsync(DesignDTO data)
         {
