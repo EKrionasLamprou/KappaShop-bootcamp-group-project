@@ -102,7 +102,7 @@
                 </thead>
                 <tbody>
 
-                    @foreach (CartItem item in (List<CartItem>)Session["cart"])
+                    @foreach (OrderItem item in (List<OrderItem>)Session["cart"])
                     {
                         <tr>
                             <td data-th="Product">
@@ -139,7 +139,7 @@
                             <strong>
                                 Total
                                 @{
-                                    List<CartItem> cart = (List<CartItem>)Session["cart"];
+                                    List<OrderItem> cart = (List<OrderItem>)Session["cart"];
                                     var total = cart.Sum(x => x.Product.Category.Price * x.Quantity);
                                 }
                                 @total€
