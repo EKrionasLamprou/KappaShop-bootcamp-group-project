@@ -415,7 +415,7 @@ ctx.clip();*/
                     sizeHeight: item.height,
                     colourHex: item.filters.length !== 0 ? item.filters[0].color : "#ffffff",
                     colourAlpha: 1,
-                    url: item.src, // to do
+                    url: "https://localhost:44342/probeautyfly/printableImages/ashtrays.jpg", // to do
                 };
             });
 
@@ -448,7 +448,7 @@ ctx.clip();*/
                 texts: dataTexts,
             },
             categoryId: Number(category),
-            designerId: "2db5e858-aa0f-45b4-8085-0ef45a356b8a"
+            designerId: "04e1e28c-457d-4134-bfb8-09072e0b4b8a"
         };
 
         console.log(design);
