@@ -9,15 +9,47 @@
             "Content-Type": "application/json",
         },
         success: function (response) {
-            console.log(response);
+           /* console.log(response);*/
 
             const canvas = (this.__canvas = new fabric.Canvas("canvas"));
 
             /*canvas.loadFromJSON(response, function () {
                 canvas.renderAll();
             });*/
-
-            const fabricJSON = '{"objects":[{"type":"image","originX":"left","originY":"top","left":0,"top":0,"width":550,"height":550,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","src":"https://localhost:44342/probeautyfly/printableImages/mugs.jpg","filters":[],"crossOrigin":""},{"type":"text","originX":"left","originY":"top","left":138,"top":109,"width":52.35,"height":39,"fill":"red","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","text":"test","fontSize":30,"fontWeight":"normal","fontFamily":"Arial","fontStyle":"","lineHeight":1.3,"textDecoration":"","textAlign":"left","path":null,"textBackgroundColor":"","useNative":true}]}'
+            let obj = {
+                objects:[
+                {
+                    type: "image",
+                    originX: "left",
+                    originY: "top",
+                    left: 0,
+                    top: 0,
+                    width: 550,
+                    height: 550,
+                    fill: "rgb(0,0,0)",
+                    stroke: null,
+                    strokeWidth: 1,
+                    strokeDashArray: null,
+                    strokeLineCap: "butt",
+                    strokeLineJoin: "miter",
+                    strokeMiterLimit: 10,
+                    scaleX: 1,
+                    scaleY: 1,
+                    angle: 0,
+                    flipX: false,
+                    flipY: false,
+                    opacity: 1,
+                    shadow: null,
+                    visible: true,
+                    clipTo: null,
+                    backgroundColor: "",
+                    src: "https://localhost:44342/probeautyfly/printableImages/mugs.jpg",
+                    filters: [
+                    ],
+                    crossOrigin: ""
+                }
+                ]}
+         //   const fabricJSON = '{"objects":[{"type":"image","originX":"left","originY":"top","left":0,"top":0,"width":550,"height":550,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","src":"https://localhost:44342/probeautyfly/printableImages/mugs.jpg","filters":[],"crossOrigin":""},{"type":"text","originX":"left","originY":"top","left":138,"top":109,"width":52.35,"height":39,"fill":"red","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","text":"test","fontSize":30,"fontWeight":"normal","fontFamily":"Arial","fontStyle":"","lineHeight":1.3,"textDecoration":"","textAlign":"left","path":null,"textBackgroundColor":"","useNative":true}]}'
 
             /*const JSon = JSON.stringify(canvas.toDatalessJSON(['id', 'lnk', 'lockUniScaling', 'borderColor', 'cornerColor', 'cornerSize']));*/
 
@@ -28,9 +60,15 @@
             /*const JSon = JSON.stringify(canvas.toDatalessJSON(['type', 'originX', 'originY']));*/
 
             /*const json = canvas.toJSON(fabricJSON);*/
+           // let fabricJSON = '{"objects":' + JSON.stringify(obj) + '}';
+           let fabricJSON = JSON.stringify(obj);
+            console.log(fabricJSON);
+
 
             canvas.loadFromJSON(fabricJSON, canvas.renderAll.bind(canvas), function (o, object) {
+                console.log("HI");
                 fabric.log(o, object);
+               
             });
         },
 

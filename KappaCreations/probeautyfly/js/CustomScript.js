@@ -415,7 +415,7 @@ ctx.clip();*/
                     sizeHeight: item.height,
                     colourHex: item.filters.length !== 0 ? item.filters[0].color : "#ffffff",
                     colourAlpha: 1,
-                    url: "dataImages.png", // to do
+                    url: item.src, // to do
                 };
             });
 
@@ -455,10 +455,10 @@ ctx.clip();*/
 
         setApiCall(design);
 
-        var image = $("#image");
-        var img = canvas.toDataURL("image/png");
-        //  image.src = img;
-        /*   document.write('<img src="' + img + '"/>');*/
+        //var image = $("#image");
+        //var img = canvas.toDataURL("image/png");
+        //  //image.src = img;
+        //  // document.write('<img src="' + img + '"/>');
     });
 });
 
