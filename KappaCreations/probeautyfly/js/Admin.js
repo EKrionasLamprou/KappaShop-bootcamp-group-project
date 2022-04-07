@@ -1,4 +1,6 @@
-﻿  //Menu Toggle
+﻿const urlBase = '../../api/';
+
+//Menu Toggle
 
     let toggle = document.querySelector('.toggle');
     let navigation = document.querySelector('.navigation');
@@ -24,10 +26,11 @@
 
 
 //Number of comments
+
 $(document).ready(function () {
     $.ajax({
         type:"GET",
-        url:'https://localhost:44342/api/comment/count',
+        url: urlBase +'comment/count',
         dataType: "json",
         success: function (data) {
             let commentNumber = $("#commentNo");
@@ -38,11 +41,12 @@ $(document).ready(function () {
         }
     })
 })
-/*Total orders
+
+//Total orders
 $(document).ready(function () {
     $.ajax({
         type:"GET",
-        url:'https://localhost:44342/api/order/count',
+        url:urlBase +'order/count',
         dataType: "json",
         success: function (data) {
             let orderNumber = $("#totalOrders");
@@ -52,12 +56,12 @@ $(document).ready(function () {
             console.log("Error. Failed to load the number of orders.");
         }
     })
-})
+})/*
 //Top 3 categories
 $(document).ready(function () {
     $.ajax({
         type:"GET",
-        url:'https://localhost:44342/api/order/count',
+        url: urlBase +'order/count',
         dataType: "json",
         success: function (data) {
             let topCategories = $("#topCat");
@@ -72,7 +76,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     $.ajax({
         type:"GET",
-        url:'https://localhost:44342/api/order/count',
+        url: urlBase +'order/count',
         dataType: "json",
         success: function (data) {
             let earnings = $("#totalAmount");
