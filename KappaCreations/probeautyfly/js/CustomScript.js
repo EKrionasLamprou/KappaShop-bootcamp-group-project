@@ -325,7 +325,7 @@ ctx.clip();*/
 
         if (uploadedImagesCount.length === 1 && uploadedImagesCount[0] === "default") return;
 
-        uploadedImagesCount.shift();
+        if (uploadedImagesCount.length > 1) uploadedImagesCount.shift();
 
         uploadedImagesCount.map((file) => {
             const formData = new FormData();
@@ -439,6 +439,7 @@ ctx.clip();*/
                         url: item.src, // to do
                     };
                 }
+
                 return {
                     posX: item.left,
                     posY: item.top,
@@ -448,7 +449,7 @@ ctx.clip();*/
                     colourHex: item.filters.length !== 0 ? item.filters[0].color : "#ffffff",
                     colourAlpha: 1,
                     //url: "https://localhost:44342/probeautyfly/printableImages/ashtrays.jpg",
-                    url: uploadImages[index - 1], // to do
+                    url: uploadImages.length === 1 ? uploadImages[0] : uploadImages[index - 1], // to do
                 };
             });
 
@@ -461,7 +462,7 @@ ctx.clip();*/
                     zIndex: data.indexOf(item), // to do
                     sizeWidth: item.width,
                     sizeHeight: item.height,
-                    colourHex: "#000000", // to do
+                    colourHex: item.fill,
                     colourAlpha: item.opacity,
                     content: item.text,
                 };
