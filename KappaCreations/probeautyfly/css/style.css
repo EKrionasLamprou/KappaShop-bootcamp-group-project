@@ -2066,6 +2066,12 @@ footer {
         font-size: 15px;
     }
 
+        .create-side-add-to-cart button[disabled] {
+            background-color: #918c8c;
+            pointer-events:none;
+            user-select:none;
+        }
+
         .create-side-add-to-cart button:hover {
             opacity: .9;
         }
