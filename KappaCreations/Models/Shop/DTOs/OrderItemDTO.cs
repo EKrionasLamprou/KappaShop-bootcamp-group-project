@@ -29,7 +29,6 @@ namespace KappaCreations.Models.Shop.DTOs
 
         public OrderItem Map() => new OrderItem
         {
-            Id = Id ?? 0,
             Quantity = Quantity,
             ProductId = ProductId,
             OrderId = OrderId,

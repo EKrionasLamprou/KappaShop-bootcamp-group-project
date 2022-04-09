@@ -194,12 +194,15 @@
     <Compile Include="Controllers\Api\OrderController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Database\DbInitializer.cs" />
+    <Compile Include="Database\Maps\OrderItemMap.cs" />
     <Compile Include="Database\Maps\ProductCategoryMap.cs" />
     <Compile Include="Database\Maps\CommentMap.cs" />
     <Compile Include="Database\Context\DbSets.cs" />
     <Compile Include="Controllers\Api\DesignController.cs" />
     <Compile Include="Controllers\Api\ProductController.cs" />
+    <Compile Include="Database\Maps\OrderMap.cs" />
     <Compile Include="Globals\Constants.cs" />
+    <Compile Include="Globals\Enums\OrderStatus.cs" />
     <Compile Include="Models\Identity\Users\Info\PaymentInfo.cs" />
     <Compile Include="Models\Identity\Users\Info\BillingAddress.cs" />
     <Compile Include="Models\PaypalConfiguration.cs" />

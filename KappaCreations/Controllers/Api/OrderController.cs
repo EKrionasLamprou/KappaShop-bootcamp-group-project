@@ -57,34 +57,34 @@ namespace KappaCreations.Controllers.Api
             return Ok(new { count });
         }
 
-        //[HttpPost]
-        //public async Task<IHttpActionResult> PostAsync(OrderDTO data)
-        //{
-        //    Order order;
-        //    object response;
+        [HttpPost]
+        public async Task<IHttpActionResult> PostAsync(OrderDTO data)
+        {
+            Order order;
+            object response;
 
-        //    try
-        //    {
-        //        order = data.Map();
-        //        _repo.Add(order);
-        //        await _db.SaveChangesAsync();
-        //    }
-        //    catch (DbEntityValidationException ex)
-        //    {
-        //        return BadRequest(FormatDbEntityValidationException(ex));
-        //    }
-        //    catch (DbUpdateException ex)
-        //    {
-        //        return BadRequest(FormatDbUpdateException(ex));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.Message);
-        //    }
+            try
+            {
+                order = data.Map();
+                _repo.Add(order);
+                await _db.SaveChangesAsync();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                return BadRequest(FormatDbEntityValidationException(ex));
+            }
+            catch (DbUpdateException ex)
+            {
+                return BadRequest(FormatDbUpdateException(ex));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
 
-        //    response = OrderDTO.MapToCamelCase(order);
-        //    return Ok(response);
-        //}
+            response = OrderDTO.MapToCamelCase(order);
+            return Ok(response);
+        }
 
         protected override void Dispose(bool disposing)
         {
