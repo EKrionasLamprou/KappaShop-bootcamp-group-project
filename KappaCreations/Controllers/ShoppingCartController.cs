@@ -4,8 +4,10 @@ using KappaCreations.Models.ViewModels;
 using PayPal.Api;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -19,11 +21,21 @@ namespace KappaCreations.Controllers
         public ShoppingCartController()
         {
             _db = new ShopContext();
+            if (Session != null && Session["cart"] == null)
+            {
+                List<CartItem> cart = new List<CartItem>();
+                Session["cart"] = cart;
+            }
         }
 
 
         public ShoppingCartController(ShopContext db)
         {
+            if (Session["cart"] == null)
+            {
+                List<CartItem> cart = new List<CartItem>();
+                Session["cart"] = cart;
+            }
             _db = db;
         }
 
@@ -37,14 +49,21 @@ namespace KappaCreations.Controllers
             return View();
         }
 
-        public ActionResult Buy(int? id)
+        public async Task<ActionResult> Buy(int? id)
         {
 
             if (Session["cart"] == null)
             {
                 List<CartItem> cart = new List<CartItem>();
-                cart.Add(new CartItem { Product = _db.Products.ToList().Single(x => x.Id == id), Quantity = 1 });
-                Session["cart"] = cart;
+                cart.Add(new CartItem
+                {
+                    Product = await _db.Products
+                                       .Where(x => x.Id == id)
+                                       .Include(x => x.Category)
+                                       .SingleOrDefaultAsync(),
+                    Quantity = 1
+                });
+            Session["cart"] = cart;
             }
             else
             {
@@ -56,7 +75,15 @@ namespace KappaCreations.Controllers
                 }
                 else
                 {
-                    cart.Add(new CartItem { Product = _db.Products.ToList().Single(x => x.Id == id), Quantity = 1 });
+                    cart.Add(new CartItem
+                    {
+                        Product = await _db.Products
+                                           .Where(x => x.Id == id)
+                                           .Include(x => x.Category)
+                                           .SingleOrDefaultAsync(),
+                        Quantity = 1
+                    }
+                );
                 }
                 Session["cart"] = cart;
             }

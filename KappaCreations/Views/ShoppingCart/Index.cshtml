@@ -1,4 +1,4 @@
-﻿@using KappaCreations.Models;
+﻿@using KappaCreations.Models.ViewModels;
 
 <html>
 <head>
@@ -102,7 +102,7 @@
                 </thead>
                 <tbody>
 
-                    @foreach (OrderItem item in (List<OrderItem>)Session["cart"])
+                    @foreach (var item in (List<CartItem>)Session["cart"])
                     {
                         <tr>
                             <td data-th="Product">
@@ -139,13 +139,13 @@
                             <strong>
                                 Total
                                 @{
-                                    List<OrderItem> cart = (List<OrderItem>)Session["cart"];
+                                    var cart = (List<CartItem>)Session["cart"];
                                     var total = cart.Sum(x => x.Product.Category.Price * x.Quantity);
                                 }
                                 @total€
                             </strong>
                         </td>
-                        <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+                        <td><a href="@Url.Action("CheckoutForm", "ShoppingCart")" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
                     </tr>
                 </tfoot>
             </table>

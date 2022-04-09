@@ -70,7 +70,7 @@
         }
 
         .billing-form .btn {
-            background-color: #04AA6D;
+            background-color: #16ACB8;
             color: white;
             padding: 12px;
             margin: 10px 0;
@@ -80,9 +80,9 @@
             cursor: pointer;
             font-size: 17px;
         }
-
             .billing-form .btn:hover {
-                background-color: #45a049;
+                background-color: #f2f2f2;
+                color: #16ACB8;
             }
 
         .billing-form a {
@@ -181,15 +181,16 @@
             </div>
             <div class="col-25">
                 <div class="container">
-                    <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
+                    <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> </span></h4>
+                    @{double sum = 0; }
                     @foreach (CartItem item in (List<CartItem>)Session["cart"])
                     {
-                        <p> @item.Product.Category.Title <span class="price">@item.Product.Category.Price€</span></p>
-
+                        <p> @item.Product.Category.Title x @item.Quantity <span class="price">@item.Product.Category.Price€</span></p>
+                        sum += @item.Product.Category.Price * @item.Quantity;
                     }
 
                     <hr>
-                    <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+                    <p>Total <span class="price" style="color:black"><b>@sum€</b></span></p>
                 </div>
             </div>
         </div>
