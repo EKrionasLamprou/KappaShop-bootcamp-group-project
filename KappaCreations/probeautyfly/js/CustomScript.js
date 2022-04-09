@@ -1,6 +1,18 @@
 ﻿const url = localStorage.getItem("ImageUrl");
 const category = localStorage.getItem("ProductCategory");
 
+const uploadedImagesCount = ["default"];
+
+const cloudName = "dj3kkbjpi";
+const cloudApiKey = "783748518282284";
+const cloudApiSecret = "Jbp2bErMwYHRiDuiWAW8h1gz-io";
+const cloudApiEnvironmentVar = "CLOUDINARY_URL=cloudinary://783748518282284:Jbp2bErMwYHRiDuiWAW8h1gz-io@dj3kkbjpi";
+const cloupUploadPreset = "p7ytvqur";
+
+const uploadImages = [];
+
+let activateAddToCart = false;
+
 var select_item = "";
 var select_price = "+0";
 var price = 10;
@@ -11,6 +23,7 @@ var rectboxX = 130,
     rectboxY = 352,
     rectboxWidth = 480,
     rectboxHeight = 500;
+
 
 //PRICE FIELD START
 function updatePrice(price_change) {
@@ -61,6 +74,11 @@ function setApiCall(data) {
 }
 
 $(document).ready(function () {
+
+    if (activateAddToCart === false) {
+        $("#addToCart").prop('disabled', true);
+    }
+
     updatePrice();
 
     $("#boxEdit").show();
@@ -182,56 +200,6 @@ ctx.clip();*/
         // END Clip Area
     });
 
-    //fabric.Image.fromURL('https://i.imgur.com/1VNvSnK.png', function (img) {
-    //    img.set({
-    //        left: 0,
-    //        top: 0,
-    //        selectable: false,
-    //        hasControls: false,
-    //        hasBorders: false
-    //    });
-    //    canvas.add(img).setActiveObject(img);
-
-    //    rectbox = new fabric.Rect({
-    //        width: rectboxWidth,
-    //        height: rectboxHeight,
-    //        left: rectboxX,
-    //        top: rectboxY,
-    //        stroke: 'rgba(0,0,0,0.3)',
-    //        strokeWidth: 2,
-    //        fill: 'rgba(0,0,0,0)',
-    //        selectable: false,
-    //        hasControls: false,
-    //        hasBorders: false
-    //    });
-
-    //    canvas.add(rectbox);
-
-    //    var recttext = new fabric.Text('Printable Area', {
-    //        fontSize: 14,
-    //        fontFamily: 'sans-serif',
-    //        left: 200,
-    //        top: 330,
-    //        fill: 'rgba(0,0,0,0.3)',
-    //        selectable: false,
-    //        hasControls: false,
-    //        hasBorders: false
-    //    });
-
-    //    canvas.add(recttext);
-
-    //    // Create Clip Area (Object created after this will be clipped)
-    //    /*    var ctx = canvas.getContext("2d");
-    //        ctx.beginPath();
-    //        ctx.rect(rectboxX, rectboxY,rectboxWidth, rectboxHeight);
-    //        ctx.closePath();
-    //        ctx.lineWidth = 2;
-    //        ctx.strokeStyle = 'rgba(0, 0, 0, 0)';
-    //        ctx.stroke();
-    //        ctx.clip();*/
-    //    // END Clip Area
-    //});
-
     $("#addTextButton").on("click", function () {
         var inText = $("#inputText").val();
 
@@ -271,8 +239,8 @@ ctx.clip();*/
         item_list.push(newText);
         //console.log(canvas.getObjects().indexOf(newText));
         //console.log(newText);
-        console.log(JSON.stringify(newText));
-        console.log(item_list);
+        //console.log(JSON.stringify(newText));
+        //console.log(item_list);
         //console.log(JSON.stringify(item_list));
     });
 
@@ -298,6 +266,9 @@ ctx.clip();*/
         return;
     } else {
         document.getElementById("imgLoader").onchange = function handleImage(e) {
+            // Upload User Image to Cloud
+            uploadedImagesCount.push(e.target.files[0]);
+
             // Check for available file
             if ($("#imgLoader").val().length < 1) {
                 // No file Uploaded
@@ -338,7 +309,9 @@ ctx.clip();*/
 
                     item_list.push(image);
 
-                    console.log(canvas.getObjects().indexOf(image));
+                    //console.log(image);
+                    //console.log(JSON.stringify(image));
+                    //console.log(canvas.getObjects().indexOf(image));
 
                     // end fabricJS stuff
                 };
@@ -346,6 +319,50 @@ ctx.clip();*/
             reader.readAsDataURL(e.target.files[0]);
         };
     }
+
+    $("#tempSave").on("click", function () {
+        //console.log(uploadedImagesCount);
+
+        if (uploadedImagesCount.length === 1 && uploadedImagesCount[0] === "default") return;
+
+        if (uploadedImagesCount.length > 1) uploadedImagesCount.shift();
+
+        uploadedImagesCount.map((file) => {
+            const formData = new FormData();
+            formData.append("file", file);
+            formData.append("upload_preset", cloupUploadPreset);
+
+            /*async () => {
+                try {
+                    const { data } = await axios({
+                        url: `https://api.cloudinary.com/v1_1/${cloudName}/upload`,
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded"
+                        },
+                        data: formData
+                    });
+
+                    console.log(data)
+
+                } catch (error) {
+                    console.log(error)
+                }
+            };*/
+
+            axios({
+                url: `https://api.cloudinary.com/v1_1/${cloudName}/upload`,
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                data: formData
+            }).then(function (res) { uploadImages.push(res.data.secure_url) }).catch(function (err) { console.log(err) });
+        });
+
+        activateAddToCart = true
+        $("#addToCart").prop('disabled', false);
+    });
 
     $(".trashButton").on("click", function () {
         $("#modalDelete")
@@ -404,9 +421,25 @@ ctx.clip();*/
 
         if (data.length === 1) return;
 
+        //console.log(uploadImages)
+
         const dataImages = data
             .filter((item) => item.type === "image")
-            .map((item) => {
+            .map((item, index) => {
+                if (index === 0) {
+                    return {
+                        posX: item.left,
+                        posY: item.top,
+                        zIndex: data.indexOf(item), // to do
+                        sizeWidth: item.width,
+                        sizeHeight: item.height,
+                        colourHex: item.filters.length !== 0 ? item.filters[0].color : "#ffffff",
+                        colourAlpha: 1,
+                        //url: "https://localhost:44342/probeautyfly/printableImages/ashtrays.jpg",
+                        url: item.src, // to do
+                    };
+                }
+
                 return {
                     posX: item.left,
                     posY: item.top,
@@ -415,7 +448,8 @@ ctx.clip();*/
                     sizeHeight: item.height,
                     colourHex: item.filters.length !== 0 ? item.filters[0].color : "#ffffff",
                     colourAlpha: 1,
-                    url: "https://localhost:44342/probeautyfly/printableImages/ashtrays.jpg", // to do
+                    //url: "https://localhost:44342/probeautyfly/printableImages/ashtrays.jpg",
+                    url: uploadImages.length === 1 ? uploadImages[0] : uploadImages[index - 1], // to do
                 };
             });
 
@@ -428,27 +462,20 @@ ctx.clip();*/
                     zIndex: data.indexOf(item), // to do
                     sizeWidth: item.width,
                     sizeHeight: item.height,
-                    colourHex: "#000000", // to do
+                    colourHex: item.fill,
                     colourAlpha: item.opacity,
                     content: item.text,
                 };
             });
 
-        //const payload = data.reduce((acc, item) => {
 
-        //}, {
-        //    Design: {
-        //        Images: [],
-        //        Texts: []
-        //    }
-        //})
         const design = {
             design: {
                 images: dataImages,
                 texts: dataTexts,
             },
             categoryId: Number(category),
-            designerId: "04e1e28c-457d-4134-bfb8-09072e0b4b8a"
+            designerId: "4b778a47-77ff-4e02-8dc2-dbe18ff751c5"
         };
 
         console.log(design);
