@@ -17,26 +17,27 @@ namespace KappaCreations.Models.Shop.DTOs
         public OrderDTO(Order order)
         {
             Id = order.Id;
+            OrderStatus = (int)order.OrderStatus;
+            SubmitDate = order.SubmitDate.ToString(Constants.DateFormat);
             UserId = order.UserId;
             BillingAddressId = order.BillingAddressId;
-            SubmitDate = order.SubmitDate.ToString(Constants.DateFormat);
             Items = order.Items.Select(item => new OrderItemDTO(item));
         }
 
         public int? Id { get; set; }
+        public int OrderStatus { get; set; } = 1;
+        public string SubmitDate { get; set; }
         public string UserId { get; set; }
         public int BillingAddressId { get; set; }
-        public string SubmitDate { get; set; }
         public IEnumerable<OrderItemDTO> Items { get; set; }
 
         public bool HasId => Id.HasValue && Id > 0;
 
         public Order Map() => new Order
         {
-            Id = Id ?? 0,
+            OrderStatus = (OrderStatus)OrderStatus,
             UserId = UserId,
             BillingAddressId = BillingAddressId,
-            SubmitDate = DateTime.Parse(SubmitDate),
             Items = Items.Select(item => item.Map()).ToList(),
         };
 
@@ -49,9 +50,10 @@ namespace KappaCreations.Models.Shop.DTOs
         public static object MapToCamelCase(Order order) => new
         {
             id = order.Id,
+            orderStatus = order.OrderStatus,
+            submitDate = order.SubmitDate.ToString(Constants.DateFormat),
             userId = order.UserId,
             billingAddressId = order.BillingAddressId,
-            submitDate = order.SubmitDate.ToString(Constants.DateFormat),
             items = OrderItemDTO.MapToCamelCase(order.Items),
         };
         /// <summary>
