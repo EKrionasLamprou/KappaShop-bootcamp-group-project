@@ -31,6 +31,11 @@ namespace KappaCreations.Controllers
             return View();
         }
 
+        public ActionResult CheckoutForm()
+        {
+            return View();
+        }
+
         public ActionResult Buy(int? id)
         {
 
