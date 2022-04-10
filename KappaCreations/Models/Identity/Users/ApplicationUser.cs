@@ -17,6 +17,7 @@ namespace KappaCreations.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime? Birthdate { get; set; }
+        public string PhotoUrl { get; set; }
 
         public BillingAddress BillingAddress { get; set; }
         public PaymentInfo PaymentInfo { get; set; }

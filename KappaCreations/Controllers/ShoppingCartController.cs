@@ -1,10 +1,13 @@
 ﻿using KappaCreations.Database;
 using KappaCreations.Models;
+using KappaCreations.Models.ViewModels;
 using PayPal.Api;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -18,11 +21,21 @@ namespace KappaCreations.Controllers
         public ShoppingCartController()
         {
             _db = new ShopContext();
+            if (Session != null && Session["cart"] == null)
+            {
+                List<CartItem> cart = new List<CartItem>();
+                Session["cart"] = cart;
+            }
         }
 
 
         public ShoppingCartController(ShopContext db)
         {
+            if (Session["cart"] == null)
+            {
+                List<CartItem> cart = new List<CartItem>();
+                Session["cart"] = cart;
+            }
             _db = db;
         }
 
@@ -31,18 +44,30 @@ namespace KappaCreations.Controllers
             return View();
         }
 
-        public ActionResult Buy(int? id)
+        public ActionResult CheckoutForm()
+        {
+            return View();
+        }
+
+        public async Task<ActionResult> Buy(int? id)
         {
 
             if (Session["cart"] == null)
             {
-                List<OrderItem> cart = new List<OrderItem>();
-                cart.Add(new OrderItem { Product = _db.Products.ToList().Single(x => x.Id == id), Quantity = 1 });
-                Session["cart"] = cart;
+                List<CartItem> cart = new List<CartItem>();
+                cart.Add(new CartItem
+                {
+                    Product = await _db.Products
+                                       .Where(x => x.Id == id)
+                                       .Include(x => x.Category)
+                                       .SingleOrDefaultAsync(),
+                    Quantity = 1
+                });
+            Session["cart"] = cart;
             }
             else
             {
-                List<OrderItem> cart = (List<OrderItem>)Session["cart"];
+                List<CartItem> cart = (List<CartItem>)Session["cart"];
                 int index = isExist(id);
                 if (index != -1)
                 {
@@ -50,7 +75,15 @@ namespace KappaCreations.Controllers
                 }
                 else
                 {
-                    cart.Add(new OrderItem { Product = _db.Products.ToList().Single(x => x.Id == id), Quantity = 1 });
+                    cart.Add(new CartItem
+                    {
+                        Product = await _db.Products
+                                           .Where(x => x.Id == id)
+                                           .Include(x => x.Category)
+                                           .SingleOrDefaultAsync(),
+                        Quantity = 1
+                    }
+                );
                 }
                 Session["cart"] = cart;
             }
@@ -59,7 +92,7 @@ namespace KappaCreations.Controllers
 
         public ActionResult Remove(int? id)
         {
-            List<OrderItem> cart = (List<OrderItem>)Session["cart"];
+            List<CartItem> cart = (List<CartItem>)Session["cart"];
             int index = isExist(id);
             cart.RemoveAt(index);
             Session["cart"] = cart;
@@ -68,7 +101,7 @@ namespace KappaCreations.Controllers
 
         public int isExist(int? id)
         {
-            List<OrderItem> cart = (List<OrderItem>)Session["cart"];
+            List<CartItem> cart = (List<CartItem>)Session["cart"];
             for (int i = 0; i < cart.Count(); i++)
             {
                 if (cart[i].Product.Id == id)
@@ -154,7 +187,7 @@ namespace KappaCreations.Controllers
             //create itemlist and add item objects to it
             var itemList = new ItemList() { items = new List<Item>() };
 
-            List<OrderItem> listCarts = (List<OrderItem>)Session["cart"];
+            List<CartItem> listCarts = (List<CartItem>)Session["cart"];
 
             foreach (var cart in listCarts)
             {

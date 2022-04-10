@@ -9,18 +9,19 @@ namespace KappaCreations.Models
         {
             SubmitDate = DateTime.Now;
             Items = new HashSet<OrderItem>();
+            OrderStatus = OrderStatus.Pending;
         }
 
         public int Id { get; set; }
+        public OrderStatus OrderStatus { get; set; }
+        public DateTime SubmitDate { get; set; }
 
         public string UserId { get; set; }
         public ApplicationUser User { get; set; }
 
         public int BillingAddressId { get; set; }
         public BillingAddress BillingAddress { get; set; }
-
-        public DateTime SubmitDate { get; set; }
-
+        
         public ICollection<OrderItem> Items { get; set; }
     }
 }
