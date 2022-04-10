@@ -152,10 +152,14 @@ $(document).ready(function () {
             hasControls: false,
             hasBorders: false,
         });
-        //img.filters[0] = new fabric.Image.filters.Tint({
-        //    color: "#1C00ff00",
-        ////});
-        //img.applyFilters(canvas.renderAll.bind(canvas));
+        document.getElementById('colorLight').addEventListener('change', function (e) {
+            img.filters[0] = new fabric.Image.filters.Tint({
+                color: e.target.value,
+                opacity: 0.5
+            });
+            img.applyFilters(canvas.renderAll.bind(canvas));
+        });
+    
         canvas.add(img).setActiveObject(img);
         item_list.push(img);
         //console.log(img._element)
@@ -305,6 +309,13 @@ ctx.clip();*/
                     });
 
                     //image.scale(getRandomNum(0.1, 0.25)).setCoords();
+                    document.getElementById('colorDark').addEventListener('change', function (e) {
+                        image.filters[0] = new fabric.Image.filters.Tint({
+                            color: e.target.value,
+                            opacity: 0.5
+                        });
+                        image.applyFilters(canvas.renderAll.bind(canvas));
+                    });
                     canvas.setActiveObject(image).add(image);
 
                     item_list.push(image);
