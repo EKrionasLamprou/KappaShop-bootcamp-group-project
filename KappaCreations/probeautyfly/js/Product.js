@@ -115,9 +115,9 @@ function mapTextToCanvas(t) {
                 originY: "top",
                 left: image.posX,
                 top: image.posY,
-                width: image.sizeWith,
-                height: image.heightWith,
-                fill: image.colourHex,
+                width: image.sizeWidth,
+                height: image.sizeHeight,
+                fill: "rgb(0,0,0)",
                 stroke: null,
                 strokeWidth: 1,
                 strokeDashArray: null,
@@ -135,11 +135,11 @@ function mapTextToCanvas(t) {
                 clipTo: null,
                 backgroundColor: "",
                 src: image.url,
+                filters: [{ type: "Tint", color: image.colourHex, opacity: 0.5 }],
+                crossOrigin: ""
             },
             zIndex: image.zIndex,
-            filters: [
-            ],
-            crossOrigin: ""
+          
         }
     }
 

@@ -152,7 +152,10 @@ $(document).ready(function () {
             hasControls: false,
             hasBorders: false,
         });
-        document.getElementById('colorLight').addEventListener('change', function (e) {
+
+        const colorLight = document.getElementById('colorLight')
+        if (!colorLight) return;
+        colorLight.addEventListener('change', function (e) {
             img.filters[0] = new fabric.Image.filters.Tint({
                 color: e.target.value,
                 opacity: 0.5
@@ -446,21 +449,19 @@ ctx.clip();*/
                         sizeHeight: item.height,
                         colourHex: item.filters.length !== 0 ? item.filters[0].color : "#ffffff",
                         colourAlpha: 1,
-                        //url: "https://localhost:44342/probeautyfly/printableImages/ashtrays.jpg",
-                        url: item.src, // to do
+                        url: item.src,
                     };
                 }
 
                 return {
                     posX: item.left,
                     posY: item.top,
-                    zIndex: data.indexOf(item), // to do
+                    zIndex: data.indexOf(item), 
                     sizeWidth: item.width,
                     sizeHeight: item.height,
                     colourHex: item.filters.length !== 0 ? item.filters[0].color : "#ffffff",
                     colourAlpha: 1,
-                    //url: "https://localhost:44342/probeautyfly/printableImages/ashtrays.jpg",
-                    url: uploadImages.length === 1 ? uploadImages[0] : uploadImages[index - 1], // to do
+                    url: uploadImages.length === 1 ? uploadImages[0] : uploadImages[index - 1], 
                 };
             });
 
@@ -470,7 +471,7 @@ ctx.clip();*/
                 return {
                     posX: item.left,
                     posY: item.top,
-                    zIndex: data.indexOf(item), // to do
+                    zIndex: data.indexOf(item), 
                     sizeWidth: item.width,
                     sizeHeight: item.height,
                     colourHex: item.fill,
@@ -486,7 +487,7 @@ ctx.clip();*/
                 texts: dataTexts,
             },
             categoryId: Number(category),
-            designerId: "4b778a47-77ff-4e02-8dc2-dbe18ff751c5"
+            designerId: "7ddca151-f289-4f46-91ec-f09532000c1e"
         };
 
         console.log(design);
