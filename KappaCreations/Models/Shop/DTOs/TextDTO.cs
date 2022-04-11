@@ -21,7 +21,10 @@ namespace KappaCreations.Models.Shop.DTOs
             ZIndex = text.Position.Z;
             SizeWidth = text.Size.Width;
             SizeHeight = text.Size.Height;
-            ColourHex = text.Colour.ToString();
+            ColourRed = text.Colour.Red;
+            ColourGreen = text.Colour.Green;
+            ColourBlue = text.Colour.Blue;
+            ColourAlpha = text.Colour.Alpha;
             Content = text.Content;
             Font = (int)text.Font;
         }
@@ -38,8 +41,10 @@ namespace KappaCreations.Models.Shop.DTOs
         public double SizeHeight { get; set; } = 100;
 
         // Colour
-        public string ColourHex { get; set; } = "FFFFFF";
-        public double ColourAlpha { get; set; } = 1;
+        public byte ColourRed { get; set; }
+        public byte ColourGreen { get; set; }
+        public byte ColourBlue { get; set; }
+        public double ColourAlpha { get; set; }
 
         public string Content { get; set; } = string.Empty;
         public int Font { get; set; }
@@ -50,7 +55,7 @@ namespace KappaCreations.Models.Shop.DTOs
         {
             Position = new Position(PosX, PosY, ZIndex),
             Size = new Size(SizeWidth, SizeHeight),
-            Colour = Colour.GetByHex(ColourHex),
+            Colour = new Colour(ColourRed, ColourGreen, ColourBlue, ColourAlpha),
             Content = Content,
             Font = (Font)Font,
         };
@@ -69,7 +74,10 @@ namespace KappaCreations.Models.Shop.DTOs
             zIndex = text.Position.Z,
             sizeWidth = text.Size.Width,
             sizeHeight = text.Size.Height,
-            colourHex = text.Colour.ToString(),
+            colourRed = text.Colour.Red,
+            colourGreen = text.Colour.Green,
+            colourBlue = text.Colour.Blue,
+            colourAlpha = text.Colour.Alpha,
             content = text.Content,
             font = (int)text.Font,
         };

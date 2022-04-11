@@ -2,12 +2,9 @@
 
 namespace KappaCreations.Models
 {
-    /// <summary>
-    /// Represents a colour that can be expressed as an integer, a hexadecimal or RGB
-    /// and includes an alpha value.
-    /// </summary>
-    public class Colour
+    public class Colour : IColour
     {
+        #region Constructors
         /// <summary>
         /// Initializes a new instance of the <see cref="Colour"/> class.
         /// </summary>
@@ -32,28 +29,39 @@ namespace KappaCreations.Models
         /// 1.0 represents full opacity, while 0.0 full transparency.</param>
         public Colour(int value, double alpha = 1.0)
             => (Value, Alpha) = (value, alpha);
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Colour"/> class.
+        /// </summary>
+        /// <param name="red">The value of red, represented as a byte.</param>
+        /// <param name="green">The value of green, represented as a byte.</param>
+        /// <param name="blue">The value of blue, represented as a byte.</param>
+        /// <param name="alpha">Represents the opacity of the colour.
+        /// 1.0 represents full opacity, while 0.0 full transparency.</param>
+        public Colour(byte red, byte green, byte blue, double alpha = 1.0)
+        {
+            Value = 65536 * red + 256 * green + blue;
+            Alpha = alpha;
+        }
+        #endregion
 
-        /// <summary>
-        /// Represents a colour as an integer.
-        /// </summary>
         public int Value { get; set; }
-        /// <summary>
-        /// Represents the opacity of the colour.
-        /// 1.0 represents full opacity, while 0.0 full transparency.
-        /// </summary>
         public double Alpha { get; set; }
-        /// <summary>
-        /// Represents a colour with RGB values.
-        /// </summary>
+        public byte Red
+        {
+            get => (byte)(Value / 256 / 256 % 256);
+        }
+        public byte Green
+        {
+            get => (byte)(Value / 256 % 256);
+        }
+        public byte Blue
+        {
+            get => (byte)(Value % 256);
+        }
         public (byte Red, byte Green, byte Blue) RGB
         {
-            get => (byte.Parse(ToString().Substring(0, 2), NumberStyles.AllowHexSpecifier),
-                    byte.Parse(ToString().Substring(2, 2), NumberStyles.AllowHexSpecifier),
-                    byte.Parse(ToString().Substring(4, 2), NumberStyles.AllowHexSpecifier));
+            get => (Red, Green, Blue);
         }
-        /// <summary>
-        /// Represents a colour with RGBA values.
-        /// </summary>
         public (byte Red, byte Green, byte Blue, double Alpha) RGBA
         {
             get
@@ -64,7 +72,7 @@ namespace KappaCreations.Models
         }
 
         /// <summary>
-        /// Gets a new Colour by converting a hexadecimal value.
+        /// Gets a new colour by converting a hexadecimal value.
         /// </summary>
         /// <param name="hex">The hexadecimal value that represents a colour.</param>
         public static Colour GetByHex(string hex)
