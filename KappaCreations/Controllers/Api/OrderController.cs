@@ -19,12 +19,12 @@ namespace KappaCreations.Controllers.Api
         public OrderController()
         {
             _db = new ShopContext();
-            _repo = new Repository<Order>();
+            _repo = new Repository<Order>(_db);
         }
         public OrderController(ShopContext db)
         {
             _db = db;
-            _repo = new Repository<Order>();
+            _repo = new Repository<Order>(_db);
         }
 
         [HttpGet]
@@ -58,7 +58,7 @@ namespace KappaCreations.Controllers.Api
         }
 
         [HttpPost]
-        public async Task<IHttpActionResult> PostAsync(OrderDTO data)
+        public IHttpActionResult PostAsync(OrderDTO data)
         {
             Order order;
             object response;
@@ -67,7 +67,7 @@ namespace KappaCreations.Controllers.Api
             {
                 order = data.Map();
                 _repo.Add(order);
-                await _db.SaveChangesAsync();
+                _db.SaveChanges();
             }
             catch (DbEntityValidationException ex)
             {
