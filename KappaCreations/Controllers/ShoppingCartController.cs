@@ -31,7 +31,7 @@ namespace KappaCreations.Controllers
 
         public ShoppingCartController(ShopContext db)
         {
-            if (Session["cart"] == null)
+            if (Session != null && Session["cart"] == null)
             {
                 List<CartItem> cart = new List<CartItem>();
                 Session["cart"] = cart;

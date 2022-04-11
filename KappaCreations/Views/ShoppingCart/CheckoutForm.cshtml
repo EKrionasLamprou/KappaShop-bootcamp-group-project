@@ -124,7 +124,7 @@
                             <div class="col-50">
                                 <h3>Billing Address</h3>
                                 <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-                                <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+                                <input type="text" id="fname" name="firstname" placeholder="Give your full name">
                                 <label for="email"><i class="fa fa-envelope"></i> Email</label>
                                 <input type="text" id="email" name="email" placeholder="john@example.com">
                                 <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
@@ -175,7 +175,7 @@
                         <label>
                             <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
                         </label>
-                        <input type="submit" value="Continue to checkout" class="btn">
+                        <a href="@Url.Action("PaymentWithPaypal","ShoppingCart")" class="btn">Pay with PayPal</a>
                     </form>
                 </div>
             </div>
