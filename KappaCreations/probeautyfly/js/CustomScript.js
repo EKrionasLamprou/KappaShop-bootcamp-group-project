@@ -1,5 +1,7 @@
 ﻿const url = localStorage.getItem("ImageUrl");
 const category = localStorage.getItem("ProductCategory");
+const name = localStorage.getItem("ProductName");
+
 
 const uploadedImagesCount = ["default"];
 
@@ -74,6 +76,7 @@ function setApiCall(data) {
 }
 
 $(document).ready(function () {
+    $('.create-side-title').text(`${name}`);
 
     if (activateAddToCart === false) {
         $("#addToCart").prop('disabled', true);

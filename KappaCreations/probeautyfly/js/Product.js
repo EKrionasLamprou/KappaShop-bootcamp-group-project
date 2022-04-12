@@ -3,7 +3,7 @@
 
     $.ajax({
         type: "GET",
-        url: "https://localhost:44342/api/Product?id=5",
+        url: "https://localhost:44342/api/Product?id=2",
         data: "json",
         headers: {
             "Content-Type": "application/json",
