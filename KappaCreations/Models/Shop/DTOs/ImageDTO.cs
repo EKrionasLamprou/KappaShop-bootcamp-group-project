@@ -21,7 +21,7 @@ namespace KappaCreations.Models.Shop.DTOs
             ZIndex = image.Position.Z;
             SizeWidth = image.Size.Width;
             SizeHeight = image.Size.Height;
-            ColourHex = image.Colour.ToString();
+            ColourHex = image.Colour.Hex;
             ColourAlpha = image.Colour.Alpha;
             Url = image.Url;
         }
@@ -67,7 +67,7 @@ namespace KappaCreations.Models.Shop.DTOs
             zIndex = image.Position.Z,
             sizeWidth = image.Size.Width,
             sizeHeight = image.Size.Height,
-            colourHex = image.Colour.ToString(),
+            colourHex = image.Colour.Hex,
             colourAlpha = image.Colour.Alpha,
             url = image.Url,
         };

@@ -21,7 +21,7 @@ namespace KappaCreations.Models.Shop.DTOs
             ZIndex = text.Position.Z;
             SizeWidth = text.Size.Width;
             SizeHeight = text.Size.Height;
-            ColourHex = text.Colour.ToString();
+            ColourHex = text.Colour.Hex;
             ColourAlpha = text.Colour.Alpha;
             Content = text.Content;
             Font = (int)text.Font;
@@ -70,7 +70,7 @@ namespace KappaCreations.Models.Shop.DTOs
             zIndex = text.Position.Z,
             sizeWidth = text.Size.Width,
             sizeHeight = text.Size.Height,
-            colourHex = text.Colour.ToString(),
+            colourHex = text.Colour.Hex,
             colourAlpha = text.Colour.Alpha,
             content = text.Content,
             font = (int)text.Font,
