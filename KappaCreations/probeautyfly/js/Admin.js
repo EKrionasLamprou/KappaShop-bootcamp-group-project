@@ -65,7 +65,7 @@ $(document).ready(function () {
         dataType: "json",
         success: function (data) {
             let topCategories = $("#topCat");
-            $(topCategories).text(data.names.take(3).join(", "));
+            $(topCategories).text(data.slice(0, 3).map(c => c.categoryId).join(", ")); // to be changed to category names
         },
         error: function () {
             console.log("Error. Failed to load the top categories.");
