@@ -56,12 +56,12 @@ $(document).ready(function () {
             console.log("Error. Failed to load the number of orders.");
         }
     })
-})/*
+})
 //Top 3 categories
 $(document).ready(function () {
     $.ajax({
         type:"GET",
-        url: urlBase +'order/count',
+        url: urlBase +'adminStats/categoriesByOrders',
         dataType: "json",
         success: function (data) {
             let topCategories = $("#topCat");
@@ -71,19 +71,19 @@ $(document).ready(function () {
             console.log("Error. Failed to load the top categories.");
         }
     })
-})*/
-/*Total earnings
+})
+//Total earnings
 $(document).ready(function () {
     $.ajax({
         type:"GET",
-        url: urlBase +'order/count',
+        url: urlBase +'adminStats/totalEarnings',
         dataType: "json",
         success: function (data) {
             let earnings = $("#totalAmount");
-            $(earnings).text(data.sum);
+            $(earnings).text(data.totalEarnings);
         },
         error: function () {
             console.log("Error. Failed to load the amount.");
         }
     })
-})*/
+})
