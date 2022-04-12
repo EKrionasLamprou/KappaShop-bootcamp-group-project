@@ -487,7 +487,7 @@ ctx.clip();*/
                 texts: dataTexts,
             },
             categoryId: Number(category),
-            designerId: "7ddca151-f289-4f46-91ec-f09532000c1e"
+            designerId: "41d282e9-924d-4e5b-88a3-dcb0397fd104"
         };
 
         console.log(design);
