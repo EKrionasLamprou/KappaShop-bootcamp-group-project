@@ -68,7 +68,7 @@ namespace KappaCreations.Controllers.Api
         public object GetTotalEarnings()
         {
             string connectionString = _db.Database.Connection.ConnectionString;
-            object response;
+            object response = new { totalEarnings = 0 };
 
             try
             {
