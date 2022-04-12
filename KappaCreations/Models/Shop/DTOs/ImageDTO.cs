@@ -21,9 +21,7 @@ namespace KappaCreations.Models.Shop.DTOs
             ZIndex = image.Position.Z;
             SizeWidth = image.Size.Width;
             SizeHeight = image.Size.Height;
-            ColourRed = image.Colour.Red;
-            ColourGreen = image.Colour.Green;
-            ColourBlue = image.Colour.Blue;
+            ColourHex = image.Colour.ToString();
             ColourAlpha = image.Colour.Alpha;
             Url = image.Url;
         }
@@ -40,9 +38,7 @@ namespace KappaCreations.Models.Shop.DTOs
         public double SizeHeight { get; set; }
 
         // Colour
-        public byte ColourRed { get; set; }
-        public byte ColourGreen { get; set; }
-        public byte ColourBlue { get; set; }
+        public string ColourHex { get; set; }
         public double ColourAlpha { get; set; }
 
         public string Url { get; set; }
@@ -53,7 +49,7 @@ namespace KappaCreations.Models.Shop.DTOs
         {
             Position = new Position(PosX, PosY, ZIndex),
             Size = new Size(SizeWidth, SizeHeight),
-            Colour = new Colour(ColourRed, ColourGreen, ColourBlue, ColourAlpha),
+            Colour = new Colour(ColourHex, ColourAlpha),
             Url = Url,
         };
 
@@ -71,9 +67,7 @@ namespace KappaCreations.Models.Shop.DTOs
             zIndex = image.Position.Z,
             sizeWidth = image.Size.Width,
             sizeHeight = image.Size.Height,
-            colourRed = image.Colour.Red,
-            colourGreen = image.Colour.Green,
-            colourBlue = image.Colour.Blue,
+            colourHex = image.Colour.ToString(),
             colourAlpha = image.Colour.Alpha,
             url = image.Url,
         };

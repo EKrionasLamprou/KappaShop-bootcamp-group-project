@@ -193,6 +193,7 @@
     <Compile Include="Controllers\Api\CommentController.cs" />
     <Compile Include="Controllers\Api\AdminStatsController.cs" />
     <Compile Include="Controllers\Api\OrderController.cs" />
+    <Compile Include="Controllers\Api\UserController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Database\DbInitializer.cs" />
     <Compile Include="Database\Maps\OrderItemMap.cs" />
@@ -210,12 +211,13 @@
     <Compile Include="Models\Shop\Design\IColour.cs" />
     <Compile Include="Models\Shop\DTOs\CommentDTO.cs" />
     <Compile Include="Models\Shop\DTOs\DataTransferObject.cs" />
+    <Compile Include="Models\Shop\DTOs\UserDTO.cs" />
     <Compile Include="Models\Shop\DTOs\OrderItemDTO.cs" />
     <Compile Include="Models\Shop\DTOs\OrderDTO.cs" />
     <Compile Include="Models\Shop\Order\OrderItem.cs" />
     <Compile Include="Models\Shop\Order\Order.cs" />
     <Compile Include="Models\Shop\Product\Comment.cs" />
-    <Compile Include="Utilities.cs" />
+    <Compile Include="Globals\Utilities.cs" />
     <Compile Include="Controllers\Identity\Account\Confirmation.cs" />
     <Compile Include="Controllers\Identity\Account\Register.cs" />
     <Compile Include="Controllers\Identity\Account\Password.cs" />
