@@ -33,8 +33,8 @@ namespace KappaCreations.Controllers
 
             int pageSize = pSize ?? 4;
             int pageNumber = page ?? 1;
-            //return View(products.ToPagedList(pageNumber,pageSize));
-            return View(products);
+            return View(products.ToPagedList(pageNumber,pageSize));
+            //return View(products);
         }
 
 
