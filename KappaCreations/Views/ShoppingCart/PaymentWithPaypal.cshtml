@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "PaymentWithPaypal";
+    Layout = "~/Views/Shared/_ClientLayout.cshtml";
+}
+
+<style>
+    h2{
+        text-align:center;
+        margin-bottom:30px;
+    }
+</style>
+
+<div>
+    <h2>Thank you for your purchase.</h2>
+</div>
+<script>
+    setTimeout(() => {
+        window.location.href = "@Url.Action("Index","Home")";
+    },3000)
+</script>
