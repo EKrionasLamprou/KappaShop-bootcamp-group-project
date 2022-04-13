@@ -142,7 +142,12 @@ $(document).ready(function () {
 
     var canvas = (this.__canvas = new fabric.Canvas("c"));
     fabric.Object.prototype.transparentCorners = false;
+    //canvas.on('object:scaling', function (e) {
+    //    console.log("Width: " + e.target.getWidth());
+    //    console.log("Height: " + e.target.getHeight());
 
+
+    //});
     var radius = 300;
 
     fabric.Image.fromURL(url, function (img) {
@@ -165,7 +170,7 @@ $(document).ready(function () {
             });
             img.applyFilters(canvas.renderAll.bind(canvas));
         });
-    
+
         canvas.add(img).setActiveObject(img);
         item_list.push(img);
         //console.log(img._element)
@@ -305,6 +310,7 @@ ctx.clip();*/
                     image.set({
                         left: 0,
                         right: 0,
+                       
                     });
 
                     image.on("selected", function () {
@@ -313,7 +319,22 @@ ctx.clip();*/
                         $("#boxEdit, #boxEditText").hide();
                         $("#boxEditImage").show();
                     });
+                    canvas.on('object:scaling', function () {
+                        var obj = canvas.getActiveObject(),
+                        width = obj.width,
+                        height = obj.height,
+                        scaleX = obj.scaleX,
+                        scaleY = obj.scaleY;
 
+                        obj.set({
+                            width: width * scaleX,
+                            height: height * scaleY,
+                            scaleX: 1,
+                            scaleY:1
+                        })
+
+                        console.log("Width: " + obj.width);
+                    });
                     //image.scale(getRandomNum(0.1, 0.25)).setCoords();
                     document.getElementById('colorDark').addEventListener('change', function (e) {
                         image.filters[0] = new fabric.Image.filters.Tint({
@@ -459,12 +480,12 @@ ctx.clip();*/
                 return {
                     posX: item.left,
                     posY: item.top,
-                    zIndex: data.indexOf(item), 
+                    zIndex: data.indexOf(item),
                     sizeWidth: item.width,
                     sizeHeight: item.height,
                     colourHex: item.filters.length !== 0 ? item.filters[0].color : "#ffffff",
                     colourAlpha: 1,
-                    url: uploadImages.length === 1 ? uploadImages[0] : uploadImages[index - 1], 
+                    url: uploadImages.length === 1 ? uploadImages[0] : uploadImages[index - 1],
                 };
             });
 
@@ -474,7 +495,7 @@ ctx.clip();*/
                 return {
                     posX: item.left,
                     posY: item.top,
-                    zIndex: data.indexOf(item), 
+                    zIndex: data.indexOf(item),
                     sizeWidth: item.width,
                     sizeHeight: item.height,
                     colourHex: item.fill,
