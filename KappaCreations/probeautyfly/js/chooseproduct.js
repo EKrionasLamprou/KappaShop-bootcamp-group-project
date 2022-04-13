@@ -14,6 +14,10 @@ const setProductData = () => {
             const category = item.id.slice(4);
             setLocalStorage('ProductCategory', category);
 
+
+            const name = item.innerText.toLowerCase();
+            setLocalStorage('ProductName', name);
+
         })
     });
 }

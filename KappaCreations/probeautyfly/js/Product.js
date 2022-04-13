@@ -3,7 +3,7 @@
 
     $.ajax({
         type: "GET",
-        url: "https://localhost:44342/api/Product?id=5",
+        url: "https://localhost:44342/api/Product?id=7",
         data: "json",
         headers: {
             "Content-Type": "application/json",
@@ -31,11 +31,11 @@
             console.log(fabricJSON);
 
 
-            canvas.loadFromJSON(fabricJSON, canvas.renderAll.bind(canvas), function (o, object) {
-                console.log("HI");
-                fabric.log(o, object);
+            //canvas.loadFromJSON(fabricJSON, canvas.renderAll.bind(canvas), function (o, object) {
+            //    console.log("HI");
+            //    fabric.log(o, object);
 
-            });
+            //});
         },
 
         error: function (xhr) { },

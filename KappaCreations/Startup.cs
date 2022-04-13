@@ -36,7 +36,7 @@ namespace KappaCreations
                 //Here we create a Admin super user who will maintain the website                   
 
                 var user = new ApplicationUser();
-                user.UserName = "admin";
+                user.UserName = "admin@gmail.com";
                 user.Email = "admin@gmail.com";
 
                 string userPWD = "ADMIN@KAPPA2022";
@@ -54,6 +54,7 @@ namespace KappaCreations
             // creating Creating Manager role     
             if (!roleManager.RoleExists("User"))
             {
+
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
                 role.Name = "User";
                 roleManager.Create(role);

@@ -215,7 +215,7 @@
     <Compile Include="Models\Shop\Order\OrderItem.cs" />
     <Compile Include="Models\Shop\Order\Order.cs" />
     <Compile Include="Models\Shop\Product\Comment.cs" />
-    <Compile Include="Utilities.cs" />
+    <Compile Include="Globals\Utilities.cs" />
     <Compile Include="Controllers\Identity\Account\Confirmation.cs" />
     <Compile Include="Controllers\Identity\Account\Register.cs" />
     <Compile Include="Controllers\Identity\Account\Password.cs" />
@@ -284,28 +284,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\fonts\fa-solid-900.svg" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\fonts\Pe-icon-7-stroke.svg" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\images\avatars\1.jpg" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\images\avatars\10.jpg" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\images\avatars\11.jpg" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\images\avatars\12.jpg" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\images\avatars\2.jpg" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\images\avatars\3.jpg" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\images\avatars\4.jpg" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\images\avatars\5.jpg" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\images\avatars\8.jpg" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\images\avatars\9.jpg" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\images\logo-inverse.png" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\images\logo.png" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\scripts\main.js" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\charts-chartjs.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\components-progress-bar.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\elements-utilities.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\forms-layouts.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\forms-validation.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\index.html" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\main.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -329,8 +307,6 @@
     <Content Include="probeautyfly\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="probeautyfly\fonts\antonio-exotic\stylesheet.css" />
     <Content Include="probeautyfly\fonts\bloggersans\stylesheet.css" />
-    <Content Include="probeautyfly\gallery.html" />
-    <Content Include="probeautyfly\home.html" />
     <Content Include="probeautyfly\images\1banner.jpg" />
     <Content Include="probeautyfly\images\about.png" />
     <Content Include="probeautyfly\images\AdminImg\anna.jpg" />
@@ -446,6 +422,7 @@
     <Content Include="probeautyfly\js\counterup.min.js" />
     <Content Include="probeautyfly\js\custom.js" />
     <Content Include="probeautyfly\js\CustomScript.js" />
+    <Content Include="probeautyfly\js\GetProductCategory.js" />
     <Content Include="probeautyfly\js\jquery.imagesloaded.js" />
     <Content Include="probeautyfly\js\jquery.inview.min.js" />
     <Content Include="probeautyfly\js\jquery.min.js" />
@@ -486,21 +463,10 @@
     <Content Include="probeautyfly\printableImages\Thermos-Bottles.png" />
     <Content Include="probeautyfly\printableImages\Tissues.png" />
     <Content Include="probeautyfly\printableImages\vase.jpg" />
-    <Content Include="probeautyfly\ShoppingCart2.html" />
-    <Content Include="probeautyfly\viewGalleryProduct.html" />
     <Content Include="Scripts\axios.js" />
     <Content Include="Scripts\axios.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\fonts\fa-solid-900.eot" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\fonts\fa-solid-900.ttf" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\fonts\fa-solid-900.woff" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\fonts\fa-solid-900.woff2" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\fonts\Pe-icon-7-stroke.eot" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\fonts\Pe-icon-7-stroke.ttf" />
-    <Content Include="architectui-html-free\architectui-html-free\architectui-html-free\assets\fonts\Pe-icon-7-stroke.woff" />
-    <Content Include="architectui-html-free\architectui-html-free\Changelog.md" />
-    <Content Include="architectui-html-free\architectui-html-free\README.md" />
     <Content Include="probeautyfly\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="probeautyfly\font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="probeautyfly\font-awesome\fonts\fontawesome-webfont.woff" />
@@ -579,7 +545,6 @@
     <Content Include="Views\Shared\_UserLayout.cshtml" />
     <Content Include="Views\Home\TestUserPage.cshtml" />
     <Content Include="Views\Shared\AdminComponent\_AdminPage.cshtml" />
-    <Content Include="Views\Home\TestAdminPage.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\Gallery\Index.cshtml" />
     <Content Include="Views\Gallery\Details.cshtml" />

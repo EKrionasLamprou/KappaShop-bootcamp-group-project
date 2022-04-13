@@ -43,5 +43,10 @@ namespace KappaCreations.Models
         /// Represents a colour with RGBA values.
         /// </summary>
         (byte Red, byte Green, byte Blue, double Alpha) RGBA { get; }
+
+        /// <summary>
+        /// Represents a colour as hexadecimal.
+        /// </summary>
+        string Hex { get; }
     }
 }

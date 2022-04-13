@@ -71,6 +71,8 @@ namespace KappaCreations.Models
             }
         }
 
+        public string Hex { get => Value.ToString("X2"); }
+
         /// <summary>
         /// Gets a new colour by converting a hexadecimal value.
         /// </summary>
@@ -82,6 +84,6 @@ namespace KappaCreations.Models
         /// A string that represents the current colour.
         /// </summary>
         /// <returns>The hexadecimal value of the colour as a string.</returns>
-        public override string ToString() => '#' + Value.ToString("X2");
+        public override string ToString() => '#' + Hex;
     }
 }
