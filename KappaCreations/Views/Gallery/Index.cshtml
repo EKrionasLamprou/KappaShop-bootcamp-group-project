@@ -44,8 +44,8 @@
                     <div class="product-grid4">
                         <div class="product-image4">
                             <div>
-                                <img class="pic-1" src="~/probeautyfly/images/mycat.png" />
-                                <img class="pic-2" src="~/probeautyfly/images/i_like_cats_more_than_people_3.png">
+                                <img class="pic-1" src="~/probeautyfly/images/mycat.png" /><!--Design pic-->
+                                <img class="pic-2" src="~/probeautyfly/images/i_like_cats_more_than_people_3.png"><!--BackDesign pic-->
                             </div>
                             <ul class="social">
                                 <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
@@ -54,7 +54,9 @@
                         </div>
                         <div class="product-content">
                             <h3 class="title">@product.Category</h3>
-                            <span>By @product.Designer</span><!--.Username?-->
+                            <span>By @product.DesignerId</span><!--.Username?-->
+                            <br/>
+                            <span>@product.Upvotes votes</span>
                             <div class="price">
                                 €@product.Category.Price
                             </div>
