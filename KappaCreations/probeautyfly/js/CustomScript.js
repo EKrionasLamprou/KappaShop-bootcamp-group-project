@@ -11,7 +11,7 @@ const cloudApiSecret = "Jbp2bErMwYHRiDuiWAW8h1gz-io";
 const cloudApiEnvironmentVar = "CLOUDINARY_URL=cloudinary://783748518282284:Jbp2bErMwYHRiDuiWAW8h1gz-io@dj3kkbjpi";
 const cloupUploadPreset = "p7ytvqur";
 
-const uploadImages = [];
+let uploadImages = [];
 
 let activateAddToCart = false;
 
@@ -249,6 +249,24 @@ ctx.clip();*/
 
         newText.zIndex = canvas.getObjects().indexOf(newText);
 
+        /*canvas.on('object:scaling', function () {
+            var obj = canvas.getActiveObject(),
+                width = obj.width,
+                height = obj.height,
+                scaleX = obj.scaleX,
+                scaleY = obj.scaleY;
+
+
+            obj.set({
+                width: width * scaleX,
+                height: height * scaleY,
+                scaleX: 1,
+                scaleY: 1
+            });
+
+            console.log(width) 
+        });*/
+
         canvas.setActiveObject(newText).add(newText);
 
         item_list.push(newText);
@@ -310,7 +328,6 @@ ctx.clip();*/
                     image.set({
                         left: 0,
                         right: 0,
-                       
                     });
 
                     image.on("selected", function () {
@@ -319,22 +336,22 @@ ctx.clip();*/
                         $("#boxEdit, #boxEditText").hide();
                         $("#boxEditImage").show();
                     });
+
                     canvas.on('object:scaling', function () {
                         var obj = canvas.getActiveObject(),
-                        width = obj.width,
-                        height = obj.height,
-                        scaleX = obj.scaleX,
-                        scaleY = obj.scaleY;
+                            width = obj.width,
+                            height = obj.height,
+                            scaleX = obj.scaleX,
+                            scaleY = obj.scaleY;
 
                         obj.set({
                             width: width * scaleX,
                             height: height * scaleY,
                             scaleX: 1,
-                            scaleY:1
-                        })
-
-                        console.log("Width: " + obj.width);
+                            scaleY: 1
+                        });
                     });
+
                     //image.scale(getRandomNum(0.1, 0.25)).setCoords();
                     document.getElementById('colorDark').addEventListener('change', function (e) {
                         image.filters[0] = new fabric.Image.filters.Tint({
@@ -359,44 +376,36 @@ ctx.clip();*/
     }
 
     $("#tempSave").on("click", function () {
-        //console.log(uploadedImagesCount);
+        const rowData = JSON.stringify(item_list);
+        const data = JSON.parse(rowData);
 
-        if (uploadedImagesCount.length === 1 && uploadedImagesCount[0] === "default") return;
+        const text = data.filter((item) => item.type === "text");
+
+        if (uploadedImagesCount.length === 1 && uploadedImagesCount[0] === "default" && text.length < 1) {
+            alert("Please add Text or Image");
+            return;
+        }
 
         if (uploadedImagesCount.length > 1) uploadedImagesCount.shift();
 
-        uploadedImagesCount.map((file) => {
-            const formData = new FormData();
-            formData.append("file", file);
-            formData.append("upload_preset", cloupUploadPreset);
+        if (uploadedImagesCount[0] === "default") {
+            uploadImages = []
+        } else {
+            uploadedImagesCount.map((file) => {
+                const formData = new FormData();
+                formData.append("file", file);
+                formData.append("upload_preset", cloupUploadPreset);
 
-            /*async () => {
-                try {
-                    const { data } = await axios({
-                        url: `https://api.cloudinary.com/v1_1/${cloudName}/upload`,
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/x-www-form-urlencoded"
-                        },
-                        data: formData
-                    });
-
-                    console.log(data)
-
-                } catch (error) {
-                    console.log(error)
-                }
-            };*/
-
-            axios({
-                url: `https://api.cloudinary.com/v1_1/${cloudName}/upload`,
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                },
-                data: formData
-            }).then(function (res) { uploadImages.push(res.data.secure_url) }).catch(function (err) { console.log(err) });
-        });
+                axios({
+                    url: `https://api.cloudinary.com/v1_1/${cloudName}/upload`,
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    data: formData
+                }).then(function (res) { uploadImages.push(res.data.secure_url) }).catch(function (err) { console.log(err) });
+            });
+        }
 
         activateAddToCart = true
         $("#addToCart").prop('disabled', false);
@@ -511,12 +520,14 @@ ctx.clip();*/
                 texts: dataTexts,
             },
             categoryId: Number(category),
-            designerId: "41d282e9-924d-4e5b-88a3-dcb0397fd104"
+            designerId: "535b3e94-a793-41a7-84e4-becdc2070c6c"
         };
 
         console.log(design);
 
         setApiCall(design);
+
+        alert("Your Product created Successfully!")
 
         //var image = $("#image");
         //var img = canvas.toDataURL("image/png");
