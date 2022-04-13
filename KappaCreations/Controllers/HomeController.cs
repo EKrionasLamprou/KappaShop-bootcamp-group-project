@@ -47,12 +47,12 @@ namespace KappaCreations.Controllers
 
             return View();
         }
-        public ActionResult TestAdminPage()
-        {
-            ViewBag.Message = "Your contact page.";
+        //public ActionResult TestAdminPage()
+        //{
+        //    ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
+        //    return View();
+        //}
 
 
        
