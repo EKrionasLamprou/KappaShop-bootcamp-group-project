@@ -54,6 +54,23 @@ namespace KappaCreations.Repositories
         /// <param name="include">A navigation property to be included with the entity instance.</param>
         /// <returns>An <see cref="IEnumerable{TEntity}"/> that contains all the entities.</returns>
         Task<IEnumerable<TEntity>> GetAllAsync(string include);
+        /// <summary>
+        /// Returns a number of entities from the index <paramref name="i"/>.
+        /// Asynchronous method.
+        /// </summary>
+        /// <param name="i">The starting index.</param>
+        /// <param name="n">The number of entities to be returned.</param>
+        /// <returns>A <paramref name="n"/> number of entities.</returns>
+        Task<IEnumerable<TEntity>> GetManyAsync(int i, int n);
+        /// <summary>
+        /// Returns a number of entities from the index <paramref name="i"/>.
+        /// Asynchronous method.
+        /// </summary>
+        /// <param name="i">The starting index.</param>
+        /// <param name="n">The number of entities to be returned.</param>
+        /// <param name="include">A navigation property to be included with the entity instance.</param>
+        /// <returns>A <paramref name="n"/> number of entities.</returns>
+        Task<IEnumerable<TEntity>> GetManyAsync(int i, int n, string include);
 
         /// <summary>
         /// Inserts a new <see cref="TEntity"/> to the database.

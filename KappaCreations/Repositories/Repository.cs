@@ -41,6 +41,13 @@ namespace KappaCreations.Repositories
                         .Include(include)
                         .SingleOrDefaultAsync();
 
+        public async Task<IEnumerable<TEntity>> GetManyAsync(int i, int n)
+            => await Set.Skip(i).Take(n).ToListAsync();
+
+        public async Task<IEnumerable<TEntity>> GetManyAsync(int i, int n,
+            string include)
+            => await Set.Skip(i).Take(n).Include(include).ToListAsync();
+
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
             => await Set.ToListAsync();
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync(string include)
@@ -48,7 +55,8 @@ namespace KappaCreations.Repositories
 
         public virtual void Add(TEntity entity) => Set.Add(entity);
 
-        public virtual void AddRange(IEnumerable<TEntity> entities) => Set.AddRange(entities);
+        public virtual void AddRange(IEnumerable<TEntity> entities)
+            => Set.AddRange(entities);
 
         public virtual bool Update(TEntity newEntity)
         {
