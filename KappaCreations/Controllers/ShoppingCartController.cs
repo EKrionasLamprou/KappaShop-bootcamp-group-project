@@ -49,6 +49,13 @@ namespace KappaCreations.Controllers
             return View();
         }
 
+
+
+        public ActionResult EditForm()
+        {
+            return View();
+        }
+
         public async Task<ActionResult> Buy(int? id)
         {
 
@@ -173,7 +180,7 @@ namespace KappaCreations.Controllers
                 return View("Failure");
             }
             //on successful payment, show success page to user.
-            return View("~/Views/Home/Index.cshtml");
+            return View();
         }
         private PayPal.Api.Payment payment;
         private Payment ExecutePayment(APIContext apiContext, string payerId, string paymentId)
