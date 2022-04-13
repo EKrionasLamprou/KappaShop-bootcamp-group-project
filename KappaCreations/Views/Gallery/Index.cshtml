@@ -36,9 +36,10 @@
                 <option value="value">Newest to oldest</option>
                 <option value="value">Oldest to newest</option>
             </select>
-
             <!-- Products-->
-            <div class="row">
+            @foreach (var product in ViewBag.GalleryProducts){
+
+            <div class="column">
                 <div class="col-md-3 col-sm-6">
                     <div class="product-grid4">
                         <div class="product-image4">
@@ -52,32 +53,35 @@
                                 <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
                             <span class="product-new-label">New</span>
-                            <span class="product-discount-label">-10%</span>
                         </div>
                         <div class="product-content">
-
                             <h3 class="title"><a href="#">Women's Black Top</a></h3>
                             <span>By Mitsos</span>
                             <div class="price">
                                 €14.40
-                                <span>€16.00</span>
                             </div>
                             <a class="add-to-cart" href="">ADD TO CART</a>
                         </div>
                     </div>
                 </div>
             </div>
+            }
         </div>
         <hr>
         <p style="text-align:center; font-family:serif;">
-            Page @(Model.PageCount<Model.PageNumber?1:Model.PageNumber) of @Model.PageCount
-            @Html.PagedListPager(Model,page=>Url.Action("Index", "Gallery", new {page}))
+            <span>
+                Page @(Model.PageCount<Model.PageNumber?1:Model.PageNumber) of @Model.PageCount
+            </span>
+            <span>
+                @Html.PagedListPager(Model,page=>Url.Action("Index", "Gallery", new {page}))
+            </span>
+           
         </p>
     </div>
 <br />
-<div>
+@*<div>
     <canvas id="canvas" width="500" height="500"></canvas>
-</div>
+</div>*@
 
 
 
