@@ -38,9 +38,10 @@ namespace KappaCreations.Controllers
         }
 
 
-        public ActionResult Details()
+        public async Task<ActionResult> Details(int Id)
         {
-            return View();
+            var product = await _repo.GetAsync(Id);
+            return View(product);
         }
     }
 }

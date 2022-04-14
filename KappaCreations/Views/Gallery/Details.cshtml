@@ -1,4 +1,4 @@
-﻿
+﻿@model KappaCreations.Models.Product
 @{
     ViewBag.Title = "Details";
 }
@@ -21,17 +21,9 @@
                             <img class="img-responsive" src="~/probeautyfly/images/ashtray.png" alt="product image" style="max-width:35%; max-height:35%">
                         </div>
                         <div class="single-blog-desc">
-                            <h3>Description</h3>
+                            <h3>Product Description</h3>
 
-                            <div class="blog-views">
-                                <!-- Left-aligned -->
-                                <div class="media">
-                                    <div class="media-body">
-                                        <h4 class="media-heading event-title"> Product</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="p_bq margin-t20"><i class="fa fa-tags"></i>Category: Ashtray | Created by: User Name | Price: 7 euros</p>
+                            <p class="p_bq margin-t20"><i class="fa fa-tags"></i>Category: @Model.Category | Created by: @Model.Designer | Price: @Model.Category.Price euros</p>
                         </div>
                     </div>
                 </div>
@@ -39,25 +31,25 @@
                     <div class="col-md-12">
                         <div class="feedback-list">
                             <h4><i class="fa fa-comments-o fa-lg"></i>Comments</h4>
-                            <div class="media response-info">
+                            @* Comment starts *@
+                            <div class="media response-info" style="margin-bottom:5px;" id="prComment">
                                 <div class="media-left response-text-left">
                                     <a href="#">
                                         <img alt="" src="images/client1-1.png" class="media-object">
                                     </a>
-                                    <h5><a href="#">Fritz Wold</a></h5>
+                                    <h5>User.Username</h5>
                                 </div>
                                 <div class="media-body response-text-right">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.There are many variations of passages of Lorem Ipsum available. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </p>
-                                    <ul>
-                                        <li>October 25, 2021</li>
-                                        <li><a href="single-blog.html"><i aria-hidden="true" class="fa fa-reply"></i> Reply</a></li>
-                                    </ul>
+                                    <span>October 25, 2021</span>
                                 </div>
                                 <div class="clearfix"> </div>
                             </div>
+                            @* Comment ends *@
                         </div>
                     </div>
                 </div>
+
                 <div class="row comment-form">
                     <div class="col-md-12 col-sm-12 col-xs-12"> <h3>Leave your Comment</h3></div>
                     <form method="post">
