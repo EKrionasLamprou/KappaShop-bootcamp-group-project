@@ -57,6 +57,11 @@ namespace KappaCreations.Models
         /// </summary>
         public ApplicationUser Designer { get; set; }
 
+        /// <summary>
+        /// The users who upvoted the product.
+        /// </summary>
+        public ICollection<ApplicationUser> UsersUpvoted { get; set; }
+
         int upvotes = 0;
         /// <summary>
         /// Represents the number of upvotes the product has received from users.

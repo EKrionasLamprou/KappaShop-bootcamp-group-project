@@ -21,6 +21,13 @@ namespace KappaCreations.Database.Maps
                .WithMany(e => e.Products)
                .HasForeignKey(e => e.DesignerId)
                .WillCascadeOnDelete(false);
+
+            HasMany(e => e.UsersUpvoted)
+                .WithMany(e => e.UpvotedProducts)
+                .Map(e =>
+                {
+                    e.ToTable("UserProductUpvotes");
+                });
         }
     }
 }
