@@ -257,7 +257,12 @@ ctx.clip();*/
             fontFamily: inFont,
             fill: inColor,
         });
-
+        newText.setControlsVisibility({
+            mt: false, // middle top disable
+            mb: false, // midle bottom
+            ml: false, // middle left
+            mr: false, // I think you get it
+        });
 
         newText.on("selected", function () {
             var obJ = canvas.getActiveObject();
@@ -557,7 +562,7 @@ ctx.clip();*/
                 texts: dataTexts,
             },
             categoryId: Number(category),
-            designerId: "f40d9d69-3b5e-41b8-8e5e-f97a1f9be243"
+            designerId: "92651445-01be-4c42-b539-1c7e2d32aabe"
         };
 
         console.log(design);
