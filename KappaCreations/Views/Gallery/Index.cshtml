@@ -48,7 +48,7 @@
                                 <img class="pic-2" src="~/probeautyfly/images/i_like_cats_more_than_people_3.png"><!--BackDesign pic-->
                             </div>
                             <ul class="social">
-                                <li><a href="Details/@product.Id" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="@Url.Action("Details","Gallery", new { product.Id })" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
                                 <li><a href="#" data-tip="Vote Design"><i class="fa fa-heart"></i></a></li>
                             </ul>
                         </div>
