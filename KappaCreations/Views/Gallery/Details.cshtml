@@ -23,7 +23,7 @@
                         <div class="single-blog-desc">
                             <h3>Product Description</h3>
 
-                            <p class="p_bq margin-t20"><i class="fa fa-tags"></i>Category: @Model.Category | Created by: @Model.Designer | Price: @Model.Category.Price euros</p>
+                            <p class="p_bq margin-t20"><i class="fa fa-tags"></i>Category: @Model.Category | Created by: @Model.Designer.UserName | Price: @Model.Category.Price euros</p>
                         </div>
                     </div>
                 </div>
@@ -32,19 +32,17 @@
                         <div class="feedback-list">
                             <h4><i class="fa fa-comments-o fa-lg"></i>Comments</h4>
                             @* Comment starts *@
+                            @foreach(var comment in Model.Comments){
                             <div class="media response-info" style="margin-bottom:5px;" id="prComment">
-                                <div class="media-left response-text-left">
-                                    <a href="#">
-                                        <img alt="" src="images/client1-1.png" class="media-object">
-                                    </a>
-                                    <h5>User.Username</h5>
-                                </div>
+                               
                                 <div class="media-body response-text-right">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.There are many variations of passages of Lorem Ipsum available. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </p>
-                                    <span>October 25, 2021</span>
+                                    <p>@comment.Content</p>
+                                    <span>comment.SubmitDate</span>
+                                    <h5>@comment.User.UserName</h5>
                                 </div>
                                 <div class="clearfix"> </div>
                             </div>
+                            }
                             @* Comment ends *@
                         </div>
                     </div>
@@ -53,12 +51,6 @@
                 <div class="row comment-form">
                     <div class="col-md-12 col-sm-12 col-xs-12"> <h3>Leave your Comment</h3></div>
                     <form method="post">
-                        <div class="col-md-4 col-sm-6 col-xs-12 comment">
-                            <input type="text" class="form-control placeholder-fix" placeholder="Name" name="name" required="">
-                        </div>
-                        <div class="col-md-4 col-sm-6 col-xs-12 comment">
-                            <input type="text" class="form-control placeholder-fix" placeholder="Email" name="email" required="">
-                        </div>
                         <div class="clearfix"> </div>
                         <div class="col-md-8 col-sm-12 col-xs-12">
                             <textarea id="commentTxtArea" class="form-control placeholder-fix" name="Message" required="" style="resize: none;" maxlength="600" placeholder="Message Here....&#10;(max. length: 600 characters)"></textarea>

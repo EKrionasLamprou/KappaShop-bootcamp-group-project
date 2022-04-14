@@ -12,6 +12,7 @@ namespace KappaCreations.Models
         public ApplicationUser()
         {
             Products = new HashSet<Product>();
+            UpvotedProducts = new HashSet<Product>();
         }
 
         public string FirstName { get; set; }
@@ -22,6 +23,7 @@ namespace KappaCreations.Models
         public BillingAddress BillingAddress { get; set; }
         public PaymentInfo PaymentInfo { get; set; }
         public ICollection<Product> Products { get; set; }
+        public ICollection<Product> UpvotedProducts { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
             => await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
