@@ -54,13 +54,13 @@
                         </div>
                         <div class="product-content">
                             <h3 class="title">@product.Category</h3>
-                            <span>By @product.Designer.UserName</span><!--.Username?-->
+                            <span>By @product.Designer.UserName</span>
                             <br/>
                             <span>@product.Upvotes votes</span>
                             <div class="price">
                                 €@product.Category.Price
                             </div>
-                            <a class="add-to-cart" href="">ADD TO CART</a>
+                            <a class="add-to-cart" href="@Url.Action("Buy","ShoppingCart",new {id=product.Id})">ADD TO CART</a>
                         </div>
                     </div>
                 </div>
