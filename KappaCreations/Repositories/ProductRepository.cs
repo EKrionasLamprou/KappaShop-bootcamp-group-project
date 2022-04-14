@@ -35,6 +35,7 @@ namespace KappaCreations.Repositories
                  .Include(e => e.BackDesign.Images)
                  .Include(e => e.Category)
                  .Include(e => e.Designer)
+                 .Include(e => e.Designer.UserName)
                  .Include(e => e.Comments)
                  .FirstOrDefault();
         public override async Task<Product> GetAsync(int id)
@@ -47,6 +48,7 @@ namespace KappaCreations.Repositories
                         .Include(e => e.BackDesign.Images)
                         .Include(e => e.Category)
                         .Include(e => e.Designer)
+                        .Include(e => e.Designer.UserName)
                         .Include(e => e.Comments)
                         .FirstOrDefaultAsync();
 
@@ -61,6 +63,7 @@ namespace KappaCreations.Repositories
                         .Include(e => e.BackDesign.Images)
                         .Include(e => e.Category)
                         .Include(e => e.Designer)
+                        .Include(e => e.Designer.UserName)
                         .Include(e => e.Comments)
                         .ToListAsync();
 
@@ -73,6 +76,7 @@ namespace KappaCreations.Repositories
                         .Include(e => e.BackDesign.Images)
                         .Include(e => e.Category)
                         .Include(e => e.Designer)
+                        .Include(e => e.Designer.UserName)
                         .Include(e => e.Comments)
                         .ToListAsync();
     }
