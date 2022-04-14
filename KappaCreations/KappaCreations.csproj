@@ -490,6 +490,9 @@
     <Content Include="probeautyfly\fonts\bloggersans\blogger_sans-medium_italic-webfont.woff2" />
     <Content Include="probeautyfly\fonts\bloggersans\blogger_sans-webfont.woff" />
     <Content Include="probeautyfly\fonts\bloggersans\blogger_sans-webfont.woff2" />
+    <Content Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

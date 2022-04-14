@@ -41,10 +41,10 @@ namespace KappaCreations.Repositories
                         .Include(include)
                         .SingleOrDefaultAsync();
 
-        public async Task<IEnumerable<TEntity>> GetManyAsync(int i, int n)
+        public virtual async Task<IEnumerable<TEntity>> GetManyAsync(int i, int n)
             => await Set.Skip(i).Take(n).ToListAsync();
 
-        public async Task<IEnumerable<TEntity>> GetManyAsync(int i, int n,
+        public virtual async Task<IEnumerable<TEntity>> GetManyAsync(int i, int n,
             string include)
             => await Set.Skip(i).Take(n).Include(include).ToListAsync();
 
