@@ -58,13 +58,14 @@
                         </div>
                         <div class="clearfix"></div>
                         <div class="col-md-12">
-                            <input type="hidden" name="ProductId" value="@Model.Id" />
+                            <input type="hidden" name="ProductId" value="@Model.Id"/>
                             <input id="submitCom" type="submit" class="submit-btn" value="Send">
                         </div>
                     </form>
                 </div>
-
-                <button class="btn-primary">@Html.ActionLink("Return", "Index", "Gallery")</button>
+                <div class="container" style="text-align:right;">
+                    <button class="btn btn-cool" style="background-color:#1dabb8">@Html.ActionLink("Return to Gallery", "Index", "Gallery")</button>
+                </div>
             </div>
             <div class="clearfix"></div>
         </section>
