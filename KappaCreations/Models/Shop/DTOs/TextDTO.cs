@@ -24,6 +24,7 @@ namespace KappaCreations.Models.Shop.DTOs
             ColourHex = text.Colour.Hex;
             ColourAlpha = text.Colour.Alpha;
             Content = text.Content;
+            FontSize = text.FontSize;
             Font = (int)text.Font;
         }
 
@@ -43,6 +44,7 @@ namespace KappaCreations.Models.Shop.DTOs
         public double ColourAlpha { get; set; }
 
         public string Content { get; set; } = string.Empty;
+        public double FontSize { get; set; }
         public int Font { get; set; }
 
         public bool HasId => Id.HasValue && Id > 0;
@@ -53,6 +55,7 @@ namespace KappaCreations.Models.Shop.DTOs
             Size = new Size(SizeWidth, SizeHeight),
             Colour = new Colour(ColourHex, ColourAlpha),
             Content = Content,
+            FontSize = FontSize,
             Font = (Font)Font,
         };
 
@@ -73,6 +76,7 @@ namespace KappaCreations.Models.Shop.DTOs
             colourHex = text.Colour.Hex,
             colourAlpha = text.Colour.Alpha,
             content = text.Content,
+            fontSize = text.FontSize,
             font = (int)text.Font,
         };
         /// <summary>
