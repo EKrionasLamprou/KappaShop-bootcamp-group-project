@@ -58,7 +58,7 @@ namespace KappaCreations.Controllers
 
         public async Task<ActionResult> Buy(int? id)
         {
-            User.
+            
 
             if (Session["cart"] == null)
             {
