@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace KappaCreations.Models
 {
@@ -15,6 +16,14 @@ namespace KappaCreations.Models
         public int Id { get; set; }
         public OrderStatus OrderStatus { get; set; }
         public DateTime SubmitDate { get; set; }
+        public int ItemsCount
+        {
+            get => Items.Select(item => item.Quantity).Sum();
+        }
+        public double TotalCost
+        {
+            get => Items.Select(item => item.Product.Category.Price).Sum();
+        }
 
         public string UserId { get; set; }
         public ApplicationUser User { get; set; }

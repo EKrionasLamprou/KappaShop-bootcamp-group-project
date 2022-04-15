@@ -14,6 +14,10 @@
         /// </summary>
         public string Content { get; set; }
         /// <summary>
+        /// The size of the text's font.
+        /// </summary>
+        public double FontSize { get; set; }
+        /// <summary>
         /// Represents the <see cref="Font"/> of the <see cref="Text"/>.
         /// </summary>
         public Font Font { get; set; }

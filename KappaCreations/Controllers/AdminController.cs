@@ -12,7 +12,10 @@ namespace KappaCreations.Controllers
         // GET: Admin
         public ActionResult Index()
         {
+
             return View();
         }
+
+
     }
 }

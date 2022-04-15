@@ -1,4 +1,4 @@
-﻿ @model KappaCreations.Models.Product
+﻿@model KappaCreations.Models.Product
 
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -22,21 +22,10 @@
             <li>
                 <a href="#">
                     <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
-                    <span class="title">Customers</span>
+                    <span class="title">Charts</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
-                    <span class="icon"><ion-icon name="chatbubbles-outline"></ion-icon></span>
-                    <span class="title">Messages</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-                    <span class="title">Password</span>
-                </a>
-            </li>
+
             <li>
                 <a href="#">
                     <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
@@ -104,70 +93,30 @@
 
         <!--order details list-->
         <div class="details">
-            <div class="recentOrders">
-                <div class="cardHeader">
-                    <h2>Recent Orders</h2>
-                    <a href="#" class="btn">View All Orders</a>
-                </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Name</td>
-                            <td>Price</td>
-                            <td>Payment</td>
-                            <td>Status</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>T-Shirt with Image</td>
-                            <td>$22</td>
-                            <td>Paid</td>
-                            <td><span class="status delivered">Delivered</span></td>
-                        </tr>
-                        <tr>
-                            <td>T-Shirt with text</td>
-                            <td>$12</td>
-                            <td>Paid</td>
-                            <td><span class="status delivered">Delivered</span></td>
-                        </tr>
-                        <tr>
-                            <td>Cup with text and image</td>
-                            <td>$32</td>
-                            <td>Due</td>
-                            <td><span class="status inprogress">In Progress</span></td>
-                        </tr>
-                        <tr>
-                            <td>Pillow with image</td>
-                            <td>$42</td>
-                            <td>Paid</td>
-                            <td><span class="status return">Return</span></td>
-                        </tr>
-                        <tr>
-                            <td>Hoodie with text and Image</td>
-                            <td>$22</td>
-                            <td>Due</td>
-                            <td><span class="status pending">Pending</span></td>
-                        </tr>
-                        <tr>
-                            <td>Hoodie with image</td>
-                            <td>$23</td>
-                            <td>Due</td>
-                            <td><span class="status inprogress">In Progress</span></td>
-                        </tr>
-                        <tr>
-                            <td>T-Shirt with Text</td>
-                            <td>$12</td>
-                            <td>Paid</td>
-                            <td><span class="status delivered">Delivered</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
 
-            <!--New Customers-->
+            <table class="table" id="datatable">
+                <h2> All The Entries of the Orders</h2>
+                <hr />
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Order Id</th>
+                        <th>Number Of Items</th>
+                        <th>Cost</th>
+                        <th>Status</th>
+                    </tr>
 
-            <div class="recentCustomers">
+                </thead>
+                <tbody>
+                </tbody>
+
+            </table>
+
+
+        </div>
+
+        <!--New Customers-->
+        @*<div class="recentCustomers">
                 <div class="cardHeader">
                     <h2>Recent Customers</h2>
                 </div>
@@ -189,10 +138,85 @@
                         <td><h4>Christina Kourgiouni<br /><span>Greece</span></h4></td>
                     </tr>
                 </table>
-            </div>
+            </div>*@
 
-
-        </div>
 
     </div>
+
 </div>
+</div>
+
+
+@section scripts{
+
+    <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+
+    <script type="text/javascript">
+
+        LoadOrder();
+        function LoadOrder() {
+            $("#datatable").DataTable(
+                {
+                    ajax: {
+                        url: "/api/Order",
+                        type: "GET",
+                        datatype: "json"
+                    },
+                    columns: [
+                        {
+                            data: "Id", name: "Order ID", width: "20%", render: function (value) {
+                                let template = `<abbr>${value}</abbr>`
+
+                                return template;
+                            }
+
+                        },
+                        {
+                            data: "User.UserName", name: "User", width: "20%", render: function (value) {
+                                let template = `<abbr>${value}</abbr>`
+
+                                return template;
+                            }
+                        },                  
+                        {
+                            data: "ItemsCount", name: "Number Of Items", width: "20%", render: function (value) {
+                                let template = `<abbr>${value}</abbr>`
+
+                                return template;
+                            }
+                        },
+                        {
+                            data: "TotalCost", name: "Cost", render: function (value) {
+                                let template = `<abbr>${value}</abbr>`
+
+                                return template;
+                            }
+                        },
+                        {
+                            data: "OrderStatus", name: "Status", render: function (value) {
+                                let template = `<abbr>${value}</abbr>`
+
+                                return template;
+                            }
+                        }
+                    ],
+                    processing: true,
+                    filters: true,
+                    language: {
+                        processing: `<div class="spinner-border" role="status">
+                                                        </div>`,
+                        emptyTable: "There is no data",
+                        zeroRecords: "There are no records",
+                        infoFiltered: " - Total number of Orders : _MAX_",
+                        paginate: { first: "Beginning", last: "End", next: "Next", previous: "Previous" }
+                    },
+                    serverSide: false
+                }
+            );
+        }
+    </script>
+
+
+}
