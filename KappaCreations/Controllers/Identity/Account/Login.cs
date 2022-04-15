@@ -28,7 +28,7 @@ namespace KappaCreations.Controllers
                 return View(model);
             }
 
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password,
+            var result = await SignInManager.PasswordSignInAsync(model.Username, model.Password,
                                                                  model.RememberMe, shouldLockout: false);
             switch (result)
             {
@@ -104,7 +104,7 @@ namespace KappaCreations.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Username, Email = model.Email };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

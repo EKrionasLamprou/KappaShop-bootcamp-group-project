@@ -78,6 +78,46 @@ namespace KappaCreations.Controllers.Api
             return Ok(response);
         }
 
+        [HttpPatch]
+        [Route("api/product/vote")]
+        public async Task<IHttpActionResult> PatchVoteAsync(int id, bool downvote = false)
+        {
+            var product = await _repo.GetAsync(id);
+            object response;
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            product.Upvotes += downvote ? -1 : 1;
+
+            try
+            {
+                bool result = await _repo.UpdateAsync(product);
+                if (!result)
+                {
+                    return NotFound();
+                }
+                await _db.SaveChangesAsync();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                return BadRequest(FormatDbEntityValidationException(ex));
+            }
+            catch (DbUpdateException ex)
+            {
+                return BadRequest(FormatDbUpdateException(ex));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            response = ProductDTO.MapToCamelCase(product);
+            return Ok(response);
+        }
+
         [HttpDelete]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {

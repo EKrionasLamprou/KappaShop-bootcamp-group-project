@@ -276,6 +276,7 @@
     <Compile Include="Models\Shop\IEntity.cs" />
     <Compile Include="Models\Shop\Product\Product.cs" />
     <Compile Include="Models\Shop\Product\ProductCategory.cs" />
+    <Compile Include="Models\ViewModels\CommentViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\DesignRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
@@ -316,6 +317,7 @@
     <Content Include="probeautyfly\images\AdminImg\christos.jpg" />
     <Content Include="probeautyfly\images\AdminImg\ektoras.png" />
     <Content Include="probeautyfly\images\AdminImg\Kappa_logo_Black.jpg" />
+    <Content Include="probeautyfly\images\icons\Kappa_logo_small.jpg" />
     <Content Include="probeautyfly\images\AdminImg\panos.jpg" />
     <Content Include="probeautyfly\images\AdminImg\user.jpg" />
     <Content Include="probeautyfly\images\Anna.jpg" />
@@ -424,7 +426,6 @@
     <Content Include="probeautyfly\js\counterup.min.js" />
     <Content Include="probeautyfly\js\custom.js" />
     <Content Include="probeautyfly\js\CustomScript.js" />
-    <Content Include="probeautyfly\js\GetProductCategory.js" />
     <Content Include="probeautyfly\js\jquery.imagesloaded.js" />
     <Content Include="probeautyfly\js\jquery.inview.min.js" />
     <Content Include="probeautyfly\js\jquery.min.js" />
@@ -492,6 +493,9 @@
     <Content Include="probeautyfly\fonts\bloggersans\blogger_sans-medium_italic-webfont.woff2" />
     <Content Include="probeautyfly\fonts\bloggersans\blogger_sans-webfont.woff" />
     <Content Include="probeautyfly\fonts\bloggersans\blogger_sans-webfont.woff2" />
+    <Content Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\Chart.js" />
     <Content Include="Scripts\Chart.min.js" />
@@ -554,6 +558,8 @@
     <Content Include="Views\Gallery\Details.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\ShoppingCart\CheckoutForm.cshtml" />
+    <Content Include="Views\ShoppingCart\PaymentWithPaypal.cshtml" />
+    <Content Include="Views\ShoppingCart\EditForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -26,15 +26,13 @@
             /*const JSon = JSON.stringify(canvas.toDatalessJSON(['type', 'originX', 'originY']));*/
 
             /*const json = canvas.toJSON(fabricJSON);*/
-            // let fabricJSON = '{"objects":' + JSON.stringify(obj) + '}';
+            /*let fabricJSON = '{"objects":' + JSON.stringify(obj) + '}';*/
             let fabricJSON = JSON.stringify(objects);
             console.log(fabricJSON);
 
-
             canvas.loadFromJSON(fabricJSON, canvas.renderAll.bind(canvas), function (o, object) {
                 console.log("HI");
-                fabric.log(o, object);
-
+                fabric.log(o, object); 
             });
         },
 
@@ -70,11 +68,11 @@ function mapTextToCanvas(t) {
             type: "text",
             originX: "left",
             originY: "top",
-            left: t.posX,
-            top: t.posY,
+            left: t.posX/2,
+            top: t.posY/2,
             width: t.sizeWidth,
             height: t.sizeHeight,
-            fill: t.colourHex,
+            fill: '#'+t.colourHex,
             stroke: null,
             strokeWidth: 1,
             strokeDashArray: null,
@@ -92,7 +90,7 @@ function mapTextToCanvas(t) {
             clipTo: null,
             backgroundColor: "",
             text: t.content,
-            fontSize: 30,
+            fontSize: t.fontSize,
             fontWeight: "normal",
             fontFamily: "Arial", // TO DO
             fontStyle: "",
@@ -113,10 +111,10 @@ function mapTextToCanvas(t) {
                 type: "image",
                 originX: "left",
                 originY: "top",
-                left: image.posX,
-                top: image.posY,
-                width: image.sizeWidth,
-                height: image.sizeHeight,
+                left: image.posX/2,
+                top: image.posY/2,
+                width: image.sizeWidth/2,
+                height: image.sizeHeight/2,
                 fill: "rgb(0,0,0)",
                 stroke: null,
                 strokeWidth: 1,
@@ -139,6 +137,38 @@ function mapTextToCanvas(t) {
                 crossOrigin: ""
             },
             zIndex: image.zIndex,
+
+
+            /*data: {
+                type: "image",
+                originX: "left",
+                originY: "top",
+                left: "217",
+                top: "284.03",
+                width: "140.97",
+                height: "98.84",
+                fill: "rgb(0,0,0)",
+                stroke: null,
+                strokeWidth: 1,
+                strokeDashArray: null,
+                strokeLineCap: "butt",
+                strokeLineJoin: "miter",
+                strokeMiterLimit: 10,
+                scaleX: 1,
+                scaleY: 1,
+                angle: 0,
+                flipX: false,
+                flipY: false,
+                opacity: 1,
+                shadow: null,
+                visible: true,
+                clipTo: null,
+                backgroundColor: "",
+                src: "test",
+                filters: [{ type: "Tint", color: "#ffffff", opacity: 0.5 }],
+                crossOrigin: ""
+            },
+            zIndex: image.zIndex,*/
           
         }
     }

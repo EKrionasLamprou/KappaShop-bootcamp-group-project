@@ -4,6 +4,10 @@ namespace KappaCreations.Models
 {
     public class LoginViewModel
     {
+        
+        [Display(Name = "Username")]
+        public string Username { get; set; }
+
         [Required]
         [Display(Name = "Email")]
         [EmailAddress]
