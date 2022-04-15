@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using PagedList.Mvc;
 using PagedList;
+using KappaCreations.Models.ViewModels;
+using KappaCreations.Models;
 
 namespace KappaCreations.Controllers
 {
@@ -42,6 +44,23 @@ namespace KappaCreations.Controllers
         {
             var product = await _repo.GetAsync(Id);
             return View(product);
+        }
+        
+        [HttpPost]
+        public async Task<ActionResult> Comment(CommentViewModel viewModel)
+        {
+            var commentRepository = new Repository<Comment>(_db);
+            string userName = User.Identity.Name;
+            var user = _db.Users.FirstOrDefault(x => x.UserName == userName);
+            var comment = new Comment
+            {
+                Content = viewModel.Text,
+                ProductId = viewModel.ProductId,
+                User = user,
+            };
+            commentRepository.Add(comment);
+            await _db.SaveChangesAsync();
+            return RedirectToAction("Details","Gallery",new {Id= viewModel.ProductId});
         }
     }
 }

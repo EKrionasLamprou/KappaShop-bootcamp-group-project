@@ -1784,7 +1784,7 @@ footer {
     }
 
 .btn-cool {
-    background-color: #fff;
+    background-color: #1dabb8;
     border: 1px solid #ccc;
     border-radius: 0;
     color: #000;
@@ -1798,7 +1798,7 @@ footer {
     .btn-cool:hover {
         background: #1dabb8;
         border-color: #1dabb8;
-        color: #fff;
+        color: #000;
     }
 
 /*Project CSS*/

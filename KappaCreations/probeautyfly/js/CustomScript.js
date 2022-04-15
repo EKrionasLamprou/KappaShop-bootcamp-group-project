@@ -25,7 +25,30 @@ var rectboxX = 130,
     rectboxY = 352,
     rectboxWidth = 480,
     rectboxHeight = 500;
+let productPrice = 0;
 
+function getPrice() {
+
+    switch (category) {
+        case "1": productPrice = 8; break;
+        case "2": productPrice = 10; break;
+        case "3": productPrice = 30; break;
+        case "4": productPrice = 20; break;
+        case "5": productPrice = 10; break;
+        case "6": productPrice = 30; break;
+        case "7": productPrice = 5; break;
+        case "8": productPrice = 7; break;
+        case "9": productPrice = 7; break;
+        case "10": productPrice = 20; break;
+        case "11": productPrice = 20; break;
+        case "12": productPrice = 10; break;
+        case "13": productPrice = 15; break;
+        case "14": productPrice = 10; break;
+        case "15": productPrice = 3; break;
+        default:
+    }
+    $(".create-side-price").html('€' + productPrice);
+};
 
 //PRICE FIELD START
 function updatePrice(price_change) {
@@ -82,6 +105,7 @@ $(document).ready(function () {
         $("#addToCart").prop('disabled', true);
     }
 
+    getPrice();
     updatePrice();
 
     $("#boxEdit").show();
@@ -226,11 +250,18 @@ ctx.clip();*/
         var inFont = $("#inputFont").val();
         var inSize = 30;
         var inColor = $("#inputColor").val();
+        var canvasConfig = true;
 
         var newText = new fabric.Text(inText, {
             fontSize: inSize,
             fontFamily: inFont,
             fill: inColor,
+        });
+        newText.setControlsVisibility({
+            mt: false, // middle top disable
+            mb: false, // midle bottom
+            ml: false, // middle left
+            mr: false, // I think you get it
         });
 
         newText.on("selected", function () {
@@ -245,8 +276,19 @@ ctx.clip();*/
 
             $("#boxEdit, #boxEditImage").hide();
             $("#boxEditText").show();
-        });
 
+        });
+  /*      newText.setControlsVisibility(canvasConfig);*/
+        canvas.on('object:scaling', function (evt) {
+       /*     canvas.getActiveObject();*/
+            var fontSizeX = evt.target.scaleX;
+            var fontSizeY = evt.target.scaleY;
+            if (fontSizeX === fontSizeY) {
+                evt.target.fontSize = fontSizeX * 100;
+                console.log(evt.target.fontSize);
+            }
+
+        });
         newText.zIndex = canvas.getObjects().indexOf(newText);
 
         /*canvas.on('object:scaling', function () {
@@ -520,7 +562,7 @@ ctx.clip();*/
                 texts: dataTexts,
             },
             categoryId: Number(category),
-            designerId: "535b3e94-a793-41a7-84e4-becdc2070c6c"
+            designerId: "92651445-01be-4c42-b539-1c7e2d32aabe"
         };
 
         console.log(design);

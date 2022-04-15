@@ -32,16 +32,17 @@
                         <div class="feedback-list">
                             <h4><i class="fa fa-comments-o fa-lg"></i>Comments</h4>
                             @* Comment starts *@
-                            @foreach(var comment in Model.Comments){
-                            <div class="media response-info" style="margin-bottom:5px;" id="prComment">
-                               
-                                <div class="media-body response-text-right">
-                                    <p>@comment.Content</p>
-                                    <span>comment.SubmitDate</span>
-                                    <h5>@comment.User.UserName</h5>
+                            @foreach (var comment in Model.Comments)
+                            {
+                                <div class="media response-info" style="margin-bottom:5px;" id="prComment">
+
+                                    <div class="media-body response-text-right">
+                                        <p>@comment.Content</p>
+                                        <span>comment.SubmitDate</span>
+                                        <h5>@comment.User.UserName</h5>
+                                    </div>
+                                    <div class="clearfix"> </div>
                                 </div>
-                                <div class="clearfix"> </div>
-                            </div>
                             }
                             @* Comment ends *@
                         </div>
@@ -50,20 +51,25 @@
 
                 <div class="row comment-form">
                     <div class="col-md-12 col-sm-12 col-xs-12"> <h3>Leave your Comment</h3></div>
-                    <form method="post">
+                    <form method="post" action="@Url.Action("Comment", "Gallery")">
                         <div class="clearfix"> </div>
                         <div class="col-md-8 col-sm-12 col-xs-12">
-                            <textarea id="commentTxtArea" class="form-control placeholder-fix" name="Message" required="" style="resize: none;" maxlength="600" placeholder="Message Here....&#10;(max. length: 600 characters)"></textarea>
+                            <textarea id="commentTxtArea" class="form-control placeholder-fix" name="Text" required style="resize: none;" maxlength="600" placeholder="Message Here....&#10;(max. length: 600 characters)"></textarea>
                         </div>
                         <div class="clearfix"></div>
                         <div class="col-md-12">
+                            <input type="hidden" name="ProductId" value="@Model.Id"/>
                             <input id="submitCom" type="submit" class="submit-btn" value="Send">
                         </div>
                     </form>
                 </div>
+                <div class="container" style="text-align:right;">
+                    <button class="btn btn-cool" style="background-color:#1dabb8">@Html.ActionLink("Return to Gallery", "Index", "Gallery")</button>
+                </div>
             </div>
             <div class="clearfix"></div>
         </section>
+
     </div>
     <script>
 
