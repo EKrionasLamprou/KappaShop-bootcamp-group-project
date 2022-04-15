@@ -21,7 +21,7 @@ namespace KappaCreations.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl = "/Home")
+        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl = "/ApplicationUser/Index")
         {
             if (!ModelState.IsValid)
             {
@@ -93,7 +93,7 @@ namespace KappaCreations.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Manage");
+                return RedirectToAction("Index", "ApplicationUser");
             }
 
             if (ModelState.IsValid)

@@ -3,7 +3,7 @@
 
     $.ajax({
         type: "GET",
-        url: "https://localhost:44342/api/Product?id=2",
+        url: "https://localhost:44342/api/Product?id=24",
         data: "json",
         headers: {
             "Content-Type": "application/json",
@@ -70,9 +70,9 @@ function mapTextToCanvas(t) {
             originY: "top",
             left: t.posX/2,
             top: t.posY/2,
-            width: t.sizeWidth,
-            height: t.sizeHeight,
-            fill: '#'+t.colourHex,
+            width: t.sizeWidth/2,
+            height: t.sizeHeight/2,
+            fill: "#"+t.colourHex,
             stroke: null,
             strokeWidth: 1,
             strokeDashArray: null,
@@ -90,7 +90,7 @@ function mapTextToCanvas(t) {
             clipTo: null,
             backgroundColor: "",
             text: t.content,
-            fontSize: t.fontSize,
+            fontSize: t.fontSize/2,
             fontWeight: "normal",
             fontFamily: "Arial", // TO DO
             fontStyle: "",

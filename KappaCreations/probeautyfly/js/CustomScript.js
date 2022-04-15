@@ -552,6 +552,8 @@ ctx.clip();*/
                     colourHex: item.fill,
                     colourAlpha: item.opacity,
                     content: item.text,
+                    fontSize: item.fontSize,
+                    font: item.fontFamily
                 };
             });
 
@@ -562,7 +564,7 @@ ctx.clip();*/
                 texts: dataTexts,
             },
             categoryId: Number(category),
-            designerId: "92651445-01be-4c42-b539-1c7e2d32aabe"
+            designerId: "bd90a8b6-b1af-4c25-8d13-9cebecf48b05"
         };
 
         console.log(design);
