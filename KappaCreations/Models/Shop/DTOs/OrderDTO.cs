@@ -55,6 +55,9 @@ namespace KappaCreations.Models.Shop.DTOs
             userId = order.UserId,
             billingAddressId = order.BillingAddressId,
             items = OrderItemDTO.MapToCamelCase(order.Items),
+            totalcost=order.TotalCost,
+            totalcount=order.ItemsCount,
+
         };
         /// <summary>
         /// Maps a collection of <see cref="Order"/> instances to objects that matche the properties of

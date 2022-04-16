@@ -35,7 +35,7 @@ namespace KappaCreations.Controllers.Api
             var orders = await _repo.GetAllAsync();
             var response = OrderDTO.MapToCamelCase(orders);
 
-            return Ok(response);
+            return Json(new { data = response });
         }
 
         [HttpGet]
