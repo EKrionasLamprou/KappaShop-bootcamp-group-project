@@ -56,7 +56,7 @@ namespace KappaCreations.Models.Shop.DTOs
             billingAddressId = order.BillingAddressId,
             items = OrderItemDTO.MapToCamelCase(order.Items),
             totalcost=order.TotalCost,
-            totalcount=order.ItemsCount,
+            totalcount=order.ItemsCount
 
         };
         /// <summary>

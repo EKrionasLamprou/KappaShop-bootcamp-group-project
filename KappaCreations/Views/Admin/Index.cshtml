@@ -96,8 +96,8 @@
         <!--order details list-->
 
 
-        <div>
-            <table class="table" id="datatable">
+        <div class="recentOrders">
+            <table class="table table-striped" id="datatable" style="width:100%">
                 <h2> All The Entries of the Orders</h2>
 
                 <thead>
@@ -155,7 +155,7 @@
     <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>
-
+    
     <script type="text/javascript">
     LoadOrder();
     function LoadOrder() {
@@ -169,7 +169,7 @@
                 columns: [
                     {
                         data: "id", name: "id", width: "20%", render: function (value) {
-                            let template = `<abbr>${value}</abbr>`
+                            let template = `<td>${value}</td>`
                             return template;
                         }
                     },
@@ -186,13 +186,13 @@
                         }
                     },
                     {
-                        data: "totalcost", name: "totalcost", render: function (value) {
+                        data: "totalcost", name: "totalcost", width: "20%",render: function (value) {
                             let template = `<abbr>${value}</abbr>`
                             return template;
                         }
                     },
                     {
-                        data: "orderStatus", name: "orderStatus", render: function (value) {
+                        data: "orderStatus", name: "orderStatus", width: "20%", render: function (value) {
                             let template = `<abbr>${value}</abbr>`
                             return template;
                         }
@@ -212,98 +212,5 @@
         )
     }
 </script>
-
-    //$("#datatable").DataTable(
-    //    {
-    //        //ajax: {
-    //        //    url: "/api/Order",
-    //        //    type: "GET",
-    //        //    data: "json"
-
-    //        //},
-
-
-    //        //columns: [
-    //        //    {
-    //        //        data: "Id", name: "Order ID", width: "20%", render: function (value) {
-    //        //            let template = `<abbr>${value}</abbr>`
-
-    //        //            return template;
-    //        //        }
-    //        //    },
-    //        //    {
-    //        //        data: "UserId", name: "User", width: "20%", render: function (value) {
-    //        //            let template = `<abbr>${value}</abbr>`
-
-    //        //            return template;
-    //        //        }
-
-    //        //    },
-    //        //    {
-    //        //        data: "ItemsCount", name: "Number Of Items", width: "20%", render: function (value) {
-    //        //            let template = `<abbr>${value}</abbr>`
-
-    //        //            return template;
-    //        //        }
-    //        //    },
-    //        //    {
-    //        //        data: "TotalCost", name: "Cost", render: function (value) {
-    //        //            let template = `<abbr>${value}</abbr>`
-
-    //        //            return template;
-    //        //        }
-    //        //    },
-    //        //    {
-    //        //        data: "OrderStatus", name: "Status", render: function (value) {
-    //        //            let template = `<abbr>${value}</abbr>`
-
-    //        //            return template;
-    //        //        }
-    //        //    }
-    //        //],
-    //        //processing: true,
-    //        //filters: true,
-    //        //language: {
-    //        //    processing: `<div class="spinner-border" role="status">
-        //        //
-    </div>`,
-    //        //    emptyTable: "There is no data",
-    //        //    zeroRecords: "There are no records",
-    //        //    infoFiltered: " - Total number of Orders : _MAX_",
-    //        //    paginate: { first: "Beginning", last: "End", next: "Next", previous: "Previous" }
-    //        //},
-    //        //serverSide: false
-    //    }
-    //);
 }
-
-
-
-
-
-@*<script>
-        $.ajax({
-            type: "GET",
-            url: "/api/Order",
-            dataType: "json",
-            success: function LoadOrders(data) {
-                let bo = document.getElementById("#bodyOrder");
-                let template = ` <tr>
-                                    <td>${data.id}</td>
-                                    <td>${data.orderStatus}</td>
-                                    <td>${data.submitDate}</td>
-                                    <td>${data.userId}</td>
-                                    <td>${data.billingAddressId}</td>
-                               </tr>`
-
-                bo.innerHTML(template);
-            }
-        })
-    </script>*@
-
-
-
-
-
-
-}
+   
