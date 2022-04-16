@@ -28,6 +28,8 @@ namespace KappaCreations.Database.Maps
                 {
                     e.ToTable("UserProductUpvotes");
                 });
+
+            Ignore(e => e.Upvotes);
         }
     }
 }

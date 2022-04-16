@@ -62,20 +62,10 @@ namespace KappaCreations.Models
         /// </summary>
         public ICollection<ApplicationUser> UsersUpvoted { get; set; }
 
-        int upvotes = 0;
         /// <summary>
-        /// Represents the number of upvotes the product has received from users.
+        /// The number of users who upvoted the product.
         /// </summary>
-        public int Upvotes
-        {
-            get => upvotes;
-            set
-            {
-                upvotes = value;
-                if (upvotes < 0)
-                    upvotes = 0;
-            }
-        }
+        public int Upvotes { get => UsersUpvoted.Count; }
 
         /// <summary>
         /// Represents the number of reports the product has received from users.
