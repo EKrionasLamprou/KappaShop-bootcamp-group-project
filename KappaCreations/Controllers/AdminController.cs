@@ -6,9 +6,10 @@ using System.Web.Mvc;
 
 namespace KappaCreations.Controllers
 {
-    [Authorize(Roles ="Admin")]
     public class AdminController : Controller
     {
+        [Authorize(Roles = "Admin")]
+
         // GET: Admin
         public ActionResult Index()
         {

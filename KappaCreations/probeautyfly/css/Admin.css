@@ -20,6 +20,10 @@ body {
     overflow-x: hidden;
 }
 
+.nav.navbar-right{
+    display:none;
+}
+
 .container {
     position: relative;
     width: 100%;
