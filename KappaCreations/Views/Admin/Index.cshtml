@@ -102,10 +102,11 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <!--order details list-->
                 <div class="recentOrders">
                     <h2>All The Entries of the Orders</h2>
+                    <hr />
                     <table class="table table-striped" id="datatable" style="width:100%">
                         <thead>
                             <tr>
@@ -138,47 +139,7 @@
     <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    @*<script>
-        const labels = [
-            'Ashtrays',
-            'Bags',
-            'Bed-Sheets',
-            'Canvas',
-            'Door-Mats',
-            'Hoodies',
-            'Magnets',
-            'Mousepads',
-            'Mugs',
-            'Phone-Cases',
-            'Pillows',
-            'Plates',
-            'T-Shirts',
-            'Thermos-Bottles',
-            'Tissues',
-        ];
 
-        const data = {
-            labels: labels,
-            datasets: [{
-                label: 'Products Categories',
-                backgroundColor: '#1dabb8',
-                borderColor: '#1dabb8',
-                data: [1, 10, 5, 2, 20, 30, 45, 45, 45, 45, 45, 100, 10, 5, 3],
-            }]
-        };
-
-        const config = {
-            type: 'bar',
-            data: data,
-            options: {}
-        };
-    </script>
-    <script>
-        const myChart = new Chart(
-            document.getElementById('myChart'),
-            config
-        );
-    </script>*@
 
     <script type="text/javascript">
         LoadOrder();
@@ -199,19 +160,19 @@
                             }
                         },
                         {
-                            data: "userId", name: "userId", width: "20%", render: function (value) {
+                            data: "userName", name: "userName", width: "20%", render: function (value) {
                                 let template = `<abbr>${value}</abbr>`
                                 return template;
                             }
                         },
                         {
-                            data: "totalcount", name: "totalcount", width: "20%", render: function (value) {
+                            data: "itemsCount", name: "itemsCount", width: "20%", render: function (value) {
                                 let template = `<abbr>${value}</abbr>`
                                 return template;
                             }
                         },
                         {
-                            data: "totalcost", name: "totalcost", width: "20%", render: function (value) {
+                            data: "totalCost", name: "totalCost", width: "20%", render: function (value) {
                                 let template = `<abbr>${value}</abbr>`
                                 return template;
                             }

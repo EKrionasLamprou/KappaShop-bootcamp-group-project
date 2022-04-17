@@ -64,6 +64,7 @@ namespace KappaCreations.Models.Shop.DTOs
             items = OrderItemDTO.MapToCamelCase(order.Items),
             itemsCount = order.ItemsCount,
             totalCost = order.TotalCost,
+          
         };
         /// <summary>
         /// Maps a collection of <see cref="Order"/> instances to objects that matche the properties of
