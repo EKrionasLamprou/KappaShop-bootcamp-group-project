@@ -14,10 +14,9 @@
             <a class="tabs__button" href="#" data-for-tab="3">Addresses</a>
             <a class="tabs__button" href="#" data-for-tab="4">Account details</a>
             <a class="tabs__button" href="#" data-for-tab="5">Wishlist</a>
-            <a class="tabs__button" href="#" data-for-tab="6">Logout</a>
-
+            @*<a class="tabs__button" href="#" data-for-tab="6">Logout</a>*@
+           <a id="logout" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
         </div>
-       @Html.ActionLink("LogOff", "LogOff", "Account", null, new { @class = "link-effect" })       
         <div class="profile-body tabs__content-container">
             <div class="tabs__content tabs__content--active" data-tab="1">
                 <p>Hello <strong> @Model.UserName</strong></p>
