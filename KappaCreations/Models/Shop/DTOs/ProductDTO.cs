@@ -21,7 +21,6 @@ namespace KappaCreations.Models.Shop.DTOs
                             null : new DesignDTO(product.BackDesign);
             DesignerId = product.DesignerId;
             CategoryId = product.CategoryId;
-            Upvotes = product.Upvotes;
             Reports = product.Reports;
         }
 
@@ -30,7 +29,6 @@ namespace KappaCreations.Models.Shop.DTOs
         public DesignDTO BackDesign { get; set; }
         public int CategoryId { get; set; }
         public string DesignerId { get; set; }
-        public int? Upvotes { get; set; }
         public int? Reports { get; set; }
 
         public bool HasId => Id.HasValue && Id > 0;
@@ -41,7 +39,6 @@ namespace KappaCreations.Models.Shop.DTOs
             BackDesign = BackDesign?.Map() ?? null,
             DesignerId = DesignerId,
             CategoryId = CategoryId,
-            Upvotes = Upvotes ?? 0,
             Reports = Reports ?? 0,
         };
 

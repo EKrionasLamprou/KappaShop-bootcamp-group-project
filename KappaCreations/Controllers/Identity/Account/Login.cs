@@ -28,7 +28,14 @@ namespace KappaCreations.Controllers
                 return View(model);
             }
 
-            var result = await SignInManager.PasswordSignInAsync(model.Username, model.Password,
+            var user = await UserManager.FindByEmailAsync(model.Email);
+            if (user is null)
+            {
+                ModelState.AddModelError("", "Invalid login attempt.");
+                return View(model);
+            }
+
+            var result = await SignInManager.PasswordSignInAsync(user.UserName, model.Password,
                                                                  model.RememberMe, shouldLockout: false);
             switch (result)
             {

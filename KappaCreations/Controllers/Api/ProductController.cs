@@ -80,7 +80,8 @@ namespace KappaCreations.Controllers.Api
 
         [HttpPatch]
         [Route("api/product/vote")]
-        public async Task<IHttpActionResult> PatchVoteAsync(int id, bool downvote = false)
+        public async Task<IHttpActionResult> PatchVoteAsync([FromBody]
+        int id, ApplicationUser user, bool downvote = false)
         {
             var product = await _repo.GetAsync(id);
             object response;
@@ -89,11 +90,17 @@ namespace KappaCreations.Controllers.Api
             {
                 return NotFound();
             }
-
-            product.Upvotes += downvote ? -1 : 1;
-
             try
             {
+                if (downvote)
+                {
+                    product.UsersUpvoted.Remove(user);
+                }
+                else
+                {
+                    product.UsersUpvoted.Add(user);
+                }
+
                 bool result = await _repo.UpdateAsync(product);
                 if (!result)
                 {
