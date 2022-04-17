@@ -21,6 +21,10 @@ namespace KappaCreations.Database.Maps
                 .IsRequired();
 
             HasMany(e => e.Items);
+
+            Ignore(e => e.ItemsCount);
+
+            Ignore(e => e.TotalCost);
         }
     }
 }

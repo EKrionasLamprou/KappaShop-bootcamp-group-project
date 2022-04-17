@@ -28,5 +28,9 @@
         /// The order this cart item belongs to.
         /// </summary>
         public Order Order { get; set; }
+        /// <summary>
+        /// The cost of the item multiplied by its quantity.
+        /// </summary>
+        public double Cost { get => Product?.Category.Price * Quantity ?? 0; }
     }
 }
