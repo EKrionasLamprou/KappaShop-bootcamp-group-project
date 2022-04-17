@@ -20,6 +20,7 @@ namespace KappaCreations.Models.Shop.DTOs
             OrderStatus = (int)order.OrderStatus;
             SubmitDate = order.SubmitDate.ToString(Constants.DateFormat);
             UserId = order.UserId;
+            UserName = order.User.UserName;
             BillingAddressId = order.BillingAddressId;
             Items = order.Items.Select(item => new OrderItemDTO(item));
             ItemCount = order.ItemsCount;
@@ -30,6 +31,7 @@ namespace KappaCreations.Models.Shop.DTOs
         public int OrderStatus { get; set; } = 1;
         public string SubmitDate { get; set; }
         public string UserId { get; set; }
+        public string UserName { get; set; }
         public int BillingAddressId { get; set; }
         public IEnumerable<OrderItemDTO> Items { get; set; }
         public int ItemCount { get; set; }
@@ -57,6 +59,7 @@ namespace KappaCreations.Models.Shop.DTOs
             orderStatus = order.OrderStatus.ToString(),
             submitDate = order.SubmitDate.ToString(Constants.DateFormat),
             userId = order.UserId,
+            userName = order.User.UserName,
             billingAddressId = order.BillingAddressId,
             items = OrderItemDTO.MapToCamelCase(order.Items),
             itemsCount = order.ItemsCount,

@@ -8,7 +8,6 @@ using System.Data.Entity.Validation;
 using static KappaCreations.Utilities;
 using System.Data.Entity.Infrastructure;
 using System;
-using System.Linq;
 
 namespace KappaCreations.Controllers.Api
 {
