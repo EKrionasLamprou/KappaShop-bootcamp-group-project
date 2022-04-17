@@ -55,11 +55,6 @@ $(document).ready(function () {
 
         console.log(order);
 
-        let formObject = {
-
-        }
-
-        $.ajax({
             type: "POST",
             url: "https://localhost:44342/api/Order",
             data: JSON.stringify(order),
@@ -68,6 +63,5 @@ $(document).ready(function () {
                 console.log(response);
                 alert("Order sent Successfully!");
             }
-        });
     });
 }); 
