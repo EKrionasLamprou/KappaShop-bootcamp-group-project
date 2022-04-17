@@ -22,6 +22,8 @@ namespace KappaCreations.Models.Shop.DTOs
             UserId = order.UserId;
             BillingAddressId = order.BillingAddressId;
             Items = order.Items.Select(item => new OrderItemDTO(item));
+            ItemCount = order.ItemsCount;
+            TotalCost = order.TotalCost;
         }
 
         public int? Id { get; set; }
@@ -30,6 +32,8 @@ namespace KappaCreations.Models.Shop.DTOs
         public string UserId { get; set; }
         public int BillingAddressId { get; set; }
         public IEnumerable<OrderItemDTO> Items { get; set; }
+        public int ItemCount { get; set; }
+        public double TotalCost { get; set; }
 
         public bool HasId => Id.HasValue && Id > 0;
 
@@ -55,9 +59,8 @@ namespace KappaCreations.Models.Shop.DTOs
             userId = order.UserId,
             billingAddressId = order.BillingAddressId,
             items = OrderItemDTO.MapToCamelCase(order.Items),
-            totalcost=order.TotalCost,
-            totalcount=order.ItemsCount
-
+            itemsCount = order.ItemsCount,
+            totalCost = order.TotalCost,
         };
         /// <summary>
         /// Maps a collection of <see cref="Order"/> instances to objects that matche the properties of
