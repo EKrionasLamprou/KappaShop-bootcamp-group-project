@@ -1,4 +1,5 @@
 ﻿
+
 <body class="cbp-spmenu-push">
     <div id="page">
         @*
@@ -13,6 +14,7 @@
         *@
 
         <div class="px-20">
+            <div id="designerId" style="display:none">@ViewBag.UserId</div>
             <div class="create-container">
                 <div class="create-block">
                     <div class="create-block-head">
@@ -177,6 +179,7 @@
                     <div class="create-side-add-to-cart">
                         <input class="quantity" type="number" value="0" />
                         <button id="addToCart">Add to cart</button>
+                        @*<button onclick="sendApi(@ViewBag.UserId)" id="addToCart">Add to cart</button>*@
                     </div>
                     <div class="create-side-add-to-wishlist">
                         <a href="#">
@@ -341,6 +344,5 @@
             </div>
         </div>
     </div>
-   
 </body>
 @Scripts.Render("~/probeautyfly/js/CustomScript.js")

@@ -1,7 +1,8 @@
-﻿const url = localStorage.getItem("ImageUrl");
+﻿const designerId = $("#designerId").text();
+
+const url = localStorage.getItem("ImageUrl");
 const category = localStorage.getItem("ProductCategory");
 const name = localStorage.getItem("ProductName");
-
 
 const uploadedImagesCount = ["default"];
 
@@ -278,9 +279,9 @@ ctx.clip();*/
             $("#boxEditText").show();
 
         });
-  /*      newText.setControlsVisibility(canvasConfig);*/
+        /*      newText.setControlsVisibility(canvasConfig);*/
         canvas.on('object:scaling', function (evt) {
-       /*     canvas.getActiveObject();*/
+            /*     canvas.getActiveObject();*/
             var fontSizeX = evt.target.scaleX;
             var fontSizeY = evt.target.scaleY;
             if (fontSizeX === fontSizeY) {
@@ -502,14 +503,13 @@ ctx.clip();*/
         //}
     });
 
-    ////console.log(JSON.stringify(item_list))
-    function sendApi(userId) {
+    $("#addToCart").on("click", function () {
         const rowData = JSON.stringify(item_list);
         const data = JSON.parse(rowData);
 
         if (data.length === 1) return;
 
-        console.log(uploadImages)
+        //console.log(uploadImages)
 
         const dataImages = data
             .filter((item) => item.type === "image")
@@ -563,124 +563,49 @@ ctx.clip();*/
                 texts: dataTexts,
             },
             categoryId: Number(category),
-            designerId: "9c17d50a-1a75-4e42-9e03-87b3b389af0a"
+            designerId: designerId
         };
 
         console.log(design);
 
-        setApiCall(design);
+        /*setApiCall(design);*/
 
         alert("Your Product created Successfully!")
 
-    };
-
-
-
-
-
-    //$("#addToCart").on("click", function () {
-    //    const rowData = JSON.stringify(item_list);
-    //    const data = JSON.parse(rowData);
-
-    //    if (data.length === 1) return;
-
-    //    //console.log(uploadImages)
-
-    //    const dataImages = data
-    //        .filter((item) => item.type === "image")
-    //        .map((item, index) => {
-    //            if (index === 0) {
-    //                return {
-    //                    posX: item.left,
-    //                    posY: item.top,
-    //                    zIndex: data.indexOf(item), // to do
-    //                    sizeWidth: item.width,
-    //                    sizeHeight: item.height,
-    //                    colourHex: item.filters.length !== 0 ? item.filters[0].color : "#ffffff",
-    //                    colourAlpha: 1,
-    //                    url: item.src,
-    //                };
-    //            }
-
-    //            return {
-    //                posX: item.left,
-    //                posY: item.top,
-    //                zIndex: data.indexOf(item),
-    //                sizeWidth: item.width,
-    //                sizeHeight: item.height,
-    //                colourHex: item.filters.length !== 0 ? item.filters[0].color : "#ffffff",
-    //                colourAlpha: 1,
-    //                url: uploadImages.length === 1 ? uploadImages[0] : uploadImages[index - 1],
-    //            };
-    //        });
-
-    //    const dataTexts = data
-    //        .filter((item) => item.type === "text")
-    //        .map((item) => {
-    //            return {
-    //                posX: item.left,
-    //                posY: item.top,
-    //                zIndex: data.indexOf(item),
-    //                sizeWidth: item.width,
-    //                sizeHeight: item.height,
-    //                colourHex: item.fill,
-    //                colourAlpha: item.opacity,
-    //                content: item.text,
-    //                fontSize: item.fontSize,
-    //                font: item.fontFamily
-    //            };
-    //        });
-
-
-    //    const design = {
-    //        design: {
-    //            images: dataImages,
-    //            texts: dataTexts,
-    //        },
-    //        categoryId: Number(category),
-    //        designerId: "25e9ea0c-cce2-4807-b851-95151b222b23"
-    //    };
-
-    //    console.log(design);
-
-    //    setApiCall(design);
-
-    //    alert("Your Product created Successfully!")
-
         //var image = $("#image");
         //var img = canvas.toDataURL("image/png");
-        //  //image.src = img;
-    //    //  // document.write('<img src="' + img + '"/>');
-    //});
+        //image.src = img;
+        //document.write('<img src="' + img + '"/>');
+    });
 });
 
-			//Pattern
-			//var img1 = new Image, img2 = new Image, cnt = 2,
-			//    canvas = document.getElementById("canvas"),
-			//    ctx = canvas.getContext("2d");
+//Pattern
+//var img1 = new Image, img2 = new Image, cnt = 2,
+//    canvas = document.getElementById("canvas"),
+//    ctx = canvas.getContext("2d");
 
-			//img1.onload = img2.onload = function () { if (!--cnt) go() };
-			//img1.src = "https://www.itailor.co.uk/images/product/shirt/it1823-1.png";       // Shirt
-			//img2.src = "https://i.stack.imgur.com/sQlu8.png";   // pattern
+//img1.onload = img2.onload = function () { if (!--cnt) go() };
+//img1.src = "https://www.itailor.co.uk/images/product/shirt/it1823-1.png";       // Shirt
+//img2.src = "https://i.stack.imgur.com/sQlu8.png";   // pattern
 
-			//// MAIN CODE ---
-			//function go() {
+//// MAIN CODE ---
+//function go() {
 
-			//    // create a pattern
-			//    ctx.fillStyle = ctx.createPattern(img2, "repeat");
+//    // create a pattern
+//    ctx.fillStyle = ctx.createPattern(img2, "repeat");
 
-			//    // fill canvas with pattern
-			//    ctx.fillRect(0, 0, canvas.width, canvas.height);
+//    // fill canvas with pattern
+//    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-			//    // use blending mode multiply
-			//    ctx.globalCompositeOperation = "multiply";
+//    // use blending mode multiply
+//    ctx.globalCompositeOperation = "multiply";
 
-			//    // draw sofa on top
-			//    ctx.drawImage(img1, 0, 0, img1.width * .5, img1.height * .5);
+//    // draw sofa on top
+//    ctx.drawImage(img1, 0, 0, img1.width * .5, img1.height * .5);
 
-			//    // change composition mode
-			//    ctx.globalCompositeOperation = "destination-in";
+//    // change composition mode
+//    ctx.globalCompositeOperation = "destination-in";
 
-			//    // draw to cut-out sofa
-			//    ctx.drawImage(img1, 0, 0, img1.width * .5, img1.height * .5);
-			//}
+//    // draw to cut-out sofa
+//    ctx.drawImage(img1, 0, 0, img1.width * .5, img1.height * .5);
+//}
