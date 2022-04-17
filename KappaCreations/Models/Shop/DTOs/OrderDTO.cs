@@ -64,6 +64,7 @@ namespace KappaCreations.Models.Shop.DTOs
             items = OrderItemDTO.MapToCamelCase(order.Items),
             itemsCount = order.ItemsCount,
             totalCost = order.TotalCost,
+            
           
         };
         /// <summary>
