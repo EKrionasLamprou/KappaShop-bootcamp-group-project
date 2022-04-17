@@ -13,7 +13,8 @@
             <a class="tabs__button" href="#" data-for-tab="2">Orders</a>
             <a class="tabs__button" href="#" data-for-tab="3">Addresses</a>
             <a class="tabs__button" href="#" data-for-tab="4">Account details</a>
-           <a id="logout" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+            <a id="logout" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+
         </div>
         <div class="profile-body tabs__content-container">
             <div class="tabs__content tabs__content--active" data-tab="1">
@@ -39,7 +40,7 @@
                         </div>
                         <div class="profile-content-block-icon">ACCOUNT DETAILS</div>
                     </a>
-                   
+
                 </div>
             </div>
             <div class="tabs__content" data-tab="2">
@@ -74,7 +75,7 @@
                             </div>
                             <div class="profile-form-group">
                                 <label>Last name *</label>
-                                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { placeholder = "Give Your Last Name (Only Letters)" } })
+                                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { placeholder = "Give Your Last Name (Only Letters)" } })
                             </div>
                         </div>
                         <div class="profile-form-group-coontainer">
@@ -137,7 +138,7 @@
                                 @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Give Your Email Address (Only Letters)" } })
                             </div>
                         </div>
-                        <div><a href="#" class="profile-content-button">Save changes</a></div>
+                        <a id="logout" @Html.ActionLink("Change Your Password Here", "ChangePassword", "Manage", routeValues: null, htmlAttributes: new { title = "Manage"}) </a>
                     </div>
                 </div>
             </div>
@@ -153,5 +154,6 @@
             </div>
             <div class="tabs__content" data-tab="6">Ok</div>
         </div>
+
     </div>
 </div>
