@@ -8,15 +8,17 @@
         },
         success: function (response) {
             const canvas = (this.__canvas = new fabric.Canvas("canvas"));
-            fillCanvas(canvas);
+            fillCanvas(canvas, reponse);
         },
         error: function (xhr) { },
     });
 }
 
-function fillCanvas(canvas) {
-    let texts = response.design.texts;
-    let images = response.design.images;
+function fillCanvas(ele, data) {
+    const canvas = (ele = new fabric.Canvas("canvas"));
+    
+    let texts = data.design.texts;
+    let images = data.design.images;
     let objects = { objects: getCanvasItems(texts, images) };
     let fabricJSON = JSON.stringify(objects);
 
