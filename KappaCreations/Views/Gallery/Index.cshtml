@@ -42,11 +42,12 @@
                         <div class="product-image4">
                             <div>
                                 <img class="pic-1" src="~/probeautyfly/images/mycat.png" /><!--Design pic-->
-                                <img class="pic-2" src="~/probeautyfly/images/i_like_cats_more_than_people_3.png"><!--BackDesign pic-->
                             </div>
                             <ul class="social">
                                 <li><a href="@Url.Action("Details","Gallery", new { product.Id })" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                @if (ViewBag.LoggedUser) { <li><a href="@Url.Action("Vote", "Gallery", new { product.Id })" data-tip="Vote Design"><i class="fa fa-heart"></i></a></li>}
+                                @*<li><a href="#" data-tip="Vote Design"><i class="fa fa-heart" id="voteHeart" onclick="toggle(@product.Id, @ViewBag.LoggedUser, @product.HasUserUpvoted(ViewBag.LoggedUser))"></i></a></li>*@
+                                @if(@product.UsersUpvoted.Contains(@ViewBag.LoggedUser)){<li><a href="#" data-tip="Voted this Design"><i class="fa fa-check" id="voteHeart" onclick="PatchVoteAsync(@product.Id, @ViewBag.LoggedUser)"></i></a></li>}
+                                else{<li><a href="#" data-tip="Vote Design"><i class="fa fa-heart" ></i></a></li>}
                             </ul>
                         </div>
                         <div class="product-content">
@@ -75,7 +76,24 @@
     <canvas id="canvas" width="250" height="250"></canvas>
 </div>
 
+@*<script>
+    var heart = $("#voteHeart");
+    function toggle(id, user, hasLiked) {
+        $.ajax({
+            method: "PATCH",
+            url: "api/product/vote",
+            data: new { id: id, user: user, downvote: hasLiked }
+        })
+            .done(function (downvote) {
+                if (!downvote) {
+                    event.preventDefault();
+                    heart.class = "fa fa-check";
+                }
+            });
 
+    }
+
+</script>*@
 
 
 @Scripts.Render("~/probeautyfly/js/Product.js")
