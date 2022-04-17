@@ -27,11 +27,18 @@
                     <span class="title">Charts</span>
                 </a>
             </li>
+            <li>
+                <a href="~/Views/Home/Index.cshtml">
+                    <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                    <span class="title">Return to Home</span>
+                </a>
+            </li>
 
             <li>
-                <a href="#">
+                <a href="javascript:document.getElementById('logoutForm').submit()">
                     <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
                     <span class="title">Sign Out</span>
+
                 </a>
             </li>
 
@@ -47,7 +54,7 @@
             <!--search div-->
             <!--user Image-->
             <div>
-                <strong>Welcome Admin!</strong> 
+                <strong>Welcome Admin!</strong>
             </div>
         </div>
 
@@ -127,62 +134,61 @@
     <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>
-    
+
     <script type="text/javascript">
-    LoadOrder();
-    function LoadOrder() {
-        $("#datatable").DataTable(
-            {
-                ajax: {
-                    "url": "https://localhost:44342/api/Order",
-                    type: "GET",
-                    datatype: "json"
-                },
-                columns: [
-                    {
-                        data: "id", name: "id", width: "20%", render: function (value) {
-                            let template = `<td>${value}</td>`
-                            return template;
-                        }
+        LoadOrder();
+        function LoadOrder() {
+            $("#datatable").DataTable(
+                {
+                    ajax: {
+                        "url": "https://localhost:44342/api/Order",
+                        type: "GET",
+                        datatype: "json"
                     },
-                    {
-                        data: "userId", name: "userId", width: "20%", render: function (value) {
-                            let template = `<abbr>${value}</abbr>`
-                            return template;
+                    columns: [
+                        {
+                            data: "id", name: "id", width: "20%", render: function (value) {
+                                let template = `<td>${value}</td>`
+                                return template;
+                            }
+                        },
+                        {
+                            data: "userId", name: "userId", width: "20%", render: function (value) {
+                                let template = `<abbr>${value}</abbr>`
+                                return template;
+                            }
+                        },
+                        {
+                            data: "totalcount", name: "totalcount", width: "20%", render: function (value) {
+                                let template = `<abbr>${value}</abbr>`
+                                return template;
+                            }
+                        },
+                        {
+                            data: "totalcost", name: "totalcost", width: "20%", render: function (value) {
+                                let template = `<abbr>${value}</abbr>`
+                                return template;
+                            }
+                        },
+                        {
+                            data: "orderStatus", name: "orderStatus", width: "20%", render: function (value) {
+                                let template = `<abbr>${value}</abbr>`
+                                return template;
+                            }
                         }
+                    ],
+                    processing: true,
+                    filters: true,
+                    language: {
+                        processing: `<div class="spinner-border" role="status"></div>`,
+                        emptyTable: "There is no data",
+                        zeroRecords: "There are no records",
+                        infoFiltered: " - Total number of Orders : _MAX_",
+                        paginate: { first: "Beginning", last: "End", next: "Next", previous: "Previous" }
                     },
-                    {
-                        data: "totalcount", name: "totalcount", width: "20%", render: function (value) {
-                            let template = `<abbr>${value}</abbr>`
-                            return template;
-                        }
-                    },
-                    {
-                        data: "totalcost", name: "totalcost", width: "20%",render: function (value) {
-                            let template = `<abbr>${value}</abbr>`
-                            return template;
-                        }
-                    },
-                    {
-                        data: "orderStatus", name: "orderStatus", width: "20%", render: function (value) {
-                            let template = `<abbr>${value}</abbr>`
-                            return template;
-                        }
-                    }
-                ],
-                processing: true,
-                filters: true,
-                language: {
-                    processing: `<div class="spinner-border" role="status"></div>`,
-                    emptyTable: "There is no data",
-                    zeroRecords: "There are no records",
-                    infoFiltered: " - Total number of Orders : _MAX_",
-                    paginate: { first: "Beginning", last: "End", next: "Next", previous: "Previous" }
-                },
-                serverSide: false
-            }
-        )
-    }
-</script>
+                    serverSide: false
+                }
+            )
+        }
+    </script>
 }
-   

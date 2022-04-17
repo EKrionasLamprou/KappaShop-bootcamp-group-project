@@ -563,7 +563,11 @@ ctx.clip();*/
                 texts: dataTexts,
             },
             categoryId: Number(category),
+<<<<<<< HEAD
             designerId: userId
+=======
+            designerId: "454ffa76-7466-45bb-a73b-fdae21513999"
+>>>>>>> a56316e525d6a0ebb02e39bee93c35ef20e344ef
         };
 
         console.log(design);

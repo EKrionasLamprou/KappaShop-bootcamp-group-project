@@ -439,6 +439,7 @@
     <Content Include="probeautyfly\js\owl.carousel.min.js" />
     <Content Include="probeautyfly\js\chooseproduct.js" />
     <Content Include="probeautyfly\js\Product.js" />
+    <Content Include="probeautyfly\js\ShoppingCart.js" />
     <Content Include="probeautyfly\js\UserProfile.js" />
     <Content Include="probeautyfly\js\waypoints.min.js" />
     <Content Include="probeautyfly\License.txt" />
