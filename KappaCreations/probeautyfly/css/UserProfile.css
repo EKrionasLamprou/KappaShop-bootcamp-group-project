@@ -195,3 +195,18 @@
     .tabs__content a:hover {
         color: #1dabb8;
     }
+
+#logout {
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px;
+    color: rgba(0, 0, 0, 0.9);
+    line-height: 20px;
+    text-transform: none;
+    font-size: 14px;
+    font-weight: 600;
+    
+}
+    #logout:hover {
+    color: #1dabb8;
+    }
