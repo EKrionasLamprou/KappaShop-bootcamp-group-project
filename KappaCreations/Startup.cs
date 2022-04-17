@@ -51,7 +51,7 @@ namespace KappaCreations
                 }
             }
 
-            // creating Creating Manager role     
+            // Creating User role     
             if (!roleManager.RoleExists("User"))
             {
 
