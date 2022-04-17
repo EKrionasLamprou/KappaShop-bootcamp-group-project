@@ -11,6 +11,7 @@ namespace KappaCreations.Models
         public Product() 
         {
             Comments = new HashSet<Comment>();
+            UsersUpvoted = new HashSet<ApplicationUser>();
             SubmitDate = DateTime.Now;
         }
 
@@ -74,7 +75,12 @@ namespace KappaCreations.Models
 
         public ICollection<Comment> Comments { get; set; }
 
-        // To add:
-        // Size for clothes
+        /// <summary>
+        /// Determined whenever or not a certain user has upvoted this product.
+        /// </summary>
+        /// <param name="user">The user to check.</param>
+        /// <returns><see langword="true"/> if the given user has upvoted this product,
+        /// <see langword="false"/> otherwise.</returns>
+        public bool HasUserUpvoted(ApplicationUser user) => UsersUpvoted.Contains(user);
     }
 }

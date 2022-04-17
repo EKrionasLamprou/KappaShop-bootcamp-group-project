@@ -5,6 +5,7 @@
 }
 @{
     string userName = User.Identity.Name;
+    bool isAdmin = User.IsInRole("Admin");
 }
 <!---header top---->
 <div class="top-header">
@@ -29,15 +30,19 @@
                     }
                     else
                     {
-                        @*<p>Welcome, @userName!</p*@
-                        <p>@Html.ActionLink("welcome "+ @userName, "Index","ApplicationUser")</p>
-
+                        if (isAdmin)
+                        {
+                            <p style="margin-top:4px">@Html.ActionLink("Dashboard", "Index", "Admin")</p>
+                        }
+                        else
+                        {
+                            <p style="margin-top:4px">@Html.ActionLink("Welcome, " + @userName, "Index", "ApplicationUser")</p>
+                        }
                     }
-
                 </div>
             </div>
-            <div class="col-md-2 col-sm-2 col-xs-6">
-                <i class="fa fa-shopping-cart">@Html.ActionLink("Shopping Cart", "Index", "ShoppingCart")</i>
+            <div  style="margin-top:4px" class="col-md-2 col-sm-2 col-xs-6">
+                <i  class="fa fa-shopping-cart">@Html.ActionLink("Shopping Cart", "Index", "ShoppingCart")</i>
             </div>
         </div>
     </div>
