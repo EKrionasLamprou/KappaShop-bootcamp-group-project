@@ -1,4 +1,15 @@
-﻿let object = {
+﻿$.ajax({
+    type: "GET",
+    url: "https://localhost:44342/api/Order",
+    data: "json",
+    contentType: "application/json",
+    success: function (response) {
+        console.log(response);
+        orders = response;
+    }
+});
+
+let object = {
     "userId": "2f5caca2-957a-4faa-946b-315dd92c96a0",
     "billingAddressId": 1,
     "submitDate": "2021-01-01",
@@ -9,6 +20,10 @@
         }
     ]
 }
+
+// API CALLS
+let userId = "REQUEST APO THN BASH"
+let billingAddressId = "REQUEST APO THN BASH"
  
 $(document).ready(function () {
     $("#order").on("click", function (e) {
@@ -40,7 +55,6 @@ $(document).ready(function () {
 
         console.log(order);
 
-        /*$.ajax({
             type: "POST",
             url: "https://localhost:44342/api/Order",
             data: JSON.stringify(order),
@@ -49,6 +63,5 @@ $(document).ready(function () {
                 console.log(response);
                 alert("Order sent Successfully!");
             }
-        });*/
     });
 }); 
