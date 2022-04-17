@@ -59,13 +59,46 @@ $(document).ready(function () {
 
 //Top 3 categories
 $(document).ready(function () {
+
+    function getPrice(category) {
+        switch (category) {
+            case 1: return "Ashtrays"; break;
+            case 2: return "Bags"; break;
+            case 3: return "Bed-Sheets"; break;
+            case 4: return "Canvas"; break;
+            case 5: return "Door-Mats"; break;
+            case 6: return "Hoodies"; break;
+            case 7: return "Magnets"; break;
+            case 8: return "Mousepads"; break;
+            case 9: return "Mugs"; break;
+            case 10: return "Phone-Cases"; break;
+            case 11: return "Pillows"; break;
+            case 12: return "Plates"; break;
+            case 13: return "T-Shirts"; break;
+            case 14: return "Thermos-Bottles"; break;
+            case 15: return "Tissues"; break;
+            default:
+        }
+    };
+
+
     $.ajax({
         type: "GET",
         url: urlBase + 'adminStats/categoriesByOrders',
         dataType: "json",
         success: function (data) {
+
+            const categories = data.map((item, index, arr) => {
+                if (index !== arr.length - 1) {
+                    return `<span id="categoryId-${item.categoryId}">${getPrice(item.categoryId)}</span>, `
+                } else {
+                   return `<span id="categoryId-${item.categoryId}">${getPrice(item.categoryId)}</span>`
+                }
+
+            });
+            console.log(categories)
             let topCategories = $("#topCat");
-            $(topCategories).text(data.slice(0, 3).map(c => c.categoryId).join(", ")); // to be changed to category names
+            $(topCategories).html(categories);
         },
         error: function () {
             console.log("Error. Failed to load the top categories.");
@@ -121,183 +154,6 @@ $(document).ready(function () {
 
 //Chart
 $(document).ready(function () {
-    $.ajax({
-        type: "GET",
-        url: "https://localhost:44342/api/Order",
-        dataType: "json",
-        success: function (data) {
-            /*console.log(data);*/
-        },
-        error: function () {
-            console.log("Error. Failed to load the number of comments.");
-        }
-    });
-
-    const apiCallData = [
-        {
-            id: 1,
-            orderStatus: "Pending",
-            submitDate: "17/04/2022",
-            userId: "f923c654-177d-4034-87db-adf763d7869f",
-            billingAddressId: 1,
-            items: [
-                {
-                    id: 1,
-                    quantity: 5,
-                    productId: 1,
-                    orderId: 1,
-                },
-                {
-                    id: 2,
-                    quantity: 5,
-                    productId: 1,
-                    orderId: 2,
-                },
-                {
-                    id: 3,
-                    quantity: 5,
-                    productId: 3,
-                    orderId: 2,
-                },
-                {
-                    id: 4,
-                    quantity: 5,
-                    productId: 3,
-                    orderId: 2,
-                },
-                {
-                    id: 4,
-                    quantity: 5,
-                    productId: 8,
-                    orderId: 2,
-                },
-                {
-                    id: 4,
-                    quantity: 5,
-                    productId: 8,
-                    orderId: 2,
-                },
-                {
-                    id: 4,
-                    quantity: 5,
-                    productId: 8,
-                    orderId: 2,
-                },
-                {
-                    id: 4,
-                    quantity: 5,
-                    productId: 8,
-                    orderId: 2,
-                },
-                {
-                    id: 4,
-                    quantity: 5,
-                    productId: 9,
-                    orderId: 2,
-                },
-                {
-                    id: 4,
-                    quantity: 5,
-                    productId: 10,
-                    orderId: 2,
-                },
-                {
-                    id: 4,
-                    quantity: 5,
-                    productId: 11,
-                    orderId: 2,
-                },
-                {
-                    id: 4,
-                    quantity: 5,
-                    productId: 12,
-                    orderId: 2,
-                },
-                {
-                    id: 4,
-                    quantity: 5,
-                    productId: 13,
-                    orderId: 2,
-                },
-            ],
-            itemsCount: 5,
-            totalCost: 40.0,
-        },
-        {
-            id: 2,
-            orderStatus: "Pending",
-            submitDate: "17/04/2022",
-            userId: "f923c654-177d-4034-87db-adf763d7869f",
-            billingAddressId: 1,
-            items: [
-                {
-                    id: 2,
-                    quantity: 5,
-                    productId: 2,
-                    orderId: 2,
-                },
-                {
-                    id: 2,
-                    quantity: 5,
-                    productId: 4,
-                    orderId: 2,
-                },
-                {
-                    id: 2,
-                    quantity: 5,
-                    productId: 5,
-                    orderId: 2,
-                },
-                {
-                    id: 2,
-                    quantity: 5,
-                    productId: 5,
-                    orderId: 2,
-                },
-                {
-                    id: 2,
-                    quantity: 5,
-                    productId: 5,
-                    orderId: 2,
-                },
-                {
-                    id: 2,
-                    quantity: 5,
-                    productId: 6,
-                    orderId: 2,
-                },
-                {
-                    id: 2,
-                    quantity: 5,
-                    productId: 7,
-                    orderId: 2,
-                },
-            ],
-            itemsCount: 5,
-            totalCost: 40.0,
-        },
-    ];
-
-    const items = apiCallData.map((item) => item.items).flat(Infinity).map((item) => item.productId)
-
-    const ashtrays = items.filter((item) => item === 1).length;
-    const bags = items.filter((item) => item === 2).length;
-    const bedSheets = items.filter((item) => item === 3).length;
-    const canvas = items.filter((item) => item === 4).length;
-    const doorMats = items.filter((item) => item === 5).length;
-    const hoodies = items.filter((item) => item === 6).length;
-    const magnets = items.filter((item) => item === 7).length;
-    const mousepads = items.filter((item) => item === 8).length;
-    const mugs = items.filter((item) => item === 9).length;
-    const phoneCases = items.filter((item) => item === 10).length;
-    const pillows = items.filter((item) => item === 11).length;
-    const plates = items.filter((item) => item === 12).length;
-    const tShirts = items.filter((item) => item === 13).length;
-    const thermoBottles = items.filter((item) => item === 14).length;
-    const tissues = items.filter((item) => item === 15).length;
-
-    const chartData = [ashtrays, bags, bedSheets, canvas, doorMats, hoodies, magnets, mousepads, mugs, phoneCases, pillows, plates, tShirts, thermoBottles, tissues]
-
     const labels = [
         'Ashtrays',
         'Bags',
@@ -316,24 +172,58 @@ $(document).ready(function () {
         'Tissues',
     ];
 
-    const data = {
-        labels: labels,
-        datasets: [{
-            label: 'Products Categories',
-            backgroundColor: '#1dabb8',
-            borderColor: '#1dabb8',
-            data: chartData,
-        }]
-    };
+    $.ajax({
+        type: "GET",
+        url: "https://localhost:44342/api/Order",
+        dataType: "json",
+        success: function (data) {
+            /*console.log(data.data);*/
+            const items = data.data.map((item) => item.items).flat(Infinity).map((item) => item.productCategoryId)
 
-    const config = {
-        type: 'bar',
-        data: data,
-        options: {}
-    };
+            const ashtrays = items.filter((item) => item === 1).length;
+            const bags = items.filter((item) => item === 2).length;
+            const bedSheets = items.filter((item) => item === 3).length;
+            const canvas = items.filter((item) => item === 4).length;
+            const doorMats = items.filter((item) => item === 5).length;
+            const hoodies = items.filter((item) => item === 6).length;
+            const magnets = items.filter((item) => item === 7).length;
+            const mousepads = items.filter((item) => item === 8).length;
+            const mugs = items.filter((item) => item === 9).length;
+            const phoneCases = items.filter((item) => item === 10).length;
+            const pillows = items.filter((item) => item === 11).length;
+            const plates = items.filter((item) => item === 12).length;
+            const tShirts = items.filter((item) => item === 13).length;
+            const thermoBottles = items.filter((item) => item === 14).length;
+            const tissues = items.filter((item) => item === 15).length;
 
-    const myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-    );
+            const chartData = [ashtrays, bags, bedSheets, canvas, doorMats, hoodies, magnets, mousepads, mugs, phoneCases, pillows, plates, tShirts, thermoBottles, tissues];
+
+            const chartRenderData = {
+                labels: labels,
+                datasets: [{
+                    label: 'Products Categories',
+                    backgroundColor: '#1dabb8',
+                    borderColor: '#1dabb8',
+                    data: chartData,
+                }]
+            };
+
+            const config = {
+                type: 'bar',
+                data: chartRenderData,
+                options: {}
+            };
+
+            const myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+            );
+        },
+        error: function () {
+            console.log("Error. Failed to load the number of comments.");
+        }
+    });
+
+
+
 })
