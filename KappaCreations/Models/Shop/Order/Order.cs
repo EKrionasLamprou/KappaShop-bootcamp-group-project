@@ -22,7 +22,7 @@ namespace KappaCreations.Models
         }
         public double TotalCost
         {
-            get => Items.Select(item => item.Product.Category.Price).Sum();
+            get => Items.Select(item => item.Cost).Sum();
         }
 
         public string UserId { get; set; }
