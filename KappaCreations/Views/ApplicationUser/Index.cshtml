@@ -15,7 +15,9 @@
             <a class="tabs__button" href="#" data-for-tab="4">Account details</a>
             <a class="tabs__button" href="#" data-for-tab="5">Wishlist</a>
             <a class="tabs__button" href="#" data-for-tab="6">Logout</a>
+
         </div>
+       @Html.ActionLink("LogOff", "LogOff", "Account", null, new { @class = "link-effect" })       
         <div class="profile-body tabs__content-container">
             <div class="tabs__content tabs__content--active" data-tab="1">
                 <p>Hello <strong> @Model.UserName</strong></p>
@@ -70,8 +72,8 @@
                         <p>You have not set up this type of address yet.</p>
                     </div>
                     <div class="profile-address-block">
-                        <div class="profile-address-block-title">BILLING ADDRESS <span>Add</span></div>
-                        <p>You have not set up this type of address yet.</p>
+                        <div class="profile-address-block-title"> <span></span></div>
+                        <p> </p>
                     </div>
                 </div>
 
@@ -82,52 +84,40 @@
                         <div class="profile-form-group-coontainer">
                             <div class="profile-form-group">
                                 <label>First name *</label>
-                                <input type="text"  @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new {  placeholder = "Give Trainer's First Name (Only Letters)" } })/>
+                                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { placeholder = "Give Your First Name (Only Letters)" } })
                             </div>
                             <div class="profile-form-group">
                                 <label>Last name *</label>
-                                <input type="text" />
+                                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { placeholder = "Give Your Last Name (Only Letters)" } })
                             </div>
                         </div>
                         <div class="profile-form-group-coontainer">
                             <div class="profile-form-group">
-                                <label>Country *</label>
-                                <input type="text" />
+                                <label>City *</label>
+                                @Html.EditorFor(model => model.BillingAddress.City, new { htmlAttributes = new { placeholder = "Give Your City" } })
                             </div>
                         </div>
                         <div class="profile-form-group-coontainer">
                             <div class="profile-form-group">
                                 <label>Street address *</label>
-                                <input type="text" placeholder="House number and street name" />
-                            </div>
-                        </div>
-                        <div class="profile-form-group-coontainer">
-                            <div class="profile-form-group">
-                                <label>Town / City *</label>
-                                <input type="text" />
-                            </div>
-                        </div>
-                        <div class="profile-form-group-coontainer">
-                            <div class="profile-form-group">
-                                <label>State / County (optional)</label>
-                                <input type="text" />
+                                @Html.EditorFor(model => model.BillingAddress.Address, new { htmlAttributes = new { placeholder = "Give Your Home Address" } })
                             </div>
                         </div>
                         <div class="profile-form-group-coontainer">
                             <div class="profile-form-group">
                                 <label>Postcode / ZIP *</label>
-                                <input type="text" />
+                                @Html.EditorFor(model => model.BillingAddress.Zip, new { htmlAttributes = new { placeholder = "Give Your Zip Code" } })
                             </div>
                         </div>
                         <div class="profile-form-group-coontainer">
                             <div class="profile-form-group">
                                 <label>Phone *</label>
-                                <input type="text" />
+                                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { placeholder = "Give Your Phone Number" } })
                             </div>
 
                             <div class="profile-form-group">
                                 <label>Email address *</label>
-                                <input type="text" />
+                                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { placeholder = "Give Your Email" } })
                             </div>
                         </div>
 
@@ -141,27 +131,27 @@
                         <div class="profile-form-group-coontainer">
                             <div class="profile-form-group">
                                 <label>First name *</label>
-                                <input type="text" />
+                                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { placeholder = "Give Your First Name (Only Letters)" } })
                             </div>
 
                             <div class="profile-form-group">
                                 <label>Last name *</label>
-                                <input type="text" />
+                                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { placeholder = "Give Your Last Name (Only Letters)" } })
                             </div>
                         </div>
                         <div class="profile-form-group-coontainer">
                             <div class="profile-form-group">
                                 <label>Display name *</label>
-                                <input type="text" />
+                                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { placeholder = "Give Your Display Name (Only Letters)" } })
                             </div>
                         </div>
                         <div class="profile-form-group-coontainer">
                             <div class="profile-form-group">
                                 <label>Email address *</label>
-                                <input type="text" />
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Give Your Email Address (Only Letters)" } })
                             </div>
                         </div>
-                        <div class="profile-title">PASSWORD CHANGE</div>
+                        @*<div class="profile-title">PASSWORD CHANGE</div>
                         <div class="profile-form-group-coontainer">
                             <div class="profile-form-group">
                                 <label>Current password (leave blank to leave unchanged)</label>
@@ -179,7 +169,7 @@
                                 <label>Confirm new password</label>
                                 <input type="text" />
                             </div>
-                        </div>
+                        </div>*@
 
                         <div><a href="#" class="profile-content-button">Save changes</a></div>
                     </div>
