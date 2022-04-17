@@ -1,4 +1,6 @@
-﻿using KappaCreations.Models;
+﻿using KappaCreations.Database;
+using KappaCreations.Models;
+using KappaCreations.Repositories;
 using PayPal.Api;
 using System;
 using System.Collections.Generic;
@@ -10,6 +12,12 @@ namespace KappaCreations.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ShopContext _db;
+
+        public HomeController()
+        {
+            _db = new ShopContext();
+        }
         public ActionResult Index()
         {
             return View();
@@ -30,26 +38,26 @@ namespace KappaCreations.Controllers
         }
         public ActionResult Create()
         {
+            
+            var user = GetCurrentUser();
+
             ViewBag.Message = "Your contact page.";
 
+            ViewBag.UserId = user;
+
             return View();
         }
 
-        public ActionResult ShoppingCart()
+        private string GetCurrentUser()
         {
-            ViewBag.Message = "Your gallery page.";
-
-            return View();
+            string username = User.Identity.Name;
+            var user = _db.Users.First(u => u.UserName == username);
+            string id = user.Id;
+            return id;
         }
-        public ActionResult TestUserPage()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-      
 
 
-       
+
+
     }
 }

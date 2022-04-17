@@ -1,4 +1,5 @@
-﻿<body class="cbp-spmenu-push">
+﻿
+<body class="cbp-spmenu-push">
     <div id="page">
         @*
             <section class="image-head-wrapper page-banner">
@@ -74,9 +75,9 @@
                             <div class="create-block-head-button">Add Image</div>
                             <div class="create-head-dropdown flex">
                                 @*<div class="create-side-add-to-cart">
-                                    <button id="libraryButton">from Library</button>
-                                </div>
-                                <p>OR</p>*@
+                                        <button id="libraryButton">from Library</button>
+                                    </div>
+                                    <p>OR</p>*@
                                 <input type="file" id="imgLoader" class="imgLoader" />
                                 <div class="create-side-add-to-cart">
                                     <label for="imgLoader"> Upload Image </label>
@@ -175,7 +176,8 @@
                     </div>
                     <div class="create-side-add-to-cart">
                         <input class="quantity" type="number" value="0" />
-                        <button id="addToCart">Add to cart</button>
+                      <button onclick=sendApi("@ViewBag.UserId") id="addToCart">Add to cart</button>
+                        @*<button onclick=alert("ghjkl") id="addToCart">Add to cart</button>*@
                     </div>
                     <div class="create-side-add-to-wishlist">
                         <a href="#">
@@ -340,5 +342,6 @@
             </div>
         </div>
     </div>
+   
 </body>
 @Scripts.Render("~/probeautyfly/js/CustomScript.js")
