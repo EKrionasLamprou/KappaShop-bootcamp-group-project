@@ -46,7 +46,7 @@
                             </div>
                             <ul class="social">
                                 <li><a href="@Url.Action("Details","Gallery", new { product.Id })" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                <li><a href="@Url.Action("Vote","Gallery", new { product.Id })" data-tip="Vote Design"><i class="fa fa-heart"></i></a></li>
+                                @if (ViewBag.LoggedUser) { <li><a href="@Url.Action("Vote", "Gallery", new { product.Id })" data-tip="Vote Design"><i class="fa fa-heart"></i></a></li>}
                             </ul>
                         </div>
                         <div class="product-content">
