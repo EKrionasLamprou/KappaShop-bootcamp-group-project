@@ -563,7 +563,7 @@ ctx.clip();*/
                 texts: dataTexts,
             },
             categoryId: Number(category),
-            designerId: "9c17d50a-1a75-4e42-9e03-87b3b389af0a"
+            designerId: "f923c654-177d-4034-87db-adf763d7869f"
         };
 
         console.log(design);
