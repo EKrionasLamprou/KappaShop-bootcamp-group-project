@@ -38,21 +38,36 @@ namespace KappaCreations.Controllers
         }
         public ActionResult Create()
         {
-            
+
             var user = GetCurrentUser();
+            if (user == null)
+            {
+                return RedirectToAction("Home/Index");
+            }
+            else
+            {
+                ViewBag.UserId = user;
 
-            ViewBag.Message = "Your contact page.";
+                return View();
+            }
 
-            ViewBag.UserId = user;
-
-            return View();
+           
         }
 
         private string GetCurrentUser()
         {
+            string id = "";
             string username = User.Identity.Name;
-            var user = _db.Users.First(u => u.UserName == username);
-            string id = user.Id;
+           if(username == "")
+            {
+                id = "0";
+            }
+            else
+            {
+                var user = _db.Users.First(u => u.UserName == username);
+                id = user.Id;
+                return id;
+            }
             return id;
         }
 
