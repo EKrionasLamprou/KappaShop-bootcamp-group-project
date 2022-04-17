@@ -4,7 +4,9 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="container">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<div class="daschboard-main">
     <div class="navigation">
         <ul>
             <li>
@@ -15,34 +17,34 @@
                     <span class="title">Kappa Shop</span>
                 </a>
             </li>
-            <li>
+            <li class="tabs__button active" data-for-tab="1">
                 <a href="">
                     <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
                     <span class="title">Dashboard</span>
                 </a>
             </li>
-            <li>
+            <li class="tabs__button" data-for-tab="2">
                 <a href="#">
                     <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
                     <span class="title">Charts</span>
                 </a>
             </li>
             <li>
-                @Html.ActionLink("Return to Home Page", "Index", "Home")"
-                <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
-                <span class="title"></span>
-
+                <a href="@Url.Action("Index","Home" )">
+                    <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                    <span class="title">Return to Home Page</span>
+                </a>
             </li>
             <li>
                 <a href="javascript:document.getElementById('logoutForm').submit()">
                     <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
                     <span class="title">Sign Out</span>
-
                 </a>
             </li>
 
         </ul>
     </div>
+
     <!--Main entity-->
     <div class="main">
         <div class="topbar">
@@ -58,73 +60,75 @@
         </div>
 
         <!--cards-->
-        <div class="cardBox">
-            <div class="card">
-                <div>
-                    <div class="numbers" id="totalOrders"></div>
-                    <div class="cardName">Total Orders</div>
-                </div>
-                <div class="iconBox">
-                    <ion-icon name="cart-outline"></ion-icon>
-                </div>
-            </div>
-            <div class="card">
-                <div>
-                    <div class="numbers" id="topCat"></div>
-                    <div class="cardName">Top 3 Categories</div>
-                </div>
-                <div class="iconBox">
-                    <ion-icon name="star-outline"></ion-icon>
+        <div class="tabs__content-container">
+            <div class="tabs__content active" data-tab="1">
+                <div class="cardBox">
+                    <div class="card">
+                        <div>
+                            <div class="numbers" id="totalOrders"></div>
+                            <div class="cardName">Total Orders</div>
+                        </div>
+                        <div class="iconBox">
+                            <ion-icon name="cart-outline"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div>
+                            <div class="numbers" id="topCat"></div>
+                            <div class="cardName">Top 3 Categories</div>
+                        </div>
+                        <div class="iconBox">
+                            <ion-icon name="star-outline"></ion-icon>
 
-                </div>
-            </div>
-            <div class="card">
-                <div>
-                    <div class="numbers" id="totalAmount"></div>
-                    <div class="cardName">Total Earnings (EUR)</div>
-                </div>
-                <div class="iconBox">
-                    <ion-icon name="cash-outline"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div>
+                            <div class="numbers" id="totalAmount"></div>
+                            <div class="cardName">Total Earnings (EUR)</div>
+                        </div>
+                        <div class="iconBox">
+                            <ion-icon name="cash-outline"></ion-icon>
 
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div>
+                            <div class="numbers" id="commentNo"></div>
+                            <div class="cardName">Comments</div>
+                        </div>
+                        <div class="iconBox">
+                            <ion-icon name="people-circle-outline"></ion-icon>
+                        </div>
+                    </div>
+                </div>
+
+                <!--order details list-->
+                <div class="recentOrders">
+                    <h2>All The Entries of the Orders</h2>
+                    <table class="table table-striped" id="datatable" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Order Id</th>
+                                <th>User</th>
+                                <th>Number Of Items</th>
+                                <th>Cost</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <div class="card">
-                <div>
-                    <div class="numbers" id="commentNo"></div>
-                    <div class="cardName">Comments</div>
-                </div>
-                <div class="iconBox">
-                    <ion-icon name="people-circle-outline"></ion-icon>
+
+            <div class="tabs__content" data-tab="2">
+                <div class="recentOrders">
+                    <canvas id="myChart"></canvas>
                 </div>
             </div>
         </div>
-
-        <!--order details list-->
-
-
-        <div class="recentOrders">
-            <table class="table table-striped" id="datatable" style="width:100%">
-                <h2> All The Entries of the Orders</h2>
-
-                <thead>
-                    <tr>
-                        <th>Order Id</th>
-                        <th>User</th>
-                        <th>Number Of Items</th>
-                        <th>Cost</th>
-                        <th>Status</th>
-                    </tr>
-
-                </thead>
-                <tbody>
-                </tbody>
-
-            </table>
-        </div>
-
-
     </div>
-
 </div>
 
 
@@ -133,9 +137,52 @@
     <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    @*<script>
+        const labels = [
+            'Ashtrays',
+            'Bags',
+            'Bed-Sheets',
+            'Canvas',
+            'Door-Mats',
+            'Hoodies',
+            'Magnets',
+            'Mousepads',
+            'Mugs',
+            'Phone-Cases',
+            'Pillows',
+            'Plates',
+            'T-Shirts',
+            'Thermos-Bottles',
+            'Tissues',
+        ];
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'Products Categories',
+                backgroundColor: '#1dabb8',
+                borderColor: '#1dabb8',
+                data: [1, 10, 5, 2, 20, 30, 45, 45, 45, 45, 45, 100, 10, 5, 3],
+            }]
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {}
+        };
+    </script>
+    <script>
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+    </script>*@
 
     <script type="text/javascript">
         LoadOrder();
+
         function LoadOrder() {
             $("#datatable").DataTable(
                 {
