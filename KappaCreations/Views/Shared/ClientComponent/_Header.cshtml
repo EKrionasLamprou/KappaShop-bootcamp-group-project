@@ -29,7 +29,9 @@
                     }
                     else
                     {
-                        <p>Welcome, @userName!</p>
+                        @*<p>Welcome, @userName!</p*@
+                        <p>@Html.ActionLink("welcome "+ @userName, "Index","ApplicationUser")</p>
+
                     }
 
                 </div>
