@@ -502,15 +502,14 @@ ctx.clip();*/
         //}
     });
 
-    //console.log(JSON.stringify(item_list))
-
-    $("#addToCart").on("click", function () {
+    ////console.log(JSON.stringify(item_list))
+    function sendApi(userId) {
         const rowData = JSON.stringify(item_list);
         const data = JSON.parse(rowData);
 
         if (data.length === 1) return;
 
-        //console.log(uploadImages)
+        console.log(uploadImages)
 
         const dataImages = data
             .filter((item) => item.type === "image")
@@ -573,11 +572,86 @@ ctx.clip();*/
 
         alert("Your Product created Successfully!")
 
+    };
+
+
+
+
+
+    //$("#addToCart").on("click", function () {
+    //    const rowData = JSON.stringify(item_list);
+    //    const data = JSON.parse(rowData);
+
+    //    if (data.length === 1) return;
+
+    //    //console.log(uploadImages)
+
+    //    const dataImages = data
+    //        .filter((item) => item.type === "image")
+    //        .map((item, index) => {
+    //            if (index === 0) {
+    //                return {
+    //                    posX: item.left,
+    //                    posY: item.top,
+    //                    zIndex: data.indexOf(item), // to do
+    //                    sizeWidth: item.width,
+    //                    sizeHeight: item.height,
+    //                    colourHex: item.filters.length !== 0 ? item.filters[0].color : "#ffffff",
+    //                    colourAlpha: 1,
+    //                    url: item.src,
+    //                };
+    //            }
+
+    //            return {
+    //                posX: item.left,
+    //                posY: item.top,
+    //                zIndex: data.indexOf(item),
+    //                sizeWidth: item.width,
+    //                sizeHeight: item.height,
+    //                colourHex: item.filters.length !== 0 ? item.filters[0].color : "#ffffff",
+    //                colourAlpha: 1,
+    //                url: uploadImages.length === 1 ? uploadImages[0] : uploadImages[index - 1],
+    //            };
+    //        });
+
+    //    const dataTexts = data
+    //        .filter((item) => item.type === "text")
+    //        .map((item) => {
+    //            return {
+    //                posX: item.left,
+    //                posY: item.top,
+    //                zIndex: data.indexOf(item),
+    //                sizeWidth: item.width,
+    //                sizeHeight: item.height,
+    //                colourHex: item.fill,
+    //                colourAlpha: item.opacity,
+    //                content: item.text,
+    //                fontSize: item.fontSize,
+    //                font: item.fontFamily
+    //            };
+    //        });
+
+
+    //    const design = {
+    //        design: {
+    //            images: dataImages,
+    //            texts: dataTexts,
+    //        },
+    //        categoryId: Number(category),
+    //        designerId: "25e9ea0c-cce2-4807-b851-95151b222b23"
+    //    };
+
+    //    console.log(design);
+
+    //    setApiCall(design);
+
+    //    alert("Your Product created Successfully!")
+
         //var image = $("#image");
         //var img = canvas.toDataURL("image/png");
         //  //image.src = img;
-        //  // document.write('<img src="' + img + '"/>');
-    });
+    //    //  // document.write('<img src="' + img + '"/>');
+    //});
 });
 
 			//Pattern

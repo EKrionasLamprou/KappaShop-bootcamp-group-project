@@ -24,8 +24,10 @@ namespace KappaCreations.Controllers
         {
             
             string username = User.Identity.Name;
+            
       
             var user = _db.Users.First(u => u.UserName == username);
+            
 
             return View(user);
         }
