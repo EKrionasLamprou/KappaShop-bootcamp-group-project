@@ -117,10 +117,6 @@ function mapTextToCanvas(t) {
                 crossOrigin: ""
             },
             zIndex: image.zIndex,
-
-
-          
-          
         }
     }
 

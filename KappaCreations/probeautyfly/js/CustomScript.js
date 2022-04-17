@@ -56,12 +56,7 @@ function updatePrice(price_change) {
     var regExp = /(\=|\+|\-)(\d+)/;
     var result, result_sign, result_no;
 
-    /* Use Regular Expression to decide input
-undefined = no change
-'=50' = equal 50 euro
-'+50' = add 50 euro
-'-50' = decrease 50 euro
-*/
+
     if ((result = regExp.exec(price_change)) != null) {
         if (result.index === regExp.lastIndex) {
             regExp.lastIndex++;
@@ -113,8 +108,6 @@ $(document).ready(function () {
 
     $("#boxEditText, #boxEditImage").hide();
 
-    /*$(".ui.accordion").accordion();*/
-
     $(".ui.dropdown").dropdown();
 
     $("#libraryButton").on("click", function () {
@@ -143,7 +136,6 @@ $(document).ready(function () {
                 left: 0,
                 right: 0,
             });
-            //image.scale(getRandomNum(0.1, 0.25)).setCoords();
 
             image.on("selected", function () {
                 var obJ = canvas.getActiveObject();
@@ -193,7 +185,6 @@ $(document).ready(function () {
 
         canvas.add(img).setActiveObject(img);
         item_list.push(img);
-        //console.log(img._element)
 
         rectbox = new fabric.Rect({
             width: rectboxWidth,
@@ -222,7 +213,7 @@ $(document).ready(function () {
         });
 
       
-        // END Clip Area
+        // END  Area
     });
 
     $("#addTextButton").on("click", function () {
@@ -244,10 +235,10 @@ $(document).ready(function () {
             fill: inColor,
         });
         newText.setControlsVisibility({
-            mt: false, // middle top disable
-            mb: false, // midle bottom
-            ml: false, // middle left
-            mr: false, // I think you get it
+            mt: false, 
+            mb: false, 
+            ml: false, 
+            mr: false, 
         });
 
         newText.on("selected", function () {
@@ -264,7 +255,7 @@ $(document).ready(function () {
             $("#boxEditText").show();
 
         });
-        /*      newText.setControlsVisibility(canvasConfig);*/
+  
         canvas.on('object:scaling', function (evt) {
             /*     canvas.getActiveObject();*/
             var fontSizeX = evt.target.scaleX;
@@ -478,7 +469,7 @@ $(document).ready(function () {
                     return {
                         posX: item.left,
                         posY: item.top,
-                        zIndex: data.indexOf(item), // to do
+                        zIndex: data.indexOf(item), 
                         sizeWidth: item.width,
                         sizeHeight: item.height,
                         colourHex: item.filters.length !== 0 ? item.filters[0].color : "#ffffff",
