@@ -1,6 +1,6 @@
 ﻿@using KappaCreations.Models.ViewModels;
 
-@{ 
+@{
     ViewBag.Title = "CheckoutForm";
     Layout = "~/Views/Shared/_ClientLayout.cshtml";
 }
@@ -189,9 +189,7 @@
 
                         </div>
                         <button id="order">geia xaradra</button>
-                        <a id="payment" href="@Url.Action("PaymentWithPaypal","ShoppingCart")" class="btn">Pay with PayPal</a>
-
-
+                        <a id="payment" href="@Url.Action("PaymentWithPaypal","ShoppingCart")" class="btn">Pay with PayPal</a> 
                     </form>
                 </div>
             </div>
@@ -203,19 +201,14 @@
                     {
                         <p> @item.Product.Category.Title x @item.Quantity <span class="price">@item.Product.Category.Price€</span></p>
                         sum += @item.Product.Category.Price * @item.Quantity;
-                    }
-
+                    } 
                     <hr>
                     <p>Total <span class="price" style="color:black"><b>@sum€</b></span></p>
                 </div>
             </div>
         </div>
-    </div>
-   
-       
-        @Scripts.Render("~/probeautyfly/js/ShoppingCart.js")
-    
-
+    </div> 
+    @Scripts.Render("~/probeautyfly/js/ShoppingCart.js") 
 </body>
 </html>
 
