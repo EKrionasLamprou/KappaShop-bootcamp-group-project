@@ -1,6 +1,4 @@
 ﻿function setApiCall() {
-  
-
     $.ajax({
         type: "GET",
         url: "https://localhost:44342/api/Product?id=13",
@@ -9,27 +7,22 @@
             "Content-Type": "application/json",
         },
         success: function (response) {
-            console.log(response);
             const canvas = (this.__canvas = new fabric.Canvas("canvas"));
-            let texts = response.design.texts;
-            let images = response.design.images;
-            let objects = { objects: getCanvasItems(texts, images) };
-
-            
-            let fabricJSON = JSON.stringify(objects);
-            console.log(fabricJSON);
-
-            canvas.loadFromJSON(fabricJSON, canvas.renderAll.bind(canvas), function (o, object) {
-                console.log("HI");
-                fabric.log(o, object); 
-            });
+            fillCanvas(canvas);
         },
-
         error: function (xhr) { },
-
     });
+}
 
-   
+function fillCanvas(canvas) {
+    let texts = response.design.texts;
+    let images = response.design.images;
+    let objects = { objects: getCanvasItems(texts, images) };
+    let fabricJSON = JSON.stringify(objects);
+
+    canvas.loadFromJSON(fabricJSON, canvas.renderAll.bind(canvas), function (o, object) {
+        fabric.log(o, object);
+    });
 }
 
 function getCanvasItems(texts, images) {
