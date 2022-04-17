@@ -568,7 +568,7 @@ ctx.clip();*/
 
         console.log(design);
 
-        /*setApiCall(design);*/
+        setApiCall(design);
 
         alert("Your Product created Successfully!")
 
