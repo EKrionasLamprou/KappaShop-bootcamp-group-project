@@ -113,7 +113,7 @@ $(document).ready(function () {
 
     $("#boxEditText, #boxEditImage").hide();
 
-    $(".ui.accordion").accordion();
+    /*$(".ui.accordion").accordion();*/
 
     $(".ui.dropdown").dropdown();
 
