@@ -50,7 +50,7 @@ namespace KappaCreations.Models.Shop.DTOs
         public static object MapToCamelCase(Order order) => new
         {
             id = order.Id,
-            orderStatus = order.OrderStatus,
+            orderStatus = order.OrderStatus.ToString(),
             submitDate = order.SubmitDate.ToString(Constants.DateFormat),
             userId = order.UserId,
             billingAddressId = order.BillingAddressId,

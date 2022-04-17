@@ -20,8 +20,8 @@ body {
     overflow-x: hidden;
 }
 
-.nav.navbar-right{
-    display:none;
+.nav.navbar-right {
+    display: none;
 }
 
 .container {
@@ -237,7 +237,6 @@ body {
         display: flex;
         justify-content: space-between;
         box-shadow: 0 7px 25px rgba(0,0,0,0.08);
-        
     }
 
         .cardBox .card .numbers {
@@ -515,5 +514,22 @@ body {
         right: 0;
         left: initial;
         color: var(--white);
+    }
+
+    .return {
+        position: relative;
+        display: block;
+        padding: 0 10px;
+        height: 60px;
+        line-height: 60px;
+        text-align: start;
+        white-space: nowrap;
+    }
+
+    #retur {
+        padding: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
