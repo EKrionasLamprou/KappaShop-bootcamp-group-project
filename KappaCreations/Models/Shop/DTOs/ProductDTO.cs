@@ -56,7 +56,6 @@ namespace KappaCreations.Models.Shop.DTOs
                             : DesignDTO.MapToCamelCase(product.BackDesign),
             designerId = product.CategoryId,
             categoryId = product.CategoryId,
-            upvotes = product.Upvotes,
             reports = product.Reports,
         };
         /// <summary>
