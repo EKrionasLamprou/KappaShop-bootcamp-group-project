@@ -1,7 +1,7 @@
 ﻿function setApiCall() {
     $.ajax({
         type: "GET",
-        url: "https://localhost:44342/api/Product?id=13",
+        url: "https://localhost:44342/api/Product",
         data: "json",
         headers: {
             "Content-Type": "application/json",
