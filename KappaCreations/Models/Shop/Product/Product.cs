@@ -11,6 +11,7 @@ namespace KappaCreations.Models
         public Product() 
         {
             Comments = new HashSet<Comment>();
+            UsersUpvoted = new HashSet<ApplicationUser>();
             SubmitDate = DateTime.Now;
         }
 

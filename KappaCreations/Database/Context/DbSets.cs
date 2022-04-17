@@ -16,5 +16,6 @@ namespace KappaCreations.Database
         public DbSet<PaymentInfo> PaymentInfos { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+
     }
 }
