@@ -17,12 +17,14 @@ namespace KappaCreations.Models.Shop.DTOs
         {
             Quantity = cartItem.Quantity;
             ProductId = cartItem.ProductId;
+            ProductCategoryId = cartItem.Product.CategoryId;
             OrderId = cartItem.OrderId;
         }
 
         public int? Id { get; set; }
         public int Quantity { get; set; }
         public int ProductId { get; set; }
+        public int ProductCategoryId { get; set; }
         public int OrderId { get; set; }
 
         public bool HasId => Id.HasValue && Id > 0;
@@ -45,6 +47,7 @@ namespace KappaCreations.Models.Shop.DTOs
             id = cartItem.Id,
             quantity = cartItem.Quantity,
             productId = cartItem.ProductId,
+            productCategoryId = cartItem.Product.CategoryId,
             orderId = cartItem.OrderId,
         };
         /// <summary>

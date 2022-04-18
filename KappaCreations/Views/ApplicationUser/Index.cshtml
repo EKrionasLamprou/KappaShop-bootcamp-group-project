@@ -13,9 +13,8 @@
             <a class="tabs__button" href="#" data-for-tab="2">Orders</a>
             <a class="tabs__button" href="#" data-for-tab="3">Addresses</a>
             <a class="tabs__button" href="#" data-for-tab="4">Account details</a>
-            <a class="tabs__button" href="#" data-for-tab="5">Wishlist</a>
-            @*<a class="tabs__button" href="#" data-for-tab="6">Logout</a>*@
-           <a id="logout" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+            <a id="logout" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+
         </div>
         <div class="profile-body tabs__content-container">
             <div class="tabs__content tabs__content--active" data-tab="1">
@@ -41,18 +40,7 @@
                         </div>
                         <div class="profile-content-block-icon">ACCOUNT DETAILS</div>
                     </a>
-                    <a href="#" class="profile-content-block tabs__icon" data-for-tab="5">
-                        <div class="profile-content-block-icon">
-                            <img src="~/probeautyfly/images/userProfileImg/wishlist.svg" />
-                        </div>
-                        <div class="profile-content-block-icon">WISHLIST</div>
-                    </a>
-                    <a href="#" class="profile-content-block">
-                        <div class="profile-content-block-icon">
-                            <img src="~/probeautyfly/images/userProfileImg/logout.svg" />
-                        </div>
-                        <div class="profile-content-block-icon">LOGOUT</div>
-                    </a>
+
                 </div>
             </div>
             <div class="tabs__content" data-tab="2">
@@ -87,7 +75,7 @@
                             </div>
                             <div class="profile-form-group">
                                 <label>Last name *</label>
-                                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { placeholder = "Give Your Last Name (Only Letters)" } })
+                                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { placeholder = "Give Your Last Name (Only Letters)" } })
                             </div>
                         </div>
                         <div class="profile-form-group-coontainer">
@@ -135,13 +123,13 @@
 
                             <div class="profile-form-group">
                                 <label>Last name *</label>
-                                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { placeholder = "Give Your Last Name (Only Letters)" } })
+                                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { placeholder = "Give Your Last Name (Only Letters)" } })
                             </div>
                         </div>
                         <div class="profile-form-group-coontainer">
                             <div class="profile-form-group">
                                 <label>Display name *</label>
-                                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { placeholder = "Give Your Display Name (Only Letters)" } })
+                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { placeholder = "Give Your Display Name (Only Letters)" } })
                             </div>
                         </div>
                         <div class="profile-form-group-coontainer">
@@ -150,27 +138,7 @@
                                 @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Give Your Email Address (Only Letters)" } })
                             </div>
                         </div>
-                        @*<div class="profile-title">PASSWORD CHANGE</div>
-                        <div class="profile-form-group-coontainer">
-                            <div class="profile-form-group">
-                                <label>Current password (leave blank to leave unchanged)</label>
-                                <input type="text" />
-                            </div>
-                        </div>
-                        <div class="profile-form-group-coontainer">
-                            <div class="profile-form-group">
-                                <label>New password (leave blank to leave unchanged)</label>
-                                <input type="text" />
-                            </div>
-                        </div>
-                        <div class="profile-form-group-coontainer">
-                            <div class="profile-form-group">
-                                <label>Confirm new password</label>
-                                <input type="text" />
-                            </div>
-                        </div>*@
-
-                        <div><a href="#" class="profile-content-button">Save changes</a></div>
+                        <a id="logout" @Html.ActionLink("Change Your Password Here", "ChangePassword", "Manage", routeValues: null, htmlAttributes: new { title = "Manage"}) </a>
                     </div>
                 </div>
             </div>
@@ -186,5 +154,6 @@
             </div>
             <div class="tabs__content" data-tab="6">Ok</div>
         </div>
+
     </div>
 </div>

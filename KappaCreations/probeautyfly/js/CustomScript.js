@@ -1,7 +1,8 @@
-﻿const url = localStorage.getItem("ImageUrl");
+﻿const designerId = $("#designerId").text();
+
+const url = localStorage.getItem("ImageUrl");
 const category = localStorage.getItem("ProductCategory");
 const name = localStorage.getItem("ProductName");
-
 
 const uploadedImagesCount = ["default"];
 
@@ -55,12 +56,7 @@ function updatePrice(price_change) {
     var regExp = /(\=|\+|\-)(\d+)/;
     var result, result_sign, result_no;
 
-    /* Use Regular Expression to decide input
-undefined = no change
-'=50' = equal 50 euro
-'+50' = add 50 euro
-'-50' = decrease 50 euro
-*/
+
     if ((result = regExp.exec(price_change)) != null) {
         if (result.index === regExp.lastIndex) {
             regExp.lastIndex++;
@@ -112,8 +108,6 @@ $(document).ready(function () {
 
     $("#boxEditText, #boxEditImage").hide();
 
-    $(".ui.accordion").accordion();
-
     $(".ui.dropdown").dropdown();
 
     $("#libraryButton").on("click", function () {
@@ -142,7 +136,6 @@ $(document).ready(function () {
                 left: 0,
                 right: 0,
             });
-            //image.scale(getRandomNum(0.1, 0.25)).setCoords();
 
             image.on("selected", function () {
                 var obJ = canvas.getActiveObject();
@@ -166,12 +159,7 @@ $(document).ready(function () {
 
     var canvas = (this.__canvas = new fabric.Canvas("c"));
     fabric.Object.prototype.transparentCorners = false;
-    //canvas.on('object:scaling', function (e) {
-    //    console.log("Width: " + e.target.getWidth());
-    //    console.log("Height: " + e.target.getHeight());
-
-
-    //});
+   
     var radius = 300;
 
     fabric.Image.fromURL(url, function (img) {
@@ -197,7 +185,6 @@ $(document).ready(function () {
 
         canvas.add(img).setActiveObject(img);
         item_list.push(img);
-        //console.log(img._element)
 
         rectbox = new fabric.Rect({
             width: rectboxWidth,
@@ -225,18 +212,8 @@ $(document).ready(function () {
             hasBorders: false,
         });
 
-        //canvas.add(recttext);
-
-        // Create Clip Area (Object created after this will be clipped)
-        /*    var ctx = canvas.getContext("2d");
-ctx.beginPath();
-ctx.rect(rectboxX, rectboxY,rectboxWidth, rectboxHeight);
-ctx.closePath();
-ctx.lineWidth = 2;
-ctx.strokeStyle = 'rgba(0, 0, 0, 0)';
-ctx.stroke();
-ctx.clip();*/
-        // END Clip Area
+      
+        // END  Area
     });
 
     $("#addTextButton").on("click", function () {
@@ -258,10 +235,10 @@ ctx.clip();*/
             fill: inColor,
         });
         newText.setControlsVisibility({
-            mt: false, // middle top disable
-            mb: false, // midle bottom
-            ml: false, // middle left
-            mr: false, // I think you get it
+            mt: false, 
+            mb: false, 
+            ml: false, 
+            mr: false, 
         });
 
         newText.on("selected", function () {
@@ -278,9 +255,9 @@ ctx.clip();*/
             $("#boxEditText").show();
 
         });
-  /*      newText.setControlsVisibility(canvasConfig);*/
+  
         canvas.on('object:scaling', function (evt) {
-       /*     canvas.getActiveObject();*/
+            /*     canvas.getActiveObject();*/
             var fontSizeX = evt.target.scaleX;
             var fontSizeY = evt.target.scaleY;
             if (fontSizeX === fontSizeY) {
@@ -291,32 +268,10 @@ ctx.clip();*/
         });
         newText.zIndex = canvas.getObjects().indexOf(newText);
 
-        /*canvas.on('object:scaling', function () {
-            var obj = canvas.getActiveObject(),
-                width = obj.width,
-                height = obj.height,
-                scaleX = obj.scaleX,
-                scaleY = obj.scaleY;
-
-
-            obj.set({
-                width: width * scaleX,
-                height: height * scaleY,
-                scaleX: 1,
-                scaleY: 1
-            });
-
-            console.log(width) 
-        });*/
-
         canvas.setActiveObject(newText).add(newText);
 
         item_list.push(newText);
-        //console.log(canvas.getObjects().indexOf(newText));
-        //console.log(newText);
-        //console.log(JSON.stringify(newText));
-        //console.log(item_list);
-        //console.log(JSON.stringify(item_list));
+       
     });
 
     $("#updateTextButton").on("click", function () {
@@ -394,7 +349,6 @@ ctx.clip();*/
                         });
                     });
 
-                    //image.scale(getRandomNum(0.1, 0.25)).setCoords();
                     document.getElementById('colorDark').addEventListener('change', function (e) {
                         image.filters[0] = new fabric.Image.filters.Tint({
                             color: e.target.value,
@@ -406,9 +360,6 @@ ctx.clip();*/
 
                     item_list.push(image);
 
-                    //console.log(image);
-                    //console.log(JSON.stringify(image));
-                    //console.log(canvas.getObjects().indexOf(image));
 
                     // end fabricJS stuff
                 };
@@ -422,6 +373,11 @@ ctx.clip();*/
         const data = JSON.parse(rowData);
 
         const text = data.filter((item) => item.type === "text");
+
+        if (designerId == "0") {
+            alert("Please Register Or Login To create your Product")
+            return
+        }
 
         if (uploadedImagesCount.length === 1 && uploadedImagesCount[0] === "default" && text.length < 1) {
             alert("Please add Text or Image");
@@ -496,21 +452,15 @@ ctx.clip();*/
     $("#getdata-button").on("click", function () {
         alert(JSON.stringify(item_list));
         console.log(JSON.stringify(item_list));
-        //for (i = 0; i < item_list.length; i++) {
-        //    var one_item = item_list[i];
-        //    console.log(one_item, one_item.getLeft(), one_item.getTop());
-        //}
+      
     });
 
-    //console.log(JSON.stringify(item_list))
-
     $("#addToCart").on("click", function () {
+      
         const rowData = JSON.stringify(item_list);
         const data = JSON.parse(rowData);
 
         if (data.length === 1) return;
-
-        //console.log(uploadImages)
 
         const dataImages = data
             .filter((item) => item.type === "image")
@@ -519,7 +469,7 @@ ctx.clip();*/
                     return {
                         posX: item.left,
                         posY: item.top,
-                        zIndex: data.indexOf(item), // to do
+                        zIndex: data.indexOf(item), 
                         sizeWidth: item.width,
                         sizeHeight: item.height,
                         colourHex: item.filters.length !== 0 ? item.filters[0].color : "#ffffff",
@@ -564,7 +514,7 @@ ctx.clip();*/
                 texts: dataTexts,
             },
             categoryId: Number(category),
-            designerId: "bd90a8b6-b1af-4c25-8d13-9cebecf48b05"
+            designerId: designerId
         };
 
         console.log(design);
@@ -575,38 +525,7 @@ ctx.clip();*/
 
         //var image = $("#image");
         //var img = canvas.toDataURL("image/png");
-        //  //image.src = img;
-        //  // document.write('<img src="' + img + '"/>');
+        //image.src = img;
+        //document.write('<img src="' + img + '"/>');
     });
 });
-
-			//Pattern
-			//var img1 = new Image, img2 = new Image, cnt = 2,
-			//    canvas = document.getElementById("canvas"),
-			//    ctx = canvas.getContext("2d");
-
-			//img1.onload = img2.onload = function () { if (!--cnt) go() };
-			//img1.src = "https://www.itailor.co.uk/images/product/shirt/it1823-1.png";       // Shirt
-			//img2.src = "https://i.stack.imgur.com/sQlu8.png";   // pattern
-
-			//// MAIN CODE ---
-			//function go() {
-
-			//    // create a pattern
-			//    ctx.fillStyle = ctx.createPattern(img2, "repeat");
-
-			//    // fill canvas with pattern
-			//    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-			//    // use blending mode multiply
-			//    ctx.globalCompositeOperation = "multiply";
-
-			//    // draw sofa on top
-			//    ctx.drawImage(img1, 0, 0, img1.width * .5, img1.height * .5);
-
-			//    // change composition mode
-			//    ctx.globalCompositeOperation = "destination-in";
-
-			//    // draw to cut-out sofa
-			//    ctx.drawImage(img1, 0, 0, img1.width * .5, img1.height * .5);
-			//}

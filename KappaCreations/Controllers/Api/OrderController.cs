@@ -8,24 +8,23 @@ using System.Data.Entity.Validation;
 using static KappaCreations.Utilities;
 using System.Data.Entity.Infrastructure;
 using System;
-using System.Linq;
 
 namespace KappaCreations.Controllers.Api
 {
     public class OrderController : ApiController
     {
         readonly ShopContext _db;
-        readonly Repository<Order> _repo;
+        readonly OrderRepository _repo;
 
         public OrderController()
         {
             _db = new ShopContext();
-            _repo = new Repository<Order>(_db);
+            _repo = new OrderRepository(_db);
         }
         public OrderController(ShopContext db)
         {
             _db = db;
-            _repo = new Repository<Order>(_db);
+            _repo = new OrderRepository(_db);
         }
 
 

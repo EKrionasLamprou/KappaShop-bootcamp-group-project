@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -32,13 +33,41 @@ namespace KappaCreations.Controllers
             return View(user);
         }
 
-
-        // POST: ApplicationUsers/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Birthdate,PhotoUrl,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] ApplicationUser applicationUser)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Birthdate,PhotoUrl,Email,PhoneNumber,UserName")] string id)
+        {
+            if (ModelState.IsValid)
+            {
+                string username = User.Identity.Name;
+                var user = _db.Users.First(u => u.UserName == username);
+                _db.Users.Add(user);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(User);
+        }
+
+
+
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var user = GetCurrentUser();
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Birthdate,PhotoUrl,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] ApplicationUserManager applicationUser)
         {
             if (ModelState.IsValid)
             {
@@ -50,7 +79,13 @@ namespace KappaCreations.Controllers
         }
 
 
-
+        private string GetCurrentUser()
+        {
+            string username = User.Identity.Name;
+            var user = _db.Users.First(u => u.UserName == username);
+            string id = user.Id;
+            return id;
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

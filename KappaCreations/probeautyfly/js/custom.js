@@ -6,7 +6,9 @@
  License URI: http://www.themevault.net/license/
  */
 
-$(document).ready(function () {
+$(document).ready(function () { 
+    $(".ui.accordion").accordion();
+
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
             $('#back-to-top').fadeIn();
@@ -14,6 +16,7 @@ $(document).ready(function () {
             $('#back-to-top').fadeOut();
         }
     });
+
     $('#back-to-top').click(function () {
         $("html, body").animate({scrollTop: 0}, 600);
         return false;

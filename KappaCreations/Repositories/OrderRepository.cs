@@ -29,19 +29,35 @@ namespace KappaCreations.Repositories
            => Set.Where(e => e.Id == id)
                  .Include(e => e.User)
                  .Include(e => e.BillingAddress)
-                 .Include(e => e.OrderItems)
+                 .Include(e => e.Items)
+                 .Include(e => e.Items.Select(p => p.Product))
+                 .Include(e => e.Items.Select(p => p.Product.Category))
                  .FirstOrDefault();
         public override async Task<Order> GetAsync(int id)
             => await Set.Where(e => e.Id == id)
                         .Include(e => e.User)
                         .Include(e => e.BillingAddress)
-                        .Include(e => e.OrderItems)
+                        .Include(e => e.Items)
+                        .Include(e => e.Items.Select(p => p.Product))
+                        .Include(e => e.Items.Select(p => p.Product.Category))
                         .FirstOrDefaultAsync();
 
+        public override async Task<IEnumerable<Order>> GetManyAsync(int i, int n)
+            => await Set.Skip(i)
+                        .Take(n)
+                        .Include(e => e.User)
+                        .Include(e => e.BillingAddress)
+                        .Include(e => e.Items)
+                        .Include(e => e.Items.Select(p => p.Product))
+                        .Include(e => e.Items.Select(p => p.Product.Category))
+                        .ToListAsync();
+
         public override async Task<IEnumerable<Order>> GetAllAsync()
-             => await Set.Include(e => e.User)
-                         .Include(e => e.BillingAddress)
-                         .Include(e => e.OrderItems)
-                         .ToListAsync();
+            => await Set.Include(e => e.User)
+                        .Include(e => e.BillingAddress)
+                        .Include(e => e.Items)
+                        .Include(e => e.Items.Select(p => p.Product))
+                        .Include(e => e.Items.Select(p => p.Product.Category))
+                        .ToListAsync();
     }
 }

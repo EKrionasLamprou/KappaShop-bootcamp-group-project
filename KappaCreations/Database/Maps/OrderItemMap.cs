@@ -10,6 +10,8 @@ namespace KappaCreations.Database.Maps
             HasRequired(e => e.Product);
 
             HasRequired(e => e.Order);
+
+            Ignore(e => e.Cost);
         }
     }
 }
