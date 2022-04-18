@@ -47,7 +47,7 @@ namespace KappaCreations.Models.Shop.DTOs
             id = cartItem.Id,
             quantity = cartItem.Quantity,
             productId = cartItem.ProductId,
-            productCategoryId = cartItem.Product.CategoryId,
+            productCategoryId = cartItem.Product?.CategoryId ?? 0,
             orderId = cartItem.OrderId,
         };
         /// <summary>
