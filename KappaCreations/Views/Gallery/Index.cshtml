@@ -28,13 +28,17 @@
 
 
     <!--Dropdown Menu-->
-    <br />
+  
     <div class="container" id="galleryCont">
-        <span>Sort by: </span>
-        <input type="button" value="Popularity (ascending)" onclick="location.href='@Url.Action("Index", "Gallery", new {order = 1})'" />
-        <input type="button" value="Popularity (descending)" onclick="location.href='@Url.Action("Index", "Gallery", new {order = 2})'" />
-        <input type="button" value="Newest to oldest" onclick="location.href='@Url.Action("Index", "Gallery", new {order = 3})'" />
-        <input type="button" value="Oldest to newest" onclick="location.href='@Url.Action("Index", "Gallery", new {order = 4})'" />
+        <br />
+        <div id="gallerySort" style="margin-block:7px;">
+            <span>Sort by: </span>
+            <input type="button" value="Popularity (ascending)" onclick="location.href='@Url.Action("Index", "Gallery", new {categoryId=ViewBag.CategoryID,order = 1})'" />
+            <input type="button" value="Popularity (descending)" onclick="location.href='@Url.Action("Index", "Gallery", new {categoryId=ViewBag.CategoryID,order = 2})'" />
+            <input type="button" value="Newest to oldest" onclick="location.href='@Url.Action("Index", "Gallery", new {categoryId=ViewBag.CategoryID,order = 3})'" />
+            <input type="button" value="Oldest to newest" onclick="location.href='@Url.Action("Index", "Gallery", new {categoryId=ViewBag.CategoryID,order = 4})'" />
+        </div>
+        <br />
         <!-- Products-->
         <script src="~/probeautyfly/js/Product.js"></script>
         @foreach (var product in ViewBag.GalleryProducts)

@@ -50,6 +50,7 @@ namespace KappaCreations.Controllers
 
             int pageSize = pSize ?? 12;
             int pageNumber = page ?? 1;
+            ViewBag.CategoryId = categoryId;
             ViewBag.GalleryProducts = products.ToPagedList(pageNumber, pageSize);
             ViewBag.LoggedUser = GetCurrentUser();
             return View(products.ToPagedList(pageNumber, pageSize));
