@@ -59,13 +59,11 @@ namespace KappaCreations.Models.Shop.DTOs
             orderStatus = order.OrderStatus.ToString(),
             submitDate = order.SubmitDate.ToString(Constants.DateFormat),
             userId = order.UserId,
-            userName = order.User.UserName,
+            userName = order.User?.UserName ?? "",
             billingAddressId = order.BillingAddressId,
             items = OrderItemDTO.MapToCamelCase(order.Items),
             itemsCount = order.ItemsCount,
             totalCost = order.TotalCost,
-            
-          
         };
         /// <summary>
         /// Maps a collection of <see cref="Order"/> instances to objects that matche the properties of
