@@ -131,7 +131,7 @@
                 <hr />
                 <div class="recentOrders">
                     <h2>Pie Chart</h2>
-                    <canvas style="transform: scale(0.7)" id="myChart2"></canvas>
+                    <canvas style="transform: scale(0.6)" id="myChart2"></canvas>
                 </div>
                 <hr />
             </div>
@@ -188,7 +188,7 @@
                         },
                         {
                             data: "orderStatus", name: "orderStatus", width: "20%", render: function (value) {
-                                let template = value === "Pending" ? `<button class="status">${value}</button>` : value === "InProgress" ? `<button class="status inprogress">${value}</button>` : value === "Delivered" ? `<button class="status delivered">${value}</button>` : `<button class="status canceled">${value}</button>`
+                                let template = value === "Pending" ? `<button class="status pending">${value}</button>` : value === "InProgress" ? `<button class="status inprogress">${value}</button>` : value === "Delivered" ? `<button class="status delivered">${value}</button>` : `<button class="status canceled">${value}</button>`
                                 return template;
                             }
                         }
