@@ -87,6 +87,55 @@ namespace KappaCreations.Controllers.Api
             return Ok(response);
         }
 
+        [HttpPatch]
+        [Route("api/order/updateStatus")]
+        public async Task<IHttpActionResult> PatchUpdateStatusAsync(int orderId, int status)
+        {
+            const int minStatus = -1;
+            const int maxStatus = 3;
+            Order order;
+            bool result;
+            object response;
+
+            try
+            {
+                if (status < minStatus || status > maxStatus)
+                {
+                    return BadRequest($"The status must be between values of {minStatus} and {maxStatus}.");
+                }
+
+                order = await _repo.GetAsync(orderId);
+                if (order is null)
+                {
+                    return NotFound();
+                }
+
+                order.OrderStatus = (OrderStatus)status;
+                result = _repo.Update(order);
+                await _db.SaveChangesAsync();
+
+                if (!result)
+                {
+                    return NotFound();
+                }
+            }
+            catch (DbEntityValidationException ex)
+            {
+                return BadRequest(FormatDbEntityValidationException(ex));
+            }
+            catch (DbUpdateException ex)
+            {
+                return BadRequest(FormatDbUpdateException(ex));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            response = OrderDTO.MapToCamelCase(order);
+            return Ok(response);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
