@@ -51,13 +51,7 @@ namespace KappaCreations.Controllers
 
 
 
-        public ActionResult EditForm()
-        {
-
-            
-            
-            return View();
-        }
+       
 
         public async Task<ActionResult> Buy(int? id)
         {
