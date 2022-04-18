@@ -48,11 +48,11 @@ function mapTextToCanvas(t) {
             type: "text",
             originX: "left",
             originY: "top",
-            left: t.posX / 2,
-            top: t.posY / 2,
-            width: t.sizeWidth / 2,
-            height: t.sizeHeight / 2,
-            fill: "#" + t.colourHex,
+            left: t.posX/3.5,
+            top: t.posY /3.5,
+            width: t.sizeWidth / 3.5,
+            height: t.sizeHeight / 3.5,
+            fill: "#"+t.colourHex,
             stroke: null,
             strokeWidth: 1,
             strokeDashArray: null,
@@ -70,7 +70,7 @@ function mapTextToCanvas(t) {
             clipTo: null,
             backgroundColor: "",
             text: t.content,
-            fontSize: t.fontSize / 2,
+            fontSize: t.fontSize / 3.5,
             fontWeight: "normal",
             fontFamily: "Arial",
             fontStyle: "",
@@ -85,39 +85,39 @@ function mapTextToCanvas(t) {
     }
 }
 
-function mapImageToCanvas(image) {
-    return {
-        data: {
-            type: "image",
-            originX: "left",
-            originY: "top",
-            left: image.posX / 2,
-            top: image.posY / 2,
-            width: image.sizeWidth / 2,
-            height: image.sizeHeight / 2,
-            fill: "rgb(0,0,0)",
-            stroke: null,
-            strokeWidth: 1,
-            strokeDashArray: null,
-            strokeLineCap: "butt",
-            strokeLineJoin: "miter",
-            strokeMiterLimit: 10,
-            scaleX: 1,
-            scaleY: 1,
-            angle: 0,
-            flipX: false,
-            flipY: false,
-            opacity: image.colourAlpha,
-            shadow: null,
-            visible: true,
-            clipTo: null,
-            backgroundColor: "",
-            src: image.url,
-            filters: [{ type: "Tint", color: image.colourHex, opacity: 0.5 }],
-            crossOrigin: ""
-        },
-        zIndex: image.zIndex,
+    function mapImageToCanvas(image) {
+        return {
+            data: {
+                type: "image",
+                originX: "left",
+                originY: "top",
+                left: image.posX / 3.5,
+                top: image.posY / 3.5,
+                width: image.sizeWidth / 3.5,
+                height: image.sizeHeight / 3.5,
+                fill: "rgb(0,0,0)",
+                stroke: null,
+                strokeWidth: 1,
+                strokeDashArray: null,
+                strokeLineCap: "butt",
+                strokeLineJoin: "miter",
+                strokeMiterLimit: 10,
+                scaleX: 1,
+                scaleY: 1,
+                angle: 0,
+                flipX: false,
+                flipY: false,
+                opacity: image.colourAlpha,
+                shadow: null,
+                visible: true,
+                clipTo: null,
+                backgroundColor: "",
+                src: image.url,
+                filters: [{ type: "Tint", color: image.colourHex, opacity: 0.5 }],
+                crossOrigin: ""
+            },
+            zIndex: image.zIndex,
+        }
     }
-}
 
 document.addEventListener("DOMContentLoaded", () => { setApiCall() });
