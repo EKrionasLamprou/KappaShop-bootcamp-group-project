@@ -2,6 +2,7 @@
 @using PagedList.Mvc;
 @using KappaCreations.Models.Shop.DTOs
 <link href="~/Content/PagedList.css" rel="stylesheet" />
+
 <div id="page">
     <section class="image-head-wrapper">
         <div class="container">
@@ -34,9 +35,9 @@
             <option value="value">Oldest to newest</option>
         </select>
         <!-- Products-->
+        <script src="~/probeautyfly/js/Product.js"></script>
         @foreach (var product in ViewBag.GalleryProducts)
         {
-
             <div class="column">
                 <div class="col-md-3 col-sm-6">
                     <div class="product-grid4">
@@ -44,7 +45,8 @@
                             <div>
                                 @{string id = "canvas" + product.Id;}
                                 @{var data = @Html.Raw(Json.Encode(ProductDTO.MapToCamelCase(product)));}
-                                <canvas id="@id" onmouseover='fillCanvas(this.id, @data)'></canvas>
+                                <canvas id="@id"></canvas>
+                                <script>fillCanvas(@id, @data)</script>
                             </div>
                             <ul class="social">
                                 <li><a href="@Url.Action("Details","Gallery", new { product.Id })" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
@@ -81,7 +83,6 @@
     </div>
 </div>
 <br />
-
 @*<script>
         var heart = $("#voteHeart");
         function toggle(id, user, hasLiked) {
@@ -101,4 +102,4 @@
 
     </script>*@
 
-@Scripts.Render("~/probeautyfly/js/Product.js")
+
