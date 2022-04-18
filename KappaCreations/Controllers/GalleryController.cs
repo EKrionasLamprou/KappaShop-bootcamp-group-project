@@ -15,6 +15,14 @@ namespace KappaCreations.Controllers
 {
     public class GalleryController : Controller
     {
+        enum Sorting
+        {
+            PopularityAsc = 1,
+            PopularityDesc,
+            DateAsc,
+            DateDesc,
+        }
+
         private readonly ShopContext _db;
         private readonly ProductRepository _repo;
 
@@ -29,17 +37,40 @@ namespace KappaCreations.Controllers
             _repo = new ProductRepository(_db);
         }
 
-        public async Task<ActionResult> Index(int? page, int? pSize)
+        public async Task<ActionResult> Index(int? page, int? pSize, int categoryId = 0, int order = 0)
         {
             var products = await _repo.GetAllAsync();
 
+            // Filter by category
+            if (categoryId > 0)
+            {
+                products = products.Where(x => x.CategoryId == categoryId).ToList();
+            }
+            products = Sort(order, products);
+
             int pageSize = pSize ?? 12;
             int pageNumber = page ?? 1;
+            ViewBag.CategoryId = categoryId;
             ViewBag.GalleryProducts = products.ToPagedList(pageNumber, pageSize);
             ViewBag.LoggedUser = GetCurrentUser();
             return View(products.ToPagedList(pageNumber, pageSize));
         }
 
+        private IEnumerable<Product> Sort(int order, IEnumerable<Product> products)
+        {
+            switch (order)
+            {
+                case (int)Sorting.PopularityAsc:
+                    return products.OrderBy(p => p.Upvotes).ToList();
+                case (int)Sorting.PopularityDesc:
+                    return products.OrderByDescending(p => p.Upvotes).ToList();
+                case (int)Sorting.DateAsc:
+                    return products.OrderBy(p => p.SubmitDate).ToList();
+                case (int)Sorting.DateDesc:
+                    return products.OrderByDescending(p => p.SubmitDate).ToList();
+                default: return products;
+            }
+        }
 
         public async Task<ActionResult> Details(int Id)
         {
