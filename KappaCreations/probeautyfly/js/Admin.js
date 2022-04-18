@@ -193,7 +193,23 @@ $(document).ready(function () {
                 labels: labels,
                 datasets: [{
                     label: 'Products Categories',
-                    backgroundColor: '#1dabb8',
+                    backgroundColor: [
+                        'rgba(89, 118, 165, 0.8)',
+                        'rgba(73, 166, 116, 0.8)',
+                        'rgba(165, 166, 73, 0.8)',
+                        'rgba(195, 152, 43, 0.8)',
+                        'rgba(222, 27, 27, 0.8)',
+                        'rgba(222, 27, 189, 0.8)',
+                        'rgba(119, 27, 186, 0.8)',
+                        'rgba(119, 129, 36, 0.8)',
+                        'rgba(47, 129, 36, 0.8)',
+                        'rgba(153, 213, 36, 0.8)',
+                        'rgba(83, 87, 69, 0.8)',
+                        'rgba(36, 36, 69, 0.8)',
+                        'rgba(237, 241, 69, 0.8)',
+                        'rgba(21, 75, 38, 0.8)',
+                        'rgba(84, 11, 235, 0.8)'
+                    ],
                     borderColor: '#1dabb8',
                     data: chartData,
                 }]
@@ -271,7 +287,25 @@ $(document).ready(function () {
                 labels: labels,
                 datasets: [{
                     label: 'Products Categories',
-                    backgroundColor: '#1dabb8',
+                    backgroundColor: [
+                        'rgba(89, 118, 165, 0.8)',
+                        'rgba(73, 166, 116, 0.8)',
+                        'rgba(165, 166, 73, 0.8)',
+                        'rgba(195, 152, 43, 0.8)',
+                        'rgba(222, 27, 27, 0.8)',
+                        'rgba(222, 27, 189, 0.8)',
+                        'rgba(119, 27, 186, 0.8)',
+                        'rgba(119, 129, 36, 0.8)',
+                        'rgba(47, 129, 36, 0.8)',
+                        'rgba(153, 213, 36, 0.8)',
+                        'rgba(83, 87, 69, 0.8)',
+                        'rgba(36, 36, 69, 0.8)',
+                        'rgba(237, 241, 69, 0.8)',
+                        'rgba(21, 75, 38, 0.8)',
+                        'rgba(84, 11, 235, 0.8)'
+                    ],
+                    borderWidth: 0,
+                    width:200,
                     borderColor: '#1dabb8',
                     data: chartData,
                 }]

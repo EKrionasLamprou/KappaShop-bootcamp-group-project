@@ -19,14 +19,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="single-blog-image">
-                            <!--<img  src="~/probeautyfly/images/ashtray.png" alt="product image" style="max-width:35%; max-height:35%">--> <!--Image-->
+                        <div>
                             @{string id = "canvas" + @Model.Id;}
                             @{var data = @Html.Raw(Json.Encode(ProductDTO.MapToCamelCase(@Model)));}
                             <canvas id="@id"></canvas>
                             <script>fillCanvas(@id, @data)</script>
-
                         </div>
+
                         <div class="single-blog-desc">
                             <h3>Product Description</h3>
 
@@ -69,7 +68,7 @@
                     </form>
                 </div>
                 <div class="container" style="text-align:right;">
-                    <button class="btn btn-cool" style="background-color:#1dabb8">@Html.ActionLink("Return to Gallery", "Index", "Gallery")</button>
+                    <button class="btn btn-cool" style="background-color:#1dabb8">@Html.ActionLink("Return to Main Gallery", "Index", "Gallery")</button>
                 </div>
             </div>
             <div class="clearfix"></div>

@@ -575,4 +575,10 @@ body {
         align-items: center;
         justify-content: center;
     }
+
+    .recentOrders {
+        width: 76px;
+        height: 76px;
+        border: 1px solid black; /* for demonstration purposes*/
+    }
 }
