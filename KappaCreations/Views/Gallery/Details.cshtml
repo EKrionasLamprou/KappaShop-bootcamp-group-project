@@ -1,4 +1,5 @@
 ﻿@model KappaCreations.Models.Product
+@using KappaCreations.Models.Shop.DTOs
 @{
     ViewBag.Title = "Details";
 }
@@ -8,6 +9,7 @@
 
     <title>Product Details</title>
 
+    @Scripts.Render("~/probeautyfly/js/Product.js")
 </head>
 <body class="cbp-spmenu-push">
     <div id="page">
@@ -18,7 +20,12 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="single-blog-image">
-                            <img class="img-responsive" src="~/probeautyfly/images/ashtray.png" alt="product image" style="max-width:35%; max-height:35%"> <!--Image-->
+                            <!--<img  src="~/probeautyfly/images/ashtray.png" alt="product image" style="max-width:35%; max-height:35%">--> <!--Image-->
+                            @{string id = "canvas" + @Model.Id;}
+                            @{var data = @Html.Raw(Json.Encode(ProductDTO.MapToCamelCase(@Model)));}
+                            <canvas id="@id"></canvas>
+                            <script>fillCanvas(@id, @data)</script>
+
                         </div>
                         <div class="single-blog-desc">
                             <h3>Product Description</h3>
@@ -31,14 +38,14 @@
                     <div class="col-md-12">
                         <div class="feedback-list">
                             <h4><i class="fa fa-comments-o fa-lg"></i>Comments</h4>
-                            <hr/>
+                            <hr />
                             @* Comment starts *@
 
                             @foreach (var comment in Model.Comments)
                             {
                                 <div id="prComment">
                                     <br />
-                                        <p>@comment.Content - @comment.User.UserName</p>
+                                    <p>@comment.Content - @comment.User.UserName</p>
                                     <div class="clearfix"> </div>
                                 </div>
                             }
@@ -56,7 +63,7 @@
                         </div>
                         <div class="clearfix"></div>
                         <div class="col-md-12">
-                            <input type="hidden" name="ProductId" value="@Model.Id"/>
+                            <input type="hidden" name="ProductId" value="@Model.Id" />
                             <input id="submitCom" type="submit" class="submit-btn" value="Send">
                         </div>
                     </form>
@@ -69,8 +76,7 @@
         </section>
 
     </div>
-    <script>
 
-    </script>
+
 </body>
 </html>
