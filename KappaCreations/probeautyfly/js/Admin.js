@@ -143,7 +143,7 @@ $(document).ready(function () {
     });
 })
 
-//Chart
+//Chart1
 $(document).ready(function () {
     const labels = [
         'Ashtrays',
@@ -207,6 +207,84 @@ $(document).ready(function () {
 
             const myChart = new Chart(
                 document.getElementById('myChart'),
+                config
+            );
+        },
+        error: function () {
+            console.log("Error. Failed to load the number of comments.");
+        }
+    });
+
+
+
+}) 
+
+
+
+//Chart2
+$(document).ready(function () {
+    const labels = [
+        'Ashtrays',
+        'Bags',
+        'Bed-Sheets',
+        'Canvas',
+        'Door-Mats',
+        'Hoodies',
+        'Magnets',
+        'Mousepads',
+        'Mugs',
+        'Phone-Cases',
+        'Pillows',
+        'Plates',
+        'T-Shirts',
+        'Thermos-Bottles',
+        'Tissues',
+    ];
+
+    $.ajax({
+        type: "GET",
+        url: "https://localhost:44342/api/Order",
+        dataType: "json",
+        success: function (data) {
+            /*console.log(data.data);*/
+            const items = data.data.map((item) => item.items).flat(Infinity).map((item) => item.productCategoryId)
+
+            const ashtrays = items.filter((item) => item === 1).length;
+            const bags = items.filter((item) => item === 2).length;
+            const bedSheets = items.filter((item) => item === 3).length;
+            const canvas = items.filter((item) => item === 4).length;
+            const doorMats = items.filter((item) => item === 5).length;
+            const hoodies = items.filter((item) => item === 6).length;
+            const magnets = items.filter((item) => item === 7).length;
+            const mousepads = items.filter((item) => item === 8).length;
+            const mugs = items.filter((item) => item === 9).length;
+            const phoneCases = items.filter((item) => item === 10).length;
+            const pillows = items.filter((item) => item === 11).length;
+            const plates = items.filter((item) => item === 12).length;
+            const tShirts = items.filter((item) => item === 13).length;
+            const thermoBottles = items.filter((item) => item === 14).length;
+            const tissues = items.filter((item) => item === 15).length;
+
+            const chartData = [ashtrays, bags, bedSheets, canvas, doorMats, hoodies, magnets, mousepads, mugs, phoneCases, pillows, plates, tShirts, thermoBottles, tissues];
+
+            const chartRenderData = {
+                labels: labels,
+                datasets: [{
+                    label: 'Products Categories',
+                    backgroundColor: '#1dabb8',
+                    borderColor: '#1dabb8',
+                    data: chartData,
+                }]
+            };
+
+            const config = {
+                type: 'pie',
+                data: chartRenderData,
+                options: {}
+            };
+
+            const myChart2 = new Chart(
+                document.getElementById('myChart2'),
                 config
             );
         },

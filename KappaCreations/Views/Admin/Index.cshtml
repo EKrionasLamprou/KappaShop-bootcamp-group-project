@@ -102,7 +102,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!--order details list-->
                 <div class="recentOrders">
                     <h2>All The Entries of the Orders</h2>
@@ -127,7 +127,12 @@
                 <div class="recentOrders">
                     <canvas id="myChart"></canvas>
                 </div>
+                <div class="recentOrders">
+                    <canvas id="myChart2"></canvas>
+                </div>
             </div>
+            
+
         </div>
     </div>
 </div>
@@ -179,7 +184,7 @@
                         },
                         {
                             data: "orderStatus", name: "orderStatus", width: "20%", render: function (value) {
-                                let template = `<abbr>${value}</abbr>`
+                                let template = `<button class="btn btn-primary">${value}</button>`
                                 return template;
                             }
                         }
