@@ -102,7 +102,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!--order details list-->
                 <div class="recentOrders">
                     <h2>All The Entries of the Orders</h2>
@@ -124,33 +124,42 @@
             </div>
 
             <div class="tabs__content" data-tab="2">
+                <h2>Bar Chart</h2>
                 <div class="recentOrders">
                     <canvas id="myChart"></canvas>
                 </div>
+                <hr />
+                <div class="recentOrders">
+                    <h2>Pie Chart</h2>
+                    <canvas style="transform: scale(0.6)" id="myChart2"></canvas>
+                </div>
+                <hr />
             </div>
+
+
         </div>
     </div>
 </div>
 
 
 @section scripts{
-
     <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-
     <script type="text/javascript">
-        LoadOrder();
 
         function LoadOrder() {
             $("#datatable").DataTable(
                 {
                     ajax: {
                         "url": "https://localhost:44342/api/Order",
-                        type: "GET",
-                        datatype: "json"
+                        "type": "GET",
+                        "datatype": "json",
+                        "complete": function (json) {
+                            setStatusInProgress()
+                        }
                     },
                     columns: [
                         {
@@ -179,7 +188,7 @@
                         },
                         {
                             data: "orderStatus", name: "orderStatus", width: "20%", render: function (value) {
-                                let template = `<abbr>${value}</abbr>`
+                                let template = value === "Pending" ? `<button class="status pending">${value}</button>` : value === "InProgress" ? `<button class="status inprogress">${value}</button>` : value === "Delivered" ? `<button class="status delivered">${value}</button>` : `<button class="status canceled">${value}</button>`
                                 return template;
                             }
                         }
@@ -196,6 +205,32 @@
                     serverSide: false
                 }
             )
+
+
         }
+
+        function setStatusInProgress() {
+            $(".status").each(function (index) {
+                $(this).on("click", function () {
+                    console.log(index + 1);
+                    $(this).addClass("inprogress")
+                    $(this).text("InProgress")
+
+                    var settings = {
+                        "url": `https://localhost:44342/api/order/updateStatus?orderId=${index + 1}&status=2`,
+                        "method": "PATCH",
+                        "timeout": 0,
+                    };
+
+                    $.ajax(settings).done(function (response) {
+                        console.log(response);
+                    });
+                });
+            });
+        }
+
+        $(document).ready(function () {
+            LoadOrder();
+        })
     </script>
 }

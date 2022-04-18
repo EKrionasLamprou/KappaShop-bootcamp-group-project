@@ -420,7 +420,7 @@ body {
 
 .status.inprogress {
     padding: 2px 4px;
-    background: #1795ce;
+    background: #17ce4c;
     color: var(--white);
     border-radius: 4px;
     font-size: 14px;
@@ -574,5 +574,11 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .recentOrders {
+        width: 76px;
+        height: 76px;
+        border: 1px solid black; /* for demonstration purposes*/
     }
 }

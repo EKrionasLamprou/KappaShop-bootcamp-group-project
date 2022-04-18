@@ -46,6 +46,10 @@ namespace KappaCreations.Controllers
 
         public ActionResult CheckoutForm()
         {
+            var name = User.Identity.Name;
+            var user = _db.Users.FirstOrDefault(x => x.UserName == name);
+
+            ViewBag.UserId = user.Id;
             return View();
         }
 

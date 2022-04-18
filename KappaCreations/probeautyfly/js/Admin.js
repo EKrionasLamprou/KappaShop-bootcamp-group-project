@@ -143,7 +143,7 @@ $(document).ready(function () {
     });
 })
 
-//Chart
+//Chart1
 $(document).ready(function () {
     const labels = [
         'Ashtrays',
@@ -193,7 +193,23 @@ $(document).ready(function () {
                 labels: labels,
                 datasets: [{
                     label: 'Products Categories',
-                    backgroundColor: '#1dabb8',
+                    backgroundColor: [
+                        'rgba(89, 118, 165, 0.8)',
+                        'rgba(73, 166, 116, 0.8)',
+                        'rgba(165, 166, 73, 0.8)',
+                        'rgba(195, 152, 43, 0.8)',
+                        'rgba(222, 27, 27, 0.8)',
+                        'rgba(222, 27, 189, 0.8)',
+                        'rgba(119, 27, 186, 0.8)',
+                        'rgba(119, 129, 36, 0.8)',
+                        'rgba(47, 129, 36, 0.8)',
+                        'rgba(153, 213, 36, 0.8)',
+                        'rgba(83, 87, 69, 0.8)',
+                        'rgba(36, 36, 69, 0.8)',
+                        'rgba(237, 241, 69, 0.8)',
+                        'rgba(21, 75, 38, 0.8)',
+                        'rgba(84, 11, 235, 0.8)'
+                    ],
                     borderColor: '#1dabb8',
                     data: chartData,
                 }]
@@ -207,6 +223,102 @@ $(document).ready(function () {
 
             const myChart = new Chart(
                 document.getElementById('myChart'),
+                config
+            );
+        },
+        error: function () {
+            console.log("Error. Failed to load the number of comments.");
+        }
+    });
+
+
+
+}) 
+
+
+
+//Chart2
+$(document).ready(function () {
+    const labels = [
+        'Ashtrays',
+        'Bags',
+        'Bed-Sheets',
+        'Canvas',
+        'Door-Mats',
+        'Hoodies',
+        'Magnets',
+        'Mousepads',
+        'Mugs',
+        'Phone-Cases',
+        'Pillows',
+        'Plates',
+        'T-Shirts',
+        'Thermos-Bottles',
+        'Tissues',
+    ];
+
+    $.ajax({
+        type: "GET",
+        url: "https://localhost:44342/api/Order",
+        dataType: "json",
+        success: function (data) {
+            /*console.log(data.data);*/
+            const items = data.data.map((item) => item.items).flat(Infinity).map((item) => item.productCategoryId)
+
+            const ashtrays = items.filter((item) => item === 1).length;
+            const bags = items.filter((item) => item === 2).length;
+            const bedSheets = items.filter((item) => item === 3).length;
+            const canvas = items.filter((item) => item === 4).length;
+            const doorMats = items.filter((item) => item === 5).length;
+            const hoodies = items.filter((item) => item === 6).length;
+            const magnets = items.filter((item) => item === 7).length;
+            const mousepads = items.filter((item) => item === 8).length;
+            const mugs = items.filter((item) => item === 9).length;
+            const phoneCases = items.filter((item) => item === 10).length;
+            const pillows = items.filter((item) => item === 11).length;
+            const plates = items.filter((item) => item === 12).length;
+            const tShirts = items.filter((item) => item === 13).length;
+            const thermoBottles = items.filter((item) => item === 14).length;
+            const tissues = items.filter((item) => item === 15).length;
+
+            const chartData = [ashtrays, bags, bedSheets, canvas, doorMats, hoodies, magnets, mousepads, mugs, phoneCases, pillows, plates, tShirts, thermoBottles, tissues];
+
+            const chartRenderData = {
+                labels: labels,
+                datasets: [{
+                    label: 'Products Categories',
+                    backgroundColor: [
+                        'rgba(89, 118, 165, 0.8)',
+                        'rgba(73, 166, 116, 0.8)',
+                        'rgba(165, 166, 73, 0.8)',
+                        'rgba(195, 152, 43, 0.8)',
+                        'rgba(222, 27, 27, 0.8)',
+                        'rgba(222, 27, 189, 0.8)',
+                        'rgba(119, 27, 186, 0.8)',
+                        'rgba(119, 129, 36, 0.8)',
+                        'rgba(47, 129, 36, 0.8)',
+                        'rgba(153, 213, 36, 0.8)',
+                        'rgba(83, 87, 69, 0.8)',
+                        'rgba(36, 36, 69, 0.8)',
+                        'rgba(237, 241, 69, 0.8)',
+                        'rgba(21, 75, 38, 0.8)',
+                        'rgba(84, 11, 235, 0.8)'
+                    ],
+                    borderWidth: 0,
+                    width:200,
+                    borderColor: '#1dabb8',
+                    data: chartData,
+                }]
+            };
+
+            const config = {
+                type: 'pie',
+                data: chartRenderData,
+                options: {}
+            };
+
+            const myChart2 = new Chart(
+                document.getElementById('myChart2'),
                 config
             );
         },
