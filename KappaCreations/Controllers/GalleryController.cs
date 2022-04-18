@@ -29,9 +29,15 @@ namespace KappaCreations.Controllers
             _repo = new ProductRepository(_db);
         }
 
-        public async Task<ActionResult> Index(int? page, int? pSize)
+        public async Task<ActionResult> Index(int? page, int? pSize, int categoryId = 0)
         {
             var products = await _repo.GetAllAsync();
+
+            // Filter by category
+            if (categoryId > 0)
+            {
+                products = products.Where(x => x.CategoryId == categoryId).ToList();
+            }
 
             int pageSize = pSize ?? 12;
             int pageNumber = page ?? 1;
