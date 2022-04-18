@@ -8,7 +8,7 @@
         },
         success: function (response) {
             const canvas = (this.__canvas = new fabric.Canvas("canvas"));
-            fillCanvas(canvas, reponse);
+            fillCanvas(canvas, response);
         },
         error: function (xhr) { },
     });
@@ -48,10 +48,10 @@ function mapTextToCanvas(t) {
             type: "text",
             originX: "left",
             originY: "top",
-            left: t.posX/2,
-            top: t.posY/2,
-            width: t.sizeWidth/2,
-            height: t.sizeHeight/2,
+            left: t.posX/3.5,
+            top: t.posY /3.5,
+            width: t.sizeWidth / 3.5,
+            height: t.sizeHeight / 3.5,
             fill: "#"+t.colourHex,
             stroke: null,
             strokeWidth: 1,
@@ -70,7 +70,7 @@ function mapTextToCanvas(t) {
             clipTo: null,
             backgroundColor: "",
             text: t.content,
-            fontSize: t.fontSize/2,
+            fontSize: t.fontSize / 3.5,
             fontWeight: "normal",
             fontFamily: "Arial", 
             fontStyle: "",
@@ -91,10 +91,10 @@ function mapTextToCanvas(t) {
                 type: "image",
                 originX: "left",
                 originY: "top",
-                left: image.posX/2,
-                top: image.posY/2,
-                width: image.sizeWidth/2,
-                height: image.sizeHeight/2,
+                left: image.posX / 3.5,
+                top: image.posY / 3.5,
+                width: image.sizeWidth / 3.5,
+                height: image.sizeHeight / 3.5,
                 fill: "rgb(0,0,0)",
                 stroke: null,
                 strokeWidth: 1,
