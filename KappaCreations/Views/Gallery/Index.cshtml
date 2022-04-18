@@ -42,8 +42,9 @@
                     <div class="product-grid4">
                         <div class="product-image4">
                             <div>
+                                @{string id = "canvas" + product.Id;}
                                 @{var data = @Html.Raw(Json.Encode(ProductDTO.MapToCamelCase(product)));}
-                                <canvas onmouseover='fillCanvas(this, @data)'></canvas>
+                                <canvas id="@id" onmouseover='fillCanvas(this.id, @data)'></canvas>
                             </div>
                             <ul class="social">
                                 <li><a href="@Url.Action("Details","Gallery", new { product.Id })" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
@@ -80,9 +81,6 @@
     </div>
 </div>
 <br />
-<div>
-    <canvas id="canvas" width="250" height="250"></canvas>
-</div>
 
 @*<script>
         var heart = $("#voteHeart");

@@ -15,7 +15,7 @@
 }
 
 function fillCanvas(ele, data) {
-    const canvas = (ele = new fabric.Canvas("canvas"));
+    const canvas = (new fabric.Canvas(ele));
     
     let texts = data.design.texts;
     let images = data.design.images;
