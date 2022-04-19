@@ -36,6 +36,7 @@ namespace KappaCreations.Repositories
                  .Include(e => e.Category)
                  .Include(e => e.Designer)
                  .Include(e => e.Comments)
+                 .Include(e => e.Comments.Select(c => c.User))
                  .FirstOrDefault();
         public override async Task<Product> GetAsync(int id)
             => await Set.Where(e => e.Id == id)
@@ -48,6 +49,7 @@ namespace KappaCreations.Repositories
                         .Include(e => e.Category)
                         .Include(e => e.Designer)
                         .Include(e => e.Comments)
+                        .Include(e => e.Comments.Select(c => c.User))
                         .FirstOrDefaultAsync();
 
         public override async Task<IEnumerable<Product>> GetManyAsync(int i, int n)
@@ -62,6 +64,7 @@ namespace KappaCreations.Repositories
                         .Include(e => e.Category)
                         .Include(e => e.Designer)
                         .Include(e => e.Comments)
+                        .Include(e => e.Comments.Select(c => c.User))
                         .ToListAsync();
 
         public override async Task<IEnumerable<Product>> GetAllAsync()
@@ -74,6 +77,7 @@ namespace KappaCreations.Repositories
                         .Include(e => e.Category)
                         .Include(e => e.Designer)
                         .Include(e => e.Comments)
+                        .Include(e => e.Comments.Select(c => c.User))
                         .ToListAsync();
     }
 }
