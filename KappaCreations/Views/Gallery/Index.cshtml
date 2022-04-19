@@ -1,6 +1,8 @@
 ﻿@model PagedList.IPagedList<KappaCreations.Models.Product>
 @using PagedList.Mvc;
 @using KappaCreations.Models.Shop.DTOs
+
+
 <link href="~/Content/PagedList.css" rel="stylesheet" />
 
 <div id="page">
@@ -25,16 +27,13 @@
         </div>
     </section>
 
-
-
-    <!--Dropdown Menu-->
-  
+    <!--Sort by-->
     <div class="container" id="galleryCont">
         <br />
         <div id="gallerySort" style="margin-block:7px;">
             <span>Sort by: </span>
-            <input type="button" value="Popularity (ascending)" onclick="location.href='@Url.Action("Index", "Gallery", new {categoryId=ViewBag.CategoryID,order = 1})'" />
-            <input type="button" value="Popularity (descending)" onclick="location.href='@Url.Action("Index", "Gallery", new {categoryId=ViewBag.CategoryID,order = 2})'" />
+            <input type="button" value="Price (ascending)" onclick="location.href='@Url.Action("Index", "Gallery", new {categoryId=ViewBag.CategoryID,order = 1})'" />
+            <input type="button" value="Price (descending)" onclick="location.href='@Url.Action("Index", "Gallery", new {categoryId=ViewBag.CategoryID,order = 2})'" />
             <input type="button" value="Oldest to newest" onclick="location.href='@Url.Action("Index", "Gallery", new {categoryId=ViewBag.CategoryID,order = 3})'" />
             <input type="button" value="Newest to oldest" onclick="location.href='@Url.Action("Index", "Gallery", new {categoryId=ViewBag.CategoryID,order = 4})'" />
         </div>
@@ -55,26 +54,16 @@
                             </div>
                             <ul class="social">
                                 <li><a href="@Url.Action("Details","Gallery", new { product.Id })" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                @*<li><a href="#" data-tip="Vote Design"><i class="fa fa-heart" id="voteHeart" onclick="toggle(@product.Id, @ViewBag.LoggedUser, @product.HasUserUpvoted(ViewBag.LoggedUser))"></i></a></li>*@
-                                @if (@product.UsersUpvoted.Contains(@ViewBag.LoggedUser))
-                                {
-                                    <li><a href="#" data-tip="Voted this Design"><i class="fa fa-check" id="voteHeart" onclick="PatchVoteAsync(@product.Id, @ViewBag.LoggedUser)"></i></a></li>
-                                }
-                                else
-                                {
-                                    <li><a href="#" data-tip="Vote Design"><i class="fa fa-heart"></i></a></li>
-                                }
                             </ul>
                         </div>
                         <div class="product-content">
                             <h3 class="title">@product.Category</h3>
                             <span>By @product.Designer.UserName</span>
                             <br />
-                            <span>@product.Upvotes votes</span>
                             <div class="price">
                                 €@product.Category.Price
                             </div>
-                            <a class="add-to-cart" href="@Url.Action("Buy","ShoppingCart",new {id=product.Id})">ADD TO CART</a>
+                            <a class="add-to-cart" href="@Url.Action("Buy","ShoppingCart",new {id=@product.Id})">ADD TO CART</a>
                         </div>
                     </div>
                 </div>
@@ -88,23 +77,3 @@
     </div>
 </div>
 <br />
-@*<script>
-        var heart = $("#voteHeart");
-        function toggle(id, user, hasLiked) {
-            $.ajax({
-                method: "PATCH",
-                url: "api/product/vote",
-                data: new { id: id, user: user, downvote: hasLiked }
-            })
-                .done(function (downvote) {
-                    if (!downvote) {
-                        event.preventDefault();
-                        heart.class = "fa fa-check";
-                    }
-                });
-
-        }
-
-    </script>*@
-
-

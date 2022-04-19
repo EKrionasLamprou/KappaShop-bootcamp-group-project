@@ -17,8 +17,8 @@ namespace KappaCreations.Controllers
     {
         enum Sorting
         {
-            PopularityAsc = 1,
-            PopularityDesc,
+            PriceAsc = 1,
+            PriceDesc,
             DateAsc,
             DateDesc,
         }
@@ -60,10 +60,10 @@ namespace KappaCreations.Controllers
         {
             switch (order)
             {
-                case (int)Sorting.PopularityAsc:
-                    return products.OrderBy(p => p.Upvotes).ToList();
-                case (int)Sorting.PopularityDesc:
-                    return products.OrderByDescending(p => p.Upvotes).ToList();
+                case (int)Sorting.PriceAsc:
+                    return products.OrderBy(p => p.Category.Price).ToList();
+                case (int)Sorting.PriceDesc:
+                    return products.OrderByDescending(p => p.Category.Price).ToList();
                 case (int)Sorting.DateAsc:
                     return products.OrderBy(p => p.SubmitDate).ToList();
                 case (int)Sorting.DateDesc:
@@ -76,23 +76,6 @@ namespace KappaCreations.Controllers
         {
             var product = await _repo.GetAsync(Id);
             return View(product);
-        }
-
-        public  async Task Vote(int Id)
-        {
-            var product = await _repo.GetAsync(Id);
-            var user = GetCurrentUser();
-            bool isUpvoted = product.UsersUpvoted.Contains(user);
-            if (isUpvoted)
-            {
-                product.UsersUpvoted.Remove(user);
-            }
-            else
-            {
-                product.UsersUpvoted.Add(user);
-            }
-            await _db.SaveChangesAsync();
-            
         }
 
         [HttpPost]
