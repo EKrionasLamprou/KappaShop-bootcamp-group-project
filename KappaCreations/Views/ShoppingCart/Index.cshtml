@@ -67,10 +67,6 @@
 </head>
 <body class="cbp-spmenu-push">
     <div id="page">
-        <!---header top---->
-        <!--header--->
-        <!--end-->
-        <!-- SCHead -->
 
         <section class="pro-gallery-block section-padding-small">
             <div class="container">
@@ -118,7 +114,7 @@
                                 @{ 
                                     var quanity = item.Quantity;
                                 }
-                                <input type="number"  id="number" class="form-control text-center" value="@quanity">
+                                <input type="number"  id="number" min="1" class="form-control text-center" value="@quanity">
                             </td>
                             @{ 
                                 var subtotal = item.Product.Category.Price * item.Quantity;
