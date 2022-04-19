@@ -81,12 +81,13 @@ namespace KappaCreations.Controllers.Api
         [HttpPatch]
         [Route("api/product/vote")]
         public async Task<IHttpActionResult> PatchVoteAsync([FromBody]
-        int id, ApplicationUser user, bool downvote = false)
+        int id, string userId, bool downvote = false)
         {
             var product = await _repo.GetAsync(id);
             object response;
+            var user = _db.Users.Find(userId);
 
-            if (product == null)
+            if (product is null || user is null)
             {
                 return NotFound();
             }
