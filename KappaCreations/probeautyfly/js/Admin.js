@@ -81,12 +81,12 @@ $(document).ready(function () {
 
             const categories = data.map((item, index, arr) => {
                 if (index !== arr.length - 1) {
-                    return `<span id="categoryId-${item.categoryId}">${getPrice(item.categoryId)}</span>, `
+                    return `<span id="categoryId-${item.categoryId}">${getPrice(item.categoryId)}</span> `
                 } else {
                    return `<span id="categoryId-${item.categoryId}">${getPrice(item.categoryId)}</span>`
                 }
 
-            });
+            }).slice(0, 3);
             console.log(categories)
             let topCategories = $("#topCat");
             $(topCategories).html(categories);
